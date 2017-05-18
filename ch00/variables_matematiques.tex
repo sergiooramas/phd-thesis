@@ -1,0 +1,151 @@
+%i, j, k, m, n, u, v, r -> indexs
+
+%----- !!! coses rares:
+%- u -> user i també index en algun cas
+%- r -> resource i també posició d'un candidate tag a la llista de candidates
+%- \alpha -> user for statistical significance threshold and percentage parameter in percentage strategy
+%- N, n used for days vector in impact analysis
+%- R -> used as reference window indicator and as recall
+%- \varrho used for spearman rank coefficient and number of repeated candidate tags
+%-----
+
+% General tag recommendation
+\newcommand{\users}{\mathbf{U}}
+\newcommand{\user}{u}
+\newcommand{\tags}{\mathbf{T}}
+\renewcommand{\tag}{t} % Watch out, overwritting \tag command
+\newcommand{\tagb}{t}
+\newcommand{\resources}{\mathbf{R}}
+\newcommand{\resource}{r}
+\newcommand{\nRecommendedTagsInEvaluation}{\kappa} % algorithm parameter
+\newcommand{\inputTags}{\tags_{\text{I}}}
+\newcommand{\inputTag}{\tags_{\text{I}_i}}
+\newcommand{\candidateTags}{\tags_{\text{C}}}
+\newcommand{\candidateTagsPerInputTag}{\candidateTags^i}%{\tags^i_{\text{C}}}
+\newcommand{\candidateTagsPerInputTagOne}{\candidateTags^1}
+\newcommand{\candidateTagsPerInputTagTwo}{\candidateTags^2}
+\newcommand{\recommendedTags}{\tags_{\text{R}}}
+\newcommand{\aggregatedCandidateTags}{\tags_{\text{A}}}
+\newcommand{\folksonomy}{\mathcal{F}}
+\newcommand{\nCandidateTagsPerInputTag}{\theta} % algorithm parameter
+\newcommand{\similarityMatrix}{\mathcal{S}}
+\newcommand{\similarityMatrixElement}{s}
+\newcommand{\graph}{\mathcal{G}}
+\newcommand{\vertices}{\mathbf{V}}
+\newcommand{\edges}{\mathbf{E}} % tag application
+\newcommand{\tagApplication}{\edges} % tag application
+\newcommand{\associationMatrix}{\mathcal{D}}
+\newcommand{\associationMatrixElement}{d}
+\newcommand{\associationMatrixMultiplication}{\mathcal{DD}}
+\newcommand{\associationMatrixRow}{\mathbf{D}}
+\newcommand{\bipartiteGraphTagsResources}{\mathcal{TR}} %\tags\resources}}
+\newcommand{\bipartiteGraphTagsUsers}{\mathcal{TU}} %\tags\resources}}
+\newcommand{\bipartiteGraphUsersResources}{\mathcal{UR}} %\tags\resources}}
+\newcommand{\scoreCandidateTag}{\phi}
+\newcommand{\candidateTag}{\tags^i_{\text{C}_j}}
+\newcommand{\positionOfCandidateTagInList}{n}
+\newcommand{\scoreThreshold}{\varepsilon} % algorithm parameter
+\newcommand{\percentageOfPercentageStrategy}{\alpha} % algorithm parameter
+\newcommand{\probabilityDensityFunction}{\text{PDF}}
+\newcommand{\percentageOfKernelPercentageStrategy}{\beta}  % algorithm parameter
+\newcommand{\andersonDarlingTest}{\text{AD}}
+\newcommand{\histogram}{\text{HIST}}
+\newcommand{\deletedTags}{\tags_{\text{D}}}
+\newcommand{\precision}{P}
+\newcommand{\recall}{R}
+\newcommand{\fmeasure}{F}
+\newcommand{\contentFeature}{f}
+\newcommand{\nRepeatedCandidateTags}{\varrho} % algorithm parameter
+\newcommand{\differenceNRecTagsAndNDelTags}{\Delta_{\tags}}
+\newcommand{\pvalue}{p}
+\newcommand{\gaussianMean}{\mu}
+\newcommand{\gaussianStDev}{\sigma}
+\newcommand{\tagFrequencyThreshold}{\omega}  % algorithm parameter
+
+% Class-basesd recommendation
+\newcommand{\audioClip}{\resource}%{a}
+\newcommand{\nAudioClasses}{H}
+\newcommand{\audioClasses}{\mathbf{C}}
+\newcommand{\audioClass}{\audioClasses_{h}}%{c}
+\newcommand{\similarityMatrixOfClass}{\mathcal{S}_{\audioClass}}%{\mathcal{S}_\text{C}}
+\newcommand{\similarityMatrixOfClassH}{\similarityMatrixOfClass}%{\mathcal{S}_{\text{C}_h}}
+\newcommand{\associationMatrixOfClass}{\mathcal{D}_{\audioClass}}%{\mathcal{D}_\text{C}}
+\newcommand{\associationMatrixOfClassH}{\associationMatrixOfClass}%{\mathcal{D}_{\text{C}_h}}
+\newcommand{\tagsUsedToAnnotateAudioClip}{\tags_{\text{P}}}
+\newcommand{\numberOfTagRecommendationsInSession}{M}
+\newcommand{\recommendationsInSessionIndex}{m}
+\newcommand{\nthRecommendedTagsInSession}{\tags_{\text{R}}^{\resource, \recommendationsInSessionIndex}}
+\newcommand{\nAcceptedTags}{\Omega}  % Metric
+\newcommand{\statisticalSignificanceThreshold}{\alpha}
+\newcommand{\spearmanCorrelationCoefficient}{\varrho}
+\newcommand{\nAudioClipsEvaluatedInComplementaryEvaluation}{N}
+\newcommand{\audioClipEvaluatedInComplementaryEvaluation}{n}
+
+% Impact of tag recommendation
+\newcommand{\timePeriod}{t}
+\newcommand{\daysVector}{\mathbf{D}}
+\newcommand{\window}{W}
+\newcommand{\referenceWindowIndicator}{R}
+\newcommand{\referenceWindowsVector}{\mathbf{\window}}%^\referenceWindowIndicator}
+\newcommand{\windowOfInterest}{\window_I}
+\newcommand{\metricVocabularyConvergence}{\Theta}  % Metric
+\newcommand{\setOfNewTagsInDay}{\tags_{\text{NEW}}^{n}}
+\newcommand{\setOfTagApplicationsInADay}{\tagApplication^{n}}
+\newcommand{\setOfTagApplicationsInADayWithMisspellings}{\tagApplication_{\text{MISS}}^{n}}
+\newcommand{\metricAverageVocabularySize}{\Upsilon}  % Metric
+\newcommand{\setOfUsersPerformingTagApplicationInDay}{\users^{n}}
+\newcommand{\setOfTapplicationsDistinctTagsPerUserAndDay}{\tagApplication^{\user,n}}
+\newcommand{\usersNetwork}{\mathcal{U}} % \users
+\newcommand{\edgeWeight}{w}
+\newcommand{\setOfDistincTagsPerUserAndPeriod}{\tags^{i,k}}
+\newcommand{\setOfDistincTagsPerUserAndPeriodJ}{\tags^{j,k}}
+\newcommand{\metricUserVocabularySharing}{\Psi_{\text{u}}}  % Metric
+\newcommand{\nNodes}{L}
+\newcommand{\soundsNetwork}{\mathcal{R}} % \users
+\newcommand{\tagsAssignedToSoundI}{\tags^{i}}
+\newcommand{\tagsAssignedToSoundJ}{\tags^{j}}
+\newcommand{\metricSoundVocabularySharing}{\Psi_{\text{r}}}  % Metric
+\newcommand{\metricAverageTaglineLength}{\Gamma}  % Metric
+\newcommand{\tagApplicationsPerResourceR}{\tagApplication^\resource}
+\newcommand{\soundsUploadedInDay}{\resources^n}
+\newcommand{\tagFrequency}{\upsilon}
+\newcommand{\tagApplicatonsPerTagT}{\tagApplication^{\tagb,k}}
+\newcommand{\qualityJudgement}{q}
+\newcommand{\metricQualitativeAnnotationQuality}{Q}  % Metric
+\newcommand{\unionOfQualityJudgements}{\mathbf{Q}}  %{\varkappa} 
+\newcommand{\metricAverageTagApplicationTime}{\Phi_{\text{e}}}   % Metric
+\newcommand{\annotationSession}{a}
+\newcommand{\annotationSessions}{\mathbf{A}}
+\newcommand{\durationOfAnnotationSessionAux}{\lambda}
+\newcommand{\durationOfAnnotationSession}{\durationOfAnnotationSessionAux_\annotationSession}
+\newcommand{\tagApplicationsOfAnnotationSession}{\tagApplication^\annotationSession}
+\newcommand{\metricPercentageOfCorrectlyPredictedTags}{\nAcceptedTags}%{\breve\Omega}   % Metric
+\newcommand{\tagsOfSoundR}{\tags^\resource}
+\newcommand{\setOfTagsSuggestedToSoundR}{\tagsOfSoundR_{\text{S}}}
+\newcommand{\subjectiveEvaluationSetX}{\mathbf{X}}
+\newcommand{\subjectiveEvaluationSetY}{\mathbf{Y}}
+\newcommand{\metricMispellings}{M} % Metric
+\newcommand{\nodeStrength}{\vartheta}
+
+
+
+% Ontology tag recommendation
+\newcommand{\ontology}{\mathcal{O}}
+\newcommand{\tagCategoriesAux}{Z}
+\newcommand{\tagCategories}{\mathbf{\tagCategoriesAux}}
+\newcommand{\tagCategory}{z}%{\tagCategories_{l}}%{z}
+\newcommand{\recommendedTagCategories}{\tagCategories_\text{R}}
+\newcommand{\populationForTagCategory}{\tags_{\text{\tagCategoriesAux}}}
+\newcommand{\populationForTagCategoryL}{\tags^{\tagCategory}_{\text{\tagCategoriesAux}}}
+\newcommand{\postPopulationForTagCategoryL}{\tags^{\tagCategory}_{\text{\tagCategoriesAux}^\prime}}
+\newcommand{\metricAverageTimePerAudioClip}{\Phi_{\text{r}}}
+\newcommand{\metricPercentageOfAttributeTags}{\Pi}
+\newcommand{\metricAnnotationComprehensiveness}{\Lambda}
+\newcommand{\metricCoherenceInAnnotations}{I} 
+\newcommand{\setOfAttributeTags}{\tags_{\text{T}}} 
+\newcommand{\groundTruthForResourceR}{\mathbf{G}^\resource} 
+\newcommand{\recommendedTagsPerTagCategory}{\recommendedTags^\tagCategory}%{\recommendedTags | \tagCategory}
+
+
+
+

@@ -1,0 +1,1 @@
+Run as ./tex2pdf.sh thesis_a4

@@ -1,0 +1,67 @@
+%\makechapterstyle{myveelo}{
+%  \setlength{\afterchapskip}{40pt}
+%  \renewcommand*{\chapterheadstart}{\vspace*{40pt}}
+%  \renewcommand*{\afterchapternum}{\par\nobreak\vskip 25pt}
+%  \renewcommand*{\chapnamefont}{\normalfont\LARGE\flushright}
+%  \renewcommand*{\chapnumfont}{\normalfont\HUGE}
+%  \renewcommand*{\chaptitlefont}{\normalfont\HUGE\bfseries\flushright}
+%  \renewcommand*{\printchaptername}{\chapnamefont CHAPTER} %\renewcommand*{\printchaptername}{\chapnamefont\MakeUppercase{\@chapapp}}
+%  \renewcommand*{\chapternamenum}{}
+%  \setlength{\beforechapskip}{18mm}
+%  \setlength{\midchapskip}{\paperwidth}
+%  \addtolength{\midchapskip}{-\textwidth}
+%  \addtolength{\midchapskip}{-\spinemargin}
+%  \renewcommand*{\printchapternum}{
+%    \makebox[0pt][l]{
+%      \hspace{.8em}
+%      \resizebox{!}{1cm}{\chapnumfont \thechapter} %\resizebox{!}{\numberheight}{\chapnumfont \thechapter}
+%      \hspace{.8em}
+%      \rule{\midchapskip}{\beforechapskip}
+%    }
+%  }
+%  \makeoddfoot{plain}{}{}{\thepage}
+%}
+
+\makechapterstyle{myveelo}{
+  \renewcommand*{\chapterheadstart}{\vspace*{0.7cm}}
+  \renewcommand*{\chapnamefont}{\normalfont\Large}
+  \renewcommand*{\chapnumfont}{\normalfont\HUGE}
+  \renewcommand*{\chaptitlefont}{\vspace*{-2.1cm}\normalfont\HUGE\bfseries\flushright}
+  \renewcommand*{\printchaptername}{\flushright \chapnamefont CHAPTER\ \ \ \ \ \ \ \ }
+  \setlength{\beforechapskip}{12mm}
+  \setlength{\midchapskip}{\paperwidth}
+  \addtolength{\midchapskip}{-\textwidth}
+  \addtolength{\midchapskip}{-\spinemargin}
+  \setlength{\afterchapskip}{2cm}
+  \renewcommand*{\printchapternum}{
+    \makebox[0pt][l]{
+      \hspace{-1cm}
+      \resizebox{!}{1cm}{\chapnumfont \thechapter}
+      \hspace{0.4cm}
+      \rule{\midchapskip}{\beforechapskip}
+    }
+  }
+  \makeoddfoot{plain}{}{}{\thepage}
+}
+
+%\usepackage{calc}\usepackage{tikz}
+%\makechapterstyle{mycombined}{
+%  \setlength{\beforechapskip}{1cm}
+%  \setlength{\midchapskip}{-80pt}
+%  \setlength{\afterchapskip}{2cm}
+%  \renewcommand*{\printchaptername}{}
+%  \renewcommand*{\chapnumfont}{\normalfont\bfseries\fontsize{60}{0}\selectfont}
+%  \renewcommand*{\printchapternum}{
+%    %\flushright\chapnumfont\thechapter
+%    \flushright 
+%    %\normalfont\large\bfseries Chapter
+%    \begin{tikzpicture}
+%      \draw[fill,color=black] (0,0) rectangle (2cm,2cm);
+%      \draw[color=white] (1cm,1cm) node { \chapnumfont\thechapter };
+%    \end{tikzpicture}
+%    \marginpar{}
+%  }
+%  \renewcommand*{\chaptitlefont}{\normalfont\HUGE\bfseries}
+%  \renewcommand*{\printchaptertitle}[1]{%
+%    \raggedright\chaptitlefont\parbox[t]{\textwidth-3cm}{\raggedright##1}}
+%}

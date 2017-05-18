@@ -1,0 +1,45 @@
+\select@language {british}
+\select@language {british}
+\select@language {british}
+\select@language {british}
+\addvspace {10pt}
+\select@language {catalan}
+\select@language {british}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces ELVIS Workflow\relax }}{20}{figure.caption.12}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Number of entities and precision of the manual evaluation. Note the major differences in Precision between \textit {type-equivalent} and \textit {type-discrepant} systems.\relax }}{22}{figure.caption.15}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces ELMD Overview. Number of entities, confidence score and precision values in different subsets of the dataset.\relax }}{25}{figure.caption.18}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Example sentence with dependency parsing tree\relax }}{31}{figure.caption.19}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Semantic integration on syntactic dependencies.\relax }}{33}{figure.caption.23}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Example of a parsed relation pattern $p \in \mathcal {P}$ and a valid cluster pattern (bold).\relax }}{35}{figure.caption.24}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Percentage of triples and relation patterns from \textsc {KBSF}-ft that remain after pruning at different values of $\theta $. Maximum distance at $\theta =0.05$.\relax }}{38}{figure.caption.26}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces F-measure of the Entity Linking systems at different confidence thresholds\relax }}{40}{figure.caption.31}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Precision of relations at sentence (\textit {s}), relation pattern (\textit {p}) and cluster pattern (\textit {c}) levels in top (\textit {top}) and random (\textit {rnd}) samples of relations\relax }}{42}{figure.caption.33}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces User interface for the music recommendation experiment.\relax }}{45}{figure.caption.35}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Workflow of the proposed method.\relax }}{48}{figure.caption.36}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Relation graph of a single sentence\relax }}{50}{figure.caption.38}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Semantically enriched subgraph of the same sentence from Figure~\ref {fig:relation}, variant AEC with h=1\relax }}{51}{figure.caption.40}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Portion of the final knowledge graph enriched with WordNet and DBpedia \relax }}{61}{figure.caption.50}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces An example of 3-hop item neighborhood graph for the item $i$.\relax }}{64}{figure.caption.51}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Precision-Recall, Novelty and Aggregate Diversity plots in Freesound dataset\relax }}{72}{figure.caption.60}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Precision-Recall, Novelty and Aggregate Diversity plots in Last.fm dataset\relax }}{74}{figure.caption.63}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Overview of the opinion mining and sentiment analysis framework.\relax }}{80}{figure.caption.66}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces A sentence from a sample review annotated with opinion and aspect pairs.\relax }}{81}{figure.caption.67}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Percentage of accuracy of the different approaches. AB refers to the AcousticBrainz framework. NB refers to the method based on Na\"{i}ve Bayes from \cite {Hu2005}.\relax }}{84}{figure.caption.74}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Selected data sources \relax }}{90}{figure.caption.77}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces F-measure for different values of $\theta $ \relax }}{92}{figure.caption.79}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Sentiment and rating averages by review publication year (a and b); GDP trend in USA from 2000 to 2014 (c), and sentiment and rating averages by album publication year (d, e and f)\relax }}{96}{figure.caption.83}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}

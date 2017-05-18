@@ -1,0 +1,300 @@
+% CITA
+%I don't care much about music. What I like is sounds.
+% Dizzy Gillespie
+
+
+\RequirePackage{fix-cm} % Technicalities
+
+% -------------------------------------------------------------------------------------------------------------------------
+%\documentclass[11pt,a4paper,twoside,openright]{memoir}
+%\documentclass[10pt,b5paper,twoside,showtrims,openright]{memoir}
+%\documentclass[10pt,a4paper,twoside,showtrims,openright]{memoir}
+\documentclass[11pt,a4paper,twoside,openright]{memoir}
+% -------------------------------------------------------------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc} % codificacio dels caracters
+\usepackage[T1]{fontenc} % Nou esquema de codificacio (recomanat)
+%\usepackage{ae,aecompl}
+\usepackage[catalan,british]{babel} % localitzacio de l'estil
+\usepackage[UKenglish]{isodate} % per les dates
+\usepackage{url} % macro \url per introduir adreces
+\usepackage{amssymb,amsmath} % macros per matematiques
+\usepackage[pdftex]{graphicx}	% suport per figures
+\usepackage{epsfig}
+\usepackage{url}
+\usepackage{lscape} % per poder posar figures i/o taules en horitzontal
+\usepackage{color} % per poder fer servir colors
+\usepackage[colorlinks,bookmarks,pdftex,hyperfigures,breaklinks,%backref=page,
+  pdfpagemode=UseOutlines,
+  pdftitle=Tag~Recommendation~using~Folksonomy~Information~for~Online~Sound~Sharing~Platforms,
+  pdfauthor=Frederic~Font~Corbera,
+  pdfsubject=PhD~Thesis,
+  pdfkeywords=tag~recommendation~folksonomy~tagging~freesound~sound~sharing
+]{hyperref} % produeix enllacos clicables
+\usepackage[round,authoryear]{natbib} % per poder fer citacions Autor-any
+%\usepackage{natbibspacing}
+%\setlength{\bibspacing}{0.3\baselineskip}
+% per les pagines a la bibliografia
+% -> UN COMMENT A PARTIR D?AQUI
+%\renewcommand*{\backref}[1]{}
+%\renewcommand*{\backrefalt}[4]{%
+%    \ifcase #1 (Not cited.)%
+%    \or        (Cited on page~#2.)%
+%    \else      (Cited on pages~#2.)%
+%    \fi}
+
+% Packages Sergio
+\usepackage{xspace}
+\usepackage{subcaption}
+\usepackage{tikz-dependency}
+\usepackage{csquotes}
+\usepackage{bookmark}
+
+\usepackage{fixltx2e} % Technicalities
+\usepackage{latexsym}
+\usepackage{rotating}
+\usepackage{bm}
+%\usepackage{bibentry}\nobibliography*
+\usepackage{longtable}
+%\usepackage{verbatim}
+\newsubfloat{figure}
+\usepackage{wrapfig}
+% better tables
+\usepackage[]{threeparttable}
+\usepackage{booktabs}
+\usepackage{arydshln}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{T}[1]{>{\raggedleft\arraybackslash}p{#1}}
+% for footnotes in tables
+\usepackage{footnote}
+\usepackage{multirow}
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
+
+\usepackage{ifthen} % per treure figures de apendix de la llista de figures, etc...
+
+% poerque els footnotes no tornin a comencar a cada chapter
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+
+\maxsecnumdepth{subsection} % Per defecte la classe 'memoir' no numera les subseccions. Que les numeri:
+\setsecnumdepth{subsection}
+\maxtocdepth{subsection} % Tampoc no inclou les subseccions a l'index. Que les inclogui:
+\settocdepth{subsection}
+
+% Colors dels enllacos clickables (els que hi ha per defecte son molt kitsch)
+\definecolor{NoColor}{rgb}{0,0,0}
+\definecolor{LinkColor}{rgb}{0,0,0.25}
+\definecolor{ExtLinkColor}{rgb}{0,0.3,0}
+\hypersetup{citecolor=NoColor,linkcolor=NoColor,urlcolor=NoColor}
+
+%% Format UPF, dues cares. Recordeu que les dimensions d'A4 i B5 son (210mm,297mm) i (176mm,250mm), respectivament.
+\setstocksize{297mm}{210mm} % El suport original es A4
+\settrimmedsize{250mm}{176mm}{*} % El suport final, despres de tallar, B5.
+\setlength{\trimtop}{23mm} % Alcada de la franja superior a tallar.
+\setlength{\trimtop}{24mm} % Alcada de la franja inferior a tallar.
+\setlength{\trimedge}{17mm} % Amplada de la franja interior a tallar per cada costat.
+%\setulmarginsandblock{*}{29mm}{1.1} % Marges verticals (3cm a dalt, 0.9*3cm a baix)
+%\setlrmarginsandblock{30mm}{*}{0.75} % Marges laterals (3cm a la dreta, 0.75*3cm l'esquerra)
+\setulmarginsandblock{23mm}{18mm}{*} % used to be {25mm}{16mm}
+\setlrmarginsandblock{25mm}{*}{0.8}
+\checkandfixthelayout
+\trimLmarks % Marques de tall en forma de 'L'
+
+% arreglar que floats al final de capitol no es centrin verticalment
+%\makeatletter% Set distance from top of page to first float
+%\setlength{\@fptop}{5pt}
+%\makeatother
+
+% perque no es posi espai blanc raro entre coses
+%\raggedbottom
+\flushbottom
+
+% espai despres de floats
+\setlength{\textfloatsep}{0.5cm}
+
+
+% Estil de quan poso tags al text tags
+\newcommand{\atag}[1]{\small{\texttt{#1}}\normalsize}
+
+% Estil dels capitols (consulteu estils disponibles a http://www.imf.au.dk/system/latex/artikler/MemoirChapStyles/MemoirChapStyles.pdf)
+%\chapterstyle{veelo}
+%\chapterstyle{ell}
+%\chapterstyle{bianchi}
+\input{ch00/mychapterstyles}
+%\chapterstyle{mycombined}
+\chapterstyle{myveelo}
+
+% Labels when enumerating
+%\renewcommand{\labelenumi}{\alph{enumi})}
+%\renewcommand{\labelenumii}{\alph{enumii})}
+
+% ---- Some configs...
+
+\usepackage[font=small,labelfont=bf]{caption}
+
+%\renewcommand{\rmdefault}{put}
+%\renewcommand{\sfdefault}{phv}
+\newcommand{\superscript}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\subscript}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\quotat}[2]{
+  \begin{flushright}
+    \textit{``#1'',\\
+    \vspace*{0.3cm}
+    #2.\\
+    \vspace*{0.3cm}
+    }
+  \end{flushright}
+}
+%\newcommand{\comentari}[1]{\textcolor{red}{\textbf{[#1]}}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argsort}{\text{argsort}}
+
+% Space between paragraphs and lines
+\setlength{\parskip}{1.4mm} % space between paragraphs
+%\setlength{\parskip}{1mm plus1mm minus1mm}
+
+%\linespread{1.35}
+\linespread{1}
+
+% Bullet points index esquema
+%\newcommand{\point}{\vspace{0.25cm}$\bullet$\hspace{0.25cm}}
+\newcounter{points}
+\definecolor{orange}{rgb}{1,0.5,0}
+\newcommand*\point{%
+  \stepcounter{points}%
+  \vspace{0.25cm}
+  \textcolor{orange}{$\bullet^{\thepoints}$}
+  }
+
+% pel tema git
+
+%\usepackage{totcount}
+%\regtotcounter{points}
+%\usepackage{eso-pic}% http://ctan.org/pkg/eso-pic
+%\input{gitHeadInfo}
+%\newcommand{\gitInfo}{Commit info: \gitShortHash\gitDirty, \gitDate}
+%\AddToShipoutPictureBG{% Add picture to background of every page
+%  \AtPageLowerLeft{%
+%    \raisebox{1.2\baselineskip}{\makebox[\paperwidth]{\begin{minipage}{21cm}\centering
+%      %\textcolor{orange}{\gitInfo \hspace{0.15cm}(\total{points} points)}
+%      \textcolor{orange}{\gitInfo}
+%    \end{minipage}}}%
+%  }
+%}
+
+% per definir mides de figures
+\newcommand{\figSizeMax}{1.0\columnwidth}
+\newcommand{\figSizeLarge}{0.8\columnwidth}
+\newcommand{\figSizeMidLarge}{0.7\columnwidth}
+\newcommand{\figSizeMid}{0.6\columnwidth}
+\newcommand{\figSizeMidSmall}{0.5\columnwidth}
+
+% Variables matematiques i altres
+\usepackage{color}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\newcommand{\TODO}[1]{{\color{red}{[{TODO:} #1}]}}
+\newcommand{\COMMENT}[1]{{\color{darkgreen}{[#1}]}}
+\newcommand{\XXX}[3]{{\color{blue}{{[#1$\rightarrow$#2:} #3{]}}}}
+% Uncomment next line to hide all comments
+%\renewcommand{\XXX}[3]{}
+%\renewcommand{\TODO}[1]{}
+%\renewcommand{\COMMENT}[1]{}
+
+% Necessari per una de les equacions (perquè es vegi bé)
+\def\mathLarge#1{\mbox{\LARGE $#1$}}
+
+
+%quote al final
+\renewenvironment{quotation}
+  {\begin{trivlist} \setlength\leftskip{2cm} \setlength\rightskip{0pt}
+   \item\relax}
+  {\end{trivlist}}
+
+
+
+\input{ch00/variables_matematiques}
+
+
+
+% ************ Lines for draft mode ************
+% \usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm,bindingoffset=0.8cm,includeheadfoot,paper=a4paper]{geometry}
+% \linespread{1.6}
+% **********************************************
+
+
+\hyphenation{Universitat Pompeu Fabra}
+
+
+%------------------------------------------------------------------------------------------------
+% -----------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------
+
+\begin{document}
+\parindent0ex
+\selectlanguage{british}
+
+\include{ch00/portada}
+
+\frontmatter
+\include{ch00/preliminarystuff}
+
+%\cleartorecto
+%\chapter{Abstract} % AIXO JA ESTA A PRELIMINARY STUFF, S'HAURA DE TREURE D'AQUI
+%\input{ch00/abstract}
+
+\cleartorecto\tableofcontents % presenta la taula de continguts
+\renewcommand*\listfigurename{List of figures}
+\cleartorecto\listoffigures % presenta la llista de figures
+\renewcommand*\listtablename{List of tables}
+\cleartorecto\listoftables % presenta la llista de taules
+\cleartorecto\include{ch00/matematiques}
+
+\mainmatter
+\cleartorecto\include{ch01_introduction/introduction}
+\cleartorecto\include{ch02_soa/soa}
+\cleartorecto\include{ch03_background/background}
+\cleartorecto\include{ch04_kbconstruction/kbconstruction}
+\cleartorecto\include{ch05_similarity/similarity}
+\cleartorecto\include{ch06_graph-rec/graph-rec}
+\cleartorecto\include{ch07_text-class/text-class}
+\cleartorecto\include{ch08_musicology/musicology}
+\cleartorecto\include{ch09_deep-learning/deep-learning}
+\cleartorecto\include{ch10_cold-rec/cold-rec}
+\cleartorecto\include{ch11_multimodal-class/multimodal-class}
+\cleartorecto\include{ch98_conclusions/conclusions}
+
+
+\backmatter
+\cleartorecto\include{ch99/finalpage}
+%\bibliographystyle{plainnat}
+%\bibliographystyle{apa}
+%\bibliographystyle{apa_jserra}
+\bibliographystyle{apa_jserra2}
+\cleartorecto\bibliography{biblio_final}
+%\cleartorecto\small\bibliography{ch99/jserra}\normalsize
+%\cleartorecto\footnotesize\bibliography{ch99/jserra}\normalsize
+
+
+\let\svaddcontentsline\addcontentsline
+\renewcommand\addcontentsline[3]{%
+  \ifthenelse{\equal{#1}{lof}}{}%
+  {\ifthenelse{\equal{#1}{lot}}{}{\svaddcontentsline{#1}{#2}{#3}}}}
+
+\appendix
+\cleartorecto\include{ch99/datasets}
+\cleartorecto\include{ch99/pubs}
+%\cleartorecto\include{ch99/quotation}
+\cleartorecto\newpage\thispagestyle{empty}\mbox{}
+
+\end{document}
+
+%------------------------------------------------------------------------------------------------
+% -----------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------

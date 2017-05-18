@@ -1,0 +1,146 @@
+\changetocdepth {2}
+\select@language {british}
+\select@language {british}
+\select@language {british}
+\select@language {british}
+\contentsline {chapter}{Abstract}{v}{chapter*.3}
+\select@language {catalan}
+\select@language {british}
+\contentsline {chapter}{Contents}{ix}{section*.5}
+\contentsline {chapter}{List of figures}{xiii}{section*.6}
+\contentsline {chapter}{List of tables}{xv}{section*.7}
+\contentsline {chapter}{List of mathematical symbols}{xvii}{chapter*.8}
+\contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
+\contentsline {chapter}{\chapternumberline {2}Literature review}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introduction}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}Information Extraction}{3}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Entity Linking}{4}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Relation Extraction}{5}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Knowledge Bases}{6}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Knowledge Base Construction}{6}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Music Knowledge Bases}{7}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}Music Genre Classification}{8}{section.2.4}
+\contentsline {section}{\numberline {2.5}Artist Similarity}{9}{section.2.5}
+\contentsline {section}{\numberline {2.6}Recommender Systems}{10}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Semantic-based Approaches}{10}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}Music Recommendation}{11}{subsection.2.6.2}
+\contentsline {part}{\partnumberline {I}Knowledge-based Approaches}{13}{part.1}
+\contentsline {chapter}{\chapternumberline {3}Linking Texts to Music Knowledge Bases}{15}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{15}{section.3.1}
+\contentsline {section}{\numberline {3.2}Music Knowledge Bases}{17}{section.3.2}
+\contentsline {section}{\numberline {3.3}ELVIS}{18}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Argumentum ad Populum in EL}{18}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}`Translating' EL Formats}{19}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}From \textsc {Last.fm} to \textsc {ELMD}}{20}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Data Enrichment}{21}{subsection.3.4.1}
+\contentsline {section}{\numberline {3.5}Evaluation}{21}{section.3.5}
+\contentsline {section}{\numberline {3.6}ELMD2}{25}{section.3.6}
+\contentsline {section}{\numberline {3.7}Conclusion and Discussion}{25}{section.3.7}
+\contentsline {chapter}{\chapternumberline {4}Automatic Construction of Music Knowledge Bases}{27}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{27}{section.4.1}
+\contentsline {section}{\numberline {4.2}Method}{29}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Notation}{29}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Morphosyntactic Preprocessing}{30}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Semantic Processing: Entity Linking}{31}{subsection.4.2.3}
+\contentsline {subsubsection}{Adding Co-references}{31}{section*.20}
+\contentsline {subsubsection}{Type Filtering}{32}{section*.21}
+\contentsline {subsection}{\numberline {4.2.4}Syntactic Semantic Integration}{32}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Relation Extraction and Filtering}{33}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}Dependency-Based Loose Clustering}{34}{subsection.4.2.6}
+\contentsline {subsection}{\numberline {4.2.7}Scoring}{35}{subsection.4.2.7}
+\contentsline {section}{\numberline {4.3}Experimental Setup}{37}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Source dataset}{37}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Learned Knowledge Bases}{37}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Experiments}{38}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Quality of Entity Linking}{38}{subsection.4.4.1}
+\contentsline {subsubsection}{Evaluation Data}{39}{section*.28}
+\contentsline {subsubsection}{Entity Linking Evaluation}{40}{section*.29}
+\contentsline {subsection}{\numberline {4.4.2}Quality of Relations}{41}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Coverage of the Extracted Knowledge Base}{43}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Interpretation of Music Recommendations}{44}{subsection.4.4.4}
+\contentsline {section}{\numberline {4.5}Conclusions and Future Work}{45}{section.4.5}
+\contentsline {chapter}{\chapternumberline {5}Artist Similarity}{47}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introduction}{47}{section.5.1}
+\contentsline {section}{\numberline {5.2}Methodology}{48}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Entity Linking}{48}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Knowledge representation}{49}{subsection.5.2.2}
+\contentsline {subsubsection}{Relation graph}{49}{section*.37}
+\contentsline {subsubsection}{Semantically enriched graph}{49}{section*.39}
+\contentsline {subsubsection}{Sense embeddings}{51}{section*.41}
+\contentsline {subsection}{\numberline {5.2.3}Similarity approaches}{51}{subsection.5.2.3}
+\contentsline {subsubsection}{SimRank}{51}{section*.42}
+\contentsline {subsubsection}{Maximal common subgraph}{52}{section*.43}
+\contentsline {subsubsection}{Cumulative cosine similarity}{53}{section*.44}
+\contentsline {section}{\numberline {5.3}Experimental Setup}{53}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Datasets}{53}{subsection.5.3.1}
+\contentsline {subsubsection}{Last.fm dataset}{53}{section*.45}
+\contentsline {subsubsection}{MIREX dataset}{53}{section*.46}
+\contentsline {subsection}{\numberline {5.3.2}Baseline}{54}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Evaluated approaches}{55}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}Evaluation measures}{55}{subsection.5.3.4}
+\contentsline {section}{\numberline {5.4}Results and discussion}{56}{section.5.4}
+\contentsline {section}{\numberline {5.5}Conclusion}{57}{section.5.5}
+\contentsline {chapter}{\chapternumberline {6}Music Recommendation with Knowledge Graphs}{59}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introduction}{59}{section.6.1}
+\contentsline {section}{\numberline {6.2}Knowledge enrichment via entity linking}{59}{section.6.2}
+\contentsline {section}{\numberline {6.3}Recommendation approach}{61}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Explicit feature mappings for graph-based Item Representations}{63}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Feature Combination}{66}{subsection.6.3.2}
+\contentsline {section}{\numberline {6.4}Experimental Evaluation}{66}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Datasets Description}{67}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Experiment settings}{69}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}Sound Recommendation Experiment}{69}{subsection.6.4.3}
+\contentsline {subsection}{\numberline {6.4.4}Music Recommendation Experiment}{73}{subsection.6.4.4}
+\contentsline {section}{\numberline {6.5}Conclusion}{75}{section.6.5}
+\contentsline {chapter}{\chapternumberline {7}Music Genre Classification Using Linear Models}{77}{chapter.7}
+\contentsline {section}{\numberline {7.1}Introduction}{77}{section.7.1}
+\contentsline {section}{\numberline {7.2}Multimodal Album Reviews Dataset}{78}{section.7.2}
+\contentsline {section}{\numberline {7.3}Text Processing}{79}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}Sentiment Analysis}{80}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Entity Linking}{80}{subsection.7.3.2}
+\contentsline {section}{\numberline {7.4}Music Genre Classification}{81}{section.7.4}
+\contentsline {subsection}{\numberline {7.4.1}Dataset Description}{81}{subsection.7.4.1}
+\contentsline {subsection}{\numberline {7.4.2}Features}{82}{subsection.7.4.2}
+\contentsline {subsubsection}{Textual Surface Features}{82}{section*.69}
+\contentsline {subsubsection}{Semantic Features}{82}{section*.70}
+\contentsline {subsubsection}{Sentiment Features}{82}{section*.71}
+\contentsline {subsubsection}{Acoustic Features}{83}{section*.72}
+\contentsline {subsection}{\numberline {7.4.3}Baseline approaches}{83}{subsection.7.4.3}
+\contentsline {subsection}{\numberline {7.4.4}Experiments}{83}{subsection.7.4.4}
+\contentsline {subsection}{\numberline {7.4.5}Results and Discussion}{84}{subsection.7.4.5}
+\contentsline {section}{\numberline {7.5}Conclusions and Future Work}{85}{section.7.5}
+\contentsline {chapter}{\chapternumberline {8}Applications in Musicology}{87}{chapter.8}
+\contentsline {section}{\numberline {8.1}Introduction}{87}{section.8.1}
+\contentsline {section}{\numberline {8.2}Building Culture-specific Knowledge Bases: The Flamenco Case}{87}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Introduction}{87}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}Flamenco music}{88}{subsection.8.2.2}
+\contentsline {subsection}{\numberline {8.2.3}FlaBase}{89}{subsection.8.2.3}
+\contentsline {subsubsection}{Ontology Definition}{89}{section*.75}
+\contentsline {subsection}{\numberline {8.2.4}Content Curation}{89}{subsection.8.2.4}
+\contentsline {subsubsection}{Data Acquisition}{90}{section*.76}
+\contentsline {subsubsection}{Entity Resolution}{91}{section*.78}
+\contentsline {subsection}{\numberline {8.2.5}Knowledge Extraction}{93}{subsection.8.2.5}
+\contentsline {subsubsection}{Named entity recognition and disambiguation}{93}{section*.80}
+\contentsline {subsubsection}{Knowledge base population}{94}{section*.82}
+\contentsline {section}{\numberline {8.3}Exploring Music Digital Libraries}{95}{section.8.3}
+\contentsline {section}{\numberline {8.4}Diachronic Study of Music Criticism}{95}{section.8.4}
+\contentsline {subsection}{\numberline {8.4.1}Evolution by Review Publication Year}{96}{subsection.8.4.1}
+\contentsline {subsection}{\numberline {8.4.2}Evolution by Album Publication Year}{97}{subsection.8.4.2}
+\contentsline {section}{\numberline {8.5}Conclusions}{97}{section.8.5}
+\contentsline {part}{\partnumberline {II}Multimodal Deep Learning Approaches}{99}{part.2}
+\contentsline {chapter}{\chapternumberline {9}Framework for Multimodal Deep Learning}{101}{chapter.9}
+\contentsline {section}{\numberline {9.1}Introduction}{101}{section.9.1}
+\contentsline {chapter}{\chapternumberline {10}Cold-start Music Recommendation}{103}{chapter.10}
+\contentsline {section}{\numberline {10.1}Introduction}{103}{section.10.1}
+\contentsline {chapter}{\chapternumberline {11}Multimodal Music Genre Classification}{105}{chapter.11}
+\contentsline {section}{\numberline {11.1}Introduction}{105}{section.11.1}
+\addvspace {2.25em plus 1pt}
+\contentsline {chapter}{\chapternumberline {12}Summary and future perspectives}{107}{chapter.12}
+\contentsline {section}{\numberline {12.1}Introduction}{107}{section.12.1}
+\contentsline {section}{\numberline {12.2}Summary of contributions}{107}{section.12.2}
+\contentsline {section}{\numberline {12.3}Directions for future research}{107}{section.12.3}
+\contentsline {chapter}{Bibliography}{111}{section*.86}
+\contentsline {chapter}{Appendix A: Datasets and Knowledge Bases}{127}{appendix*.87}
+\contentsline {section}{Introduction}{127}{section*.88}
+\contentsline {chapter}{Appendix B: publications by the author}{129}{appendix*.89}

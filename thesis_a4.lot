@@ -1,0 +1,42 @@
+\select@language {british}
+\select@language {british}
+\select@language {british}
+\select@language {british}
+\addvspace {10pt}
+\select@language {catalan}
+\select@language {british}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Type equivalence\relax }}{22}{table.caption.13}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Agreement examples\relax }}{22}{table.caption.14}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Precision and number of entities with this value of precision. \textit {Type-equivalent} implies entities from the type-equivalent configuration only, whilst \textit {All} implies all entities regardless their type information.\relax }}{23}{table.caption.16}
+\contentsline {table}{\numberline {3.4}{\ignorespaces Statistics of the linked entities in ELMD. We report, for each \textit {musical category}, the total number of annotations linked to DBpedia, number of unique entities, average number of words per entity mention, and most frequently annotated entity (along with its frequency).\relax }}{23}{table.caption.17}
+\addvspace {10pt}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Type mapping.\relax }}{33}{table.caption.22}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Example of a relation cluster $\mathcal {R}_c$, where $c = \unhbox \voidb@x \hbox {\textit {was written by}}$. \textit {S} refers to Song, \textit {MA} to MusicalArtist and \textit {A} to Album types, whilst \textit {sX} refers to Song, \textit {maX} to MusicalArtist and \textit {aX} to Album entities.\relax }}{35}{table.caption.25}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Statistics of all the learned \textsc {KBs}\relax }}{38}{table.caption.27}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Precision and recall of the Entity Linking Systems considered\relax }}{40}{table.caption.30}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Top-5 most frequent entities by type and tool. Disambiguation errors appear in bold. \relax }}{41}{table.caption.32}
+\contentsline {table}{\numberline {4.6}{\ignorespaces Number of triples with labeled relations in the different KBs for the same set of domain-range entity pairs\relax }}{44}{table.caption.34}
+\addvspace {10pt}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Precision and normalized discounted cumulative gain for Top-N artist similarity using the MIREX dataset (N=\{5, 10\})\relax }}{54}{table.caption.47}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Precision and normalized discounted cumulative gain for Top-N artist similarity using the Last.fm dataset (N=\{5, 10\})\relax }}{55}{table.caption.48}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Average genre distribution of the top-10 similar artists using the MIREX dataset. In other words, on average, how many of the top-10 similar artists are from the same genre as the query artist. LSA stands for Latent Semantic Analysis, RG for Relation Graph, SE for Sense Embeddings, and AE, AEC and EC represent the semantically enriched graphs with Artists-Entities, Artist-Entities-Categories, and Entities-Categories nodes, respectively. As for the similarity approaches, MCS stands for Maximum Common Subgraph.\relax }}{56}{table.caption.49}
+\addvspace {10pt}
+\contentsline {table}{\numberline {6.1}{\ignorespaces Number of tags and keywords identified by Babelfy averaged by item, plus total number of distinct DBpedia resources, WordNet synsets and Wikipedia categories. \relax }}{68}{table.caption.55}
+\contentsline {table}{\numberline {6.2}{\ignorespaces Accuracy, Novelty and Aggregate Diversity results for different versions of the Freesound dataset. Best values in each column are in bold. The * symbol indicates best values for hybrid and collaborative configurations. \texttt {Ent} and \texttt {Path} refers to graph embedding options; \texttt {fso}, \texttt {wn} and \texttt {db} to the initial Freesound Ontology, WordNet and DBpedia respectively; \texttt {tags} to item tags, and \texttt {keyw} to text description keywords; \texttt {h} indicates the length of the h-hop neighborhood graph; \texttt {Collab} means that only collaborative features are considered; \texttt {noCollab} that no collaborative features are considered; \texttt {VSM} refers to Vector Space Model embedding; \texttt {Audio Sim} to the audio-based approach. \relax }}{70}{table.caption.57}
+\contentsline {table}{\numberline {6.3}{\ignorespaces Accuracy, Novelty and Aggregate Diversity results for different versions of the Last.fm dataset. Best values in each column are in bold. The * symbol indicates best values for hybrid and collaborative configurations. \relax }}{73}{table.caption.61}
+\addvspace {10pt}
+\contentsline {table}{\numberline {7.1}{\ignorespaces Number of albums by genre with information from the different sources in MARD\relax }}{79}{table.caption.65}
+\contentsline {table}{\numberline {7.2}{\ignorespaces Confusion matrix showing results derived from AB acoustic-based classifier/BoW+SEM text-based approach.\relax }}{81}{table.caption.68}
+\contentsline {table}{\numberline {7.3}{\ignorespaces Accuracy of the different classifiers\relax }}{83}{table.caption.73}
+\addvspace {10pt}
+\contentsline {table}{\numberline {8.1}{\ignorespaces Precision, Recall and F-measure of NER+NED\relax }}{94}{table.caption.81}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}

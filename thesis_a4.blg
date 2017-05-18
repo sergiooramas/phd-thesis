@@ -1,0 +1,108 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: thesis_a4.aux
+A level-1 auxiliary file: ch00/portada.aux
+A level-1 auxiliary file: ch00/preliminarystuff.aux
+A level-1 auxiliary file: ch00/matematiques.aux
+A level-1 auxiliary file: ch01_introduction/introduction.aux
+A level-1 auxiliary file: ch02_soa/soa.aux
+A level-1 auxiliary file: ch03_background/background.aux
+A level-1 auxiliary file: ch04_kbconstruction/kbconstruction.aux
+A level-1 auxiliary file: ch05_similarity/similarity.aux
+A level-1 auxiliary file: ch06_graph-rec/graph-rec.aux
+A level-1 auxiliary file: ch07_text-class/text-class.aux
+A level-1 auxiliary file: ch08_musicology/musicology.aux
+A level-1 auxiliary file: ch09_deep-learning/deep-learning.aux
+A level-1 auxiliary file: ch10_cold-rec/cold-rec.aux
+A level-1 auxiliary file: ch11_multimodal-class/multimodal-class.aux
+A level-1 auxiliary file: ch98_conclusions/conclusions.aux
+A level-1 auxiliary file: ch99/finalpage.aux
+The style file: apa_jserra2.bst
+Database file #1: biblio_final.bib
+Repeated entry---line 1945 of file biblio_final.bib
+ : @inproceedings{wang2009tag
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 2092 of file biblio_final.bib
+ : @inproceedings{Bellogin2010
+ :                            ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 2481 of file biblio_final.bib
+ : @article{Oramas2015a
+ :                     ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 2519 of file biblio_final.bib
+ : @article{Oramas2015
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 3027 of file biblio_final.bib
+ : @inproceedings{ODMD14a
+ :                       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 3397 of file biblio_final.bib
+ : @inproceedings{Iacobaccietal2015
+ :                                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 3564 of file biblio_final.bib
+ : @incollection{Gruhl2009
+ :                        ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 3586 of file biblio_final.bib
+ : @article{Cornolti2013
+ :                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 3915 of file biblio_final.bib
+ : @article{Oramas2015
+ :                    ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Sordoetal2015"
+Warning--I didn't find a database entry for "TODO"
+Warning--missing publisher in alleyne2012encyclopedia
+Warning--can't use both author and editor fields in Beliakov2015
+Warning--empty booktitle in DongSOS13
+Warning--there's a number but no volume in Mooney1999
+Warning--there's a number but no volume in Nakasholeetal2012
+Warning--there's a number but no volume in Navigli2010
+Warning--there's a number but no volume in Oramas2015a
+You've used 168 entries,
+            2821 wiz_defined-function locations,
+            1639 strings with 40321 characters,
+and the built_in function-call counts, 113706 in all, are:
+= -- 9722
+> -- 4678
+< -- 175
++ -- 1690
+- -- 1512
+* -- 8245
+:= -- 16761
+add.period$ -- 551
+call.type$ -- 168
+change.case$ -- 1511
+chr.to.int$ -- 158
+cite$ -- 175
+duplicate$ -- 8311
+empty$ -- 8368
+format.name$ -- 2111
+if$ -- 23410
+int.to.chr$ -- 11
+int.to.str$ -- 1
+missing$ -- 1598
+newline$ -- 843
+num.names$ -- 674
+pop$ -- 3491
+preamble$ -- 1
+purify$ -- 1174
+quote$ -- 0
+skip$ -- 3656
+stack$ -- 0
+substring$ -- 5472
+swap$ -- 4580
+text.length$ -- 98
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1485
+warning$ -- 7
+while$ -- 849
+width$ -- 0
+write$ -- 2220
+(There were 9 error messages)

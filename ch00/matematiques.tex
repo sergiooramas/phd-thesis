@@ -1,0 +1,137 @@
+\chapter[List of mathematical symbols]{List of mathematical symbols}
+
+%\section*{Abbreviations}
+
+%\TODO{Include abbreviations of common terms if needed.}
+
+%\begin{longtable}{p{2cm}p{10.4cm}}
+%\hline
+%\hline
+%Abbreviation        & Description \\
+%\hline
+%\endfirsthead
+
+%\hline
+%Abbreviation        & Description \\
+%\hline
+%\endhead
+
+%\hline
+%\hline
+%\endlastfoot
+
+%\hline
+%\endfoot
+
+%ABBR & Abbreviation \\
+%\end{longtable}
+
+
+\section*{General}
+%\vspace{0.3cm}
+\begin{tabular}{p{1.6cm}p{3.8cm}P{6.7cm}}
+\toprule
+\textbf{Example}    & \textbf{Symbol type}        & \textbf{Description} \\
+\midrule
+$a,b,\gamma$    & Lowercase letters  & Indices, variables, vector, set and matrix elements. \\
+$A,B,\Gamma$    & Uppercase letters  & Constants, functions and evaluation metrics. \\
+$\mathbf{A},\mathbf{B},\mathbf{C}$ & Bold uppercase letters & Vectors and sets. \\
+$\mathcal{A},\mathcal{B},\mathcal{C}$ & Calligraphy letters & Graphs, matrices and other complex data structures. \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+
+\section*{Specific}
+\vspace{-0.3cm}
+\begin{longtable}{p{1.4cm}p{11.1cm}}
+\toprule
+\textbf{Symbol}              & \textbf{Description} \\
+\midrule
+\endfirsthead
+
+\textbf{Symbol}              & \textbf{Description} \\
+\midrule
+\endhead
+
+\bottomrule
+\endlastfoot
+
+\bottomrule
+\endfoot
+% Latin
+   $\annotationSessions$                            & Set of annotation sessions
+\\ $\annotationSession$                             & Element of $\annotationSessions$ (a particular annotation session)
+\\ $\audioClasses$                                  & Set of audio classes
+%\\ $\audioClass$                                    & Element of $\audioClasses$ (a particular audio class, also noted as $\audioClasses_h$)
+\\ $\associationMatrix$                             & Association matrix
+%\\ $\associationMatrixOfClass$                      & Association matrix of a particular audio class
+\\ $\associationMatrixElement$                      & Element of $\associationMatrix$
+\\ $\tagApplication$                                & Vector of tag applications (edges of the folksonomy hypergraph)
+\\ $\fmeasure$                                      & F-measure evaluation metric
+\\ $\folksonomy$                                    & Folksonomy
+\\ $\metricCoherenceInAnnotations$					& (In)coherence in annotations evaluation metric
+\\ $\metricMispellings$								& Percentage of misspelled tag applications evaluation metric
+%\\ $\contentFeature$								& Content-based feature
+\\ $\ontology$										& Ontology
+\\ $\precision$                                     & Precision evaluation metric
+\\ $\pvalue$                                        & $p$-value in statistical tests
+\\ $\metricQualitativeAnnotationQuality$            & Subjective annotation quality evaluation metric
+\\ $\unionOfQualityJudgements$                      & Union of all qualitative judgements of sound annotations
+\\ $\qualityJudgement$                              & Qualitative judgement for the annotation of a sound
+\\ $\soundsNetwork$                                 & Sound-sound graph
+\\ $\recall$                                        & Recall evaluation metric
+\\ $\resources$                                     & Set of resources (typically of sounds)
+\\ $\resource$                                      & A particular resource (typically a sound)
+\\ $\similarityMatrix$                              & Tag-tag similarity matrix
+%\\ $\similarityMatrixOfClass$						& Tag-tag similarity matrix of a particular audio class
+\\ $\similarityMatrixElement$                       & Element of $\similarityMatrix$
+\\ $\tags$                                          & Set of tags
+\\ $\aggregatedCandidateTags$                       & Set of aggregated candidate tags
+\\ $\candidateTags$                                 & Set of candidate tags
+\\ $\deletedTags$                                   & Set of deleted tags
+\\ $\inputTags$                                     & Set of input tags
+%\\ $\tagsUsedToAnnotateAudioClip$                   & Set of tags used to annotate a sound in user-based evaluation
+\\ $\recommendedTags$                               & Set of recommended tags
+\\ $\tagsOfSoundR$                                  & Set of tags assigned to a resource $\resource$ (tagline of the resource)
+\\ $\setOfAttributeTags$							& Set of attribute-tags
+\\ $\populationForTagCategory$						& Set of tags populated under a tag category
+\\ $\tagb$                                          & A particular tag
+\\ $\bipartiteGraphTagsResources$                   & Bipartite graph relating tags and resources
+%\\ $\bipartiteGraphTagsUsers$                       & Bipartite graph relating tags and users
+%\\ $\bipartiteGraphUsersResources$                  & Bipartite graph relating users and resources
+\\ $\usersNetwork$                                  & User-user graph
+\\ $\users$                                         & Set of users 
+\\ $\user$                                          & A particular user
+\\ $\windowOfInterest$                              & Analysis window of interest
+\\ $\referenceWindowsVector$                        & Vector of reference analysis windows
+\\ $\edgeWeight$                                    & Edge weight for user-user and sound-sound graphs
+\\ $\tagCategories$									& Set of tag categories
+\\ $\recommendedTagCategories$						& Set of recommended tag categories
+\\ $\tagCategory$									& Element of $\tagCategories$ (a particular tag category)
+% Greek
+\\ $\percentageOfPercentageStrategy$                & Percentage parameter of Percentage Strategy
+%\\ $\statisticalSignificanceThreshold$              & Statistical significance threshold
+\\ $\percentageOfKernelPercentageStrategy$          & Percentage parameter of Kernel Percentage Strategy
+\\ $\metricAverageTaglineLength$                    & Average tagline length evaluation metric
+\\ $\scoreThreshold$                                & Score threshold for candidate tags
+\\ $\metricVocabularyConvergence$                   & Average percentage of new tags evaluation metric
+\\ $\nCandidateTagsPerInputTag$                     & Number of candidate tags per input tag
+\\ $\nRecommendedTagsInEvaluation$                  & Fixed number of recommended tags
+\\ $\metricAnnotationComprehensiveness$				& Annotation comprehensiveness evaluation metric
+\\ $\durationOfAnnotationSessionAux$                & Duration of an annotation session 
+\\ $\metricUserVocabularySharing$                   & User vocabulary sharing evaluation metric
+\\ $\metricSoundVocabularySharing$                  & Sound vocabulary sharing evaluation metric
+\\ $\metricAverageTagApplicationTime$               & Average tag application time evaluation metric
+\\ $\metricAverageTimePerAudioClip$					& Average time per sound evaluation metric
+\\ $\nRepeatedCandidateTags$                        & Number of repeated tags in Repeated aggregation and selection strategy
+%\\ $\spearmanCorrelationCoefficient$                & Spearman's rank correlation coefficient
+\\ $\metricAverageVocabularySize$                   & Average  user vocabulary size evaluation metric
+\\ $\tagFrequency$                                  & Tag frequency of occurrence
+\\ $\scoreCandidateTag$                             & Score of a candidate tag
+\\ $\metricPercentageOfAttributeTags$				& Average percentage of attribute-tags evaluation metric
+\\ $\nAcceptedTags$                                 & Average number of correctly predicted tags evaluation metric
+%\\ $\metricPercentageOfCorrectlyPredictedTags$      & Average number of correctly predicted tags evaluation metric\TODO{same as before...?}
+\\ $\tagFrequencyThreshold$                         & Tag frequency threhsold
+\end{longtable}
+
+\vfill
