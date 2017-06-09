@@ -8,49 +8,38 @@
 
 \section{Introduction}
 
-%%%%%%%%%%%%% LUIS CamReady %%%%%%%%%%%%%
+In this chapter we present \textsc{ELMD}, an automatically constructed corpus where named entities are classified as any of four predefined \textit{musical categories}, namely \textsc{Song}, \textsc{Album}, \textsc{Artist}, and \textsc{Record Label}, by leveraging the hyperlinks present in a set of artist biographies. Then, we further enrich \textsc{ELMD} by performing Entity Linking (EL) and automatically annotating a large portion of the entities with their \textsc{DBpedia} URI. \textsc{ELVIS}, a voting-based algorithm for EL is applied, which considers, for each entity mention in text, the degree of agreement across three state-of-the-art EL systems. 
+Manual evaluation shows that EL Precision is at least 94\% in the resultant dataset.
+The source data used in this chapter comes from the music website and social network Last.fm\footnote{http://www.last.fm}. %To the best of our knowledge, this is the first attempt to provide an annotated large-scale corpus of linked entities in the music domain.
+Given that, MusicBrainz URLs of every entity are also gathered by querying the Last.fm API.
+Finally, a subset of 200 documents is manually annotated and linked to MusicBrainz to provide a comprenhensive gold standard dataset of annotated documents. 
 
-When we refer to the Music Domain in a Natural Language Processing (NLP) context we refer to Music product reviews such as Albums or Songs, Music-related biographies or even song lyrics. While these are valuable resources in NLP for tasks like Sentiment Analysis, Music Information Retrieval (MIR), however, has barely exploited the information and knowledge that can be extracted from textual data. This opens up a vibrant area of research where MIR tasks may benefit dramatically from mining textual data \cite{Sordo2015}. 
+%This latter dataset have been uses in the context of the 3rd Open Knowledge Extraction Challenge \cite{TODO}.
+
+%\textsc{ELMD} is built by leveraging hyperlinks appearing in artist biographies collaboratively written by the Last.fm community, together with the integration of three state-of-the art EL systems. In this way, we produce a highly precise mapping between a Last.fm URL and its corresponding \textsc{DBpedia} URI. 
+
+%The final resource amounts to 47,254 sentences, in which 92,930 entities are categorized into the aforementioned \textit{musical categories}, and 64\% of them are disambiguated and linked to DBpedia. We achieve a Precision score of 97\% in the most restrictive setting, in which our approach manages to annotate more than 31,000 entities.
+
+In the remainder of this chapter, we first introduce \textsc{ELVIS} (Entity Linking Voting and Integration System), our EL integration and agreement approach. Then, we describe the text corpus we compiled from the \textsc{Last.fm} website and how it is combined with ELVIS. In the next step, the obtained dataset is evaluated. Then, a further process of automatic expansion of \textsc{ELMD} are describled. Finally, the manual annotation of a subset of the documents is presented. %Finally, we describe the resulting output of our system: The \textsc{ELMD} dataset. 
+%A summary of our approach is provided in Figure \ref{fig:workflow}.
+
+
+\section{Music Entity Linking}
+
+When we refer to the Music Domain in a Natural Language Processing (NLP) context we refer to Music product reviews such as albums or songs, artist biographies or even song lyrics. While these are valuable resources in NLP for tasks like Sentiment Analysis, Music Information Retrieval (MIR), however, has barely exploited the information and knowledge that can be extracted from textual data. This opens up a vibrant area of research where MIR tasks may benefit dramatically from mining textual data. 
 
 Named Entity Recognition (NER) is the task to identify mentions to entities belonging to a set of predefined categories \cite{ZhouandJian2002}. Traditionally, the most widely covered types of entities are \textsc{Person}, \textsc{Location} and \textsc{Organization}, as well as numeric expressions or time-spans. While NER is a widely studied topic, and has been at the core of well-known shared tasks and conferences \cite{Nadeau2007} such as MUC, ACE or CoNLL, the advent of large knowledge repositories and collaborative resources has contributed to the emergence of another discipline: Entity Linking (EL), i.e. to discover mentions of entities in text and link them to a suitable knowledge repository \cite{Moroetal2014}.
 
 
-to obtain an annotation for Music entity mentions in text, either simply as Music types (e.g. tagging `Yellow Submarine' as \texttt{Song}) or performing Entity Linking (EL), e.g. tagging `Yellow Submarine' as \texttt{dbpedia.org/page/Yellow\_Submarine\_(song)}. However, this is not a trivial task as mentions to Music entities show language and register idiosyncrasies \cite{TataandDiEugenio2010,Gruhl2009}, and therefore a certain degree of tailoring is required in order to account for them. Let us consider multiword Music entities, which usually are those who pose greatest challenges for EL. As \cite{TataandDiEugenio2010} point out, they are difficult to discover because they may not be restricted to a single Noun Phrase or may be abbreviated (by means of acronyms, dropping entire words or even full rephrasing). Additionally, a specific trait of Music texts is the fact that one song may have many covers by many different artists and, according to our evaluation, it may be difficult even for a human to identify what \textit{version} of the song the writer is referring to. Furthermore, availability of EL testbeds in general \cite{Usbeck2015}, and in the Music domain in particular \cite{Gruhl2009}, is scarce, making it very difficult to evaluate novel systems and approaches. Hence, it is difficult to know how well a certain method, which may work well for generic texts, will perform on Music data.
+In many circumstances, it may be useful to obtain annotations for Music entity mentions in text, either simply as Music types (e.g. tagging `Yellow Submarine' as \texttt{Song}) or performing Entity Linking (EL), e.g. tagging `Yellow Submarine' as \texttt{dbpedia.org/page/Yellow\_Submarine\_(song)}. However, this is not a trivial task as mentions to Music entities show language and register idiosyncrasies \cite{TataandDiEugenio2010,Gruhl2009}, and therefore a certain degree of tailoring is required in order to account for them. Let us consider multiword Music entities, which usually are those who pose greatest challenges for EL. As \cite{TataandDiEugenio2010} point out, they are difficult to discover because they may not be restricted to a single Noun Phrase or may be abbreviated (by means of acronyms, dropping entire words or even full rephrasing). Additionally, a specific trait of Music texts is the fact that one song may have many covers by many different artists and, according to our evaluation, it may be difficult even for a human to identify what \textit{version} of the song the writer is referring to. Furthermore, availability of EL testbeds in general \cite{Usbeck2015}, and in the Music domain in particular \cite{Gruhl2009}, is scarce, making it very difficult to evaluate novel systems and approaches. Hence, it is difficult to know how well a certain method, which may work well for generic texts, will perform on Music data.
 
 %The advent of large Knowledge Repositories or Knowledge Bases (KBs) and collaborative resources has contributed to the emergence of Entity Linking (EL), 
 %%%i.e. the task of discovering mentions of entities in text and link them to a suitable KB \cite{Moroetal2014}. 
 %In the context of Open Data, there is an increasing need for benchmarking and evaluation corpora. However, while general purpose datasets exist , dealing with highly specific domains (e.g. chemistry) or ever-evolving areas (e.g. videogames or music) poses a greater challenge for EL due to linguistic idiosyncrasies or under-representation in general purpose KBs. The latter is precisely the case of the music domain , where available evaluation data for EL is scarce.
 
-Despite the current context of scarcity of both EL systems and evaluation benchmarks in the Music domain, there are some exceptional cases in which these issues were addressed, such as: (1) Detecting Music entities (e.g. songs or bands) on informal text \cite{Gruhl2009}; (2) Applying Hidden Markov Models for discovering Music entity mentions in Chinese corpora \cite{Zhang2009}; or (3) Recognizing musical entities in the context of a relation extraction pipeline \cite{Oramas2015}. 
+%Despite the current context of scarcity of both EL systems and evaluation benchmarks in the Music domain, there are some exceptional cases in which these issues were addressed, such as: (1) Detecting Music entities (e.g. songs or bands) on informal text \cite{Gruhl2009}; (2) Applying Hidden Markov Models for discovering Music entity mentions in Chinese corpora \cite{Zhang2009}; or (3) Recognizing musical entities in the context of a relation extraction pipeline \cite{Oramas2015}. 
 
 We argue that the problem of precision in detecting musical entities may be tackled by leveraging a combination of several generic EL off-the-shelf systems. Simply put, we hypothesize that if two or more generic systems annotate with the same URI an entity mention, the probability of this annotation to be correct increases. To the best of our knowledge, very little effort has been put in exploiting this \textit{agreement} feature. One of the reasons may be that, as of now, most EL systems \textit{speak their own language}, partially due to the fact that each of them points back to different KBs, and hence their output is heterogeneous and cannot be directly compared, let alone combine. This has motivated research towards unification frameworks for evaluation of EL. For instance, \cite{Cornolti2013} put forward a benchmarking framework for comparing EL systems. Moreover, \cite{Rizzo2014} describe a system aimed at combining the output of the different NER systems. Finally \cite{Usbeck2015} present \textsc{GERBIL}, an evaluation framework for semantic EL based on \cite{Cornolti2013}. %This is an open-source and extensible framework that allows evaluating tools against different datasets.
-
-%%%cornolti2013 -> , leveraging Wikipedia, and a hierarchy of EL problems. 
-%%%rizzo2014 -> %divide the process into NER and EL, evaluating each stage individually. They subsequently 
-
-In this chapter we aim to provide a twofold answer to the challenges described above, and bridge the gap between the Music domain and EL. Specifically, we present \textsc{ELMD}, an automatically constructed corpus where named entities are classified as any of four predefined \textit{musical categories}, namely \textsc{Song}, \textsc{Album}, \textsc{Artist}, and \textsc{Record Label}, by leveraging the hyperlinks present in a set of artist biographies. Then, we further enrich \textsc{ELMD} by performing EL and automatically annotating a large portion of the entities with their \textsc{DBpedia} URI. The source data used in this paper comes from the music website and social network Last.fm\footnote{http://www.last.fm}. To the best of our knowledge, this is the first attempt to provide an annotated large-scale 
-%crowdsourced (i.e. without corporate bias) 
-corpus of linked entities in the music domain. % as Linked Data.
-Finally, a subset of 200 documents from ELMD is manually annotated to provide a comprenhensive dataset of annotated documents. This latter dataset have been uses in the context of the 3rd Open Knowledge Extraction Challenge \cite{TODO}.
-
-%\textsc{ELMD} is built by leveraging hyperlinks appearing in artist biographies collaboratively written by the Last.fm community, together with the integration of three state-of-the art EL systems. In this way, we produce a highly precise mapping between a Last.fm URL and its corresponding \textsc{DBpedia} URI. 
-
-The final resource amounts to 47,254 sentences, in which 92,930 entities are categorized into the aforementioned \textit{musical categories}, and 64\% of them are disambiguated and linked to DBpedia. We achieve a Precision score of 97\% in the most restrictive setting, in which our approach manages to annotate more than 31,000 entities.
-
-In the remainder of this paper, we first introduce \textsc{ELVIS} (Entity Linking Voting and Integration System), our EL integration and agreement approach. Then, we describe the text corpus we compiled from the \textsc{Last.fm} website and how it is combined with ELVIS. In the next step, the obtained dataset is evaluated. Finally, we describe the resulting output of our system: The \textsc{ELMD} dataset. 
-%A summary of our approach is provided in Figure \ref{fig:workflow}.
-
-
-\section{Music Knowledge Bases}\label{sec:related_work:mus_rec}
-
-\textsc{MusicBrainz} and \textsc{Discogs} are two paramount examples of manually curated \textsc{MKBs}. They are open music encyclopedias of music metadata built collaboratively and openly available. \textsc{MusicBrainz}, in addition, is regularly published as Linked Data by the \textsc{LinkedBrainz} project\footnote{\url{http://linkedbrainz.org/}}.
-
-As for generic \textsc{KBs} based on \textsc{Wikipedia}, such as the ones described earlier, these include a remarkable amount of music data, such as artist, album and song biographies, definitions of musical concepts and genres, or articles about music institutions and venues. However, their coverage is biased towards the best known artists, and towards products from Western culture. Finally, let us refer to the notable case of \textsc{Grove Music Online}\footnote{\url{http://www.oxfordmusiconline.com}}, a music encyclopedia containing over 60k articles written by music scholars. However, it has the drawback of not being freely open, as it runs by subscription.
-
-Other than the aforementioned curated repositories, to the best of our knowledge, there is not a single automatically learned open \textsc{MKB}. A first step in this direction was taken in \cite{Sordo2015,Oramas2014}, applying \textsc{RE} techniques to big datasets of music related texts extracted from the web. Moreover, in \cite{Oramas2015b}, a Flamenco \textsc{MKB} is created by combining data from curated \textsc{KBs} and information extracted from blogs and websites.
-
-Despite their scarcity, \textsc{MKBs} are becoming increasingly popular in MIR applications, such as artist similarity and music recommendation \cite{Celma2008,Oramas2015a,Leal2012,Ostuni2015}. 
-MKBs have also been exploited as sources of explanations in music recommender systems. According to~\cite{CelmaandHerrera2008}, giving explanations of the recommendations provides transparency to the recommendation process and increases the confidence of the user in the system. In \cite{Passant2010}, explanations of recommendations are created by exploiting \textsc{DBpedia}'s structured information, whilst in \cite{Sordo2015}, explanations are based on an automatically learned \textsc{MKB}. 
 
 
 
@@ -62,17 +51,10 @@ In this section we describe \textsc{ELVIS}, the generic integration framework fo
 \subsection{Argumentum ad Populum in EL}
 \label{sec:tools}
 
-Our method relies on the \textit{argumentum ad populum} intuition, i.e. if two or more different EL systems perform the same prediction in linking a named entity mention to its entry in a reference KB, the more likely this prediction is to be correct. We put this intuition into practice by combining the output of three well-known systems, namely DBpedia Spotlight~\cite{Mendes2011} , Tagme~\cite{Ferragina2012} and Babelfy~\cite{Moroetal2014b}, whose agreement (or disagreement) when disambiguating an in-text entity mention is taken as an agreement-driven \textit{confidence score}. These specific tools were chosen for being considered state-of-the-art EL systems and for being well known in the NLP community. However, \textsc{ELVIS} can easily incorporate any additional system. We also selected these tools because entities identified by all of them can be easily referenced to DBpedia URIs. Although there are other knowledge bases (e.g. MusicBrainz) with substantially more musical entities than DBpedia, to the best of our knowledge, there is no EL tool that works with these domain specific knowledge bases. 
+Our method relies on the \textit{argumentum ad populum} intuition, i.e. if two or more different EL systems perform the same prediction in linking a named entity mention to its entry in a reference KB, the more likely this prediction is to be correct. We put this intuition into practice by combining the output of three well-known systems, namely DBpedia Spotlight~\cite{Mendes2011} , Tagme~\cite{Ferragina2012} and Babelfy~\cite{Moroetal2014b}, whose agreement (or disagreement) when disambiguating an in-text entity mention is taken as an agreement-driven \textit{confidence score}. These specific tools were chosen for being considered state-of-the-art EL systems and for being well known in the NLP community. However, \textsc{ELVIS} can easily incorporate any additional system. We also selected these tools because entities identified by all of them can be easily referenced to DBpedia URIs. 
+While these tools have proven highly competitive on their own, in this chapter we explore the gain in performance obtained by combining them together, and apply global agreement-driven decisions on the \textsc{Last.fm} corpus.
+Moreover, although there are other knowledge bases (e.g. MusicBrainz) with substantially more musical entities than DBpedia, to the best of our knowledge, there is no EL tool that works with these domain specific knowledge bases. 
 
-Let us briefly describe each of the selected EL systems:
-\begin{itemize}
-\item \textbf{DBpedia Spotlight} \cite{Mendes2011} is a system for automatically annotating text documents with DBpedia URIs, finding and disambiguating natural language mentions of DBpedia resources. DBpedia Spotlight is shared as open source and deployed as a Web service freely available for public use\footnote{https://github.com/dbpedia-spotlight}.
-DBpedia Spotlight gives as a result the DBpedia URI, start and end char positions, the value of the rdf:type property, and a confidence score for for each prediction.
-\item \textbf{TagMe} \cite{Ferragina2012} is an EL system that matches terms with Wikipedia link texts and disambiguates them using the in-link graph and the Wikipedia page dataset. Then, it performs a pruning process by looking at the entity context. TagMe is available as a web service\footnote{http://tagme.di.unipi.it/}, and provides the Wikipedia page id, Wikipedia categories, and a confidence score. 
-\item \textbf{Babelfy} \cite{Moroetal2014b} is an EL and Word Sense Disambiguation based on non-strict identification of candidate meanings (i.e. not necessarily exact string matching), together with a graph based algorithm that traverses the BabelNet graph and selects the most appropriate semantic interpretation for each candidate. Babelfy is available as a web service\footnote{http://babelfy.org/guide}. Its output is based on the corresponding BabelNet synset of the disambiguated mention. If the synset references to a Wikipedia page, it returns the Wikipedia URL, the DBpedia URI, as well as Wikipedia categories.
-\end{itemize}
-
-While these tools have proven highly competitive on their own, in this paper we explore the gain in performance obtained by combining them together, and apply global agreement-driven decisions on the \textsc{Last.fm} corpus.
 %, which we describe next.
 
 %Integrating any number of EL tools is not a trivial task, as they have their own unique way of representing annotated entities (e.g. character vs. word offset, or reference KB used). In what follows, we describe experiments carried out on the Last.fm text corpus (described in Section \ref{lastfmcorpus}). We specifically tackle the problem of integrating the above EL tools (Section \ref{unification}). Finally, this integration allows us to introduce an agreement-based measure (Section \ref{agreement}), which we evaluate extensively on a sample of 1700 sentences (Section \ref{evaluation}).
@@ -108,7 +90,7 @@ After successfully providing a process which harmonizes the output of EL systems
 
 \begin{figure}[h!]
   \centering
-	\includegraphics[height=3.25cm,width=8cm]{ch03_background/pics/workflow.pdf}
+	\includegraphics[height=3.25cm,width=8cm]{ch03_linking/pics/workflow.pdf}
   \caption{ELVIS Workflow}
   \label{fig:workflow}
 \end{figure}
@@ -224,7 +206,7 @@ The band's debut album, \textbf{Cookies}, was released on 14 May 2007 & Album & 
 
 \begin{figure}[!t]
   \centering
-	\includegraphics[width=8cm]{ch03_background/pics/evaluation_both.eps}
+	\includegraphics[width=8cm]{ch03_linking/pics/evaluation_both.eps}
   \caption{Number of entities and precision of the manual evaluation.  Note the major differences in Precision between \textit{type-equivalent} and \textit{type-discrepant} systems.}
   \label{fig:agreement_typed}
 \end{figure}
@@ -287,7 +269,7 @@ Her debut album , \textit{Kim Wilde}, (released on RAK records) came out in July
 \end{center}
 \end{adjustwidth}
 
-Here, the entity \textit{Kim Wilde} should be disambiguated as the Album with the same name as the artist, but \textsc{ELVIS} incorrectly assigned the Artist's DPpedia URI: {\footnotesize{\texttt{dbpedia.org/resource/Kim\_Wilde}}}. In \textsc{ELMD} there are 50 cases where the same surface text is correctly linked to an Artist entity in some sentences, and to a Song entity in others. Similar ambiguous cases involving Artist and Album (148) and Song and Album (95) are correctly resolved by our system. These particularly challenging cases may be interesting for training Music specific EL algorithms.
+Here, the entity \textit{Kim Wilde} should be disambiguated as the Album with the same name as the artist, but \textsc{ELVIS} incorrectly assigned the Artist's DBpedia URI: {\footnotesize{\texttt{dbpedia.org/resource/Kim\_Wilde}}}. In \textsc{ELMD} there are 50 cases where the same surface text is correctly linked to an Artist entity in some sentences, and to a Song entity in others. Similar ambiguous cases involving Artist and Album (148) and Song and Album (95) are correctly resolved by our system. These particularly challenging cases may be interesting for training Music specific EL algorithms.
 
 Another interesting source of false positives comes between musical entities and equally named entities (not necessarily related to Music). In cases in which the latter are more popular in a reference KB, e.g. their associated node in the graph may have higher connectivity, may become prioritized by disambiguation EL algorithms that consider graph connectivity as a feature. Consider the following sentence:
 
@@ -313,18 +295,30 @@ A similar situation happens when song or album names may be confused with very c
 
 \begin{figure}[h!]
   \centering
-	\includegraphics[width=8cm]{ch03_background/pics/ELMD_Overview.eps}
+	\includegraphics[width=8cm]{ch03_linking/pics/ELMD_Overview.eps}
   \caption{ELMD Overview. Number of entities, confidence score and precision values in different subsets of the dataset.}
   \label{fig:elmd}
 \end{figure}
 
-\section{ELMD2}
-Following the same methodology, a second set of artist biographies was gathered from Last.fm. 
+\section{Extending ELMD}
 
-From this set of documents, 200 were manually annotated by one music expert annotator. 
+%Following the same methodology, a second set of artist biographies was gathered from Last.fm. 
+To extend the coverage and the number of annotations of the \textsc{ELMD} dataset, three processes are applied. First, as Last.fm keeps a record of the linking between its pages and MusicBrainz entities, we use the Last.fm API to retrieve this information. Therefore, in addition to the DBpedia linking, MusicBrainz URLs are added to the annotations, when this information is available. Second, existing annotations in every document are propagated, assuming they appear in a one-sense-per-discourse fashion. For example, if the text span \textit{The Beatles} is marked as an annotation in the first sentence of a document, and it appears again in the second sentence, but there is not annotation associated, an annotation is added. Finally, we look for mentions of the artist biography subject and mark them also as annotations. The number of annotations and distinct entities are reported in Table~\ref{tbl:elmd2}.
 
 
-\section{Conclusion and Discussion}
+\subsection{ELMDGold}
+
+Although the \textsc{ELMD} dataset may have several applications, such as being used as a training set for a NER or an EL system, it suffer from two major problems that differenciate it from an authentic gold standard dataset. First, although there is an important number of annotated entities, there are still many musical entities mentioned in \textsc{ELMD} texts that are not linked to any KB, nor even annotated. Second, as the dataset has been automatically generated, it is prune to errors, as it has been shown in the evaluation in Section \ref{}. To tackle this problems, a subset of 200 documents from \textsc{ELMD} was manually annotated by a human annotator. Every musical entity of the selected types (Artist, Album and Song) was manually annotated, typed and linked to MusicBrainz. 
+%In addition, 100 more documents gathered also from Last.fm, but different to those in ELDM, were annotated to act as a test set. Thus, the ELMDGold dataset is composed of 200 documents, 100 for train and 100 for test. 
+This gold standard dataset have been used in the Task 3 of the third edition of the Open Knowledge Extraction Challenge, collocated with the Extended Semantic Web Conference (ESWC 2017)\cite{}.
+
+
+
+\section{Conclusion}
 \label{sec:elmd}
 
-In this chapter we have described two main contributions. First, for the task of Entity Linking, we have presented an integration framework called \textsc{ELVIS} which, based on a voting procedure which leverages decisions made by an arbitrary number of off-the-shelf EL systems, provides high confident entity disambiguations. Currently, \textsc{ELVIS} incorporates three state-of-the-art systems, namely DBpedia Spotlight, Tagme and Babelfy, and can be easily extended with additional systems. The \textit{ELVIS} code is available at {\footnotesize{https://github.com/sergiooramas/elvis}}. Second, we have leveraged the potential of \textsc{ELVIS} for the creation of a novel benchmarking dataset for EL in the Music domain, called \textsc{ELMD}. This corpus comes from a collection of \textsc{Last.fm} artist biographies, and contains 47,254 sentences with 92,930 annotated and classified entity mentions (64,873 Artists, 16,302 Albums, 8,275 Songs and 3,480 Record Labels). From this set of entity mentions, 59,680 are linked to DBpedia (see Table~\ref{tbl:statistics}), with a precision of at least 0,94. In addition, by setting up a higher confidence threshold it is possible to obtain a subset of \textsc{ELMD} that prioritize higher Precision by sacrificing Recall (see Figure~\ref{fig:elmd}). The \textsc{ELMD} dataset together with the evaluation data can be downloaded from {\footnotesize{http://mtg.upf.edu/download/datasets/elmd}}.
+In this chapter we have described four main contributions related to the problem of recognizing and linking musical entities in texts. First, for the task of Entity Linking, we have presented an integration framework called \textsc{ELVIS} which, based on a voting procedure which leverages decisions made by an arbitrary number of off-the-shelf EL systems, provides high confident entity disambiguations. Currently, \textsc{ELVIS} incorporates three state-of-the-art systems, namely DBpedia Spotlight, Tagme and Babelfy, and can be easily extended with additional systems. The \textit{ELVIS} code is available at {\footnotesize{https://github.com/sergiooramas/elvis}}. Second, we have leveraged the potential of \textsc{ELVIS} for the creation of a novel benchmarking dataset for EL in the Music domain, called \textsc{ELMD}. This corpus comes from a collection of \textsc{Last.fm} artist biographies, and contains 47,254 sentences with 92,930 annotated and classified entity mentions (64,873 Artists, 16,302 Albums, 8,275 Songs and 3,480 Record Labels). From this set of entity mentions, 59,680 are linked to DBpedia (see Table~\ref{tbl:statistics}), with a precision of at least 0,94.
+Third, we have extended the number of annotated entities in ELMD, and also the linking Knowledge Bases, with the addition of MusicBrainz.
+Finally, we have created a manually annotated gold standard of 200 documents from ELMD, which have been used in an NLP challenge.
+%In addition, by setting up a higher confidence threshold it is possible to obtain a subset of \textsc{ELMD} that prioritize higher Precision by sacrificing Recall (see Figure~\ref{fig:elmd}). 
+The different \textsc{ELMD} dataset versions can be downloaded from {\footnotesize{http://mtg.upf.edu/download/datasets/elmd}}.

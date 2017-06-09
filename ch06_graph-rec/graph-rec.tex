@@ -6,25 +6,63 @@
 \section{Introduction}
 \label{sec:graph-rec:introduction}
 
+In this chapter we tackle the problem of computing sound and music recommendations following a hybrid approach that leverages semantic content features extracted from textual descriptions and collaborative features from implicit user feedback. 
+%Among all registered users there is a low percent of highly engaged users that have been continuously contributing to the site, not only uploading sound, but also commenting, rating and discussing in the forum. 
+%All sounds have attached a number of tags and a textual description, which are added by contributors at the time of uploading. 
+%Only registered users can download sounds published by other users, but anyone who access the site can search, browse and listen to sounds. 
+%A general characterization of its community of users can be found in \cite{Font2012}. 
+The approach we propose to recommend musical items consists mainly of two parts: (i) the enrichment of original data attached to items and linkage to knowledge graphs, (ii) the effective exploitation of the graph-based nature of such data for computing the recommendations. 
+
+The enrichment of data consists in using entity linking techniques for extracting semantic entities from item textual descriptions and linking them to external knowledge bases such as WordNet \cite{wordnet} and DBpedia \cite{dbpedia1} for gathering additional knowledge. All those different information are eventually merged together and represented by means of a new knowledge graph, following a similar approach to the one described in Section~\ref{sec:similarity:semantic_enriched_graph} of Chapter~\ref{sec:similarity}.
+This latter graph is thus exploited together with collaborative information from implicit feedback for computing the recommendations. Two graph feature mappings are defined to leverage the new knowledge graph and obtain expressive feature representations. All different features are combined together in a feature combination hybrid schema \cite{Burke2002} and used to feed a content-based recommender. An extensive experimental evaluation was carried out on two different datasets --the one related to sounds, the other to songs-- to evaluate the recommendation quality in terms of accuracy, novelty and aggregate diversity. 
+
+In this chapter, we deal with two slightly different problems in the music ecosystem. We address the songs recommendation problem and that of recommending sounds to users in online sound sharing platforms. The two tasks addresses two separate categories of users in the music domain: on the one hand, we have music consumers (songs and artists recommendation); on the other hand, we have music producers (sounds recommendation).
+
+Music recommendation has received a lot of attention in the last decade \cite{knees_schedl2013}. As a matter of fact, the discovery of new songs and artists is a task that the music consumers of a Web radio or of a music store are naturally led to perform daily. Hence, helping them by recommending the best choices results in immediate impact also in industrial and commercial scenarios.
+%The motivation behind a music recommender system seems to be clear, as music consumers typically want to discover new songs and artists. Thus, the problem of music recommendation has been widely studied in the last decade \cite{knees_schedl2013}. 
+
+Differently from the previous case, recommendation of sounds has received scant attention even though it may be of interest in many scenarios of music creation. As an example, we may consider producers of electronic music that typically downloads and use sound samples. They might be interested in the recommendation of relevant sounds downloaded by users with similar tastes or similar (not equal) to those they previously used in their musical compositions. Likely, they are also looking not just for popular sounds as they want their production to be unique.
+To this end, we first centered our study in Freesound\footnote{\url{http://freesound.org}}, one of the most popular sites on the Web for sharing audio clips, accounting more than 4 million registered users and about 300,000 uploaded sounds, which are described in terms of textual descriptions and tags. In Freesound, different kind of users may be observed \cite{Font2012} (e.g. music producers, composers, sound designers, soundscape enthusiasts), and also different types of sounds (e.g. sound samples, field recordings, soundscapes, loops).
+% Hence, recommending sounds is not a trivial task and requieres on the one hand a high level of personalization, and on the other hand, a thoroughly annotation of the items. 
+We have the intuition that collaborative features may help in the personalization of the recommendations, whilst the introduction of semantic features may lead to a better exploitation of less popular items. To evaluate this hypothesis, a dataset composed of sound descriptions and historical data about user's download behavior was collected.
+
+To demonstrate the suitability of the proposed methodology for both types of musical users (producers and consumers), a music recommendation experiment was also performed. To this end, a dataset of songs which combines tags and textual descriptions with users' implicit feedback was created by aggregating information gathered from Songfacts\footnote{\url{http://songfacts.com}} and Last.fm\footnote{\url{http://last.fm}}. Songfacts is an online database that collects, stores and provides facts, stories and trivia about songs, whilst in Last.fm a detailed profile of each user's musical taste is built by recording details of the tracks the user listens to.
+
+%We have the intuition that combining collaborative information with implicit semantics extracted from sound descriptions may be useful to achieve this level of personalization.
+% talk about why recommendation
+%In Freesound, sounds are originally described in terms of textual descriptions and tags which are in turn classified in a tagging ontology.
+The evaluation performed on both datasets showed that the semantic expansion of the original data combined with user collaborative features allows the system to enhance recommendation quality especially in terms of aggregated diversity and novelty while keeping high performance in terms of accuracy. %This turn out in a higher level of personalization of recommendations, in terms of prediction accuracy, catalog coverage and long tail recommendations.
+
+Our main contributions in this chapter are summarized as follows:
+\begin{itemize}
+\item{We define a novel method to enrich the description of musical and sound items with semantic information.}
+\item{We propose two different graph-embedding approaches to encode knowledge graph information into a linear feature representation.}
+\item{We present a methodology to recommend musical items combining semantic and collaborative features, that turns out in a high level of personalization of recommendations, in terms of prediction accuracy, catalog coverage and long tail recommendations.}
+\item{We tackle for the first time the problem of sound recommendation.}
+\end{itemize}
+
+%To confirm the results obtained in the sound recommendation scenario and demonstrate the suitability of the proposed methodology to other types of musical items, a second experiment was performed. For this purpose, a dataset of songs combining tags and textual descriptions with user's implicit feedback was created by aggregating information gathered from Songfacts.com and Last.fm. Songfacts.com is an online database that collects, stores and provides facts, stories and trivia about songs, whilst in Last.fm a detailed profile of each user's musical taste is built by recording details of the tracks the user listens to.
+%Results on the second experiment confirm that the addition of semantic features by means of the proposed graph embedding methods, turn out in a higher level of personalization of recommendations, in terms of prediction accuracy, catalog coverage and long tail recommendations.
+
+%\input{src/related_intro}
+
+The reminder of the chapter is structured as follows. The next section introduces the basic technologies used to build the knowledge graph at the basis of our recommendation system. Section \ref{sec:graph-rec:enrichment} describes the problem and the semantic expansion applied to the initial data. Then, Section \ref{sec:graph-rec:approach} defines the adopted recommendation approach while in Section \ref{sec:graph-rec:evaluation} we explain the experimental evaluation and discusses the obtained results. Finally, Section \ref{sec:graph-rec:conclusion} concludes the chapter.
+
+
 \section{Knowledge enrichment via entity linking}
 \label{sec:graph-rec:enrichment}
 %An enrichment of our initial knowledge graph was performed by extracting and linking both tags and keywords from textual descriptions to external knowledge bases by means of entity linking techniques.
-%A musical item (e.g. an artist, a song, a sound sample) may have context information associated, such as text, tags, photos, etc. This information can be semantically exploited to create a knowledge graph. More specifically, unstructured textual information can be converted into a semantic network of entities by means of an entity linking process. Following this process, unlabeled semantic relations may emerge between the initial music entity and the entity mentions present in its context.
+%A musical item (e.g. an artist, a song, a sound sample) may have context information associated, such as text, tags, photos, etc. This information can be semantically exploited to create a knowledge graph. More specifically, unstructured textual information can be converted into a semantic netchapter of entities by means of an entity linking process. Following this process, unlabeled semantic relations may emerge between the initial music entity and the entity mentions present in its context.
  
 In order to add more semantics to the description of musical items, we exploit contextual information, i.e., tags and text descriptions, %to link more entities to the ones already available in Freesound thus enriching 
 and then use this information to create a knowledge graph. 
-%To represent the new entities we extended the original ontology  by plugging in a new set of classes and related properties (see the green dashed arrows and the green boxes in Fig. \ref{fig:fso_enhancement}). Following the Linked Data principles\footnote{\url{http://www.w3.org/DesignIssues/LinkedData.html}}, we reused classes and properties from external vocabularies. The final ontology after the entity linking and expansion process contains three new classes: \texttt{wordnet:Synset}, \texttt{Entity} and \texttt{skos:Concept} and five new relations: \texttt{wordnet:synset\_member}, \texttt{dcterms:relation}, \texttt{dcterms:subject}, \texttt{skos:broader} and \texttt{wordnet:hypernym}\footnote{All the prefix we use here are the ones available via the \url{http://prefix.cc} service}.
+%To represent the new entities we extended the original ontology  by plugging in a new set of classes and related properties (see the green dashed arrows and the green boxes in Fig. \ref{fig:graph-rec:fso_enhancement}). Following the Linked Data principles\footnote{\url{http://www.w3.org/DesignIssues/LinkedData.html}}, we reused classes and properties from external vocabularies. The final ontology after the entity linking and expansion process contains three new classes: \texttt{wordnet:Synset}, \texttt{Entity} and \texttt{skos:Concept} and five new relations: \texttt{wordnet:synset\_member}, \texttt{dcterms:relation}, \texttt{dcterms:subject}, \texttt{skos:broader} and \texttt{wordnet:hypernym}\footnote{All the prefix we use here are the ones available via the \url{http://prefix.cc} service}.
 %Several approaches have been developed to enrich folksonomies with semantics. According to \cite{Garcia2012} they may be based on clustering techniques, the usage of ontologies or a combination of them both.
 Several approaches have been developed to enrich tags with semantics \cite{Garcia2012}. We follow an ontology-based approach, enriching both tags and keywords extracted from textual descriptions by associating them with relevant entities defined in online semantic datasets.
 The first step in this direction is to link and disambiguate tags and keywords to Linked Data resources. 
-For this purpose we adopted Babelfy, a state of the art tool for Entity Linking and Word Sense Disambiguation \cite{Moro2014}. Babelfy maps words from a given text to entities in the BabelNet\footnote{\url{http://babelnet.org}} knowledge base. 
-BabelNet is a multilingual encyclopedic dictionary that mixes knowledge from WordNet and Wikipedia. Thus, for every mapped and disambiguated text fragment, Babelfy returns the related WordNet \textit{synset}, and/or the related Wikipedia page (and its equivalent DBpedia resource).  %WordNet\footnote{\url{http://wordnet.princeton.edu}} is a large lexical database of English. In WordNet, words are grouped by synsets, which are sets of cognitive synonyms. DBpedia\footnote{\url{http://dbpedia.org}} instead is well-known encyclopedic knowledge base, built from Wikipedia, belonging to the Linked Open Data cloud. 
-%In order to improve the disambiguation of text and tags associated to a sound, instead of processing textual descriptions and tags separately, they were concatenated and used together as input to Babelfy. 
-%The idea was that both tags and description could benefit from each other in the disambiguation task as they enrich the representation of the corresponding context. 
-%We also manually checked that the use of such strategy resulted in a better disambiguation than performing each linking separately. 
-%Once the linking was performed, tags and description results were split. Specifically, for each entity detected in the description, the corresponding textual representation was linked to the sound node by using the \texttt{hasKeyword} property added to the original ontology.
-% and to the entity by means of the isLinkedEntity property. 
-%Mapped tags instead were linked to the sound by using the \texttt{hasTag} property. 
+For this purpose we adopted Babelfy, a state of the art tool for Entity Linking and Word Sense Disambiguation \cite{Moro2014}. 
+%Babelfy maps words from a given text to entities in the BabelNet\footnote{\url{http://babelnet.org}} knowledge base. 
+%BabelNet is a multilingual encyclopedic dictionary that mixes knowledge from WordNet and Wikipedia. Thus, for every mapped and disambiguated text fragment, Babelfy returns the related WordNet \textit{synset}, and/or the related Wikipedia page (and its equivalent DBpedia resource).  
 
 To build our semantically enriched graph, the entity linking tool is firstly run on both tags and keywords of every item. Identified named entities are linked to DBpedia resources, whilst disambiguated words are linked to WordNet \textit{synsets}. Every musical item is added to the graph, and connected with the words taken from its context that are identified as entities by Babelfy. Words are in turn connected with their corresponding URIs, whether they are a DBpedia resource or a WordNet \textit{synset}.
 Subsequently, we use both WordNet and DBpedia to semantically expand the entities added to the graph after the entity linking phase. 
@@ -36,79 +74,17 @@ From the WordNet hierarchy we extract up to 2-hop hypernyms starting from the ma
 % the length of the longest hypernym path from a synset to the root of the WordNet hierarchy should be at least six.
 Regarding DBpedia, Babelfy returns directly the URI of the linked entity and a set of related Wikipedia categories. In Wikipedia, categories are used to organize the resources, and they help users to group articles of the same subject. This reflects in DBpedia as resources are related to categories through the property \texttt{dcterms:subject}\footnote{\url{http://dublincore.org/documents/dcmi-terms/\#elements-subject}}. Those categories are in turn organized in a taxonomy. In particular, more specific categories are related to more generic ones by means of the \texttt{skos:broader}\footnote{\url{http://www.w3.org/2004/02/skos/core\#broader}} property. Thus, for each category found by Babelfy, all the direct broader categories were gathered and added to our knowledge graph. Similarly to what we did with WordNet, only one level of broader categories were considered to avoid too broad or unrelated categories.
 
-To show an example of entity linking performed by Babelfy we use the sound \texttt{prac-snare2.wav}\footnote{\url{http://www.freesound.org/people/TicTacShutUp/sounds/439/}} from Freesound. The description associated to this sound is \textit{"standard snare sample. lower/mid tuning on the head"} and tags are \textit{drums}, \textit{percussion}, \textit{snare}. Babelfy was able to detect and link most of the entities. Just to describe a few of them, the word \textit{sample} from the description was linked to the DBpedia entity \texttt{Sampling\_(music)}, the tag \textit{percussion} was mapped to the DBpedia entity \texttt{Rythm\_section}, the tag \textit{snare} was linked to the WordNet concept \texttt{snare\_drum.n.01} and DBpedia entity \texttt{Snare\_drum}. As shown in Figure~\ref{fig:graph_enhancement}, DBpedia entities and WordNet synsets are then further enriched with their related categories and hypernyms. Following the Linked Data principles\footnote{\url{http://www.w3.org/DesignIssues/LinkedData.html}}, we reused classes and properties from external vocabularies. The final knowledge graph after the entity linking and expansion process contains four main classes: \texttt{wordnet:Synset}, \texttt{Entity}, \texttt{Tag} and \texttt{skos:Concept} and seven relations: \texttt{hasTag}, \texttt{hasKeyword}, \texttt{wordnet:synset\_member}, \texttt{dcterms:relation}, \texttt{dcterms:subject}, \texttt{skos:broader} and \texttt{wordnet:hypernym}\footnote{All the prefix we use here are the ones available via the \url{http://prefix.cc} service}.
-In particular, for the sounds recommendation dataset based on Freesound we further enriched the ontology originally developed in \cite{Font2014} as also shown in the left hand side of Figure~\ref{fig:graph_enhancement}. 
-% (see Figure~\ref{fig:graph_enhancement}).
-%We performed a manual check of many entity linking outputs and observed that sound textual descriptions, even when short, were very informative in most of the cases, and contained relevant keywords that were not explicitly represented in the list of tags. Figure \ref{fig:graph_enhancement} shows a portion of the final knowledge graph.
+To show an example of entity linking performed by Babelfy we use the sound \texttt{prac-snare2.wav}\footnote{\url{http://www.freesound.org/people/TicTacShutUp/sounds/439/}} from Freesound. The description associated to this sound is \textit{"standard snare sample. lower/mid tuning on the head"} and tags are \textit{drums}, \textit{percussion}, \textit{snare}. Babelfy was able to detect and link most of the entities. Just to describe a few of them, the word \textit{sample} from the description was linked to the DBpedia entity \texttt{Sampling\_(music)}, the tag \textit{percussion} was mapped to the DBpedia entity \texttt{Rythm\_section}, the tag \textit{snare} was linked to the WordNet concept \texttt{snare\_drum.n.01} and DBpedia entity \texttt{Snare\_drum}. As shown in Figure~\ref{fig:graph-rec:graph_enhancement}, DBpedia entities and WordNet synsets are then further enriched with their related categories and hypernyms. Following the Linked Data principles\footnote{\url{http://www.w3.org/DesignIssues/LinkedData.html}}, we reused classes and properties from external vocabularies. The final knowledge graph after the entity linking and expansion process contains four main classes: \texttt{wordnet:Synset}, \texttt{Entity}, \texttt{Tag} and \texttt{skos:Concept} and seven relations: \texttt{hasTag}, \texttt{hasKeyword}, \texttt{wordnet:synset\_member}, \texttt{dcterms:relation}, \texttt{dcterms:subject}, \texttt{skos:broader} and \texttt{wordnet:hypernym}\footnote{All the prefix we use here are the ones available via the \url{http://prefix.cc} service}.
+In particular, for the sounds recommendation dataset based on Freesound we further enriched the ontology originally developed in \cite{Font2014} as also shown in the left hand side of Figure~\ref{fig:graph-rec:graph_enhancement}. 
+% (see Figure~\ref{fig:graph-rec:graph_enhancement}).
+%We performed a manual check of many entity linking outputs and observed that sound textual descriptions, even when short, were very informative in most of the cases, and contained relevant keywords that were not explicitly represented in the list of tags. Figure \ref{fig:graph-rec:graph_enhancement} shows a portion of the final knowledge graph.
 
 \begin{figure*}
 \centering
 \includegraphics[width=\textwidth]{ch06_graph-rec/pics/graph_all_final.pdf}
-\caption{Portion of the final knowledge graph enriched with WordNet and DBpedia \label{fig:graph_enhancement}}
+\caption{Portion of the final knowledge graph enriched with WordNet and DBpedia \label{fig:graph-rec:graph_enhancement}}
 \end{figure*}
 
-
-%{\color{red}
-%\subsection{A Knowledge Graph for Sounds Description}\label{sec:kg4freesound}
-
-%\subsection{Freesound}
-%Freesound is an online collaborative sound database where people with diverse interest share recorded sounds under Creative Commons license. It started in 2005 as an initiative of the Music Technology Group of the University Pompeu Fabra. After nine years Freesound has become one of the most popular sites for sharing sound samples. It has now almost 4 million registered users and about 220,000 uploaded sounds. Among all registered users there is a low percent of highly engaged users that has been continuously contributing to the site, not only uploading sound, but also commenting, rating and discussing in the forum. A general characterization of its community of users can be found here \cite{Font2012}. 
-%All sounds in Freesound have attached a number of tags and a textual description, which are added by contributors at the time of uploading. Only registered users can download the sounds published by other users, but anyone who access the site can search, browse and listen to sounds. 
-%Registered users may also comment and rate sounds, giving a score between 1 and 5.
-
-%Freesound allows the users to share sounds on the Web. They are all described through a number of tags and a textual information, which are added by contributors at the time of their upload. Only registered users can download the sounds published by other users, but anyone who access the site can search, browse and listen to sound previews. User generated content in Freesound is described by means of a collaborative tagging system, where users assign free-text keywords to content resources. Thus, a folksonomy emerges as the resulting set of associations between tags, users and resources. 
-
-%A description regarding the folksonomy of Freesound has been presented in \cite{Font2012a}. 
-%Such folksonomy is currently used in a tag recommendation system \cite{Font2014b} whose task is assisting users in tagging sounds at the time of upload. %The description of the tag recommender can be found in \cite{Font2014b}. 
-%The main aim in tag recommendation systems is to provide to the user with a list of tags she can use to annotate a resource.
-%Although this tripartite model has been widely used for recommender systems, 
-%As pointed out by \cite{Gemmell2012} in social tagging systems the problem of resource recommendation has received less attention than the problem of tag recommendation. 
-%In this work we focus on the problem of sound recommendations which consists in suggesting to the user a list of sounds she might be interested in. 
-
-%Based on the Freesound folksonomy, a specific tagging ontology was created and used to initially classify the tags most frequently associated to sounds \cite{Font2014}. 
-
-%We now describe the Freesound tagging ontology, and then we show how we built our knowledge graph related to sounds by enriching the data classified via the ontology with external knowledge sources by means of entity linking tools. 
-%\subsection{Freesound Ontology}
-%Despite its successful use, folksonomies suffer from various drawbacks, e.g. ambiguity, informational redundancy, idiosyncratic naming conventions \cite{Halpin2006}. In order to cope with these issues, many approaches have been proposed aimed to incorporate semantic-enabled knowledge, such as ontologies, into folksonomies. %The combination of folksonomies and ontologies can be addressed in different ways \cite{Oramas2014}. A tagging ontology may act as an upper structure that defines the tagging process, and be used as a common schema to interconnect different folksonomies. Another approach is to manually or automatically derive a domain ontology from the implicit knowledge present in the folksonomy. 
-
-%The Freesound Ontology is defined by extending an upper tagging ontology with domain specific knowledge. 
-
-%Starting from this definition, an ontology that represents the tagging process in Freesound was defined. 
-
-%The ontology has five classes (see the yellow boxes in Figure \ref{fig:fso_enhancement}): \texttt{Sound}, \texttt{Tag}, \texttt{User}, \texttt{TagSet} and \texttt{SoundSet}. Sounds may be \texttt{uploaded}, \texttt{downloaded} and \texttt{rated} by a \texttt{User}, and may have one or more associated tags represented through the property \texttt{hasTag}. Domain specific knowledge is represented by the classes \texttt{TagSet} and \texttt{SoundSet}. Tag sets represent different types of tags according to semantic characteristics (e.g. Instrument, Location, etc.). Sound sets represent categories of sounds (they are related via the \texttt{classifiedAs} property) according to acoustic characteristics (e.g. InstrumentSample, Voice). Tags classified into a tag set (via \texttt{inSet}) may be relevant for a specific sound set, and this is represented by the relation \texttt{usedBy} between \texttt{TagSet} and \texttt{SoundSet} classes. %This ontology schema is described in Figure \ref{fig:fso_enhancement}.
-%Initially, 26 sets of tags, 5 sets of sounds, and 24 relations of applicability between tag and sound sets were defined and 432 frequently used tags were manually classified into tag sets. Although these classified tags represent 1\% of the total number of tags in Freesound, they appear in more than 85\% of sound annotations. 
-
-%The available data has been thus represented as an RDF graph instantiating the Freesound ontology. This represents the basis of our knowledge graph (see the left hand side of Fig. \ref{fig:graph_enhancement}).
-
-%In order to add more semantics to the description of sounds, we exploit contextual information, i.e., tags and text descriptions, to link more entities to the ones already available in the Freesound Ontology. To this end, we applied the semantic enrichment methodology described above. 
-%To represent the new entities we extended the original ontology by plugging in a new set of classes and related properties (see the green dashed arrows and the green boxes in Fig. \ref{fig:fso_enhancement}). Following the Linked Data principles\footnote{\url{http://www.w3.org/DesignIssues/LinkedData.html}}, we reused classes and properties from external vocabularies. The final ontology after the entity linking and expansion process contains three new classes: \texttt{wordnet:Synset}, \texttt{Entity} and \texttt{skos:Concept} and five new relations: \texttt{wordnet:synset\_member}, \texttt{dcterms:relation}, \texttt{dcterms:subject}, \texttt{skos:broader} and \texttt{wordnet:hypernym}\footnote{All the prefix we use here are the ones available via the \url{http://prefix.cc} service}.
-
-
-%\begin{figure}
-%\centering
-%\includegraphics[width=0.4\textwidth]{ch06_graph-rec/pics/fso_graph.png}
-%\caption{Portion of the initial knowledge graph\label{fig:fso_graph}}
-%\end{figure}
-
-%Following the Linked Open Data principles, the classes \texttt{Synset} and \texttt{Category} have been defined as \url{owl:equivalentClass} respectively with \url{wordnet:Synset} (see \url{http://wordnet-rdf.princeton.edu/ontology}) and \url{skos:Concept} (see \url{http://www.w3.org/TR/skos-reference/}) while the five new properties have been defined as \url{owl:equivalentProperty} respectively with \url{wordnet:synset_member}, \url{dcterms:relation} (see \url{http://dublincore.org/documents/dcmi-terms/}), \url{dcterms:subject}, \url{skos:broader} and  \url{wordnet:hypernym}.
-%, and fulfilled with the information gathered from WordNet and DBpedia.  
-%The knowledge graph was then built following the same procedure described for the initial Freesound Ontology, but according to the schema of the new enriched ontology. 
-
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.70\textwidth]{ch06_graph-rec/pics/fso_enhancement_new2.png}
-%	\caption{The enriched Freesound Ontology. \label{fig:fso_enhancement}}
-%\end{figure}
-%}
-
-%Moreover, many meaningful entities were mapped to these words
-%This was a correct mapping, and the word \textit{sample} defines perfectly the kind of sound, so it would be a very adequate tag. 
-%After the analysis of the Entity Linking and Word Sense Disambiguation output, it was observed that sound textual descriptions were very informative in most of the cases, and contain relevant keywords that were not in the list of tags. Moreover, many meaningful entities were mapped to these words. For example, in a sound\footnote{\url{http://www.freesound.org/people/TicTacShutUp/sounds/439/}}, the description was \textit{"standard snare sample. lower/mid tuning on the head"}" and tags were \textit{drums}, \textit{percussion}, \textit{snare}. Babelfy linked the word \textit{sample} from the description with the DBpedia entity \textit{Sampling\_(music)}. This was a correct mapping, and the word \textit{sample} defines perfectly the kind of sound, so it would be a very adequate tag. 
-%Therefore, an expansion of the semantic network was performed using words from the sound context. For this purpose, every word from the textual description of a sound that was not a stop word was considered as a keyword, and was related to the sound through the property hasKeyword. 
-%Two kinds of tags were then stored, the original tags and the extracted keywords. In addition, if Babelfy identified a set of consecutive words as an entity, the concatenation of these words was treated as a single keyword. 
-%Thus, after these processes of semantic and contextual expansion, the number of triples in our knowledge base was considerably increased.
-
- 
 
 \section{Recommendation approach}
 \label{sec:graph-rec:approach}
@@ -153,22 +129,22 @@ By transforming the graph domain into a vector domain any traditional learning a
 While kernel methods have been widely applied to solve different tasks, their usage becomes prohibitive when dealing with large datasets. 
 %because of their scalability bottleneck. % \cite{Pham2013}. 
 In addition, when the input data lie in a high-dimensional space, linear kernels have performances comparable to more complex non linear ones. 
-Due to the high volume of users we deal with in our Freesound dataset (see Section \ref{sec:evaluation}), we focused on learning methods which are computationally efficient. For this reason we adopted the approach of computing the explicit feature mapping of the item graphs and use linear methods to learn the user model. Specifically, we use the Linear Support Vector Regression \cite{HoL12} algorithm. 
+Due to the high volume of users we deal with in our Freesound dataset (see Section \ref{sec:graph-rec:evaluation}), we focused on learning methods which are computationally efficient. For this reason we adopted the approach of computing the explicit feature mapping of the item graphs and use linear methods to learn the user model. Specifically, we use the Linear Support Vector Regression \cite{HoL12} algorithm. 
 Regarding the explicit feature mapping computation we define two sparse high-dimensional feature maps: the one based on entities, the other on paths that we call \textit{entity-based item neighborhood mapping} and \textit{path-based item neighborhood mapping}, respectively. In the following we formalize the computation of such graph embeddings. 
 \subsection{Explicit feature mappings for graph-based Item Representations}
 Let us formally define the knowledge graph as a multi-relational graph $G=\lbrace t \mid t \in E \times R \times E \rbrace$, where $E$ denotes the set of entities and $R$ indicates the set of properties or relations, namely the edge labels. Moreover, we have $I \subseteq E$ since we consider items as a particular type of entities.\\
 %Since we are interested in the individual items by themselves we focus on each \texttt{item neighborhood graph}, that is the sub-graph describing that item.  
 With $E^h_i$ we denote the set of entities reachable in \textit{at most h} hops from $i$ according to the shortest path in $G$. For a generic item $i$ we then define its h-hop neighborhood graph $G^h_i=\lbrace t=(e_i,r_j,e_k) \mid t \in E^h_i \times R \times E^h_i \rbrace$ that is the subgraph of $G$ induced by the set of triples involving entities in $E^h_i$. 
 
-Figure \ref{fig:Example} shows an example of 3-hop item neighborhood graph for item $i$, namely $G^3_i$. We see that, if we consider the shortest path, all the entities are no more than 3 hops distant from $i$. 
+Figure \ref{fig:graph-rec:Example} shows an example of 3-hop item neighborhood graph for item $i$, namely $G^3_i$. We see that, if we consider the shortest path, all the entities are no more than 3 hops distant from $i$. 
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.8\textwidth]{ch06_graph-rec/pics/item_neig.png}
 \end{center}
 \caption{An example of 3-hop item neighborhood graph for the item $i$.}
-\label{fig:Example}
+\label{fig:graph-rec:Example}
 \end{figure}
-To clarify the definition and computation of $G^h_i$ and $E^h_i$ for item $i$, we show their computation with reference to the example shown in Figure \ref{fig:Example}:\\ 
+To clarify the definition and computation of $G^h_i$ and $E^h_i$ for item $i$, we show their computation with reference to the example shown in Figure \ref{fig:graph-rec:Example}:\\ 
 $G^1_i= \lbrace (i,p_1,e_1), (i,p_1,e_2), (e_3,p_2,i)\rbrace$\\ 
 $G^2_i= G^1_i \bigcup \lbrace (e_1,p_3,e_4), (e_1,p_3,e_5), (e_2,p_4,e_5), (e_2,p_1,e_6),(e_2,p_1,e_7), (e_3,p_2,e_7), (e_3,p_1,e_8) \rbrace$\\
 $G^3_i= G^2_i \bigcup \lbrace (e_4,p_3,e_9), (e_7,p_4,e_9), (e_7,p_3,e_{10}), (e_8,p_3,e_{10}),(e_8,p_3,e_{11}) \rbrace$\\
@@ -206,9 +182,9 @@ The more the entity $e_m$ is connected to neighboring entities of $i$, the more 
 $\alpha_l$ can be seen as a decay factor depending on the distance $l$ from the item $i$, whose aim is to incrementally penalize farther entities from the item. It allows us to take into account the \textit{locality} of those entities in the graph neighborhood. The closer an entity $e_m$ to the item $i$, the stronger its relatedness to it. We use a logarithmic decay. 
 Indeed, the discount factor can also be parametrized defining a specific weight for each hop. In such case, an optimal combination of weights can be found.
 
-With reference to example showed in Figure \ref{fig:Example}, the $c_{l,e_m}$ values are computed as follows: 
+With reference to example showed in Figure \ref{fig:graph-rec:Example}, the $c_{l,e_m}$ values are computed as follows: 
 $c_{1,e_1} =1$, $c_{1,e_2} =1$, $c_{1,e_3} = 1$, $c_{2,e_4} = 1$, $c_{2,e_5} =2$, $c_{2,e_6} =1$, $c_{2,e_7} =2$, $c_{2,e_8} =1$, $c_{3,e_9} =2$, $c_{3,e_{10}} =2$, $c_{3,e_{11}} =1$. All the others are zero.
-The presented graph embedding is an adaptation of the one presented in \cite{ODMD14a}, in this work we use a logarithmic discount factor instead of a parametric one.  
+The presented graph embedding is an adaptation of the one presented in \cite{ODMD14a}, in this chapter we use a logarithmic discount factor instead of a parametric one.  
 %In this mapping each feature refers to an entity in $E$ and the corresponding score represents the weight associated to that entity in $G^h_i$. The resulting feature vector $\phi_E(G^h_i)$ is:
 %%\begin{small}
 %\[
@@ -276,7 +252,7 @@ Each final feature vector $x_i$ is obtained by concatenating a vector of collabo
 \]
 where $w_{i,u_1}=1$ if user $u_1$ downloaded item $i$.
 
-Although more sophisticated and advanced methods can be used for feature combination \cite{Beliakov2015}, our experimental evaluation (see Section \ref{sec:evaluation}) shows the effectiveness of our choice.   
+Although more sophisticated and advanced methods can be used for feature combination \cite{Beliakov2015}, our experimental evaluation (see Section \ref{sec:graph-rec:evaluation}) shows the effectiveness of our choice.   
 %\subsection{Audio-based approach}
 %For evaluation purposes, we created a recommendation approach based only on audio content features. Apart from text descriptions and tags, Freesound provides information about acoustic features of the sound signal. Every sound in Freesound is analyzed at the time of the upload using Essentia~\cite{Bogdanov2013}, a library for audio analysis. Moreover, a distance measure between sounds is provided and sounds can be retrieved according to this measure. To calculate the distance between sounds, Personal Component Analysis (PCA) is applied over 352 low-level audio descriptors, reducing the space to 100 dimensions. Then, the euclidean distance between sounds is calculated over the reduced space. 
 %
@@ -308,9 +284,9 @@ where:
 
 Another important quality of the system is aggregate diversity. 
 %its level of personalization which can be measured looking at the aggregate diversity of recommendations across all users. 
-In our work we adopt the \textit{diversity-in-top-N} metric presented in \cite{AdomaviciusK12} that measures the distinct items recommended across all users. In particular we compute its normalized version with respect to the size of the item catalog. For brevity we refer to it as $ADiv@N$ and we compute it as follows:
+In our chapter we adopt the \textit{diversity-in-top-N} metric presented in \cite{AdomaviciusK12} that measures the distinct items recommended across all users. In particular we compute its normalized version with respect to the size of the item catalog. For brevity we refer to it as $ADiv@N$ and we compute it as follows:
 \[ ADiv@N = \frac{ \vert \bigcup_u L_u \vert }{ \vert I \vert }  \]
-This metric is an indicator of the level of personalization provided by a recommender system. Low values of aggregated diversity indicate  that all users are being recommended almost the same few items. This corresponds to a low level of personalization of the system. Instead, high values mean that users receive very different recommendations which can be indirectly seen as a high level of personalization of the system. %The importance of such particular dimension of the recommendation quality has been also highlighted in other works as in \cite{JannachLGB13}.
+This metric is an indicator of the level of personalization provided by a recommender system. Low values of aggregated diversity indicate  that all users are being recommended almost the same few items. This corresponds to a low level of personalization of the system. Instead, high values mean that users receive very different recommendations which can be indirectly seen as a high level of personalization of the system. %The importance of such particular dimension of the recommendation quality has been also highlighted in other chapters as in \cite{JannachLGB13}.
 
 All the reported metrics, besides aggregated diversity, are computed for each single user and eventually averaged.
 
@@ -319,7 +295,7 @@ All the reported metrics, besides aggregated diversity, are computed for each si
 We evaluated our approach on historical data about sound downloads collected from February 2005 to October 2013. The initial dump consisted in 3,275,092 users, 183,246 sounds and 48,636,182 downloads. However, for the purpose of our experimentation, we selected a subset of sounds that fulfilled some criteria. We selected those sound with at least two tags classified in the Freesound Ontology \cite{Font2014}. After that we filtered out all sounds with less than 10 downloads to reduce the sparsity of the implicit feedback matrix and have a fairer comparison with pure collaborative filtering methods. 
 %After this initial filtering, a total number of 99,008 sounds were obtained out of which 22,000 were randomly selected. Among them, we selected those with at least one entity detected in textual description and linked to WordNet or DBpedia and finally obtained 21,552 sounds. 
 %The number of registered users that had downloaded at least 50 of these sounds was 112,723 out of which 20,000 were randomly selected. 
-After some further data cleansing, the final dataset consisted in 20,000 users, 21,552 items and 2,117,698 downloads\footnote{ A dump of the datasets is available at \url{http://mtg.upf.edu/download/datasets/knowledge-graph-rec}}. The sparsity of the implicit feedback matrix was 99.51\%. Statistics on the enriched knowledge graph of the final dataset are shown in Table~\ref{tbl:datasets}.
+After some further data cleansing, the final dataset consisted in 20,000 users, 21,552 items and 2,117,698 downloads\footnote{ A dump of the datasets is available at \url{http://mtg.upf.edu/download/datasets/knowledge-graph-rec}}. The sparsity of the implicit feedback matrix was 99.51\%. Statistics on the enriched knowledge graph of the final dataset are shown in Table~\ref{tbl:graph-rec:datasets}.
 
 %The total number of different tags found in the final set of sounds was 15,096. From this tag space, 8,160 were mapped to WordNet concepts, 7,099 to DBpedia entities, and 387 were classified in the Freesound Ontology. The average number of mapped tags per item was 6.44. From the textual descriptions, a total number of 23,481 keywords were mapped to 16,706 WordNet synsets, and 16,854 DBpedia entities. The average number of mapped keywords per item was 11.36.
 %{\color{red}The full dataset, including hypernyms and broader categories, contains 16,407 DBpedia entities, 54,419 Wikipedia categories, and 20,034 WordNet synsets.}
@@ -327,9 +303,9 @@ After some further data cleansing, the final dataset consisted in 20,000 users, 
 
 \begin{table}
 	%[!htb]
-	%\tbl{Datasets Overview\label{tbl:datasets}}{%
+	%\tbl{Datasets Overview\label{tbl:graph-rec:datasets}}{%
 %	\scriptsize
-	\label{tbl:datasets}
+	\label{tbl:graph-rec:datasets}
 	\begin{tabular}{l c c c c c c}
 		\toprule
 		\textbf{dataset} & \textbf{items} & \textbf{avg. tags} & \textbf{avg. keywords} & \textbf{resources} & \textbf{synsets} & \textbf{categories}\\
@@ -346,26 +322,26 @@ After some further data cleansing, the final dataset consisted in 20,000 users, 
 
 \paragraph*{\textbf{Last.fm Dataset}}\label{fs_dataset}
 To recreate most of the conditions of the Freesound dataset in a typical music recommendation scenario, a new dataset is created combining user's implicit feedback, tags and textual descriptions of songs. This dataset combines a corpus of user's listening habits and song-related tags coming from Last.fm\footnote{\url{http://last.fm}} \cite{Vigliensoni2014}, with a corpus of textual descriptions about songs obtained from Songfacts.com\footnote{\url{http://songfacts.com}} \cite{Sordo2015}. The former is an implicit feedback dataset consisting of user-song listening data, indicating the frequency a user listened to a song. For every user in the corpus we chose the users' average listening count as a threshold to identify the relevant songs for each user. From Last.fm, we only selected for our dataset user-song relations with a number of listens above each user's threshold. Moreover, only those songs that were relevant to at least 10 users, and users with at least 50 relevant songs were added to the dataset. The final dataset consisted in 5,199 users, 8,640 songs and 751,531 relations between users and songs. The sparsity of the implicit feedback matrix was 98.33\%.
-This collaborative information was complemented with the list of top tags of every song provided by the Last.fm API, and a textual description of each song coming from Songfacts.com. Information about the enriched knowledge graph is shown in Table~\ref{tbl:datasets}.
+This collaborative information was complemented with the list of top tags of every song provided by the Last.fm API, and a textual description of each song coming from Songfacts.com. Information about the enriched knowledge graph is shown in Table~\ref{tbl:graph-rec:datasets}.
 %We applied the same semantic enrichment process described in Section~\ref{sec:enrichment} to tags and text descriptions. A total number of 38,796 DBpedia entities, 88,556 Wikipedia categories and 15,995 WordNet synsets were added to the Knowledge Graph. The average number of mapped keywords per item was 99.6.
 
 
 \subsection{Experiment settings}
-As mentioned in Section \ref{sec:approach}, each user model is learnt using the Linear Support Vector Regression method. In particular we adopted the efficient \textit{LIBLINEAR\footnote{\url{http://www.csie.ntu.edu.tw/~cjlin/liblinear/}}} library and chose the \textit{L2-regularized Support Vector Regression} \cite{HoL12}. 
+As mentioned in Section \ref{sec:graph-rec:approach}, each user model is learnt using the Linear Support Vector Regression method. In particular we adopted the efficient \textit{LIBLINEAR\footnote{\url{http://www.csie.ntu.edu.tw/~cjlin/liblinear/}}} library and chose the \textit{L2-regularized Support Vector Regression} \cite{HoL12}. 
 The tuning of the model hyper-parameters of the learning algorithm was performed through cross-validation on validation data obtained by selecting the 15\% of feedback for each user from the training data. We set the parameters $C$ and $e$ by using a grid-search varying $C$ from 0.1 to 1000 with step 10 and $e=\lbrace 0.1,0.01 \rbrace$ (tolerance of termination criterion). Before the training we performed some pre-processing on the feature vectors. We removed those features appearing in less then 5  sounds and scaled all features to the range $[0,\ldots,1]$ using min-max normalization. Finally each feature vector was normalized to unit length using the L2 norm.
 
 Regarding the run time performances of the entire recommender for the Freesound experiment, the highest computation time (corresponding to the path-based feature mapping with 3-hops) lasted about 28 minutes, from feature extraction to recommendation generation, on a dedicated server machine with 4 Xeon quad-core 2.93GHz processors and 32GB RAM. 
 Since each user model is learnt independently, the learning process is highly parallelizable.  Moreover, being a model-based recommender, each user model learning can be performed offline periodically once a certain number of new feedbacks are accumulated for that specific user. 
-The implementation of the recommendation algorithm presented in this work is available on GitHub \footnote{\url{https://github.com/sisinflab/lodreclib}}.
+The implementation of the recommendation algorithm presented in this chapter is available on GitHub \footnote{\url{https://github.com/sisinflab/lodreclib}}.
 
 In the following we describe the experiments we carried out to evaluate our approach. In particular we are interested in evaluating the impact of semantic enrichment of the original data on the recommendation quality and the differences among the two feature mapping methods we implemented. Furthermore, we compare our approach with state of the art algorithms for implicit feedback scenarios. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}
 	%[!htb]
-	%\tbl{Freesound Results\label{tbl:Res1}}{%
+	%\tbl{Freesound Results\label{tbl:graph-rec:Res1}}{%
 %	\scriptsize
-	\label{tbl:Res1}
+	\label{tbl:graph-rec:Res1}
 \begin{tabular}{l l c c c c c c }
 		\toprule
 		\textbf{Approach} & \textbf{Enrichment} & \textbf{h-hops} & \textbf{MRR} &  \textbf{P@10} & \textbf{R@10} & \textbf{EBN@10}  & \textbf{ADiv@10}\\
@@ -405,7 +381,7 @@ To evaluate the impact of the various features and information sources we built 
 %Differently from the previous cases, \texttt{VSM keyw+tags} is a pure textual approach where the Vector Space Model was applied on raw tags and keywords. 
 %\texttt{noCollab} means that no collaborative features are considered (pure content-based approach) and \texttt{Collab} means that only collaborative features are considered (each feature vector consists of $\phi_{col}$ only). 
 In addition, we built a content-based approach purely based on 352 low-level audio features\footnote{\url{https://www.freesound.org/docs/api/analysis_example.html\#all-descriptors}} extracted from the sound signal by using Essentia~\cite{Bogdanov2013}. In this approach, predictions are computed by aggregating the Euclidean distances between the sounds downloaded by the user and the target sound to recommend. %Final recommendation lists are generated by taking the sounds with lowest score.
-All the results are reported in Table \ref{tbl:Res1}. 
+All the results are reported in Table \ref{tbl:graph-rec:Res1}. 
 
 Looking at the accuracy results we see that there are no marked differences among all the feature vector variants. Noteworthy is that without considering the collaborative information (\texttt{noCollab}) the accuracy drops significantly. In addition, when considering only collaborative features accuracy performances are comparable with respect to hybrid feature combination variants. The best hybrid semantic version \texttt{Ent(fso+wn+db/keyw+tags/h=3)} is slightly better than pure collaborative (+0.8\% in terms of P@10). 
 Regarding the comparison of the two mapping methods, the Entity-based item neighborhood mapping has generally slightly higher accuracy than the Path-based one. We can also note that considering too far entities does not improve accuracy. In fact, in both the two feature mapping when four hops are considered the results drop slightly with respect to three hops. 
@@ -431,7 +407,7 @@ To conclude, we can state that the semantic expansion, especially when combined 
 	\begin{subfigure}[b]{0.5\textwidth}
 		\includegraphics[width=\textwidth]{ch06_graph-rec/pics/nov_fr.png}
 	\end{subfigure}
-	\caption{Precision-Recall, Novelty and Aggregate Diversity plots in Freesound dataset\label{fig:accur}}
+	\caption{Precision-Recall, Novelty and Aggregate Diversity plots in Freesound dataset\label{fig:graph-rec:accur}}
 \end{figure*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -440,10 +416,10 @@ To conclude, we can state that the semantic expansion, especially when combined 
 %	\subfigure{\includegraphics[width=1\textwidth]{ch06_graph-rec/pics/prec_rec.png}}
 %	\subfigure{\includegraphics[width=1\textwidth]{ch06_graph-rec/pics/nov.png}}
 %	\subfigure{\includegraphics[width=1\textwidth]{ch06_graph-rec/pics/adiv.png}}
-%	\caption{Precision-Recall, Novelty and Aggregate Diversity plots\label{fig:accur}}
+%	\caption{Precision-Recall, Novelty and Aggregate Diversity plots\label{fig:graph-rec:accur}}
 %\end{figure*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%In order to evaluate the effectiveness in terms of ranking accuracy of \framework we compared it with several state of the art recommendation algorithms:
+%In order to evaluate the effectiveness in terms of ranking accuracy of \framechapter we compared it with several state of the art recommendation algorithms:
 %\vcoinline{cf focus too much on popular items, instead our approach is able to explore long tail items.}
 We compared our approach with several state of the art recommendation algorithms. 
 %\begin{scriptsize}
@@ -453,11 +429,11 @@ We compared our approach with several state of the art recommendation algorithms
 \texttt{WRMF} is a weighted matrix factorization method \cite{Hu2008}.
 \texttt{SLIM} \cite{Ning2012} uses a Sparse Linear method for learning a sparse aggregation coefficient matrix.
 \texttt{BPR-SLIM} is similar to \texttt{SLIM} but it uses the BPR optimization criterion.
-\texttt{BPR Linear} is a hybrid matrix factorization method able to work with sparse datasets \cite{GantnerDFRS10}. We used keywords and tags as item attribute data. 
+\texttt{BPR Linear} is a hybrid matrix factorization method able to chapter with sparse datasets \cite{GantnerDFRS10}. We used keywords and tags as item attribute data. 
 The computation of the recommendations for all these comparative algorithms has been done with the publicly available software library \textit{MyMediaLite}\footnote{\url{http://www.mymedialite.net/}.}.
 %\cite{Gantner2011MyMediaLite}
 
-Figure \ref{fig:accur} shows precision-recall, novelty and aggregated diversity plots. In those plots we report the competitive algorithms used for comparison and the \texttt{Ent(fso+wn+db/keyw+tags/h=4)} and \texttt{Path(fso+wn+db+keyw+tags/h=4)} configurations which we chose as representative for our approach due to its performances in terms of novelty and aggregate diversity. 
+Figure \ref{fig:graph-rec:accur} shows precision-recall, novelty and aggregated diversity plots. In those plots we report the competitive algorithms used for comparison and the \texttt{Ent(fso+wn+db/keyw+tags/h=4)} and \texttt{Path(fso+wn+db+keyw+tags/h=4)} configurations which we chose as representative for our approach due to its performances in terms of novelty and aggregate diversity. 
 \\With reference to the accuracy results we notice that our two approaches largely outperforms the others. The only method which is close to the approaches we propose is \texttt{BPR-SLIM} which slightly outperforms \texttt{Path(fso+wn+db+keyw+tags/h=4)} for low values of recommendation list length ($N=5,10$). All differences between our approach and the other methods are statistically significant ($p<0.01$) according to the paired t-test.
 %Regarding our approach, the Entity-based mapping slightly outperfoms the Path-based mapping as already discussed in Section \ref{sem_eval}. 
 With respect to the Novelty plot, our approach has much better novelty than all the other collaborative filtering algorithms but \texttt{BPR Linear} which however have much lower accuracy. 
@@ -468,14 +444,14 @@ In addition, our approach shows much higher aggregated diversity which can be se
 
 \subsection{Music Recommendation Experiment}
 The recommendation algorithms we propose have been further validated on the Last.fm dataset. We performed the same experiments on this dataset to assess the applicability of the approach to other musical contexts.
-%To confirm the obtained results and its applicability to other musical contexts, we performed a second experiment on the Last.fm dataset using the same set of feature vector variants and competitor approaches. %Results on the evaluation of the semantic item description enhancement are shown in Table~\ref{tbl:Res_sf}.
-%, whilst the comparison with other methods is shown in Figure~\ref{fig:accur_sf}. 
+%To confirm the obtained results and its applicability to other musical contexts, we performed a second experiment on the Last.fm dataset using the same set of feature vector variants and competitor approaches. %Results on the evaluation of the semantic item description enhancement are shown in Table~\ref{tbl:graph-rec:Res_sf}.
+%, whilst the comparison with other methods is shown in Figure~\ref{fig:graph-rec:accur_sf}. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}
 	%[!htb]
 	%\tbl{Last.fm Results}{%
 %	\scriptsize
-	\label{tbl:Res_sf}
+	\label{tbl:graph-rec:Res_sf}
 	\begin{tabular}{l l c c c c c c }
 		\toprule
 		\textbf{Approach} & \textbf{Enrichment} & \textbf{h-hops} &  \textbf{MRR} &  \textbf{P@10} & \textbf{R@10} & \textbf{EBN@10}  & \textbf{ADiv@10}\\
@@ -505,7 +481,7 @@ The recommendation algorithms we propose have been further validated on the Last
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph*{\textbf{Evaluation of the semantic item description enhancement}}\label{sem_eval}
-As we may notice from the results shown in Table~\ref{tbl:Res_sf}, Entity-based embedding, \texttt{Collab}, and \texttt{VSM tags} approaches have very similar performance in terms of precision and recall. The first two Entity-based embedding variants have slightly higher MRR than \texttt{VSM tags}, meaning that they better locate relevant items in the top positions. Analogously to the previous sounds recommendation task, the approaches exploiting semantic expansion outperform the others in terms of novelty and aggregated diversity. The same tendency of the previous experiment is observed with the Entity-based and Path-based item neighborhood mappings. The Path-based approaches have lower precision, but much better novelty and aggregated diversity. Moreover, it is very interesting to observe that for both embedding options if we expand the graph by means of farther entities (h=4) precision decreases whilst novelty and diversity improve. It is noteworthy thet differently from the results of the Freesound experiment, here we obtain higher accuracy with the approach that uses only tags and not keywords. Our interpretation of this trend is that, as shown in Table~\ref{tbl:datasets}, the number of tags in the Freesound dataset is somehow scarce, and the addition of keywords taken from the textual descriptions improves the annotation of the items. On the other side, in the Last.fm dataset, the set of tags is already very rich, then the addition of keywords introduces noise within the items description thus deteriorating the accuracy of recommendations. 
+As we may notice from the results shown in Table~\ref{tbl:graph-rec:Res_sf}, Entity-based embedding, \texttt{Collab}, and \texttt{VSM tags} approaches have very similar performance in terms of precision and recall. The first two Entity-based embedding variants have slightly higher MRR than \texttt{VSM tags}, meaning that they better locate relevant items in the top positions. Analogously to the previous sounds recommendation task, the approaches exploiting semantic expansion outperform the others in terms of novelty and aggregated diversity. The same tendency of the previous experiment is observed with the Entity-based and Path-based item neighborhood mappings. The Path-based approaches have lower precision, but much better novelty and aggregated diversity. Moreover, it is very interesting to observe that for both embedding options if we expand the graph by means of farther entities (h=4) precision decreases whilst novelty and diversity improve. It is noteworthy thet differently from the results of the Freesound experiment, here we obtain higher accuracy with the approach that uses only tags and not keywords. Our interpretation of this trend is that, as shown in Table~\ref{tbl:graph-rec:datasets}, the number of tags in the Freesound dataset is somehow scarce, and the addition of keywords taken from the textual descriptions improves the annotation of the items. On the other side, in the Last.fm dataset, the set of tags is already very rich, then the addition of keywords introduces noise within the items description thus deteriorating the accuracy of recommendations. 
 Also in this experiment we can observe that when no collaborative feature is used, accuracy is significantly worse even if novelty and diversity seem to be better. 
 We may confirm from results in both experiments that collaborative features are a very strong signal for the accuracy of the recommendations. Nonetheless, the inclusion of semantic features allows the system to further improve accuracy and provide novel and diverse recommendations, thus better leveraging the long tail. All the differences between the hybrid graph embeddings and the other baselines are statistically significant ($p<0.01$) according to the paired t-test.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -517,13 +493,13 @@ We may confirm from results in both experiments that collaborative features are 
 	\begin{subfigure}[b]{0.5\textwidth}
 		\includegraphics[width=\textwidth]{ch06_graph-rec/pics/nov_lf.png}
 	\end{subfigure}
-	\caption{Precision-Recall, Novelty and Aggregate Diversity plots in Last.fm dataset\label{fig:accur_sf}}
+	\caption{Precision-Recall, Novelty and Aggregate Diversity plots in Last.fm dataset\label{fig:graph-rec:accur_sf}}
 \end{figure*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph*{\textbf{Comparison with other methods}}\label{comp}
 We compared our approach with the same set of state of the art algorithms presented in the sound recommendation experiment. Based on the observations made in the previous paragraph, we used for this experiment only tags as item attribute data for \texttt{BPR Linear}.
-Figure \ref{fig:accur_sf} shows precision-recall, novelty and aggregated diversity plots of the comparison with the other methods. We compare the competitive algorithms with the \texttt{Ent(wn+db/tags/h=3)} and \texttt{Path(wn+db/tags/h=3)} configurations which in this scenario results to be the most representative for our approach. 
+Figure \ref{fig:graph-rec:accur_sf} shows precision-recall, novelty and aggregated diversity plots of the comparison with the other methods. We compare the competitive algorithms with the \texttt{Ent(wn+db/tags/h=3)} and \texttt{Path(wn+db/tags/h=3)} configurations which in this scenario results to be the most representative for our approach. 
 Results are pretty similar to the ones observed in the sound recommendation experiment. Our two approaches largely outperforms the others in terms of accuracy. \texttt{BPR-SLIM} and \texttt{SLIM} have performance similar to our Entity-based mapping approach for low values of recommendation list length (N = 5, 10), and slightly higher that the Path-based one. All differences between our approaches and the other methods are statistically significant ($p<0.01$) according to the paired t-test. Our approaches have much better novelty results than all other collaborative filtering algorithms but \texttt{BPR Linear}, which again has much lower accuracy. In terms of aggregated diversity, our approach outperforms most of the collaborative filtering algorithms. \texttt{BPR Linear} achieves similar diversity, but much lower accuracy.
 Summing up, our approach is able to recommend less popular items with higher accuracy than other collaborative filtering algorithms also in this recommendation scenario. Therefore, our approach is able to improve the level of personalization of the recommended items, and  better explore the long tail also for songs recommendation.
 
@@ -541,4 +517,4 @@ Experimental results in sounds and songs recommendation show that the proposed a
 Summing up, knowledge graphs can be a useful tool when properly leveraged within recommender systems for musical items. Indeed, the graph-based nature of the information they contain, on the one hand, makes possible a linkage to other graphs thus resulting in an easy plugging of new content-based data. On the other hand, by exploring the graph new connections and commonalities between items and users can be discovered and exploited while computing the recommendation list.
 
 
-%\\As future work we are currently planning to integrate the proposed algorithm into Freesound for computing sound recommendation and perform an experimental evaluation with real users. In addition, we want to evaluate the proposed approach on different domains to generalize the results about the usage of the semantic feature expansion to improve aggregate diversity and novelty. 
+%\\As future chapter we are currently planning to integrate the proposed algorithm into Freesound for computing sound recommendation and perform an experimental evaluation with real users. In addition, we want to evaluate the proposed approach on different domains to generalize the results about the usage of the semantic feature expansion to improve aggregate diversity and novelty. 

@@ -1,20 +1,29 @@
 %!TEX root = ../thesis_a4.tex
 
-\chapter{Artist Similarity}
+\chapter{Semantic Enrichment via Entity Linking}
 \label{sec:similarity:similarity}
 
 \section{Introduction}\label{sec:similarity:introduction} %Todos
 
-%Artist biographies are a big source of musical context information and have been previously used for computing artist similarity. However, only shallow approaches have been applied by computing word co--occurrences and thus the semantics implicit in text have been barely exploited. To do so, semantic technologies, and more specifically Entity Linking tools may play a key role to annotate unstructured texts. These are able to identify named entities in text and disambiguate them with their corresponding entry in a knowledge base (e.g. Wikipedia, DBpedia or BabelNet).
+This chapter describes a method for the semantic enrichment of music documents using Entity Linking. The result of the enrichment process may be encoded as a Knowledge Graph or a Vector Space Model. Three experiments are then carried on to assess the utility of the proposed methodology in different MIR tasks.
 
-This chapter describes a method for computing semantic similarity at document-level, and presents evaluation results in the task of artist similarity. The cornerstone of this work is the intuition that semantifying and formalizing relations between entity mentions in documents (both at in-document and cross-document levels) can represent the relatedness of two documents. Specifically, in the task of artist similarity, this derives in a measure to quantify the degree of relatedness between two artists by looking at their biographies.
+The first experiment  
 
-Our experiments start with a preprocessing step which involve Entity Linking over artist biographical texts. %using Babelfy \cite{Moroetal2014} and a syntactic step based on dependency parsing \cite{Bohnet2010}. Then, the information contained in form of natural language in an artist?s biography is represented as a set of entities and relations in the form of a semantic graph.
+a method for computing semantic similarity at document-level, and presents evaluation results in the task of artist similarity. The cornerstone of this work is the intuition that semantifying and formalizing relations between entity mentions in documents (both at in-document and cross-document levels) can represent the relatedness of two documents. Specifically, in the task of artist similarity, this derives in a measure to quantify the degree of relatedness between two artists by looking at their biographies.
+
+Our experiments start with a preprocessing step which involve Entity Linking over artist biographical texts.
 Then, a knowledge representation is derived from the detected entities in the form of a semantic graph or a mapping to a vector-space model.
 Finally, different similarity measures are applied to a benchmarking dataset. The evaluation results indicate that some approaches presented in this chapter clearly outperform a baseline based on shallow word co-occurrence metrics.
 Source code and datasets are available online\footnote{\url{http://mtg.upf.edu/downloads/datasets/semantic-similarity}}.
 
 The remainder of this chapter is structured as follows: Section \ref{sec:similarity:related} reviews prominent work in the fields and topic relevant to this chapter; Section \ref{sec:similarity:methodology} details the different modules that integrate our approach; Section \ref{sec:similarity:experimentalsetup} describes the settings in which experiments were carried out together with the evaluation metrics used; Section \ref{sec:similarity:results} presents the evaluation results and discusses the performance of our method; and finally Section \ref{sec:similarity:conclusion} summarizes the main topics covered in this chapter.
+
+The second experiment
+Finally, the content of the knowledge base is used to compute artist relevance and results are evaluated according to flamenco experts criteria.
+
+The third experiment
+First, we explore the contribution of such features to the Music Genre classification task, consisting in, given a song or album review, predict the genre it belongs to.
+First, we perform experiments on music genre classification, exploring a variety of feature types, including semantic, sentimental and acoustic features. These experiments show that modeling semantic information contributes to outperforming strong bag-of-words baselines. 
 
 
 \section{Methodology} %Moha
