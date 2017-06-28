@@ -6,18 +6,18 @@ A level-1 auxiliary file: ch00/preliminarystuff.aux
 A level-1 auxiliary file: ch00/matematiques.aux
 A level-1 auxiliary file: ch01_introduction/introduction.aux
 A level-1 auxiliary file: ch02_soa/soa.aux
-A level-1 auxiliary file: ch03_background/background.aux
+A level-1 auxiliary file: ch03_linking/linking.aux
 A level-1 auxiliary file: ch04_kbconstruction/kbconstruction.aux
-A level-1 auxiliary file: ch05_similarity/similarity.aux
-A level-1 auxiliary file: ch06_graph-rec/graph-rec.aux
-A level-1 auxiliary file: ch07_text-class/text-class.aux
-A level-1 auxiliary file: ch08_musicology/musicology.aux
-A level-1 auxiliary file: ch09_deep-learning/deep-learning.aux
-A level-1 auxiliary file: ch10_cold-rec/cold-rec.aux
-A level-1 auxiliary file: ch11_multimodal-class/multimodal-class.aux
+A level-1 auxiliary file: ch05_musicology/musicology.aux
+A level-1 auxiliary file: ch06_similarity/similarity.aux
+A level-1 auxiliary file: ch07_graph-rec/graph-rec.aux
+A level-1 auxiliary file: ch08_cold-rec/cold-rec.aux
+A level-1 auxiliary file: ch09_multimodal-class/multimodal-class.aux
 A level-1 auxiliary file: ch98_conclusions/conclusions.aux
 A level-1 auxiliary file: ch99/finalpage.aux
 The style file: apa_jserra2.bst
+A level-1 auxiliary file: ch99/datasets.aux
+A level-1 auxiliary file: ch99/pubs.aux
 Database file #1: biblio_final.bib
 Repeated entry---line 1945 of file biblio_final.bib
  : @inproceedings{wang2009tag
@@ -26,10 +26,6 @@ I'm skipping whatever remains of this entry
 Repeated entry---line 2092 of file biblio_final.bib
  : @inproceedings{Bellogin2010
  :                            ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 2481 of file biblio_final.bib
- : @article{Oramas2015a
- :                     ,
 I'm skipping whatever remains of this entry
 Repeated entry---line 2519 of file biblio_final.bib
  : @article{Oramas2015
@@ -55,54 +51,59 @@ Repeated entry---line 3915 of file biblio_final.bib
  : @article{Oramas2015
  :                    ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "Sordoetal2015"
-Warning--I didn't find a database entry for "TODO"
+Repeated entry---line 4162 of file biblio_final.bib
+ : @article {Bogdanov2013
+ :                       ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for ""
+Warning--I didn't find a database entry for "Ning12"
+Warning--I didn't find a database entry for "wordnet"
+Warning--I didn't find a database entry for "knees_schedl2013"
 Warning--missing publisher in alleyne2012encyclopedia
 Warning--can't use both author and editor fields in Beliakov2015
 Warning--empty booktitle in DongSOS13
-Warning--there's a number but no volume in Mooney1999
+Warning--missing publisher in Gangemi2013
 Warning--there's a number but no volume in Nakasholeetal2012
 Warning--there's a number but no volume in Navigli2010
-Warning--there's a number but no volume in Oramas2015a
-You've used 168 entries,
+You've used 165 entries,
             2821 wiz_defined-function locations,
-            1639 strings with 40321 characters,
-and the built_in function-call counts, 113706 in all, are:
-= -- 9722
-> -- 4678
-< -- 175
-+ -- 1690
-- -- 1512
-* -- 8245
-:= -- 16761
-add.period$ -- 551
-call.type$ -- 168
-change.case$ -- 1511
-chr.to.int$ -- 158
-cite$ -- 175
-duplicate$ -- 8311
-empty$ -- 8368
-format.name$ -- 2111
-if$ -- 23410
-int.to.chr$ -- 11
+            1622 strings with 39397 characters,
+and the built_in function-call counts, 112264 in all, are:
+= -- 9609
+> -- 4600
+< -- 176
++ -- 1663
+- -- 1488
+* -- 8147
+:= -- 16522
+add.period$ -- 543
+call.type$ -- 165
+change.case$ -- 1483
+chr.to.int$ -- 157
+cite$ -- 171
+duplicate$ -- 8191
+empty$ -- 8277
+format.name$ -- 2076
+if$ -- 23129
+int.to.chr$ -- 9
 int.to.str$ -- 1
-missing$ -- 1598
-newline$ -- 843
-num.names$ -- 674
-pop$ -- 3491
+missing$ -- 1581
+newline$ -- 828
+num.names$ -- 662
+pop$ -- 3420
 preamble$ -- 1
-purify$ -- 1174
+purify$ -- 1154
 quote$ -- 0
-skip$ -- 3656
+skip$ -- 3602
 stack$ -- 0
-substring$ -- 5472
-swap$ -- 4580
+substring$ -- 5482
+swap$ -- 4536
 text.length$ -- 98
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1485
-warning$ -- 7
-while$ -- 849
+type$ -- 1455
+warning$ -- 6
+while$ -- 846
 width$ -- 0
-write$ -- 2220
+write$ -- 2186
 (There were 9 error messages)

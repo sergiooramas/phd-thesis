@@ -1,4 +1,4 @@
-\begin{thebibliography}{168}
+\begin{thebibliography}{165}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Adomavicius \& Kwon(2012)}]{AdomaviciusK12}
@@ -55,11 +55,6 @@ Banko, M., Cafarella, M.~J., Soderland, S., Broadhead, M., \& Etzioni, O.
 \newblock In \emph{International Joint Conferences on Artificial Intelligence},
   pp. 2670--2676.
 
-\bibitem[{Bansal et~al.(2016)Bansal, Belanger, \& McCallum}]{Bansal2016}
-Bansal, T., Belanger, D., \& McCallum, A. (2016).
-\newblock {Ask the GRU: Multi-task Learning for Deep Text Recommendations}.
-\newblock \emph{RecSys}, pp. 107--114.
-
 \bibitem[{Baral \& {De Giacomo}(2015)}]{BaralandDeGiacomo2015}
 Baral, C. \& {De Giacomo}, G. (2015).
 \newblock {Knowledge Representation and Reasoning: What's Hot}.
@@ -81,10 +76,29 @@ Bellog$\backslash$'$\backslash$in, A., Cantador, I., \& Castells, P. (2010).
 \newblock In \emph{Proceedings of the 1st International Workshop on Information
   Heterogeneity and Fusion in Recommender Systems}, HetRec '10, pp. 1--8. ACM.
 
+\bibitem[{Bellomi \& Bonato(2005)}]{Bellomi2005}
+Bellomi, F. \& Bonato, R. (2005).
+\newblock {Network Analysis for Wikipedia}.
+\newblock \emph{Proceedings of Wikimania}.
+
+\bibitem[{Bizer et~al.(2009)Bizer, Lehmann, Kobilarov, Auer, Becker, Cyganiak,
+  \& Hellmann}]{dbpedia1}
+Bizer, C., Lehmann, J., Kobilarov, G., Auer, S., Becker, C., Cyganiak, R., \&
+  Hellmann, S. (2009).
+\newblock {DBpedia - A crystallization point for the Web of Data}.
+\newblock \emph{Web Semant.}, \emph{7}(3), 154--165.
+
 \bibitem[{{Blas Vega} \& {R{\'{i}}os Ruiz}(1988)}]{bvrr-88}
 {Blas Vega}, J. \& {R{\'{i}}os Ruiz}, M. (1988).
 \newblock \emph{{Diccionario enciclop{\'{e}}dico ilustrado del flamenco}}.
 \newblock Madrid: Cinterco.
+
+\bibitem[{Bogdanov \& Herrera(2011)}]{Bogdanov2011}
+Bogdanov, D. \& Herrera, P. (2011).
+\newblock How much metadata do we need in music recommendation? a subjective
+  evaluation using preference sets.
+\newblock In \emph{International Society for Music Information Retrieval
+  Conference (ISMIR)}. Miami, Florida, USA.
 
 \bibitem[{Bogdanov et~al.(2016)Bogdanov, Porter, Herrera, \&
   Serra}]{bogdanov2016cross}
@@ -144,6 +158,11 @@ Bovi, C.~D., Telesca, L., \& Navigli, R. (2015{\natexlab{b}}).
 \newblock \emph{Transactions of the Association for Computational Linguistics
   (TACL)}, \emph{3}, 529--543.
 
+\bibitem[{Brin \& Page(1998)}]{Brin1998}
+Brin, S. \& Page, L. (1998).
+\newblock {The Anatomy of a Large-Scale Hypertextual Web Search Engine}.
+\newblock \emph{Computer Networks}, \emph{30}, 107--117.
+
 \bibitem[{Bunescu \& Pasca(2006)}]{BunescuandPasca2006}
 Bunescu, R. \& Pasca, M. (2006).
 \newblock {Using Encyclopedic Knowledge for Named Entity Disambiguation}.
@@ -191,6 +210,11 @@ Carlson, A., Betteridge, J., Wang, R.~C., {Hruschka Jr}, E., \& Mitchell, T.~M.
 \newblock In \emph{Proceedings of the third ACM International Conference on Web
   Search and Data Mining (WSDM)}, pp. 101--110.
 
+\bibitem[{Celma(2010)}]{Celma2010}
+Celma, {\`{O}}. (2010).
+\newblock \emph{{The Long Tail in Recommender Systems}}, pp. 87--107.
+\newblock Berlin, Heidelberg: Springer Berlin Heidelberg.
+
 \bibitem[{Celma et~al.(2006)Celma, Cano, \& Herrera}]{Celma2006}
 Celma, {\`{O}}., Cano, P., \& Herrera, P. (2006).
 \newblock {Search Sounds An audio crawler focused on weblogs}.
@@ -227,13 +251,6 @@ Choi, K., Fazekas, G., Sandler, M., \& Cho, K. (2016{\natexlab{b}}).
 \newblock {Convolutional Recurrent Neural Networks for Music Classification}.
 \newblock \emph{arXiv preprint arXiv:1609.04243}.
 
-\bibitem[{Choi et~al.(2014)Choi, Lee, \& Downie}]{Choi2014}
-Choi, K., Lee, J.~H., \& Downie, J.~S. (2014).
-\newblock {What is this song about anyway?: Automatic classification of subject
-  using user interpretations and lyrics}.
-\newblock \emph{Proceedings of the ACM/IEEE Joint Conference on Digital
-  Libraries}, pp. 453--454.
-
 \bibitem[{Cohen \& Fan(2000)}]{Cohen2000}
 Cohen, W.~W. \& Fan, W. (2000).
 \newblock {Web-collaborative filtering: recommending music by crawling the
@@ -247,6 +264,11 @@ Cornolti, M., Informatica, D., Ferragina, P., Informatica, D., \& Ciaramita, M.
 \newblock {No Title}.
 \newblock \emph{Proceedings of the International World Wide Web Conference
   (WWW) (Practice {\&} Experience Track), ACM (2013)}.
+
+\bibitem[{Cowie \& Lehnert(1996)}]{cowie1996information}
+Cowie, J. \& Lehnert, W. (1996).
+\newblock Information extraction.
+\newblock \emph{Communications of the ACM}, \emph{39}(1), 80--91.
 
 \bibitem[{Culotta \& Sorensen(2004)}]{CulottaSorensen2004}
 Culotta, A. \& Sorensen, J. (2004).
@@ -301,17 +323,11 @@ Dong, R., Schaal, M., O'Mahony, M.~P., \& Smyth, B. (2013).
   Recommendation}.
 \newblock IJCAI'13, pp. 1310--1316.
 
-\bibitem[{Downie \& Hu(2006)}]{Downie2006}
-Downie, J.~S. \& Hu, X. (2006).
-\newblock {Review mining for music digital libraries: phase II}.
-\newblock \emph{Proceedings of the 6th ACM/IEEE-CS Joint Conference on Digital
-  Libraries}, p. 196.
-
-\bibitem[{Eichler et~al.(2008)Eichler, Hemsen, \& Neumann}]{Eichler2008}
-Eichler, K., Hemsen, H., \& Neumann, G. (2008).
-\newblock {Unsupervised Relation Extraction from Web Documents.}
-\newblock In \emph{Proceedings of the 6th International Conference on Language
-  Resources and Evaluation}. ELRA.
+\bibitem[{Eck et~al.(2008)Eck, Lamere, Bertin-Mahieux, \& Green}]{Eck:NIPS2007}
+Eck, D., Lamere, P., Bertin-Mahieux, T., \& Green, S. (2008).
+\newblock {Automatic Generation of Social Tags for Music Recommendation}.
+\newblock In \emph{Advances in Neural Information Processing Systems 20}, pp.
+  385--392. Cambridge, MA: MIT Press.
 
 \bibitem[{Ellis et~al.(2002)Ellis, Ellis, Whitman, Berenzweig, \&
   Lawrence}]{Ellis2002}
@@ -372,6 +388,12 @@ Font, F. \& Oramas, S. (2014).
 \newblock {Extending Tagging Ontologies with Domain Specific Knowledge}.
 \newblock \emph{Interantional Semantic Web Conference (ISWC 2014)}, pp. 1--4.
 
+\bibitem[{Font et~al.(2012)Font, Roma, Herrera, \& Serra}]{Font2012}
+Font, F., Roma, G., Herrera, P., \& Serra, X. (2012).
+\newblock {Characterization of the Freesound online community}.
+\newblock \emph{2012 3rd International Workshop on Cognitive Information
+  Processing (CIP)}, pp. 1--6.
+
 \bibitem[{Gamallo et~al.(2012)Gamallo, Garcia, \&
   Fern{\'{a}}ndez-Lanza}]{Gamallo2012}
 Gamallo, P., Garcia, M., \& Fern{\'{a}}ndez-Lanza, S. (2012).
@@ -383,6 +405,11 @@ Gamallo, P., Garcia, M., \& Fern{\'{a}}ndez-Lanza, S. (2012).
 Gamboa, J.~M. (2005).
 \newblock \emph{{Una historia del flamenco}}.
 \newblock Madrid: Espasa-Calpe.
+
+\bibitem[{Gangemi(2013)}]{Gangemi2013}
+Gangemi, A. (2013).
+\newblock {A Comparison of Knowledge Extraction Tools for the Semantic Web}.
+\newblock In \emph{The Semantic Web: Semantics and Big Data}, pp. 351--366.
 
 \bibitem[{Gantner et~al.(2010)Gantner, Drumond, Freudenthaler, Rendle, \&
   Schmidt-Thieme}]{GantnerDFRS10}
@@ -450,11 +477,6 @@ Hu, M. \& Liu, B. (2004).
 \newblock {Mining Opinion Features in Customer Reviews}.
 \newblock In \emph{AAAI'04}, pp. 755--760. San Jose, California.
 
-\bibitem[{Hu \& Downie(2006)}]{Hu2006}
-Hu, X. \& Downie, J. (2006).
-\newblock {Stylistics in customer reviews of cultural objects}.
-\newblock \emph{SIGIR Forum}, pp. 49--51.
-
 \bibitem[{Hu et~al.(2005)Hu, Downie, West, \& Ehmann}]{Hu2005}
 Hu, X., Downie, J., West, K., \& Ehmann, A. (2005).
 \newblock {Mining Music Reviews: Promising Preliminary Results}.
@@ -478,12 +500,6 @@ Iacobacci, I., Pilehvar, M.~T., \& Navigli, R. (2015).
 \newblock {SensEmbed: Learning Sense Embeddings for Word and Relational
   Similarity}.
 \newblock In \emph{Proceedings of ACL}, pp. 95--105.
-
-\bibitem[{{Isabelle Augenstein} \& Ciravegna(2014)}]{Augenstein2014}
-{Isabelle Augenstein}, D.~M. \& Ciravegna, F. (2014).
-\newblock {Relation Extraction from the Web using Distant Supervision}.
-\newblock In \emph{In proceedings of the 19th International Conference, EKAW
-  2014}.
 
 \bibitem[{Jain et~al.(2016)Jain, Prabhu, \& Varma}]{jain2016extreme}
 Jain, H., Prabhu, Y., \& Varma, M. (2016).
@@ -529,6 +545,11 @@ Khrouf, H. \& Troncy, R. (2013).
 \newblock In \emph{Proceedings of the 7th ACM Conference on Recommender
   Systems}, RecSys '13, pp. 185--192. New York, NY, USA: ACM.
 
+\bibitem[{Kleinberg(1999)}]{Kleinberg1999}
+Kleinberg, J.~M. (1999).
+\newblock {Authoritative sources in a hyperlinked environment}.
+\newblock \emph{Journal of the ACM (JACM)}, \emph{46}, 604--632.
+
 \bibitem[{Knees \& Schedl(2013)}]{Knees2013}
 Knees, P. \& Schedl, M. (2013).
 \newblock {A Survey of Music Similarity and Recommendation from Music Context
@@ -568,6 +589,15 @@ Libeks, J. \& Turnbull, D. (2011).
 \newblock {You can judge an artist by an album cover: Using images for music
   annotation}.
 \newblock \emph{IEEE MultiMedia}, \emph{18}(4), 30--37.
+
+\bibitem[{Liem et~al.(2011)Liem, M{\"u}ller, Eck, Tzanetakis, \&
+  Hanjalic}]{liem2011need}
+Liem, C., M{\"u}ller, M., Eck, D., Tzanetakis, G., \& Hanjalic, A. (2011).
+\newblock The need for music information retrieval with user-centered and
+  multimodal strategies.
+\newblock In \emph{Proceedings of the 1st international ACM workshop on Music
+  information retrieval with user-centered and multimodal strategies}, pp.
+  1--6. ACM.
 
 \bibitem[{Liu \& Wang(2014)}]{LiuandWang2014}
 Liu, H. \& Wang, P. (2014).
@@ -668,12 +698,6 @@ Montero, C.~S., Munezero, M., \& Kakkonen, T. (2014).
 \newblock \emph{Computational Linguistics and Intelligent Text Processing}, pp.
   98--114.
 
-\bibitem[{Mooney \& Roy(1999)}]{Mooney1999}
-Mooney, R.~J. \& Roy, L. (1999).
-\newblock {Content-Based Book Recommending}.
-\newblock \emph{Proceedings of the SIGIR-99 Workshop on Recommender Systems:
-  Algorithms and Evaluation}, (August).
-
 \bibitem[{Moro et~al.(2014{\natexlab{a}})Moro, Cecconi, \&
   Navigli}]{Moroetal2014b}
 Moro, A., Cecconi, F., \& Navigli, R. (2014{\natexlab{a}}).
@@ -760,46 +784,10 @@ Ning, X. \& Karypis, G. (2012).
 \newblock In \emph{Proceedings of the Sixth ACM Conference on Recommender
   Systems}, RecSys '12, pp. 155--162. New York, NY, USA: ACM.
 
-\bibitem[{Oramas(2014)}]{Oramas2014b}
-Oramas, S. (2014).
-\newblock {Harvesting and Structuring Social Data in Music Information
-  Retrieval}.
-\newblock \emph{Extended Semantic Web Conference (ESWC). Lecture Notes in
-  Computer Science}, \emph{8465}, 817--826.
-
-\bibitem[{Oramas et~al.(2016)Oramas, Espinosa-anke, Sordo, Saggion, \&
-  Serra}]{Oramas2016}
-Oramas, S., Espinosa-anke, L., Sordo, M., Saggion, H., \& Serra, X. (2016).
-\newblock {ELMD : An Automatically Generated Entity Linking Gold Standard
-  Dataset in the Music Domain}.
-\newblock In \emph{In Proceedings of the 10th International Conference on
-  Language Resources and Evaluation, LREC 2016}.
-
-\bibitem[{Oramas et~al.(2015{\natexlab{a}})Oramas, G{\'{o}}mez, G{\'{o}}mez, \&
-  Mora}]{Oramas2015b}
-Oramas, S., G{\'{o}}mez, F., G{\'{o}}mez, E., \& Mora, J. (2015{\natexlab{a}}).
-\newblock {FlaBase: Towards the Creation of a Flamenco Music Knowledge Base}.
-\newblock In \emph{Proceedings of the International Society for Music
-  Information Retrieval Conference}.
-
-\bibitem[{Oramas et~al.(2015{\natexlab{b}})Oramas, Sordo, \&
-  Espinosa-anke}]{Oramas2015}
-Oramas, S., Sordo, M., \& Espinosa-anke, L. (2015{\natexlab{b}}).
+\bibitem[{Oramas et~al.(2015)Oramas, Sordo, \& Espinosa-anke}]{Oramas2015}
+Oramas, S., Sordo, M., \& Espinosa-anke, L. (2015).
 \newblock {A Rule-Based Approach to Extracting Relations from Music Tidbits}.
 \newblock In \emph{2nd Workshop in Knowledge Extraction from Text, WWW'15}.
-
-\bibitem[{Oramas et~al.(2015{\natexlab{c}})Oramas, Sordo, Espinosa-Anke, \&
-  Serra}]{Oramas2015a}
-Oramas, S., Sordo, M., Espinosa-Anke, L., \& Serra, X. (2015{\natexlab{c}}).
-\newblock {A Semantic-based Approach for Artist Similarity}.
-\newblock \emph{Proceedings of 16th the International Society for Music
-  Information Retrieval Conference}, (October), 100--106.
-
-\bibitem[{Oramas et~al.(2014)Oramas, Sordo, \& Serra}]{Oramas2014}
-Oramas, S., Sordo, M., \& Serra, X. (2014).
-\newblock {Automatic Creation of Knowledge Graphs from Digital Musical Document
-  Libraries}.
-\newblock In \emph{Conference in Interdisciplinary Musicology}. Berlin.
 
 \bibitem[{Ostuni et~al.(2013)Ostuni, {Di Noia}, {Di Sciascio}, \&
   Mirizzi}]{Ostuni2013}
@@ -809,15 +797,6 @@ Ostuni, V.~C., {Di Noia}, T., {Di Sciascio}, E., \& Mirizzi, R. (2013).
 \newblock In \emph{Proceedings of the 7th ACM Conference on Recommender
   Systems}, RecSys '13, pp. 85--92. New York, NY, USA: ACM.
 
-\bibitem[{Ostuni et~al.(2015)Ostuni, {Di Noia}, {Di Sciascio}, Oramas, \&
-  Serra}]{Ostuni2015}
-Ostuni, V.~C., {Di Noia}, T., {Di Sciascio}, E., Oramas, S., \& Serra, X.
-  (2015).
-\newblock {A Semantic Hybrid Approach for Sound Recommendation}.
-\newblock In \emph{Proceedings of the 24th International Conference on World
-  Wide Web (Companion Volume)}, pp. 85--86. International World Wide Web
-  Conferences Steering Committee.
-
 \bibitem[{Ostuni et~al.(2014)Ostuni, {Di Noia}, Mirizzi, \& {Di
   Sciascio}}]{ODMD14a}
 Ostuni, V.~C., {Di Noia}, T., Mirizzi, R., \& {Di Sciascio}, E. (2014).
@@ -826,6 +805,15 @@ Ostuni, V.~C., {Di Noia}, T., Mirizzi, R., \& {Di Sciascio}, E. (2014).
 \newblock In \emph{The 15th International Conference on Electronic Commerce and
   Web Technologies}, Lecture Notes in Business Information Processing.
   Springer-Verlag.
+
+\bibitem[{Ostuni et~al.(2015)Ostuni, Oramas, {Di Noia}, {Di Sciascio}, \&
+  Serra}]{Ostuni2015}
+Ostuni, V.~C., Oramas, S., {Di Noia}, T., {Di Sciascio}, E., \& Serra, X.
+  (2015).
+\newblock {A Semantic Hybrid Approach for Sound Recommendation}.
+\newblock In \emph{Proceedings of the 24th International Conference on World
+  Wide Web (Companion Volume)}, pp. 85--86. International World Wide Web
+  Conferences Steering Committee.
 
 \bibitem[{Pachet \& Cazaly(2000)}]{pachet2000taxonomy}
 Pachet, F. \& Cazaly, D. (2000).
@@ -882,20 +870,6 @@ Rorvig, M. (1999).
   metrics and scaling properties of TREC topic-document sets}.
 \newblock \emph{Journal of the American Society for Information Science},
   \emph{50}(8), 639--651.
-
-\bibitem[{Rowe(2014)}]{Rowe1}
-Rowe, M. (2014).
-\newblock {SemanticSVD++: incorporating semantic taste evolution for predicting
-  ratings}.
-\newblock In \emph{2014 {\{}IEEE/WIC/ACM{\}} International Conferences on Web
-  Intelligence, {\{}WI{\}} 2014}.
-
-\bibitem[{Ruiz-Casado et~al.(2008)Ruiz-Casado, Alfonseca, Okumura, \&
-  Castells}]{RuizCasadoetal2008}
-Ruiz-Casado, M., Alfonseca, E., Okumura, M., \& Castells, P. (2008).
-\newblock {Information extraction and semantic annotation of wikipedia}.
-\newblock \emph{Ontology Learning and Population: Bridging the Gap between Text
-  and Knowledge}, pp. 145--169.
 
 \bibitem[{Saggion \& Gaizauskas(2004)}]{saggion2004multi}
 Saggion, H. \& Gaizauskas, R. (2004).

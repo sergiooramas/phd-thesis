@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.22)  18 MAY 2017 14:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.22)  9 JUN 2017 16:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1775,19 +1775,9 @@ Package csquotes Info: Redefining alias 'default' -> 'british'.
 
 (./thesis_a4.aux (./ch00/portada.aux) (./ch00/preliminarystuff.aux)
 (./ch00/matematiques.aux) (./ch01_introduction/introduction.aux)
-(./ch02_soa/soa.aux) (./ch03_background/background.aux
-
-LaTeX Warning: Label `sec:related_work:mus_rec' multiply defined.
-
-) (./ch04_kbconstruction/kbconstruction.aux
-
-LaTeX Warning: Label `sec:method' multiply defined.
-
-) (./ch05_similarity/similarity.aux
-
-LaTeX Warning: Label `sec:introduction' multiply defined.
-
-) (./ch06_graph-rec/graph-rec.aux
+(./ch02_soa/soa.aux) (./ch03_linking/linking.aux)
+(./ch04_kbconstruction/kbconstruction.aux) (./ch05_musicology/musicology.aux)
+(./ch06_similarity/similarity.aux) (./ch07_graph-rec/graph-rec.aux
 
 LaTeX Warning: Label `fs_dataset' multiply defined.
 
@@ -1797,17 +1787,9 @@ LaTeX Warning: Label `sem_eval' multiply defined.
 
 LaTeX Warning: Label `comp' multiply defined.
 
-) (./ch07_text-class/text-class.aux) (./ch08_musicology/musicology.aux
-
-LaTeX Warning: Label `sec:introduction' multiply defined.
-
-) (./ch09_deep-learning/deep-learning.aux) (./ch10_cold-rec/cold-rec.aux)
-(./ch11_multimodal-class/multimodal-class.aux)
-(./ch98_conclusions/conclusions.aux
-
-LaTeX Warning: Label `sec:conclusion' multiply defined.
-
-) (./ch99/finalpage.aux) (./ch99/datasets.aux) (./ch99/pubs.aux))
+) (./ch08_cold-rec/cold-rec.aux) (./ch09_multimodal-class/multimodal-class.aux)
+(./ch98_conclusions/conclusions.aux) (./ch99/finalpage.aux)
+(./ch99/datasets.aux) (./ch99/pubs.aux))
 \openout1 = `thesis_a4.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 238.
@@ -1969,39 +1951,37 @@ Overfull \hbox (3.31458pt too wide) detected at line 12
  \T1/cmr/bx/n/10.95 xvii
  []
 
-[9] [10]
-Overfull \hbox (1.91577pt too wide) detected at line 132
- \T1/cmr/bx/n/10.95 101
- []
+[9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Overfull \hbox (1.91577pt too wide) detected at line 134
- \T1/cmr/bx/n/10.95 103
- []
-
-
+ [10]
 Overfull \hbox (1.91577pt too wide) detected at line 136
  \T1/cmr/bx/n/10.95 105
  []
 
-[11]
-Overfull \hbox (1.91577pt too wide) detected at line 139
+
+Overfull \hbox (1.91577pt too wide) detected at line 138
  \T1/cmr/bx/n/10.95 107
  []
 
 
-Overfull \hbox (1.91577pt too wide) detected at line 143
- \T1/cmr/bx/n/10.95 111
+Overfull \hbox (1.91577pt too wide) detected at line 141
+ \T1/cmr/bx/n/10.95 109
  []
 
-
-Overfull \hbox (1.91577pt too wide) detected at line 144
- \T1/cmr/bx/n/10.95 127
+[11]
+Overfull \hbox (1.91577pt too wide) detected at line 145
+ \T1/cmr/bx/n/10.95 113
  []
 
 
 Overfull \hbox (1.91577pt too wide) detected at line 146
  \T1/cmr/bx/n/10.95 129
+ []
+
+
+Overfull \hbox (1.91577pt too wide) detected at line 148
+ \T1/cmr/bx/n/10.95 131
  []
 
 ) [12] (./thesis_a4.lof
@@ -2013,13 +1993,9 @@ it/10.95 s\T1/cmr/m/n/10.95 ), re-la-tion pat-tern (\T1/cmr/m/it/10.95 p\T1/cmr
 
 [13
 
-]) [14] (./thesis_a4.lot
-Underfull \vbox (badness 1983) has occurred while \output is active []
+]) [14] (./thesis_a4.lot [15
 
- [15
-
-])
-[16]
+]) [16]
 \openout2 = `ch00/matematiques.aux'.
 
  (./ch00/matematiques.tex
@@ -2125,304 +2101,306 @@ l.260 \cleartorecto
 ]
 \openout2 = `ch02_soa/soa.aux'.
 
- (./ch02_soa/soa.tex
-Overfull \hbox (14.59158pt too wide) in paragraph at lines 20--22
-\T1/cmr/m/n/10.95 tract-ing struc-tured in-form-a-tion from un-struc-tured or s
-emi-structured text sources.
- []
-
-[3
+ (./ch02_soa/soa.tex [3
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 31--33
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 35--37
-
- []
-
-[4] [5]
-Overfull \hbox (17.66934pt too wide) in paragraph at lines 96--97
+Overfull \hbox (17.66934pt too wide) in paragraph at lines 39--40
 \T1/cmr/m/n/10.95 defined re-la-tions among them such as \T1/cmr/m/it/10.95 hyp
 onymy/hypernymy\T1/cmr/m/n/10.95 , \T1/cmr/m/it/10.95 mer-onymy\T1/cmr/m/n/10.9
 5 , \T1/cmr/m/it/10.95 holonymy\T1/cmr/m/n/10.95 ,
  []
 
-[6] [7]
-Overfull \hbox (11.88524pt too wide) in paragraph at lines 123--127
+[4] [5] [6]
+
+LaTeX Warning: Reference `fig:sampletree' on page 7 undefined on input line 128
+.
+
+
+Package natbib Warning: Citation `' on page 7 undefined on input line 129.
+
+[7]
+Overfull \hbox (11.88524pt too wide) in paragraph at lines 145--149
 \T1/cmr/m/n/10.95 hand-craf-ted au-dio fea-tures, such as Mel Fre-quency Cep-st
 ral Coef-fi-cients (MFCCs)
  []
 
-[8] [9] [10] [11]) [12]
-\openout2 = `ch03_background/background.aux'.
+[8] [9]
 
- (./ch03_background/background.tex [13
+Package natbib Warning: Citation `Ning12' on page 10 undefined on input line 18
+7.
+
+[10] [11]) [12]
+\openout2 = `ch03_linking/linking.aux'.
+
+ (./ch03_linking/linking.tex [13
 
 
 
 
 ] [14]
-Overfull \hbox (70.44305pt too wide) in paragraph at lines 18--19
-\T1/cmr/m/n/10.95 ing (EL), e.g. tag-ging `Yel-low Sub-mar-ine' as \T1/cmtt/m/n
-/10.95 dbpedia.org/page/Yellow_Submarine_(song)\T1/cmr/m/n/10.95 .
+Overfull \hbox (1.48535pt too wide) in paragraph at lines 11--16
+\T1/cmr/m/n/10.95 named en-tit-ies are clas-si-fied as any of four pre-defined 
+\T1/cmr/m/it/10.95 mu-sical cat-egor-ies\T1/cmr/m/n/10.95 , namely
  []
 
-[15
+
+Underfull \vbox (badness 2547) has occurred while \output is active []
+
+ [15
 
 ]
-
-Package natbib Warning: Citation `TODO' on page 16 undefined on input line 34.
-
-
-Underfull \vbox (badness 1194) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16]
 [17]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 69.
- [18] [19]
-<ch03_background/pics/workflow.pdf, id=1063, 447.92343pt x 185.94469pt>
-File: ch03_background/pics/workflow.pdf Graphic file (type pdf)
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 81.
+ <ch03_linking/pics/workflow.pdf, id=997, 447.92343pt x 185.94469pt>
+File: ch03_linking/pics/workflow.pdf Graphic file (type pdf)
 
-<use ch03_background/pics/workflow.pdf>
-Package pdftex.def Info: ch03_background/pics/workflow.pdf used on input line 1
-11.
+<use ch03_linking/pics/workflow.pdf>
+Package pdftex.def Info: ch03_linking/pics/workflow.pdf used on input line 93.
 (pdftex.def)             Requested size: 227.61775pt x 92.47273pt.
- [20 <./ch03_background/pics/workflow.pdf>]
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[18]
 
 LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 134.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 116.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--150
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
+
+ []
+
+[19 <./ch03_linking/pics/workflow.pdf>]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 186.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 168.
 
-Underfull \hbox (badness 10000) in paragraph at lines 192--192
+Underfull \hbox (badness 10000) in paragraph at lines 174--174
 \T1/cmr/m/n/10 DBpedia:Band,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 192--192
+Underfull \hbox (badness 10000) in paragraph at lines 174--174
 \T1/cmr/m/n/10 Schema:MusicGroup,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 192--192
+Underfull \hbox (badness 10000) in paragraph at lines 174--174
 \T1/cmr/m/n/10 Yago:Musician, Yago:Creator,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--208
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
 \T1/cmr/m/n/10.95 min-im-al-ism of
  []
 
 
-Overfull \hbox (3.76077pt too wide) in paragraph at lines 208--208
+Overfull \hbox (3.76077pt too wide) in paragraph at lines 190--190
 []|\T1/cmr/m/n/10.95 Steve_Reich
  []
 
 
-Overfull \hbox (1.26717pt too wide) in paragraph at lines 208--208
+Overfull \hbox (1.26717pt too wide) in paragraph at lines 190--190
 \T1/cmr/m/n/10.95 (type:artist)| 
  []
 
 
-Overfull \hbox (3.76077pt too wide) in paragraph at lines 208--208
+Overfull \hbox (3.76077pt too wide) in paragraph at lines 190--190
 []|\T1/cmr/m/n/10.95 Steve_Reich
  []
 
 
-Overfull \hbox (1.26717pt too wide) in paragraph at lines 208--208
+Overfull \hbox (1.26717pt too wide) in paragraph at lines 190--190
 \T1/cmr/m/n/10.95 (type:artist)| 
  []
 
 
-Overfull \hbox (3.76077pt too wide) in paragraph at lines 208--208
+Overfull \hbox (3.76077pt too wide) in paragraph at lines 190--190
 []|\T1/cmr/m/n/10.95 Steve_Reich
  []
 
 
-Overfull \hbox (1.26717pt too wide) in paragraph at lines 208--208
+Overfull \hbox (1.26717pt too wide) in paragraph at lines 190--190
 \T1/cmr/m/n/10.95 (type:artist)| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--208
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
 []\T1/cmr/m/n/10.95 type-
  []
 
 
-Underfull \hbox (badness 2409) in paragraph at lines 210--210
+Underfull \hbox (badness 2409) in paragraph at lines 192--192
 []|\T1/cmr/m/n/10.95 The new al-bum
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--210
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
 \T1/cmr/bx/n/10.95 Hy-po-crisy \T1/cmr/m/n/10.95 fol-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--210
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
 \T1/cmr/m/n/10.95 lowed shortly
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--210
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
 []|\T1/cmr/m/n/10.95 Hypocrisy
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--210
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
 []|\T1/cmr/m/n/10.95 Hypocrisy
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--210
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
 []\T1/cmr/m/n/10.95 type-
  []
 
 
-Underfull \hbox (badness 5771) in paragraph at lines 212--212
+Underfull \hbox (badness 5771) in paragraph at lines 194--194
 \T1/cmr/bx/n/10.95 Lu-ci-fer Songs\T1/cmr/m/n/10.95 ,
  []
 
 
-Overfull \hbox (12.36656pt too wide) in paragraph at lines 212--212
+Overfull \hbox (12.36656pt too wide) in paragraph at lines 194--194
 []|\T1/cmr/m/n/10.95 Lucifer_Songs
  []
 
 
-Overfull \hbox (5.43324pt too wide) in paragraph at lines 212--212
+Overfull \hbox (5.43324pt too wide) in paragraph at lines 194--194
 \T1/cmr/m/n/10.95 (type:album)| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--212
+Underfull \hbox (badness 10000) in paragraph at lines 194--194
 []\T1/cmr/m/n/10.95 type-
  []
 
 
-Overfull \hbox (12.88353pt too wide) in paragraph at lines 214--214
+Overfull \hbox (12.88353pt too wide) in paragraph at lines 196--196
 []|\T1/cmr/m/n/10.95 HTTP_cookie
  []
 
 
-Overfull \hbox (7.06143pt too wide) in paragraph at lines 214--214
+Overfull \hbox (7.06143pt too wide) in paragraph at lines 196--196
 \T1/cmr/m/n/9 (type:unknown)| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
 []|\T1/cmr/m/n/10.95 Cookies
  []
 
 
-Overfull \hbox (5.43324pt too wide) in paragraph at lines 214--214
+Overfull \hbox (5.43324pt too wide) in paragraph at lines 196--196
 \T1/cmr/m/n/10.95 (type:album)| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--214
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
 []\T1/cmr/m/n/10.95 type-
  []
 
 
-Overfull \hbox (127.90866pt too wide) in paragraph at lines 204--217
+Overfull \hbox (127.90866pt too wide) in paragraph at lines 186--199
  [][] 
  []
 
-Package epstopdf Info: Source file: <ch03_background/pics/evaluation_both.eps>
+Package epstopdf Info: Source file: <ch03_linking/pics/evaluation_both.eps>
 (epstopdf)                    date: 2017-05-10 09:47:38
 (epstopdf)                    size: 161381 bytes
-(epstopdf)             Output file: <ch03_background/pics/evaluation_both-eps-c
-onverted-to.pdf>
+(epstopdf)             Output file: <ch03_linking/pics/evaluation_both-eps-conv
+erted-to.pdf>
 (epstopdf)                    date: 2017-05-16 13:11:25
 (epstopdf)                    size: 58039 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch03_background/pics/evalu
-ation_both-eps-converted-to.pdf ch03_background/pics/evaluation_both.eps>
-(epstopdf)             \includegraphics on input line 227.
+(epstopdf)             Command: <repstopdf --outfile=ch03_linking/pics/evaluati
+on_both-eps-converted-to.pdf ch03_linking/pics/evaluation_both.eps>
+(epstopdf)             \includegraphics on input line 209.
 Package epstopdf Info: Output file is already uptodate.
 
-<ch03_background/pics/evaluation_both-eps-converted-to.pdf, id=1095, 858.20625p
-t x 402.50375pt>
-File: ch03_background/pics/evaluation_both-eps-converted-to.pdf Graphic file (t
-ype pdf)
-
-<use ch03_background/pics/evaluation_both-eps-converted-to.pdf>
-Package pdftex.def Info: ch03_background/pics/evaluation_both-eps-converted-to.
-pdf used on input line 227.
+<ch03_linking/pics/evaluation_both-eps-converted-to.pdf, id=1034, 858.20625pt x
+ 402.50375pt>
+File: ch03_linking/pics/evaluation_both-eps-converted-to.pdf Graphic file (type
+ pdf)
+ <use ch03_linking/pics/evaluation_both-eps-converted-to.pdf>
+Package pdftex.def Info: ch03_linking/pics/evaluation_both-eps-converted-to.pdf
+ used on input line 209.
 (pdftex.def)             Requested size: 227.62204pt x 106.75511pt.
- [21]
 
-LaTeX Warning: Text page 22 contains only floats.
-
-[22 <./ch03_background/pics/evaluation_both-eps-converted-to.pdf>]
-Overfull \hbox (85.04811pt too wide) in paragraph at lines 265--275
+[20 <./ch03_linking/pics/evaluation_both-eps-converted-to.pdf>]
+Overfull \hbox (85.04811pt too wide) in paragraph at lines 247--257
  [][] 
  []
 
-[23]
-Overfull \hbox (122.18008pt too wide) in paragraph at lines 300--303
+[21]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22]
+Overfull \hbox (122.18008pt too wide) in paragraph at lines 282--285
 \T1/cmr/m/n/10.95 well-known club, which is the en-tity that was in-cor-rectly 
 as-signed: \T1/cmtt/m/n/9 dbpedia.org/resource/Ministry_of_Sound\T1/cmr/m/n/10.
 95 .
  []
 
-Package epstopdf Info: Source file: <ch03_background/pics/ELMD_Overview.eps>
+Package epstopdf Info: Source file: <ch03_linking/pics/ELMD_Overview.eps>
 (epstopdf)                    date: 2017-05-10 09:47:38
 (epstopdf)                    size: 99639 bytes
-(epstopdf)             Output file: <ch03_background/pics/ELMD_Overview-eps-con
-verted-to.pdf>
+(epstopdf)             Output file: <ch03_linking/pics/ELMD_Overview-eps-conver
+ted-to.pdf>
 (epstopdf)                    date: 2017-05-16 13:11:25
 (epstopdf)                    size: 35283 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch03_background/pics/ELMD_
-Overview-eps-converted-to.pdf ch03_background/pics/ELMD_Overview.eps>
-(epstopdf)             \includegraphics on input line 316.
+(epstopdf)             Command: <repstopdf --outfile=ch03_linking/pics/ELMD_Ove
+rview-eps-converted-to.pdf ch03_linking/pics/ELMD_Overview.eps>
+(epstopdf)             \includegraphics on input line 298.
 Package epstopdf Info: Output file is already uptodate.
 
-<ch03_background/pics/ELMD_Overview-eps-converted-to.pdf, id=1113, 487.8225pt x
- 297.11pt>
-File: ch03_background/pics/ELMD_Overview-eps-converted-to.pdf Graphic file (typ
-e pdf)
- <use ch03_background/pics/ELMD_Overview-eps-converted-to.pdf>
-Package pdftex.def Info: ch03_background/pics/ELMD_Overview-eps-converted-to.pd
-f used on input line 316.
+<ch03_linking/pics/ELMD_Overview-eps-converted-to.pdf, id=1052, 487.8225pt x 29
+7.11pt>
+File: ch03_linking/pics/ELMD_Overview-eps-converted-to.pdf Graphic file (type p
+df)
+ <use ch03_linking/pics/ELMD_Overview-eps-converted-to.pdf>
+Package pdftex.def Info: ch03_linking/pics/ELMD_Overview-eps-converted-to.pdf u
+sed on input line 298.
 (pdftex.def)             Requested size: 227.62204pt x 138.63527pt.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: Reference `tbl:elmd2' on page 23 undefined on input line 306.
 
 
-Overfull \hbox (1.05954pt too wide) in paragraph at lines 322--323
-\T1/cmr/m/n/10.95 Following the same meth-od-o-logy, a second set of artist bio
--graph-ies was gathered
+LaTeX Warning: Reference `' on page 23 undefined on input line 311.
+
+[23 <./ch03_linking/pics/ELMD_Overview-eps-converted-to.pdf>])
+Overfull \hbox (8.75485pt too wide) in paragraph at lines 320--261
+\T1/cmr/m/n/10.95 tional sys-tems. The \T1/cmr/m/it/10.95 ELVIS \T1/cmr/m/n/10.
+95 code is avail-able at \T1/cmr/m/n/9 ht-tps://github.com/sergiooramas/elvis\T
+1/cmr/m/n/10.95 .
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (6.36761pt too wide) in paragraph at lines 320--261
+\T1/cmr/m/n/10.95 data-set ver-sions can be down-loaded from \T1/cmr/m/n/9 http
+://mtg.upf.edu/download/datasets/elmd\T1/cmr/m/n/10.95 . 
+ []
 
- [24])
-[25 <./ch03_background/pics/ELMD_Overview-eps-converted-to.pdf>] [26
-
-
-]
+[24]
 \openout2 = `ch04_kbconstruction/kbconstruction.aux'.
 
+ (./ch04_kbconstruction/kbconstruction.tex [25
 
-(./ch04_kbconstruction/kbconstruction.tex [27
+
 
 
 ]
@@ -2430,9 +2408,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Class memoir Warning: The material used in the headers is too large
 (27.2pt) for the given head height (13.6pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 30.
+(in both cases you will find help in the memoir manual). on input line 48.
 
 
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+
+[26] [27]
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
@@ -2444,18 +2426,11 @@ Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[32]
-Underfull \vbox (badness 4479) has occurred while \output is active []
-
- [33]
+[32] [33]
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[34] [35]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[36] [37]
+[34]
 Package epstopdf Info: Source file: <ch04_kbconstruction/pics/threshold.eps>
 (epstopdf)                    date: 2016-05-24 19:26:56
 (epstopdf)                    size: 30643 bytes
@@ -2465,22 +2440,24 @@ verted-to.pdf>
 (epstopdf)                    size: 19766 bytes
 (epstopdf)             Command: <repstopdf --outfile=ch04_kbconstruction/pics/t
 hreshold-eps-converted-to.pdf ch04_kbconstruction/pics/threshold.eps>
-(epstopdf)             \includegraphics on input line 331.
+(epstopdf)             \includegraphics on input line 326.
 Package epstopdf Info: Output file is already uptodate.
 
-<ch04_kbconstruction/pics/threshold-eps-converted-to.pdf, id=1289, 433.62pt x 2
+<ch04_kbconstruction/pics/threshold-eps-converted-to.pdf, id=1187, 433.62pt x 2
 89.08pt>
 File: ch04_kbconstruction/pics/threshold-eps-converted-to.pdf Graphic file (typ
 e pdf)
  <use ch04_kbconstruction/pics/threshold-eps-converted-to.pdf>
 Package pdftex.def Info: ch04_kbconstruction/pics/threshold-eps-converted-to.pd
-f used on input line 331.
+f used on input line 326.
 (pdftex.def)             Requested size: 170.71652pt x 113.8126pt.
+ [35 <./ch04_kbconstruction/pics/threshold-eps-converted-to.pdf>]
 
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+LaTeX Warning: Reference `' on page 36 undefined on input line 370.
 
 
-[38 <./ch04_kbconstruction/pics/threshold-eps-converted-to.pdf>] [39]
+LaTeX Warning: Reference `' on page 36 undefined on input line 370.
+
 Package epstopdf Info: Source file: <ch04_kbconstruction/pics/threshold_el.eps>
 
 (epstopdf)                    date: 2016-05-24 19:26:54
@@ -2491,22 +2468,25 @@ converted-to.pdf>
 (epstopdf)                    size: 20880 bytes
 (epstopdf)             Command: <repstopdf --outfile=ch04_kbconstruction/pics/t
 hreshold_el-eps-converted-to.pdf ch04_kbconstruction/pics/threshold_el.eps>
-(epstopdf)             \includegraphics on input line 407.
+(epstopdf)             \includegraphics on input line 403.
 Package epstopdf Info: Output file is already uptodate.
 
-<ch04_kbconstruction/pics/threshold_el-eps-converted-to.pdf, id=1354, 433.62pt 
+<ch04_kbconstruction/pics/threshold_el-eps-converted-to.pdf, id=1238, 433.62pt 
 x 289.08pt>
 File: ch04_kbconstruction/pics/threshold_el-eps-converted-to.pdf Graphic file (
 type pdf)
  <use ch04_kbconstruction/pics/threshold_el-eps-converted-to.pdf>
 Package pdftex.def Info: ch04_kbconstruction/pics/threshold_el-eps-converted-to
-.pdf used on input line 407.
+.pdf used on input line 403.
 (pdftex.def)             Requested size: 170.71652pt x 113.8126pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[40 <./ch04_kbconstruction/pics/threshold_el-eps-converted-to.pdf>]
+[36] [37 <./ch04_kbconstruction/pics/threshold_el-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <ch04_kbconstruction/pics/s-rnd100.eps>
 (epstopdf)                    date: 2016-05-24 19:26:54
 (epstopdf)                    size: 26296 bytes
@@ -2516,16 +2496,16 @@ erted-to.pdf>
 (epstopdf)                    size: 17686 bytes
 (epstopdf)             Command: <repstopdf --outfile=ch04_kbconstruction/pics/s
 -rnd100-eps-converted-to.pdf ch04_kbconstruction/pics/s-rnd100.eps>
-(epstopdf)             \includegraphics on input line 457.
+(epstopdf)             \includegraphics on input line 453.
 Package epstopdf Info: Output file is already uptodate.
 
-<ch04_kbconstruction/pics/s-rnd100-eps-converted-to.pdf, id=1405, 542.025pt x 2
+<ch04_kbconstruction/pics/s-rnd100-eps-converted-to.pdf, id=1294, 542.025pt x 2
 89.08pt>
 File: ch04_kbconstruction/pics/s-rnd100-eps-converted-to.pdf Graphic file (type
  pdf)
  <use ch04_kbconstruction/pics/s-rnd100-eps-converted-to.pdf>
 Package pdftex.def Info: ch04_kbconstruction/pics/s-rnd100-eps-converted-to.pdf
- used on input line 457.
+ used on input line 453.
 (pdftex.def)             Requested size: 182.28204pt x 97.21843pt.
 Package epstopdf Info: Source file: <ch04_kbconstruction/pics/p-rnd100.eps>
 (epstopdf)                    date: 2016-05-24 19:26:54
@@ -2536,16 +2516,16 @@ erted-to.pdf>
 (epstopdf)                    size: 18136 bytes
 (epstopdf)             Command: <repstopdf --outfile=ch04_kbconstruction/pics/p
 -rnd100-eps-converted-to.pdf ch04_kbconstruction/pics/p-rnd100.eps>
-(epstopdf)             \includegraphics on input line 462.
+(epstopdf)             \includegraphics on input line 458.
 Package epstopdf Info: Output file is already uptodate.
 
-<ch04_kbconstruction/pics/p-rnd100-eps-converted-to.pdf, id=1406, 542.025pt x 2
+<ch04_kbconstruction/pics/p-rnd100-eps-converted-to.pdf, id=1295, 542.025pt x 2
 89.08pt>
 File: ch04_kbconstruction/pics/p-rnd100-eps-converted-to.pdf Graphic file (type
  pdf)
  <use ch04_kbconstruction/pics/p-rnd100-eps-converted-to.pdf>
 Package pdftex.def Info: ch04_kbconstruction/pics/p-rnd100-eps-converted-to.pdf
- used on input line 462.
+ used on input line 458.
 (pdftex.def)             Requested size: 182.28204pt x 97.21843pt.
 Package epstopdf Info: Source file: <ch04_kbconstruction/pics/eval_p_c.eps>
 (epstopdf)                    date: 2016-05-24 19:26:54
@@ -2556,92 +2536,324 @@ erted-to.pdf>
 (epstopdf)                    size: 17598 bytes
 (epstopdf)             Command: <repstopdf --outfile=ch04_kbconstruction/pics/e
 val_p_c-eps-converted-to.pdf ch04_kbconstruction/pics/eval_p_c.eps>
-(epstopdf)             \includegraphics on input line 467.
+(epstopdf)             \includegraphics on input line 463.
 Package epstopdf Info: Output file is already uptodate.
 
-<ch04_kbconstruction/pics/eval_p_c-eps-converted-to.pdf, id=1407, 542.025pt x 2
+<ch04_kbconstruction/pics/eval_p_c-eps-converted-to.pdf, id=1296, 542.025pt x 2
 89.08pt>
 File: ch04_kbconstruction/pics/eval_p_c-eps-converted-to.pdf Graphic file (type
  pdf)
  <use ch04_kbconstruction/pics/eval_p_c-eps-converted-to.pdf>
 Package pdftex.def Info: ch04_kbconstruction/pics/eval_p_c-eps-converted-to.pdf
- used on input line 467.
+ used on input line 463.
 (pdftex.def)             Requested size: 182.28204pt x 97.21843pt.
- [41]
+
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+
+[38]
 Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [39 <./ch04_kbconstruction/pics/s-rnd100-eps-converted-to.pdf> <./ch04_kbconst
+ruction/pics/p-rnd100-eps-converted-to.pdf> <./ch04_kbconstruction/pics/eval_p_
+c-eps-converted-to.pdf>]
+
+LaTeX Warning: Reference `sec:kb:method:typefiltering' on page 40 undefined on 
+input line 488.
+
+
+LaTeX Warning: Reference `sec:similarity' on page 40 undefined on input line 51
+2.
+
+
+Underfull \vbox (badness 7851) has occurred while \output is active []
 
 
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[42 <./ch04_kbconstruction/pics/s-rnd100-eps-converted-to.pdf> <./ch04_kbconstr
-uction/pics/p-rnd100-eps-converted-to.pdf> <./ch04_kbconstruction/pics/eval_p_c
--eps-converted-to.pdf>] [43]
-Overfull \hbox (26.91153pt too wide) in paragraph at lines 525--526
+[40]
+Overfull \hbox (26.91153pt too wide) in paragraph at lines 522--523
 \T1/cmr/m/n/10.95 slightly higher (3.20$\OMS/cmsy/m/n/10.95 ^^F$\T1/cmr/m/n/10.
 95 1.29) than re-com-mend-a-tions without ex-plan-a-tions (3.08$\OMS/cmsy/m/n/1
 0.95 ^^F$\T1/cmr/m/n/10.95 1.35),
  []
 
 
-Underfull \vbox (badness 6380) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[44]
-<ch04_kbconstruction/pics/recommender.jpg, id=1549, 172.4844pt x 158.5122pt>
+ [41]
+<ch04_kbconstruction/pics/recommender.jpg, id=1437, 172.4844pt x 158.5122pt>
 File: ch04_kbconstruction/pics/recommender.jpg Graphic file (type jpg)
 
 <use ch04_kbconstruction/pics/recommender.jpg>
 Package pdftex.def Info: ch04_kbconstruction/pics/recommender.jpg used on input
- line 532.
+ line 529.
 (pdftex.def)             Requested size: 223.20227pt x 205.13947pt.
-) [45 <./ch04_kbconstruction/pics/recommender.jpg>]
+)
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[46]
-\openout2 = `ch05_similarity/similarity.aux'.
-
- (./ch05_similarity/similarity.tex
-
-LaTeX Warning: Reference `sec:related' on page 47 undefined on input line 17.
-
-[47
+[42 <./ch04_kbconstruction/pics/recommender.jpg>]
+\openout2 = `ch05_musicology/musicology.aux'.
 
 
+(./ch05_musicology/musicology.tex
+Underfull \vbox (badness 4779) has occurred while \output is active []
+
+ [43
 
 
-] <ch05_similarity/pics/methodology.png, id=1571, 636.3775pt x 106.3975pt>
-File: ch05_similarity/pics/methodology.png Graphic file (type png)
 
-<use ch05_similarity/pics/methodology.png>
-Package pdftex.def Info: ch05_similarity/pics/methodology.png used on input lin
-e 34.
-(pdftex.def)             Requested size: 353.39886pt x 59.08539pt.
- [48 <./ch05_similarity/pics/methodology.png>]
-<ch05_similarity/pics/RelationGraph.png, id=1609, 584.1825pt x 329.23pt>
-File: ch05_similarity/pics/RelationGraph.png Graphic file (type png)
 
-<use ch05_similarity/pics/RelationGraph.png>
-Package pdftex.def Info: ch05_similarity/pics/RelationGraph.png used on input l
-ine 58.
-(pdftex.def)             Requested size: 353.39886pt x 199.1722pt.
- [49]
-<ch05_similarity/pics/EnrichedGraph1.png, id=1623, 561.09625pt x 363.3575pt>
-File: ch05_similarity/pics/EnrichedGraph1.png Graphic file (type png)
+]
+[44]
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
-<use ch05_similarity/pics/EnrichedGraph1.png>
-Package pdftex.def Info: ch05_similarity/pics/EnrichedGraph1.png used on input 
-line 77.
-(pdftex.def)             Requested size: 353.39886pt x 228.85544pt.
+
+[45]
+<ch05_musicology/pics/datasources.png, id=1485, 896.34875pt x 689.57625pt>
+File: ch05_musicology/pics/datasources.png Graphic file (type png)
+
+<use ch05_musicology/pics/datasources.png>
+Package pdftex.def Info: ch05_musicology/pics/datasources.png used on input lin
+e 81.
+(pdftex.def)             Requested size: 167.39886pt x 128.77963pt.
+
+Underfull \vbox (badness 1297) has occurred while \output is active []
+
+ [46 <./ch05_musicology/pics/datasources.png>]
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+
+[47] <ch05_musicology/pics/similarity_f.png, id=1520, 362.7954pt x 145.9854pt>
+File: ch05_musicology/pics/similarity_f.png Graphic file (type png)
+
+<use ch05_musicology/pics/similarity_f.png>
+Package pdftex.def Info: ch05_musicology/pics/similarity_f.png used on input li
+ne 108.
+(pdftex.def)             Requested size: 148.79773pt x 59.87666pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [50 <./ch05_similarity/pics/RelationGraph.png>] [51 <./ch05_similarity/pics/En
-richedGraph1.png>]
+ [48 <./ch05_musicology/pics/similarity_f.png>]
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+
+[49] [50]
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+
+[51]
+Package csquotes Info: Input encoding change on input line 168.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2015/03/17 v1.2c Input encoding file
+)
+Package csquotes Info: Input encoding change on input line 192.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2016/02/28 v1.1s UTF-8 support for inputenc
+)
+<ch05_musicology/pics/Songs-by-palo.jpg, id=1574, 438.63875pt x 343.2825pt>
+File: ch05_musicology/pics/Songs-by-palo.jpg Graphic file (type jpg)
+
+<use ch05_musicology/pics/Songs-by-palo.jpg>
+Package pdftex.def Info: ch05_musicology/pics/Songs-by-palo.jpg used on input l
+ine 230.
+(pdftex.def)             Requested size: 213.39566pt x 167.00513pt.
+
+<ch05_musicology/pics/Artists-by-province.jpg, id=1575, 481.8pt x 305.14pt>
+File: ch05_musicology/pics/Artists-by-province.jpg Graphic file (type jpg)
+
+<use ch05_musicology/pics/Artists-by-province.jpg>
+Package pdftex.def Info: ch05_musicology/pics/Artists-by-province.jpg used on i
+nput line 238.
+(pdftex.def)             Requested size: 241.84842pt x 153.17024pt.
+
+<ch05_musicology/pics/Artists-by-decade-of-birth.jpg, id=1576, 787.94376pt x 44
+1.65pt>
+File: ch05_musicology/pics/Artists-by-decade-of-birth.jpg Graphic file (type jp
+g)
+ <use ch05_musicology/pics/Artists-by-decade-of-birth.jpg>
+Package pdftex.def Info: ch05_musicology/pics/Artists-by-decade-of-birth.jpg us
+ed on input line 246.
+(pdftex.def)             Requested size: 227.62204pt x 127.58327pt.
+ [52]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+
+[53 <./ch05_musicology/pics/Songs-by-palo.jpg> <./ch05_musicology/pics/Artists-
+by-province.jpg> <./ch05_musicology/pics/Artists-by-decade-of-birth.jpg>]
+[54] <ch05_musicology/pics/evolution-dl.jpg, id=1592, 614.295pt x 519.8622pt>
+File: ch05_musicology/pics/evolution-dl.jpg Graphic file (type jpg)
+
+<use ch05_musicology/pics/evolution-dl.jpg>
+Package pdftex.def Info: ch05_musicology/pics/evolution-dl.jpg used on input li
+ne 276.
+(pdftex.def)             Requested size: 227.62204pt x 192.63156pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [55]
+
+LaTeX Warning: Reference `' on page 56 undefined on input line 296.
+
+<ch05_musicology/pics/methodology-dl.jpg, id=1598, 618.6312pt x 198.9834pt>
+File: ch05_musicology/pics/methodology-dl.jpg Graphic file (type jpg)
+
+<use ch05_musicology/pics/methodology-dl.jpg>
+Package pdftex.def Info: ch05_musicology/pics/methodology-dl.jpg used on input 
+line 300.
+(pdftex.def)             Requested size: 227.62204pt x 73.2128pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [56 <./ch05_musicology/pics/evolution-dl.jpg>] [57 <./ch05_musicology/pics/met
+hodology-dl.jpg>]
+<ch05_musicology/pics/histogram-births.jpg, id=1610, 174.1707pt x 115.3911pt>
+File: ch05_musicology/pics/histogram-births.jpg Graphic file (type jpg)
+
+<use ch05_musicology/pics/histogram-births.jpg>
+Package pdftex.def Info: ch05_musicology/pics/histogram-births.jpg used on inpu
+t line 351.
+(pdftex.def)             Requested size: 227.62204pt x 150.8148pt.
+
+Overfull \hbox (1.8198pt too wide) in paragraph at lines 379--381
+\T1/cmr/m/n/10.95 music-related in-form-a-tion a large data-set of Amazon cus-t
+omer re-views [][]McAuley
+ []
+
+[58 <./ch05_musicology/pics/histogram-births.jpg>] [59]
+
+LaTeX Warning: Reference `TODO' on page 60 undefined on input line 423.
+
+[60] <ch05_musicology/pics/omf.pdf, id=1662, 687.56876pt x 266.9975pt>
+File: ch05_musicology/pics/omf.pdf Graphic file (type pdf)
+
+<use ch05_musicology/pics/omf.pdf>
+Package pdftex.def Info: ch05_musicology/pics/omf.pdf used on input line 439.
+(pdftex.def)             Requested size: 372.0pt x 144.45352pt.
+
+<ch05_musicology/pics/annotation_sample2.pdf, id=1672, 538.01pt x 103.38625pt>
+File: ch05_musicology/pics/annotation_sample2.pdf Graphic file (type pdf)
+
+<use ch05_musicology/pics/annotation_sample2.pdf>
+Package pdftex.def Info: ch05_musicology/pics/annotation_sample2.pdf used on in
+put line 453.
+(pdftex.def)             Requested size: 372.0pt x 71.48486pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [61 <./ch05_musicology/pics/omf.pdf>]
+<ch05_musicology/pics/all_average.png, id=1884, 734.745pt x 422.57875pt>
+File: ch05_musicology/pics/all_average.png Graphic file (type png)
+
+<use ch05_musicology/pics/all_average.png>
+Package pdftex.def Info: ch05_musicology/pics/all_average.png used on input lin
+e 470.
+(pdftex.def)             Requested size: 100.44034pt x 57.7614pt.
+
+<ch05_musicology/pics/avg_score.png, id=1885, 639.38875pt x 390.45876pt>
+File: ch05_musicology/pics/avg_score.png Graphic file (type png)
+
+<use ch05_musicology/pics/avg_score.png>
+Package pdftex.def Info: ch05_musicology/pics/avg_score.png used on input line 
+476.
+(pdftex.def)             Requested size: 100.44034pt x 61.3367pt.
+
+<ch05_musicology/pics/gdp2.png, id=1886, 702.625pt x 422.57875pt>
+File: ch05_musicology/pics/gdp2.png Graphic file (type png)
+
+<use ch05_musicology/pics/gdp2.png>
+Package pdftex.def Info: ch05_musicology/pics/gdp2.png used on input line 500.
+(pdftex.def)             Requested size: 89.28123pt x 53.69269pt.
+
+<ch05_musicology/pics/sentiment_release_trend.png, id=1887, 723.70375pt x 422.5
+7875pt>
+File: ch05_musicology/pics/sentiment_release_trend.png Graphic file (type png)
+ <use ch05_musicology/pics/sentiment_release_trend.png>
+Package pdftex.def Info: ch05_musicology/pics/sentiment_release_trend.png used 
+on input line 507.
+(pdftex.def)             Requested size: 100.44034pt x 58.64478pt.
+
+<ch05_musicology/pics/rating_release_trend.png, id=1888, 695.59875pt x 422.5787
+5pt>
+File: ch05_musicology/pics/rating_release_trend.png Graphic file (type png)
+ <use ch05_musicology/pics/rating_release_trend.png>
+Package pdftex.def Info: ch05_musicology/pics/rating_release_trend.png used on 
+input line 513.
+(pdftex.def)             Requested size: 100.44034pt x 61.01764pt.
+
+<ch05_musicology/pics/genres_release_trend.png, id=1889, 720.6925pt x 411.5375p
+t>
+File: ch05_musicology/pics/genres_release_trend.png Graphic file (type png)
+ <use ch05_musicology/pics/genres_release_trend.png>
+Package pdftex.def Info: ch05_musicology/pics/genres_release_trend.png used on 
+input line 519.
+(pdftex.def)             Requested size: 100.44034pt x 57.3511pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [62 <./ch05_musicology/pics/annotation_sample2.pdf> <./ch05_musicology/pics/al
+l_average.png> <./ch05_musicology/pics/avg_score.png> <./ch05_musicology/pics/g
+dp2.png> <./ch05_musicology/pics/sentiment_release_trend.png> <./ch05_musicolog
+y/pics/rating_release_trend.png> <./ch05_musicology/pics/genres_release_trend.p
+ng>]
+[63]) [64] [65] [66
+
+
+]
+\openout2 = `ch06_similarity/similarity.aux'.
+
+ (./ch06_similarity/similarity.tex [67
+
+
+] [68]
+
+LaTeX Warning: Reference `sec:similarity:related' on page 69 undefined on input
+ line 20.
+
+[69
+
+] <ch06_similarity/pics/methodology.png, id=1988, 636.3775pt x 106.3975pt>
+File: ch06_similarity/pics/methodology.png Graphic file (type png)
+
+<use ch06_similarity/pics/methodology.png>
+Package pdftex.def Info: ch06_similarity/pics/methodology.png used on input lin
+e 34.
+(pdftex.def)             Requested size: 353.39886pt x 59.08539pt.
+
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+
+[70 <./ch06_similarity/pics/methodology.png>]
+<ch06_similarity/pics/RelationGraph.png, id=2021, 584.1825pt x 329.23pt>
+File: ch06_similarity/pics/RelationGraph.png Graphic file (type png)
+
+<use ch06_similarity/pics/RelationGraph.png>
+Package pdftex.def Info: ch06_similarity/pics/RelationGraph.png used on input l
+ine 58.
+(pdftex.def)             Requested size: 353.39886pt x 199.1722pt.
+ [71 <./ch06_similarity/pics/RelationGraph.png>]
+<ch06_similarity/pics/EnrichedGraph1.png, id=2038, 561.09625pt x 363.3575pt>
+File: ch06_similarity/pics/EnrichedGraph1.png Graphic file (type png)
+
+<use ch06_similarity/pics/EnrichedGraph1.png>
+Package pdftex.def Info: ch06_similarity/pics/EnrichedGraph1.png used on input 
+line 77.
+(pdftex.def)             Requested size: 353.39886pt x 228.85544pt.
+
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+
+[72 <./ch06_similarity/pics/EnrichedGraph1.png>]
 
 LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 10
 7.
@@ -2653,47 +2865,136 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <0.7> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 109.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <0.5> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 109.
+[73]
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
-Underfull \vbox (badness 5050) has occurred while \output is active []
 
- [52]
-[53]
-Underfull \vbox (badness 2617) has occurred while \output is active []
-
- [54]
-Overfull \hbox (90.02367pt too wide) in paragraph at lines 237--258
+[74] [75]
+Overfull \hbox (90.02367pt too wide) in paragraph at lines 238--259
  [][] 
  []
 
 
-Overfull \hbox (1.33325pt too wide) in paragraph at lines 309--311
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+
+[76]
+Overfull \hbox (1.33325pt too wide) in paragraph at lines 310--312
 \T1/cmr/m/n/10.95 We eval-u-ated all the ap-proach vari-ants de-scribed in Sec-
-tion [][]5.3.3[][] on the MIREX
+tion [][]6.2.3[][] on the MIREX
+ []
+
+[77]
+
+LaTeX Warning: Reference `' on page 78 undefined on input line 379.
+
+
+LaTeX Warning: Reference `' on page 78 undefined on input line 379.
+
+
+LaTeX Warning: Reference `' on page 78 undefined on input line 381.
+
+
+LaTeX Warning: Reference `' on page 78 undefined on input line 381.
+
+
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+
+[78] [79]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 443.
+
+
+Overfull \hbox (4.42477pt too wide) in paragraph at lines 456--459
+\T1/cmr/m/n/10.95 bet-ter per-form-ance when com-bin-ing dif-fer-ent fea-ture s
+ets (see Table [][]6.4[][]). There-
  []
 
 
-Underfull \vbox (badness 3396) has occurred while \output is active []
+Overfull \hbox (22.6047pt too wide) in paragraph at lines 456--459
+\T1/cmr/m/n/10.95 (BoW+SEM), \T1/cmr/bx/n/10.95 BoW+Semantic Broader \T1/cmr/m/
+n/10.95 with broader cat-egor-ies (BoW+SEMb),
+ []
 
- [55]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [56])
-[57] [58
+Overfull \hbox (79.92487pt too wide) in paragraph at lines 456--459
+\T1/cmr/bx/n/10.95 BoW+Sentiment \T1/cmr/m/n/10.95 (BoW+SENT) and \T1/cmr/bx/n/
+10.95 BoW+Semantic+Sentiment \T1/cmr/m/n/10.95 (BoW+SEM+SENT).
+ []
+
+
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+
+[80] <ch06_similarity/pics/results2.png, id=2161, 743.77875pt x 283.0575pt>
+File: ch06_similarity/pics/results2.png Graphic file (type png)
+
+<use ch06_similarity/pics/results2.png>
+Package pdftex.def Info: ch06_similarity/pics/results2.png used on input line 4
+62.
+(pdftex.def)             Requested size: 372.0pt x 141.5759pt.
+ [81 <./ch06_similarity/pics/results2.png>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 487.
+
+
+Overfull \hbox (230.14418pt too wide) in paragraph at lines 490--509
+ [][] 
+ []
+
+
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+
+[82])
+Overfull \hbox (2.9449pt too wide) in paragraph at lines 527--264
+\T1/cmr/m/n/10.95 drawn: First, se-mantic ap-proaches may out-per-form pure tex
+t-based ap-proaches.
+ []
+
+[83] [84
 
 
 ]
-\openout2 = `ch06_graph-rec/graph-rec.aux'.
+\openout2 = `ch07_graph-rec/graph-rec.aux'.
 
- (./ch06_graph-rec/graph-rec.tex [59
+ (./ch07_graph-rec/graph-rec.tex
+
+Package natbib Warning: Citation `wordnet' on page 85 undefined on input line 1
+6.
+
+
+LaTeX Warning: Reference `sec:similarity' on page 85 undefined on input line 16
+.
+
+[85
 
 
 ]
-<ch06_graph-rec/pics/graph_all_final.pdf, id=1744, 809.0225pt x 442.65375pt>
-File: ch06_graph-rec/pics/graph_all_final.pdf Graphic file (type pdf)
 
-<use ch06_graph-rec/pics/graph_all_final.pdf>
-Package pdftex.def Info: ch06_graph-rec/pics/graph_all_final.pdf used on input 
-line 46.
+Package natbib Warning: Citation `knees_schedl2013' on page 86 undefined on inp
+ut line 21.
+
+
+Underfull \vbox (badness 1735) has occurred while \output is active []
+
+
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+
+[86] [87]
+<ch07_graph-rec/pics/graph_all_final.pdf, id=2249, 809.0225pt x 442.65375pt>
+File: ch07_graph-rec/pics/graph_all_final.pdf Graphic file (type pdf)
+
+<use ch07_graph-rec/pics/graph_all_final.pdf>
+Package pdftex.def Info: ch07_graph-rec/pics/graph_all_final.pdf used on input 
+line 84.
 (pdftex.def)             Requested size: 372.0pt x 203.54213pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2702,27 +3003,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[60]
+[88]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61 <./ch06_graph-rec/pics/graph_all_final.pdf>]
+ [89 <./ch07_graph-rec/pics/graph_all_final.pdf>]
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[62]
+[90] <ch07_graph-rec/pics/item_neig.png, id=2300, 617.30624pt x 324.46219pt>
+File: ch07_graph-rec/pics/item_neig.png Graphic file (type png)
 
-LaTeX Warning: Reference `sec:evaluation' on page 63 undefined on input line 15
-6.
-
-<ch06_graph-rec/pics/item_neig.png, id=1793, 617.30624pt x 324.46219pt>
-File: ch06_graph-rec/pics/item_neig.png Graphic file (type png)
-
-<use ch06_graph-rec/pics/item_neig.png>
-Package pdftex.def Info: ch06_graph-rec/pics/item_neig.png used on input line 1
-66.
+<use ch07_graph-rec/pics/item_neig.png>
+Package pdftex.def Info: ch07_graph-rec/pics/item_neig.png used on input line 1
+42.
 (pdftex.def)             Requested size: 297.60114pt x 156.4233pt.
 
-Overfull \hbox (57.86472pt too wide) in paragraph at lines 163--178
+Overfull \hbox (57.86472pt too wide) in paragraph at lines 139--154
 \OML/cmm/m/it/10.95 G[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 G[] []\OMS/cms
 y/m/n/10.95 f\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; p[]; e[]\OT1/cmr/m/n/
 10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; p[]; 
@@ -2735,8 +3031,8 @@ T1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; p[]; e[]\OT1/cmr/m/n/10.95 )\OML/cmm
  e[]\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 g$ 
  []
 
-[63]
-Overfull \hbox (43.48164pt too wide) detected at line 202
+[91]
+Overfull \hbox (43.48164pt too wide) detected at line 178
  []$[]  \OML/cmm/m/it/10.95 c[] \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 jf\OT1
 /cmr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; p; e[]\OT1/cmr/m/n/10.95 )[]\OMS/cmsy/
 m/n/10.95 j[]\OML/cmm/m/it/10.95 e[] \OMS/cmsy/m/n/10.95 2 [][] ^ []\OML/cmm/m/
@@ -2750,17 +3046,12 @@ e[] \OMS/cmsy/m/n/10.95 2 [][] ^ []\OML/cmm/m/it/10.95 e[] \OMS/cmsy/m/n/10.95
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[64 <./ch06_graph-rec/pics/item_neig.png>] [65]
-
-LaTeX Warning: Reference `sec:evaluation' on page 66 undefined on input line 27
-9.
-
-
+[92 <./ch07_graph-rec/pics/item_neig.png>] [93]
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[66]
-Overfull \hbox (8.04956pt too wide) in paragraph at lines 306--308
+[94]
+Overfull \hbox (8.04956pt too wide) in paragraph at lines 282--284
 \T1/cmr/m/n/10.95 Particularly, $\OML/cmm/m/it/10.95 p[]$ \T1/cmr/m/n/10.95 is 
 the ra-tio of users who down-loaded item \T1/cmr/m/it/10.95 i\T1/cmr/m/n/10.95 
 . The lower $\OML/cmm/m/it/10.95 EBN[]\OT1/cmr/m/n/10.95 @\OML/cmm/m/it/10.95 N
@@ -2768,73 +3059,70 @@ $\T1/cmr/m/n/10.95 ,
  []
 
 
-Package caption Warning: \label without proper reference on input line 332.
+Package caption Warning: \label without proper reference on input line 308.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tbl:datasets' on page 67 undefined on input line 322.
+LaTeX Warning: Reference `tbl:graph-rec:datasets' on page 95 undefined on input
+ line 298.
 
-
-[67]
-Overfull \hbox (63.7856pt too wide) in paragraph at lines 333--343
+[95]
+Overfull \hbox (63.7856pt too wide) in paragraph at lines 309--319
 [][] 
  []
 
 
-Package caption Warning: \label without proper reference on input line 332.
+Package caption Warning: \label without proper reference on input line 308.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tbl:datasets' on page 68 undefined on input line 349.
+LaTeX Warning: Reference `tbl:graph-rec:datasets' on page 96 undefined on input
+ line 325.
 
 
-
-LaTeX Warning: Reference `sec:approach' on page 68 undefined on input line 354.
-
+Underfull \vbox (badness 7238) has occurred while \output is active []
 
 
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+
+[96]
+Overfull \hbox (146.94011pt too wide) in paragraph at lines 345--368
+[][] 
+ []
+
+
+Package caption Warning: \label without proper reference on input line 344.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tbl:graph-rec:Res1' on page 97 undefined on input lin
+e 384.
+
+[97]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[68]
-Overfull \hbox (146.94011pt too wide) in paragraph at lines 369--392
-[][] 
- []
+[98] <ch07_graph-rec/pics/pr_adiv_fr.png, id=2398, 1202.3319pt x 523.9575pt>
+File: ch07_graph-rec/pics/pr_adiv_fr.png Graphic file (type png)
 
-
-Package caption Warning: \label without proper reference on input line 368.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `tbl:Res1' on page 69 undefined on input line 408.
-
-[69]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[70] <ch06_graph-rec/pics/pr_adiv_fr.png, id=1890, 1202.3319pt x 523.9575pt>
-File: ch06_graph-rec/pics/pr_adiv_fr.png Graphic file (type png)
-
-<use ch06_graph-rec/pics/pr_adiv_fr.png>
-Package pdftex.def Info: ch06_graph-rec/pics/pr_adiv_fr.png used on input line 
-429.
+<use ch07_graph-rec/pics/pr_adiv_fr.png>
+Package pdftex.def Info: ch07_graph-rec/pics/pr_adiv_fr.png used on input line 
+405.
 (pdftex.def)             Requested size: 186.0pt x 81.05267pt.
 
-<ch06_graph-rec/pics/nov_fr.png, id=1891, 1207.8726pt x 541.0614pt>
-File: ch06_graph-rec/pics/nov_fr.png Graphic file (type png)
+<ch07_graph-rec/pics/nov_fr.png, id=2399, 1207.8726pt x 541.0614pt>
+File: ch07_graph-rec/pics/nov_fr.png Graphic file (type png)
 
-<use ch06_graph-rec/pics/nov_fr.png>
-Package pdftex.def Info: ch06_graph-rec/pics/nov_fr.png used on input line 432.
+<use ch07_graph-rec/pics/nov_fr.png>
+Package pdftex.def Info: ch07_graph-rec/pics/nov_fr.png used on input line 408.
 
 (pdftex.def)             Requested size: 186.0pt x 83.3105pt.
- [71]
-Overfull \hbox (78.26714pt too wide) in paragraph at lines 460--468
+ [99]
+Overfull \hbox (78.26714pt too wide) in paragraph at lines 436--444
 \T1/cmr/m/n/10.95 proaches we pro-pose is \T1/cmtt/m/n/10.95 BPR-SLIM \T1/cmr/m
 /n/10.95 which slightly out-per-forms \T1/cmtt/m/n/10.95 Path(fso+wn+db+keyw+ta
 gs/h=4)
@@ -2844,337 +3132,137 @@ gs/h=4)
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[72 <./ch06_graph-rec/pics/pr_adiv_fr.png> <./ch06_graph-rec/pics/nov_fr.png>]
-Overfull \hbox (123.92036pt too wide) in paragraph at lines 479--503
+[100 <./ch07_graph-rec/pics/pr_adiv_fr.png> <./ch07_graph-rec/pics/nov_fr.png>]
+
+Overfull \hbox (123.92036pt too wide) in paragraph at lines 455--479
 [][] 
  []
 
 
-Package caption Warning: \label without proper reference on input line 478.
+Package caption Warning: \label without proper reference on input line 454.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tbl:Res_sf' on page 73 undefined on input line 508.
+LaTeX Warning: Reference `tbl:graph-rec:Res_sf' on page 101 undefined on input 
+line 484.
 
 
-Package caption Warning: \label without proper reference on input line 332.
+Package caption Warning: \label without proper reference on input line 308.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tbl:datasets' on page 73 undefined on input line 508.
+LaTeX Warning: Reference `tbl:graph-rec:datasets' on page 101 undefined on inpu
+t line 484.
 
+<ch07_graph-rec/pics/pr_adiv_lf.png, id=2429, 1202.3319pt x 523.9575pt>
+File: ch07_graph-rec/pics/pr_adiv_lf.png Graphic file (type png)
 
-<ch06_graph-rec/pics/pr_adiv_lf.png, id=1921, 1202.3319pt x 523.9575pt>
-File: ch06_graph-rec/pics/pr_adiv_lf.png Graphic file (type png)
-
-<use ch06_graph-rec/pics/pr_adiv_lf.png>
-Package pdftex.def Info: ch06_graph-rec/pics/pr_adiv_lf.png used on input line 
-515.
+<use ch07_graph-rec/pics/pr_adiv_lf.png>
+Package pdftex.def Info: ch07_graph-rec/pics/pr_adiv_lf.png used on input line 
+491.
 (pdftex.def)             Requested size: 186.0pt x 81.05267pt.
 
-<ch06_graph-rec/pics/nov_lf.png, id=1922, 1207.8726pt x 541.0614pt>
-File: ch06_graph-rec/pics/nov_lf.png Graphic file (type png)
+<ch07_graph-rec/pics/nov_lf.png, id=2430, 1207.8726pt x 541.0614pt>
+File: ch07_graph-rec/pics/nov_lf.png Graphic file (type png)
 
-<use ch06_graph-rec/pics/nov_lf.png>
-Package pdftex.def Info: ch06_graph-rec/pics/nov_lf.png used on input line 518.
+<use ch07_graph-rec/pics/nov_lf.png>
+Package pdftex.def Info: ch07_graph-rec/pics/nov_lf.png used on input line 494.
 
 (pdftex.def)             Requested size: 186.0pt x 83.3105pt.
- [73]
+ [101]
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[74 <./ch06_graph-rec/pics/pr_adiv_lf.png> <./ch06_graph-rec/pics/nov_lf.png>]
-[75])
+[102 <./ch07_graph-rec/pics/pr_adiv_lf.png> <./ch07_graph-rec/pics/nov_lf.png>]
+[103])
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[76]
-\openout2 = `ch07_text-class/text-class.aux'.
+[104]
+\openout2 = `ch08_cold-rec/cold-rec.aux'.
 
- (./ch07_text-class/text-class.tex
-Overfull \hbox (1.8198pt too wide) in paragraph at lines 15--17
-\T1/cmr/m/n/10.95 music-related in-form-a-tion a large data-set of Amazon cus-t
-omer re-views [][]McAuley
- []
-
-[77
+ (./ch08_cold-rec/cold-rec.tex [105
 
 
+
+
+] [106]) [107
+
+] [108
 
 
 ]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+\openout2 = `ch09_multimodal-class/multimodal-class.aux'.
 
 
-[78] <ch07_text-class/pics/omf.pdf, id=1998, 687.56876pt x 266.9975pt>
-File: ch07_text-class/pics/omf.pdf Graphic file (type pdf)
+(./ch09_multimodal-class/multimodal-class.tex) [109
 
-<use ch07_text-class/pics/omf.pdf>
-Package pdftex.def Info: ch07_text-class/pics/omf.pdf used on input line 106.
-(pdftex.def)             Requested size: 372.0pt x 144.45352pt.
- [79]
-<ch07_text-class/pics/annotation_sample2.pdf, id=2013, 538.01pt x 103.38625pt>
-File: ch07_text-class/pics/annotation_sample2.pdf Graphic file (type pdf)
 
-<use ch07_text-class/pics/annotation_sample2.pdf>
-Package pdftex.def Info: ch07_text-class/pics/annotation_sample2.pdf used on in
-put line 118.
-(pdftex.def)             Requested size: 372.0pt x 71.48486pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[80 <./ch07_text-class/pics/omf.pdf>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 133.
-
-
-Overfull \hbox (230.14418pt too wide) in paragraph at lines 136--155
- [][] 
- []
-
-[81 <./ch07_text-class/pics/annotation_sample2.pdf>]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[82]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 228.
-
-
-Overfull \hbox (4.42477pt too wide) in paragraph at lines 241--244
-\T1/cmr/m/n/10.95 bet-ter per-form-ance when com-bin-ing dif-fer-ent fea-ture s
-ets (see Table [][]7.3[][]). There-
- []
-
-
-Overfull \hbox (22.6047pt too wide) in paragraph at lines 241--244
-\T1/cmr/m/n/10.95 (BoW+SEM), \T1/cmr/bx/n/10.95 BoW+Semantic Broader \T1/cmr/m/
-n/10.95 with broader cat-egor-ies (BoW+SEMb),
- []
-
-
-Overfull \hbox (79.92487pt too wide) in paragraph at lines 241--244
-\T1/cmr/bx/n/10.95 BoW+Sentiment \T1/cmr/m/n/10.95 (BoW+SENT) and \T1/cmr/bx/n/
-10.95 BoW+Semantic+Sentiment \T1/cmr/m/n/10.95 (BoW+SEM+SENT).
- []
-
-[83] <ch07_text-class/pics/results2.png, id=2303, 743.77875pt x 283.0575pt>
-File: ch07_text-class/pics/results2.png Graphic file (type png)
-
-<use ch07_text-class/pics/results2.png>
-Package pdftex.def Info: ch07_text-class/pics/results2.png used on input line 2
-47.
-(pdftex.def)             Requested size: 372.0pt x 141.5759pt.
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[84 <./ch07_text-class/pics/results2.png>]) [85] [86
-
-
-]
-\openout2 = `ch08_musicology/musicology.aux'.
-
-
-(./ch08_musicology/musicology.tex [87
-
-
-]
-
-LaTeX Warning: Reference `sec:related_work' on page 88 undefined on input line 
-18.
-
-
-LaTeX Warning: Reference `sec:statistics' on page 88 undefined on input line 18
-.
-
-[88]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[89]
-<ch08_musicology/pics/datasources.png, id=2390, 896.34875pt x 689.57625pt>
-File: ch08_musicology/pics/datasources.png Graphic file (type png)
-
-<use ch08_musicology/pics/datasources.png>
-Package pdftex.def Info: ch08_musicology/pics/datasources.png used on input lin
-e 73.
-(pdftex.def)             Requested size: 167.39886pt x 128.77963pt.
- [90 <./ch08_musicology/pics/datasources.png>]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[91] <ch08_musicology/pics/similarity_f.png, id=2424, 362.7954pt x 145.9854pt>
-File: ch08_musicology/pics/similarity_f.png Graphic file (type png)
-
-<use ch08_musicology/pics/similarity_f.png>
-Package pdftex.def Info: ch08_musicology/pics/similarity_f.png used on input li
-ne 100.
-(pdftex.def)             Requested size: 148.79773pt x 59.87666pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [92 <./ch08_musicology/pics/similarity_f.png>]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[93] [94]
-<ch08_musicology/pics/all_average.png, id=2453, 734.745pt x 422.57875pt>
-File: ch08_musicology/pics/all_average.png Graphic file (type png)
-
-<use ch08_musicology/pics/all_average.png>
-Package pdftex.def Info: ch08_musicology/pics/all_average.png used on input lin
-e 167.
-(pdftex.def)             Requested size: 100.44034pt x 57.7614pt.
-
-<ch08_musicology/pics/avg_score.png, id=2454, 639.38875pt x 390.45876pt>
-File: ch08_musicology/pics/avg_score.png Graphic file (type png)
-
-<use ch08_musicology/pics/avg_score.png>
-Package pdftex.def Info: ch08_musicology/pics/avg_score.png used on input line 
-173.
-(pdftex.def)             Requested size: 100.44034pt x 61.3367pt.
-
-<ch08_musicology/pics/gdp2.png, id=2455, 702.625pt x 422.57875pt>
-File: ch08_musicology/pics/gdp2.png Graphic file (type png)
-
-<use ch08_musicology/pics/gdp2.png>
-Package pdftex.def Info: ch08_musicology/pics/gdp2.png used on input line 197.
-(pdftex.def)             Requested size: 89.28123pt x 53.69269pt.
-
-<ch08_musicology/pics/sentiment_release_trend.png, id=2456, 723.70375pt x 422.5
-7875pt>
-File: ch08_musicology/pics/sentiment_release_trend.png Graphic file (type png)
- <use ch08_musicology/pics/sentiment_release_trend.png>
-Package pdftex.def Info: ch08_musicology/pics/sentiment_release_trend.png used 
-on input line 204.
-(pdftex.def)             Requested size: 100.44034pt x 58.64478pt.
-
-<ch08_musicology/pics/rating_release_trend.png, id=2457, 695.59875pt x 422.5787
-5pt>
-File: ch08_musicology/pics/rating_release_trend.png Graphic file (type png)
- <use ch08_musicology/pics/rating_release_trend.png>
-Package pdftex.def Info: ch08_musicology/pics/rating_release_trend.png used on 
-input line 210.
-(pdftex.def)             Requested size: 100.44034pt x 61.01764pt.
-
-<ch08_musicology/pics/genres_release_trend.png, id=2458, 720.6925pt x 411.5375p
-t>
-File: ch08_musicology/pics/genres_release_trend.png Graphic file (type png)
- <use ch08_musicology/pics/genres_release_trend.png>
-Package pdftex.def Info: ch08_musicology/pics/genres_release_trend.png used on 
-input line 216.
-(pdftex.def)             Requested size: 100.44034pt x 57.3511pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [95]
-[96 <./ch08_musicology/pics/all_average.png> <./ch08_musicology/pics/avg_score.
-png> <./ch08_musicology/pics/gdp2.png> <./ch08_musicology/pics/sentiment_releas
-e_trend.png> <./ch08_musicology/pics/rating_release_trend.png> <./ch08_musicolo
-gy/pics/genres_release_trend.png>]) [97] [98]
-\openout2 = `ch09_deep-learning/deep-learning.aux'.
-
-
-(./ch09_deep-learning/deep-learning.tex [99
-
-
-
-
-] [100]) [101
-
-] [102
-
-
-]
-\openout2 = `ch10_cold-rec/cold-rec.aux'.
-
-
-(./ch10_cold-rec/cold-rec.tex) [103
-
-
-] [104
-
-
-]
-\openout2 = `ch11_multimodal-class/multimodal-class.aux'.
-
-
-(./ch11_multimodal-class/multimodal-class.tex) [105
-
-
-] [106
+] [110
 
 
 ]
 \openout2 = `ch98_conclusions/conclusions.aux'.
 
 
-(./ch98_conclusions/conclusions.tex) [107
+(./ch98_conclusions/conclusions.tex) [111
 
 
-] [108
+] [112
 
 
 ]
 \openout2 = `ch99/finalpage.aux'.
 
  (./ch99/finalpage.tex)
-[109
+[113
 
 
 
-] [110
+] [114
 
 
-] (./thesis_a4.bbl [111
+] (./thesis_a4.bbl [115
 
-] [112] [113]
-Underfull \hbox (badness 1237) in paragraph at lines 226--229
+] [116] [117]
+Underfull \hbox (badness 1237) in paragraph at lines 250--253
 \T1/cmr/m/n/10.95 Re-cur-rent Neural Net-works for Mu-sic Clas-si-fic-a-tion.  
 \T1/cmr/m/it/10.95 arXiv pre-print
  []
 
-[114] [115] [116] [117] [118] [119] [120] [121]
-Underfull \hbox (badness 2644) in paragraph at lines 831--836
+[118] [119] [120] [121] [122] [123] [124]
+Underfull \hbox (badness 2644) in paragraph at lines 819--824
 []\T1/cmr/m/n/10.95 Pachet, F. & Cazaly, D. (2000).  A tax-onomy of mu-sical ge
 nres.
  []
 
 
-Underfull \hbox (badness 4072) in paragraph at lines 831--836
+Underfull \hbox (badness 4072) in paragraph at lines 819--824
 \T1/cmr/m/n/10.95 1245. LE CENTRE DE HAUTES ET-UDES IN-TER-NA-TIONALES
  []
 
-[122]
+[125]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 926.
- [123] [124]) [125] [126
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 900.
+ [126] [127] [128]) [129] [130
 
 ]
 \openout2 = `ch99/datasets.aux'.
 
- (./ch99/datasets.tex) [127
+ (./ch99/datasets.tex) [131
 
 
-] [128
+] [132
 
 
 ]
 \openout2 = `ch99/pubs.aux'.
 
 
-(./ch99/pubs.tex [129
+(./ch99/pubs.tex [133
 
 
-] [130]) [131] [132
+] [134]) [135] [136
 
 
 ]
@@ -3182,12 +3270,12 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
 Class memoir Warning: The material used in the headers is too large
 (27.2pt) for the given head height (13.6pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 295.
+(in both cases you will find help in the memoir manual). on input line 293.
 
 
 Package natbib Warning: There were undefined citations.
 
-[133]
+[137]
 \tf@toc=\write5
 \openout5 = `thesis_a4.toc'.
 
@@ -3197,19 +3285,18 @@ Package natbib Warning: There were undefined citations.
 \tf@lot=\write7
 \openout7 = `thesis_a4.lot'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 295.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 295.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 293.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 293.
  (./thesis_a4.aux (./ch00/portada.aux) (./ch00/preliminarystuff.aux)
 (./ch00/matematiques.aux) (./ch01_introduction/introduction.aux)
-(./ch02_soa/soa.aux) (./ch03_background/background.aux)
-(./ch04_kbconstruction/kbconstruction.aux) (./ch05_similarity/similarity.aux)
-(./ch06_graph-rec/graph-rec.aux) (./ch07_text-class/text-class.aux)
-(./ch08_musicology/musicology.aux) (./ch09_deep-learning/deep-learning.aux)
-(./ch10_cold-rec/cold-rec.aux) (./ch11_multimodal-class/multimodal-class.aux)
+(./ch02_soa/soa.aux) (./ch03_linking/linking.aux)
+(./ch04_kbconstruction/kbconstruction.aux) (./ch05_musicology/musicology.aux)
+(./ch06_similarity/similarity.aux) (./ch07_graph-rec/graph-rec.aux)
+(./ch08_cold-rec/cold-rec.aux) (./ch09_multimodal-class/multimodal-class.aux)
 (./ch98_conclusions/conclusions.aux) (./ch99/finalpage.aux)
 (./ch99/datasets.aux) (./ch99/pubs.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 295.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 295.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 293.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 293.
 
 
 LaTeX Warning: There were undefined references.
@@ -3217,16 +3304,16 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 295.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 293.
  ) 
 Here is how much of TeX's memory you used:
- 29822 strings out of 493014
- 563496 string characters out of 6133350
- 717819 words of memory out of 5000000
- 32023 multiletter control sequences out of 15000+600000
+ 29849 strings out of 493014
+ 565374 string characters out of 6133350
+ 717246 words of memory out of 5000000
+ 32053 multiletter control sequences out of 15000+600000
  57076 words of font info for 157 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 68i,16n,105p,2041b,1056s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,16n,105p,2058b,1056s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
 /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
@@ -3273,10 +3360,10 @@ ti1000.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sftt
 00.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfxc0800
 .pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfxc1200.p
 fb>
-Output written on thesis_a4.pdf (153 pages, 3728525 bytes).
+Output written on thesis_a4.pdf (157 pages, 5290472 bytes).
 PDF statistics:
- 3275 PDF objects out of 3580 (max. 8388607)
- 2748 compressed objects within 28 object streams
- 588 named destinations out of 1000 (max. 500000)
- 1104 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3191 PDF objects out of 3580 (max. 8388607)
+ 2655 compressed objects within 27 object streams
+ 591 named destinations out of 1000 (max. 500000)
+ 1054 words of extra memory for PDF output out of 10000 (max. 10000000)
 
