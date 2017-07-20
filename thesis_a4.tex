@@ -15,7 +15,7 @@
 \usepackage[utf8]{inputenc} % codificacio dels caracters
 \usepackage[T1]{fontenc} % Nou esquema de codificacio (recomanat)
 %\usepackage{ae,aecompl}
-\usepackage[catalan,british]{babel} % localitzacio de l'estil
+\usepackage[catalan,british,spanish]{babel} % localitzacio de l'estil
 \usepackage[UKenglish]{isodate} % per les dates
 \usepackage{url} % macro \url per introduir adreces
 \usepackage{amssymb,amsmath} % macros per matematiques
@@ -216,8 +216,8 @@
   {\end{trivlist}}
 
 
-
-\input{ch00/variables_matematiques}
+%OJO PONER DE NUEVO
+%\input{ch00/variables_matematiques}
 
 
 
@@ -248,24 +248,25 @@
 %\chapter{Abstract} % AIXO JA ESTA A PRELIMINARY STUFF, S'HAURA DE TREURE D'AQUI
 %\input{ch00/abstract}
 
-\cleartorecto\tableofcontents % presenta la taula de continguts
-\renewcommand*\listfigurename{List of figures}
-\cleartorecto\listoffigures % presenta la llista de figures
-\renewcommand*\listtablename{List of tables}
-\cleartorecto\listoftables % presenta la llista de taules
-\cleartorecto\include{ch00/matematiques}
+%OJO PONER DE NUEVO
+%\cleartorecto\tableofcontents % presenta la taula de continguts
+%\renewcommand*\listfigurename{List of figures}
+%\cleartorecto\listoffigures % presenta la llista de figures
+%\renewcommand*\listtablename{List of tables}
+%\cleartorecto\listoftables % presenta la llista de taules
+%\cleartorecto\include{ch00/matematiques}
 
 \mainmatter
-\cleartorecto\include{ch01_introduction/introduction}
-\cleartorecto\include{ch02_soa/soa}
-\cleartorecto\include{ch03_linking/linking}
-\cleartorecto\include{ch04_kbconstruction/kbconstruction}
-\cleartorecto\include{ch05_musicology/musicology}
-\cleartorecto\include{ch06_similarity/similarity}
-\cleartorecto\include{ch07_graph-rec/graph-rec}
-\cleartorecto\include{ch08_cold-rec/cold-rec}
-\cleartorecto\include{ch09_multimodal-class/multimodal-class}
-\cleartorecto\include{ch98_conclusions/conclusions}
+\cleartorecto\include{chapters/ch01_introduction}
+\cleartorecto\include{chapters/ch02_soa}
+%\cleartorecto\include{chapters/ch03_linking}
+%\cleartorecto\include{chapters/ch04_kbconstruction}
+%\cleartorecto\include{chapters/ch05_musicology}
+%\cleartorecto\include{chapters/ch06_similarity}
+%\cleartorecto\include{chapters/ch07_graph-rec}
+%\cleartorecto\include{chapters/ch08_cold-rec}
+%\cleartorecto\include{chapters/ch09_multimodal-class}
+%\cleartorecto\include{chapters/ch98_conclusions}
 
 
 \backmatter

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.22)  9 JUN 2017 16:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.12.22)  20 JUL 2017 16:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -759,6 +759,14 @@ Language: english 2012/08/20 v3.3p English support from the babel system
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/babel-spanish/spanish.ldf
+Language: spanish.ldf 2016/03/03 v5.0p Spanish support from the babel system
+\es@quottoks=\toks24
+\es@quotdepth=\count138
+Package babel Info: Making . an active character on input line 662.
+Package babel Info: Making < an active character on input line 707.
+Package babel Info: Making > an active character on input line 707.
 ))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/isodate/isodate.sty
 Package: isodate 2010/01/03 v2.30 Print dates with different formats (HH)
@@ -768,7 +776,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/substr/substr.sty
 Package: substr 2009/10/20 v1.2 Handle substrings
-\c@su@anzahl=\count138
+\c@su@anzahl=\count139
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/isodate/english.idf
 File: english.idf 2010/01/03 v2.30 Language definitions for isodate package (HH
@@ -776,14 +784,14 @@ File: english.idf 2010/01/03 v2.30 Language definitions for isodate package (HH
 
 Define commands for English date format
 )
-\c@iso@tmpmonth=\count139
-\c@iso@yeartwo=\count140
-\c@iso@slash=\count141
-\c@iso@minus=\count142
-\c@iso@dot=\count143
-\c@iso@@slash=\count144
-\c@iso@@minus=\count145
-\c@iso@@dot=\count146
+\c@iso@tmpmonth=\count140
+\c@iso@yeartwo=\count141
+\c@iso@slash=\count142
+\c@iso@minus=\count143
+\c@iso@dot=\count144
+\c@iso@@slash=\count145
+\c@iso@@minus=\count146
+\c@iso@@dot=\count147
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -793,7 +801,7 @@ Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks24
+\@emptytoks=\toks25
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
@@ -809,7 +817,7 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks25
+\@emptytoks=\toks26
 \ex@=\dimen151
 ))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
@@ -819,13 +827,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count147
+\inf@bad=\count148
 LaTeX Info: Redefining \frac on input line 199.
-\uproot@=\count148
-\leftroot@=\count149
+\uproot@=\count149
+\leftroot@=\count150
 LaTeX Info: Redefining \overline on input line 297.
-\classnum@=\count150
-\DOTSCASE@=\count151
+\classnum@=\count151
+\DOTSCASE@=\count152
 LaTeX Info: Redefining \ldots on input line 394.
 LaTeX Info: Redefining \dots on input line 397.
 LaTeX Info: Redefining \cdots on input line 518.
@@ -834,26 +842,26 @@ LaTeX Info: Redefining \cdots on input line 518.
 \big@size=\dimen153
 LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
-\macc@depth=\count152
-\c@MaxMatrixCols=\count153
+\macc@depth=\count153
+\c@MaxMatrixCols=\count154
 \dotsspace@=\muskip11
-\c@parentequation=\count154
-\dspbrk@lvl=\count155
-\tag@help=\toks26
-\row@=\count156
-\column@=\count157
-\maxfields@=\count158
-\andhelp@=\toks27
+\c@parentequation=\count155
+\dspbrk@lvl=\count156
+\tag@help=\toks27
+\row@=\count157
+\column@=\count158
+\maxfields@=\count159
+\andhelp@=\toks28
 \eqnshift@=\dimen154
 \alignsep@=\dimen155
 \tagshift@=\dimen156
 \tagwidth@=\dimen157
 \totwidth@=\dimen158
 \lineht@=\dimen159
-\@envbody=\toks28
+\@envbody=\toks29
 \multlinegap=\skip186
 \multlinetaggap=\skip187
-\mathdisplay@stack=\toks29
+\mathdisplay@stack=\toks30
 LaTeX Info: Redefining \[ on input line 2739.
 LaTeX Info: Redefining \] on input line 2740.
 )
@@ -862,7 +870,7 @@ Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks30
+\KV@toks@=\toks31
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
@@ -884,7 +892,7 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count159
+\Gread@gobject=\count160
 ))
 \Gin@req@height=\dimen160
 \Gin@req@width=\dimen161
@@ -958,15 +966,15 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen164
-\Hy@linkcounter=\count160
-\Hy@pagecounter=\count161
+\Hy@linkcounter=\count161
+\Hy@pagecounter=\count162
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2016/05/05 v6.83n Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count162
+\Hy@SavedSpaceFactor=\count163
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -1127,10 +1135,10 @@ Package hyperref Info: Plain pages OFF on input line 4461.
 Package hyperref Info: Backreferencing OFF on input line 4466.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4691.
-\c@Hy@tempcnt=\count163
+\c@Hy@tempcnt=\count164
 LaTeX Info: Redefining \url on input line 5044.
 \XeTeXLinkMargin=\dimen165
-\Fld@menulength=\count164
+\Fld@menulength=\count165
 \Field@Width=\dimen166
 \Fld@charsize=\dimen167
 Package hyperref Info: Hyper figures ON on input line 6296.
@@ -1142,22 +1150,22 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6323.
 Package hyperref Info: PDF/A mode OFF on input line 6328.
 LaTeX Info: Redefining \ref on input line 6368.
 LaTeX Info: Redefining \pageref on input line 6372.
-\Hy@abspage=\count165
-\c@Item=\count166
-\c@Hfootnote=\count167
+\Hy@abspage=\count166
+\c@Item=\count167
+\c@Hfootnote=\count168
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/memoir/memhfixc.sty
 Package: memhfixc 2013/05/30 v1.17 nameref/hyperref package fixes for memoir cl
 ass
-\c@memhycontfloat=\count168
-\c@Hpagenote=\count169
+\c@memhycontfloat=\count169
+\c@Hpagenote=\count170
 )
 
 Package hyperref Message: Driver: hpdftex.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2016/05/05 v6.83n Hyperref driver for pdfTeX
-\Fld@listcount=\count170
-\c@bookmark@seq@number=\count171
+\Fld@listcount=\count171
+\c@bookmark@seq@number=\count172
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
@@ -1171,7 +1179,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip189
 \bibsep=\skip190
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count172
+\c@NAT@ctr=\count173
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
@@ -1200,11 +1208,11 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \caption@parindent=\dimen173
 \caption@hangindent=\dimen174
 )
-\c@ContinuedFloat=\count173
+\c@ContinuedFloat=\count174
 Package caption Info: hyperref package is loaded.
 )
-\c@subfigure=\count174
-\c@subtable=\count175
+\c@subfigure=\count175
+\c@subtable=\count176
 )
 (./tikz-dependency.sty
 Package: tikz-dependency 2011/01/08 v1.1 Macros to draw dependency trees
@@ -1214,7 +1222,7 @@ Package: tikz-dependency 2011/01/08 v1.1 Macros to draw dependency trees
 (/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
 x
-\pgfutil@everybye=\toks31
+\pgfutil@everybye=\toks32
 \pgfutil@tempdima=\dimen175
 \pgfutil@tempdimb=\dimen176
 
@@ -1234,12 +1242,12 @@ Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks32
-\pgfkeys@temptoks=\toks33
+\pgfkeys@pathtoks=\toks33
+\pgfkeys@temptoks=\toks34
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
 ode.tex
-\pgfkeys@tmptoks=\toks34
+\pgfkeys@tmptoks=\toks35
 ))
 \pgf@x=\dimen177
 \pgf@y=\dimen178
@@ -1251,13 +1259,13 @@ ode.tex
 \pgf@yc=\dimen184
 \w@pgf@writea=\write4
 \r@pgf@reada=\read2
-\c@pgf@counta=\count176
-\c@pgf@countb=\count177
-\c@pgf@countc=\count178
-\c@pgf@countd=\count179
-\t@pgf@toka=\toks35
-\t@pgf@tokb=\toks36
-\t@pgf@tokc=\toks37
+\c@pgf@counta=\count177
+\c@pgf@countb=\count178
+\c@pgf@countc=\count179
+\c@pgf@countd=\count180
+\t@pgf@toka=\toks36
+\t@pgf@tokb=\toks37
+\t@pgf@tokc=\toks38
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
@@ -1275,8 +1283,8 @@ File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
 code.tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count180
-\pgfsyssoftpath@bigbuffer@items=\count181
+\pgfsyssoftpath@smallbuffer@items=\count181
+\pgfsyssoftpath@bigbuffer@items=\count182
 )
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
 code.tex
@@ -1306,11 +1314,11 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen185
-\pgfmath@count=\count182
+\pgfmath@count=\count183
 \pgfmath@box=\box32
-\pgfmath@toks=\toks38
-\pgfmath@stack@operand=\toks39
-\pgfmath@stack@operation=\toks40
+\pgfmath@toks=\toks39
+\pgfmath@stack@operand=\toks40
+\pgfmath@stack@operation=\toks41
 )
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
 tex
@@ -1331,7 +1339,7 @@ code.tex)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
 erarithmetics.code.tex)))
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count183
+\c@pgfmathroundto@lastzeros=\count184
 ))
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
 de.tex
@@ -1369,7 +1377,7 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box33
 \pgf@hbox=\box34
 \pgf@layerbox@main=\box35
-\pgf@picture@serial@count=\count184
+\pgf@picture@serial@count=\count185
 )
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
 ate.code.tex
@@ -1404,7 +1412,7 @@ File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 e.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen270
-\pgf@sys@shading@range@num=\count185
+\pgf@sys@shading@range@num=\count186
 )
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
 e.tex
@@ -1457,8 +1465,8 @@ Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
 \pgffor@iter=\dimen273
 \pgffor@skip=\dimen274
-\pgffor@stack=\toks41
-\pgffor@toks=\toks42
+\pgffor@stack=\toks42
+\pgffor@toks=\toks43
 ))
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
 e.tex
@@ -1467,7 +1475,7 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count186
+\pgf@plot@mark@count=\count187
 \pgfplotmarksize=\dimen275
 )
 \tikz@lastx=\dimen276
@@ -1480,19 +1488,19 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \tikz@figbox@bg=\box39
 \tikz@tempbox=\box40
 \tikz@tempbox@bg=\box41
-\tikztreelevel=\count187
-\tikznumberofchildren=\count188
-\tikznumberofcurrentchild=\count189
-\tikz@fig@count=\count190
+\tikztreelevel=\count188
+\tikznumberofchildren=\count189
+\tikznumberofcurrentchild=\count190
+\tikz@fig@count=\count191
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
 e.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count191
-\pgfmatrixcurrentcolumn=\count192
-\pgf@matrix@numberofcolumns=\count193
+\pgfmatrixcurrentrow=\count192
+\pgfmatrixcurrentcolumn=\count193
+\pgf@matrix@numberofcolumns=\count194
 )
-\tikz@expandcount=\count194
+\tikz@expandcount=\count266
 
 (/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarytopaths.code.tex
@@ -1617,7 +1625,7 @@ File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.1a (rcs-revision 1.2)
 )))
 \pgf@layerbox@depgroups=\box64
 \pgf@layerboxsaved@depgroups=\box65
-\c@dt@labelid=\count266
+\c@dt@labelid=\count267
 \xca=\skip191
 \yca=\skip192
 \xcb=\skip193
@@ -1628,15 +1636,15 @@ Package: csquotes 2016/01/31 v5.1g context-sensitive quotations (JAW)
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count267
+\etb@tempcnta=\count268
 )
-\csq@reset=\count268
-\csq@gtype=\count269
-\csq@glevel=\count270
-\csq@qlevel=\count271
-\csq@maxlvl=\count272
-\csq@tshold=\count273
-\csq@ltx@everypar=\toks43
+\csq@reset=\count269
+\csq@gtype=\count270
+\csq@glevel=\count271
+\csq@qlevel=\count272
+\csq@maxlvl=\count273
+\csq@tshold=\count274
+\csq@ltx@everypar=\toks44
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2016/01/31 v5.1g csquotes generic definitions (JAW)
@@ -1652,7 +1660,7 @@ Package: bookmark 2016/05/16 v1.25 PDF bookmarks (HO)
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/bkm-pdftex.def
 File: bkm-pdftex.def 2016/05/16 v1.25 bookmark driver for pdfTeX (HO)
-\BKM@id=\count274
+\BKM@id=\count275
 ))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/fixltx2e.sty
 Package: fixltx2e 2015/06/22 v2.0b fixes to LaTeX (obsolete)
@@ -1670,11 +1678,11 @@ LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/rotating/rotating.sty
 Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
-\c@r@tfl@t=\count275
+\c@r@tfl@t=\count276
 \rotFPtop=\skip256
 \rotFPbot=\skip257
 \rot@float@box=\box66
-\rot@mess@toks=\toks44
+\rot@mess@toks=\toks45
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2016/02/27 v1.2a Bold Symbol Support (DPC/FMi)
@@ -1691,24 +1699,24 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \LTright=\skip259
 \LTpre=\skip260
 \LTpost=\skip261
-\LTchunksize=\count276
+\LTchunksize=\count277
 \LTcapwidth=\dimen283
 \LT@head=\box67
 \LT@firsthead=\box68
 \LT@foot=\box69
 \LT@lastfoot=\box70
-\LT@cols=\count277
-\LT@rows=\count278
-\c@LT@tables=\count279
-\c@LT@chunks=\count280
-\LT@p@ftn=\toks45
+\LT@cols=\count278
+\LT@rows=\count279
+\c@LT@tables=\count280
+\c@LT@chunks=\count281
+\LT@p@ftn=\toks46
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen284
 \WF@size=\dimen285
-\c@WF@wrappedlines=\count281
+\c@WF@wrappedlines=\count282
 \WF@box=\box71
-\WF@everypar=\toks46
+\WF@everypar=\toks47
 Package: wrapfig 2003/01/31  v 3.6
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/threeparttable/threeparttable.sty
@@ -1724,17 +1732,17 @@ Package: arydshln 2016/04/28 v1.73
 \adl@depth=\dimen290
 \adl@depthsave=\dimen291
 \adl@finaldepth=\dimen292
-\adl@columns=\count282
-\adl@ncol=\count283
-\adl@currentcolumn=\count284
-\adl@currentcolumnsave=\count285
-\adl@totalheight=\count286
-\adl@totalheightsave=\count287
-\adl@dash=\count288
-\adl@gap=\count289
-\adl@cla=\count290
-\adl@clb=\count291
-\adl@everyvbox=\toks47
+\adl@columns=\count283
+\adl@ncol=\count284
+\adl@currentcolumn=\count285
+\adl@currentcolumnsave=\count286
+\adl@totalheight=\count287
+\adl@totalheightsave=\count288
+\adl@dash=\count289
+\adl@gap=\count290
+\adl@cla=\count291
+\adl@clb=\count292
+\adl@everyvbox=\toks48
 \adl@LTpagetotal=\dimen293
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/mdwtools/footnote.sty
@@ -1766,30 +1774,23 @@ Sidefootvsep and sidefootheight: 13.6pt and 594.32022pt
 ******************************************************
 
 (./ch00/mychapterstyles.tex)
-\c@points=\count292
- (./ch00/variables_matematiques.tex)
+\c@points=\count293
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
-Package csquotes Info: Redefining alias 'default' -> 'british'.
+Package csquotes Info: Redefining alias 'default' -> 'spanish'.
+ (./thesis_a4.aux (./ch00/portada.aux)
+LaTeX Info: Redefining \. on input line 27.
+LaTeX Info: Redefining \% on input line 27.
+LaTeX Info: Redefining \. on input line 31.
+LaTeX Info: Redefining \% on input line 31.
 
-(./thesis_a4.aux (./ch00/portada.aux) (./ch00/preliminarystuff.aux)
-(./ch00/matematiques.aux) (./ch01_introduction/introduction.aux)
-(./ch02_soa/soa.aux) (./ch03_linking/linking.aux)
-(./ch04_kbconstruction/kbconstruction.aux) (./ch05_musicology/musicology.aux)
-(./ch06_similarity/similarity.aux) (./ch07_graph-rec/graph-rec.aux
-
-LaTeX Warning: Label `fs_dataset' multiply defined.
-
-
-LaTeX Warning: Label `sem_eval' multiply defined.
-
-
-LaTeX Warning: Label `comp' multiply defined.
-
-) (./ch08_cold-rec/cold-rec.aux) (./ch09_multimodal-class/multimodal-class.aux)
-(./ch98_conclusions/conclusions.aux) (./ch99/finalpage.aux)
-(./ch99/datasets.aux) (./ch99/pubs.aux))
+(./ch00/preliminarystuff.aux
+LaTeX Info: Redefining \. on input line 10.
+LaTeX Info: Redefining \% on input line 10.
+) (./chapters/ch01_introduction.aux)
+(./chapters/ch02_soa.aux) (./ch99/finalpage.aux) (./ch99/datasets.aux)
+(./ch99/pubs.aux))
 \openout1 = `thesis_a4.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 238.
@@ -1808,23 +1809,27 @@ LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 238.
 LaTeX Font Info:    ... okay on input line 238.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 238.
 LaTeX Font Info:    ... okay on input line 238.
+LaTeX Info: Redefining \. on input line 238.
+LaTeX Info: Redefining \% on input line 238.
 LaTeX Info: Redefining \l on input line 238.
 LaTeX Info: Redefining \L on input line 238.
 
 isodate: babel.sty has been loaded
+LaTeX Info: Redefining \. on input line 238.
+LaTeX Info: Redefining \% on input line 238.
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count293
+\scratchcounter=\count294
 \scratchdimen=\dimen296
 \scratchbox=\box75
-\nofMPsegments=\count294
-\nofMParguments=\count295
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count296
+\nofMPsegments=\count295
+\nofMParguments=\count296
+\everyMPshowfont=\toks49
+\MPscratchCnt=\count297
 \MPscratchDim=\dimen297
-\MPnumerator=\count297
-\makeMPintoPDFobject=\count298
-\everyMPtoPDFconversion=\toks49
+\MPnumerator=\count298
+\makeMPintoPDFobject=\count299
+\everyMPtoPDFconversion=\toks50
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1849,7 +1854,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count299
+\c@section@level=\count300
 )
 Redoing nameref's sectioning
 Redoing nameref's label
@@ -1871,16 +1876,16 @@ ABD: EveryShipout initializing macros
 \openout2 = `ch00/portada.aux'.
 
  (./ch00/portada.tex
-<ch00/pics/upf-logo-bo.pdf, id=7, 48.36969pt x 17.07166pt>
-File: ch00/pics/upf-logo-bo.pdf Graphic file (type pdf)
+<ch00_pics/upf-logo-bo.pdf, id=7, 48.36969pt x 17.07166pt>
+File: ch00_pics/upf-logo-bo.pdf Graphic file (type pdf)
 
-<use ch00/pics/upf-logo-bo.pdf>
-Package pdftex.def Info: ch00/pics/upf-logo-bo.pdf used on input line 11.
+<use ch00_pics/upf-logo-bo.pdf>
+Package pdftex.def Info: ch00_pics/upf-logo-bo.pdf used on input line 11.
 (pdftex.def)             Requested size: 128.0374pt x 45.19897pt.
  [1
 
 
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./ch00/
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./ch00_
 pics/upf-logo-bo.pdf>] [2
 
 ])
@@ -1896,11 +1901,11 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 5.
 
-<ch00/pics/creative-commons2.png, id=28, 404.51125pt x 141.52875pt>
-File: ch00/pics/creative-commons2.png Graphic file (type png)
+<ch00_pics/creative-commons2.png, id=28, 404.51125pt x 141.52875pt>
+File: ch00_pics/creative-commons2.png Graphic file (type png)
 
-<use ch00/pics/creative-commons2.png>
-Package pdftex.def Info: ch00/pics/creative-commons2.png used on input line 8.
+<use ch00_pics/creative-commons2.png>
+Package pdftex.def Info: ch00_pics/creative-commons2.png used on input line 8.
 (pdftex.def)             Requested size: 85.35826pt x 29.86444pt.
 LaTeX Font Info:    Try loading font information for U+msa on input line 33.
 
@@ -1923,170 +1928,36 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 
 
 
- <./ch00/pics/creative-commons2.png (PNG copy)>] [2
+ <./ch00_pics/creative-commons2.png (PNG copy)>] [2
 
-] (./ch00/acknowledgements.tex [3
+] (./ch00/acknowledgements.tex) [3
 
-])
-[4] (./ch00/abstract.tex) [5
+]
+[4
 
+] (./ch00/abstract.tex)) [5
 
 ] [6
 
-] (./ch00/resum.tex)) [7
-
-] [8
-
-
-] (./thesis_a4.toc
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 6.
-
-Overfull \hbox (0.16722pt too wide) detected at line 10
- \T1/cmr/bx/n/10.95 xiii
- []
-
-
-Overfull \hbox (3.31458pt too wide) detected at line 12
- \T1/cmr/bx/n/10.95 xvii
- []
-
-[9]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10]
-Overfull \hbox (1.91577pt too wide) detected at line 136
- \T1/cmr/bx/n/10.95 105
- []
-
-
-Overfull \hbox (1.91577pt too wide) detected at line 138
- \T1/cmr/bx/n/10.95 107
- []
-
-
-Overfull \hbox (1.91577pt too wide) detected at line 141
- \T1/cmr/bx/n/10.95 109
- []
-
-[11]
-Overfull \hbox (1.91577pt too wide) detected at line 145
- \T1/cmr/bx/n/10.95 113
- []
-
-
-Overfull \hbox (1.91577pt too wide) detected at line 146
- \T1/cmr/bx/n/10.95 129
- []
-
-
-Overfull \hbox (1.91577pt too wide) detected at line 148
- \T1/cmr/bx/n/10.95 131
- []
-
-) [12] (./thesis_a4.lof
-Overfull \hbox (1.29315pt too wide) in paragraph at lines 21--21
- [][] [][][]\T1/cmr/m/n/10.95 Precision of re-la-tions at sen-tence (\T1/cmr/m/
-it/10.95 s\T1/cmr/m/n/10.95 ), re-la-tion pat-tern (\T1/cmr/m/it/10.95 p\T1/cmr
-/m/n/10.95 ) and cluster 
- []
-
-[13
-
-]) [14] (./thesis_a4.lot [15
-
-]) [16]
-\openout2 = `ch00/matematiques.aux'.
-
- (./ch00/matematiques.tex
-Overfull \hbox (2.26347pt too wide) in paragraph at lines 34--34
-[]|\T1/cmr/bx/n/10.95 Example| 
- []
-
-
-Overfull \hbox (8.2785pt too wide) in paragraph at lines 32--43
-[]
- []
-
-
-Overfull \hbox (1.08188pt too wide) in paragraph at lines 48--48
-[]|\T1/cmr/bx/n/10.95 Symbol| 
- []
-
-
-Overfull \hbox (7.65944pt too wide) in alignment at lines 46--50
- [] [] 
- []
-
-
-Overfull \hbox (1.08188pt too wide) in paragraph at lines 52--52
-[]|\T1/cmr/bx/n/10.95 Symbol| 
- []
-
-
-Overfull \hbox (7.65944pt too wide) in alignment at lines 50--54
- [] [] 
- []
-
-
-Overfull \hbox (7.65944pt too wide) in alignment at lines 54--57
- [] [] 
- []
-
-
-Overfull \hbox (7.65944pt too wide) in alignment at lines 57--60
- [] [] 
- []
-
-
-Overfull \hbox (7.65944pt too wide) in alignment at lines 60--85
- [] [] 
- []
-
-
-Overfull \hbox (7.65944pt too wide) in alignment at lines 85--109
- [] [] 
- []
-
-
-Overfull \hbox (7.65944pt too wide) in alignment at lines 109--132
- [] [] 
- []
-
-
-Overfull \hbox (7.65944pt too wide) has occurred while \output is active
- [] [] 
- []
-
-[17
-
-
 
 ]
-Overfull \hbox (7.65944pt too wide) in alignment at lines 132--135
- [] [] 
- []
+\openout2 = `chapters/ch01_introduction.aux'.
+
+ (./chapters/ch01_introduction.tex
+
+Package natbib Warning: Citation `schedl2014music' on page 1 undefined on input
+ line 11.
 
 
-Overfull \hbox (7.65944pt too wide) has occurred while \output is active
- [] [] 
- []
+Package natbib Warning: Citation `celma2008new' on page 1 undefined on input li
+ne 11.
 
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18]
-\openout2 = `ch01_introduction/introduction.aux'.
-
-
-(./ch01_introduction/introduction.tex)pdfTeX warning (ext4): destination with t
-he same identifier (name{page.1}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.259 ...o\include{ch01_introduction/introduction}
-                                                   [1
-
-
+l.14 
+      [1
 
 
 
@@ -2094,1276 +1965,280 @@ l.259 ...o\include{ch01_introduction/introduction}
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.260 \cleartorecto
-                   \include{ch02_soa/soa} [2
+l.25 
+      [2]
+
+Package natbib Warning: Citation `bello2015' on page 3 undefined on input line 
+29.
+
+
+LaTeX Warning: Reference `' on page 3 undefined on input line 31.
+
+
+Overfull \hbox (2.50897pt too wide) in paragraph at lines 31--32
+\T1/cmr/m/n/10.95 Low-level rep-res-ent-a-tions (e.g. word fre-quen-cies, word 
+co-occurrences, n-grams)
+ []
+
+
+Package natbib Warning: Citation `Essentia' on page 3 undefined on input line 4
+7.
+
+
+Package natbib Warning: Citation `Librosa' on page 3 undefined on input line 47
+.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
+[4]
+
+Package natbib Warning: Citation `oscarBook' on page 5 undefined on input line 
+73.
+
+
+Package natbib Warning: Citation `oscarBook' on page 5 undefined on input line 
+73.
+
+[5]
+
+Package natbib Warning: Citation `oscarBook' on page 6 undefined on input line 
+76.
+
+
+LaTeX Warning: Reference `' on page 6 undefined on input line 76.
+
+
+Package natbib Warning: Citation `oscarBook' on page 6 undefined on input line 
+80.
+
+
+Package natbib Warning: Citation `TODO' on page 6 undefined on input line 80.
+
+
+Package natbib Warning: Citation `celma2008new' on page 6 undefined on input li
+ne 80.
+
+
+LaTeX Warning: Reference `' on page 6 undefined on input line 88.
+
+[6]
+
+LaTeX Warning: Reference `part:knowledge-extraction' on page 7 undefined on inp
+ut line 90.
+
+
+LaTeX Warning: Reference `sec:linking' on page 7 undefined on input line 90.
+
+
+LaTeX Warning: Reference `sec:kb' on page 7 undefined on input line 90.
+
+
+LaTeX Warning: Reference `sec:musicology' on page 7 undefined on input line 90.
+
+
+
+LaTeX Warning: Reference `part:knowledge-based' on page 7 undefined on input li
+ne 91.
+
+
+LaTeX Warning: Reference `part:knowledge-extraction' on page 7 undefined on inp
+ut line 91.
+
+
+LaTeX Warning: Reference `sec:similarity' on page 7 undefined on input line 91.
+
+
+
+LaTeX Warning: Reference `sec:graph-rec' on page 7 undefined on input line 91.
+
+
+LaTeX Warning: Reference `part:multimodal-deep' on page 7 undefined on input li
+ne 92.
+
+
+LaTeX Warning: Reference `sec:cold-rec' on page 7 undefined on input line 92.
+
+
+LaTeX Warning: Reference `sec:multimodal-class' on page 7 undefined on input li
+ne 92.
+
+
+LaTeX Warning: Reference `sec:conclusion' on page 7 undefined on input line 93.
+
+
+) [7] [8
 
 
 ]
-\openout2 = `ch02_soa/soa.aux'.
+\openout2 = `chapters/ch02_soa.aux'.
 
- (./ch02_soa/soa.tex [3
+ (./chapters/ch02_soa.tex [9
 
 
 ]
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 35.
+
 Overfull \hbox (17.66934pt too wide) in paragraph at lines 39--40
 \T1/cmr/m/n/10.95 defined re-la-tions among them such as \T1/cmr/m/it/10.95 hyp
 onymy/hypernymy\T1/cmr/m/n/10.95 , \T1/cmr/m/it/10.95 mer-onymy\T1/cmr/m/n/10.9
 5 , \T1/cmr/m/it/10.95 holonymy\T1/cmr/m/n/10.95 ,
  []
 
-[4] [5] [6]
+[10] [11]
+Underfull \vbox (badness 6708) has occurred while \output is active []
 
-LaTeX Warning: Reference `fig:sampletree' on page 7 undefined on input line 128
-.
+ [12]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+
+Package natbib Warning: Citation `Schedl2013a' on page 14 undefined on input li
+ne 143.
 
 
-Package natbib Warning: Citation `' on page 7 undefined on input line 129.
+Package natbib Warning: Citation `Sordo2012' on page 14 undefined on input line
+ 146.
 
-[7]
-Overfull \hbox (11.88524pt too wide) in paragraph at lines 145--149
+
+Package natbib Warning: Citation `Sordo2013' on page 14 undefined on input line
+ 147.
+
+
+Package natbib Warning: Citation `Knees2011' on page 14 undefined on input line
+ 148.
+
+
+Underfull \vbox (badness 1496) has occurred while \output is active []
+
+ [14]
+
+Package natbib Warning: Citation `Kolozali2013' on page 15 undefined on input l
+ine 152.
+
+
+Overfull \hbox (11.88524pt too wide) in paragraph at lines 164--168
 \T1/cmr/m/n/10.95 hand-craf-ted au-dio fea-tures, such as Mel Fre-quency Cep-st
 ral Coef-fi-cients (MFCCs)
  []
 
-[8] [9]
+[15] [16]
 
-Package natbib Warning: Citation `Ning12' on page 10 undefined on input line 18
+Package natbib Warning: Citation `Ning12' on page 17 undefined on input line 20
 7.
 
-[10] [11]) [12]
-\openout2 = `ch03_linking/linking.aux'.
-
- (./ch03_linking/linking.tex [13
-
-
-
-
-] [14]
-Overfull \hbox (1.48535pt too wide) in paragraph at lines 11--16
-\T1/cmr/m/n/10.95 named en-tit-ies are clas-si-fied as any of four pre-defined 
-\T1/cmr/m/it/10.95 mu-sical cat-egor-ies\T1/cmr/m/n/10.95 , namely
- []
-
-
-Underfull \vbox (badness 2547) has occurred while \output is active []
-
- [15
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [16]
-[17]
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 81.
- <ch03_linking/pics/workflow.pdf, id=997, 447.92343pt x 185.94469pt>
-File: ch03_linking/pics/workflow.pdf Graphic file (type pdf)
-
-<use ch03_linking/pics/workflow.pdf>
-Package pdftex.def Info: ch03_linking/pics/workflow.pdf used on input line 93.
-(pdftex.def)             Requested size: 227.61775pt x 92.47273pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[18]
-
-LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 116.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 131--132
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
-
- []
-
-[19 <./ch03_linking/pics/workflow.pdf>]
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 168.
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--174
-\T1/cmr/m/n/10 DBpedia:Band,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--174
-\T1/cmr/m/n/10 Schema:MusicGroup,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--174
-\T1/cmr/m/n/10 Yago:Musician, Yago:Creator,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 190--190
-\T1/cmr/m/n/10.95 min-im-al-ism of
- []
-
-
-Overfull \hbox (3.76077pt too wide) in paragraph at lines 190--190
-[]|\T1/cmr/m/n/10.95 Steve_Reich
- []
-
-
-Overfull \hbox (1.26717pt too wide) in paragraph at lines 190--190
-\T1/cmr/m/n/10.95 (type:artist)| 
- []
-
-
-Overfull \hbox (3.76077pt too wide) in paragraph at lines 190--190
-[]|\T1/cmr/m/n/10.95 Steve_Reich
- []
-
-
-Overfull \hbox (1.26717pt too wide) in paragraph at lines 190--190
-\T1/cmr/m/n/10.95 (type:artist)| 
- []
-
-
-Overfull \hbox (3.76077pt too wide) in paragraph at lines 190--190
-[]|\T1/cmr/m/n/10.95 Steve_Reich
- []
-
-
-Overfull \hbox (1.26717pt too wide) in paragraph at lines 190--190
-\T1/cmr/m/n/10.95 (type:artist)| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 190--190
-[]\T1/cmr/m/n/10.95 type-
- []
-
-
-Underfull \hbox (badness 2409) in paragraph at lines 192--192
-[]|\T1/cmr/m/n/10.95 The new al-bum
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 192--192
-\T1/cmr/bx/n/10.95 Hy-po-crisy \T1/cmr/m/n/10.95 fol-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 192--192
-\T1/cmr/m/n/10.95 lowed shortly
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 192--192
-[]|\T1/cmr/m/n/10.95 Hypocrisy
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 192--192
-[]|\T1/cmr/m/n/10.95 Hypocrisy
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 192--192
-[]\T1/cmr/m/n/10.95 type-
- []
-
-
-Underfull \hbox (badness 5771) in paragraph at lines 194--194
-\T1/cmr/bx/n/10.95 Lu-ci-fer Songs\T1/cmr/m/n/10.95 ,
- []
-
-
-Overfull \hbox (12.36656pt too wide) in paragraph at lines 194--194
-[]|\T1/cmr/m/n/10.95 Lucifer_Songs
- []
-
-
-Overfull \hbox (5.43324pt too wide) in paragraph at lines 194--194
-\T1/cmr/m/n/10.95 (type:album)| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 194--194
-[]\T1/cmr/m/n/10.95 type-
- []
-
-
-Overfull \hbox (12.88353pt too wide) in paragraph at lines 196--196
-[]|\T1/cmr/m/n/10.95 HTTP_cookie
- []
-
-
-Overfull \hbox (7.06143pt too wide) in paragraph at lines 196--196
-\T1/cmr/m/n/9 (type:unknown)| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 196--196
-[]|\T1/cmr/m/n/10.95 Cookies
- []
-
-
-Overfull \hbox (5.43324pt too wide) in paragraph at lines 196--196
-\T1/cmr/m/n/10.95 (type:album)| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 196--196
-[]\T1/cmr/m/n/10.95 type-
- []
-
-
-Overfull \hbox (127.90866pt too wide) in paragraph at lines 186--199
- [][] 
- []
-
-Package epstopdf Info: Source file: <ch03_linking/pics/evaluation_both.eps>
-(epstopdf)                    date: 2017-05-10 09:47:38
-(epstopdf)                    size: 161381 bytes
-(epstopdf)             Output file: <ch03_linking/pics/evaluation_both-eps-conv
-erted-to.pdf>
-(epstopdf)                    date: 2017-05-16 13:11:25
-(epstopdf)                    size: 58039 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch03_linking/pics/evaluati
-on_both-eps-converted-to.pdf ch03_linking/pics/evaluation_both.eps>
-(epstopdf)             \includegraphics on input line 209.
-Package epstopdf Info: Output file is already uptodate.
-
-<ch03_linking/pics/evaluation_both-eps-converted-to.pdf, id=1034, 858.20625pt x
- 402.50375pt>
-File: ch03_linking/pics/evaluation_both-eps-converted-to.pdf Graphic file (type
- pdf)
- <use ch03_linking/pics/evaluation_both-eps-converted-to.pdf>
-Package pdftex.def Info: ch03_linking/pics/evaluation_both-eps-converted-to.pdf
- used on input line 209.
-(pdftex.def)             Requested size: 227.62204pt x 106.75511pt.
-
-[20 <./ch03_linking/pics/evaluation_both-eps-converted-to.pdf>]
-Overfull \hbox (85.04811pt too wide) in paragraph at lines 247--257
- [][] 
- []
-
-[21]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [22]
-Overfull \hbox (122.18008pt too wide) in paragraph at lines 282--285
-\T1/cmr/m/n/10.95 well-known club, which is the en-tity that was in-cor-rectly 
-as-signed: \T1/cmtt/m/n/9 dbpedia.org/resource/Ministry_of_Sound\T1/cmr/m/n/10.
-95 .
- []
-
-Package epstopdf Info: Source file: <ch03_linking/pics/ELMD_Overview.eps>
-(epstopdf)                    date: 2017-05-10 09:47:38
-(epstopdf)                    size: 99639 bytes
-(epstopdf)             Output file: <ch03_linking/pics/ELMD_Overview-eps-conver
-ted-to.pdf>
-(epstopdf)                    date: 2017-05-16 13:11:25
-(epstopdf)                    size: 35283 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch03_linking/pics/ELMD_Ove
-rview-eps-converted-to.pdf ch03_linking/pics/ELMD_Overview.eps>
-(epstopdf)             \includegraphics on input line 298.
-Package epstopdf Info: Output file is already uptodate.
-
-<ch03_linking/pics/ELMD_Overview-eps-converted-to.pdf, id=1052, 487.8225pt x 29
-7.11pt>
-File: ch03_linking/pics/ELMD_Overview-eps-converted-to.pdf Graphic file (type p
-df)
- <use ch03_linking/pics/ELMD_Overview-eps-converted-to.pdf>
-Package pdftex.def Info: ch03_linking/pics/ELMD_Overview-eps-converted-to.pdf u
-sed on input line 298.
-(pdftex.def)             Requested size: 227.62204pt x 138.63527pt.
-
-
-LaTeX Warning: Reference `tbl:elmd2' on page 23 undefined on input line 306.
-
-
-LaTeX Warning: Reference `' on page 23 undefined on input line 311.
-
-[23 <./ch03_linking/pics/ELMD_Overview-eps-converted-to.pdf>])
-Overfull \hbox (8.75485pt too wide) in paragraph at lines 320--261
-\T1/cmr/m/n/10.95 tional sys-tems. The \T1/cmr/m/it/10.95 ELVIS \T1/cmr/m/n/10.
-95 code is avail-able at \T1/cmr/m/n/9 ht-tps://github.com/sergiooramas/elvis\T
-1/cmr/m/n/10.95 .
- []
-
-
-Overfull \hbox (6.36761pt too wide) in paragraph at lines 320--261
-\T1/cmr/m/n/10.95 data-set ver-sions can be down-loaded from \T1/cmr/m/n/9 http
-://mtg.upf.edu/download/datasets/elmd\T1/cmr/m/n/10.95 . 
- []
-
-[24]
-\openout2 = `ch04_kbconstruction/kbconstruction.aux'.
-
- (./ch04_kbconstruction/kbconstruction.tex [25
-
-
-
-
-]
-
-Class memoir Warning: The material used in the headers is too large
-(27.2pt) for the given head height (13.6pt), it is recommended to
-either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 48.
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[26] [27]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[28] [29]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[30] [31]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[32] [33]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[34]
-Package epstopdf Info: Source file: <ch04_kbconstruction/pics/threshold.eps>
-(epstopdf)                    date: 2016-05-24 19:26:56
-(epstopdf)                    size: 30643 bytes
-(epstopdf)             Output file: <ch04_kbconstruction/pics/threshold-eps-con
-verted-to.pdf>
-(epstopdf)                    date: 2017-05-16 11:38:55
-(epstopdf)                    size: 19766 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch04_kbconstruction/pics/t
-hreshold-eps-converted-to.pdf ch04_kbconstruction/pics/threshold.eps>
-(epstopdf)             \includegraphics on input line 326.
-Package epstopdf Info: Output file is already uptodate.
-
-<ch04_kbconstruction/pics/threshold-eps-converted-to.pdf, id=1187, 433.62pt x 2
-89.08pt>
-File: ch04_kbconstruction/pics/threshold-eps-converted-to.pdf Graphic file (typ
-e pdf)
- <use ch04_kbconstruction/pics/threshold-eps-converted-to.pdf>
-Package pdftex.def Info: ch04_kbconstruction/pics/threshold-eps-converted-to.pd
-f used on input line 326.
-(pdftex.def)             Requested size: 170.71652pt x 113.8126pt.
- [35 <./ch04_kbconstruction/pics/threshold-eps-converted-to.pdf>]
-
-LaTeX Warning: Reference `' on page 36 undefined on input line 370.
-
-
-LaTeX Warning: Reference `' on page 36 undefined on input line 370.
-
-Package epstopdf Info: Source file: <ch04_kbconstruction/pics/threshold_el.eps>
-
-(epstopdf)                    date: 2016-05-24 19:26:54
-(epstopdf)                    size: 30684 bytes
-(epstopdf)             Output file: <ch04_kbconstruction/pics/threshold_el-eps-
-converted-to.pdf>
-(epstopdf)                    date: 2017-05-16 11:20:09
-(epstopdf)                    size: 20880 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch04_kbconstruction/pics/t
-hreshold_el-eps-converted-to.pdf ch04_kbconstruction/pics/threshold_el.eps>
-(epstopdf)             \includegraphics on input line 403.
-Package epstopdf Info: Output file is already uptodate.
-
-<ch04_kbconstruction/pics/threshold_el-eps-converted-to.pdf, id=1238, 433.62pt 
-x 289.08pt>
-File: ch04_kbconstruction/pics/threshold_el-eps-converted-to.pdf Graphic file (
-type pdf)
- <use ch04_kbconstruction/pics/threshold_el-eps-converted-to.pdf>
-Package pdftex.def Info: ch04_kbconstruction/pics/threshold_el-eps-converted-to
-.pdf used on input line 403.
-(pdftex.def)             Requested size: 170.71652pt x 113.8126pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[36] [37 <./ch04_kbconstruction/pics/threshold_el-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <ch04_kbconstruction/pics/s-rnd100.eps>
-(epstopdf)                    date: 2016-05-24 19:26:54
-(epstopdf)                    size: 26296 bytes
-(epstopdf)             Output file: <ch04_kbconstruction/pics/s-rnd100-eps-conv
-erted-to.pdf>
-(epstopdf)                    date: 2017-05-16 11:38:56
-(epstopdf)                    size: 17686 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch04_kbconstruction/pics/s
--rnd100-eps-converted-to.pdf ch04_kbconstruction/pics/s-rnd100.eps>
-(epstopdf)             \includegraphics on input line 453.
-Package epstopdf Info: Output file is already uptodate.
-
-<ch04_kbconstruction/pics/s-rnd100-eps-converted-to.pdf, id=1294, 542.025pt x 2
-89.08pt>
-File: ch04_kbconstruction/pics/s-rnd100-eps-converted-to.pdf Graphic file (type
- pdf)
- <use ch04_kbconstruction/pics/s-rnd100-eps-converted-to.pdf>
-Package pdftex.def Info: ch04_kbconstruction/pics/s-rnd100-eps-converted-to.pdf
- used on input line 453.
-(pdftex.def)             Requested size: 182.28204pt x 97.21843pt.
-Package epstopdf Info: Source file: <ch04_kbconstruction/pics/p-rnd100.eps>
-(epstopdf)                    date: 2016-05-24 19:26:54
-(epstopdf)                    size: 25994 bytes
-(epstopdf)             Output file: <ch04_kbconstruction/pics/p-rnd100-eps-conv
-erted-to.pdf>
-(epstopdf)                    date: 2017-05-16 11:38:56
-(epstopdf)                    size: 18136 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch04_kbconstruction/pics/p
--rnd100-eps-converted-to.pdf ch04_kbconstruction/pics/p-rnd100.eps>
-(epstopdf)             \includegraphics on input line 458.
-Package epstopdf Info: Output file is already uptodate.
-
-<ch04_kbconstruction/pics/p-rnd100-eps-converted-to.pdf, id=1295, 542.025pt x 2
-89.08pt>
-File: ch04_kbconstruction/pics/p-rnd100-eps-converted-to.pdf Graphic file (type
- pdf)
- <use ch04_kbconstruction/pics/p-rnd100-eps-converted-to.pdf>
-Package pdftex.def Info: ch04_kbconstruction/pics/p-rnd100-eps-converted-to.pdf
- used on input line 458.
-(pdftex.def)             Requested size: 182.28204pt x 97.21843pt.
-Package epstopdf Info: Source file: <ch04_kbconstruction/pics/eval_p_c.eps>
-(epstopdf)                    date: 2016-05-24 19:26:54
-(epstopdf)                    size: 26071 bytes
-(epstopdf)             Output file: <ch04_kbconstruction/pics/eval_p_c-eps-conv
-erted-to.pdf>
-(epstopdf)                    date: 2017-05-16 11:38:57
-(epstopdf)                    size: 17598 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch04_kbconstruction/pics/e
-val_p_c-eps-converted-to.pdf ch04_kbconstruction/pics/eval_p_c.eps>
-(epstopdf)             \includegraphics on input line 463.
-Package epstopdf Info: Output file is already uptodate.
-
-<ch04_kbconstruction/pics/eval_p_c-eps-converted-to.pdf, id=1296, 542.025pt x 2
-89.08pt>
-File: ch04_kbconstruction/pics/eval_p_c-eps-converted-to.pdf Graphic file (type
- pdf)
- <use ch04_kbconstruction/pics/eval_p_c-eps-converted-to.pdf>
-Package pdftex.def Info: ch04_kbconstruction/pics/eval_p_c-eps-converted-to.pdf
- used on input line 463.
-(pdftex.def)             Requested size: 182.28204pt x 97.21843pt.
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[38]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [39 <./ch04_kbconstruction/pics/s-rnd100-eps-converted-to.pdf> <./ch04_kbconst
-ruction/pics/p-rnd100-eps-converted-to.pdf> <./ch04_kbconstruction/pics/eval_p_
-c-eps-converted-to.pdf>]
-
-LaTeX Warning: Reference `sec:kb:method:typefiltering' on page 40 undefined on 
-input line 488.
-
-
-LaTeX Warning: Reference `sec:similarity' on page 40 undefined on input line 51
-2.
-
-
-Underfull \vbox (badness 7851) has occurred while \output is active []
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[40]
-Overfull \hbox (26.91153pt too wide) in paragraph at lines 522--523
-\T1/cmr/m/n/10.95 slightly higher (3.20$\OMS/cmsy/m/n/10.95 ^^F$\T1/cmr/m/n/10.
-95 1.29) than re-com-mend-a-tions without ex-plan-a-tions (3.08$\OMS/cmsy/m/n/1
-0.95 ^^F$\T1/cmr/m/n/10.95 1.35),
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [41]
-<ch04_kbconstruction/pics/recommender.jpg, id=1437, 172.4844pt x 158.5122pt>
-File: ch04_kbconstruction/pics/recommender.jpg Graphic file (type jpg)
-
-<use ch04_kbconstruction/pics/recommender.jpg>
-Package pdftex.def Info: ch04_kbconstruction/pics/recommender.jpg used on input
- line 529.
-(pdftex.def)             Requested size: 223.20227pt x 205.13947pt.
-)
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[42 <./ch04_kbconstruction/pics/recommender.jpg>]
-\openout2 = `ch05_musicology/musicology.aux'.
-
-
-(./ch05_musicology/musicology.tex
-Underfull \vbox (badness 4779) has occurred while \output is active []
-
- [43
-
-
-
-
-]
-[44]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[45]
-<ch05_musicology/pics/datasources.png, id=1485, 896.34875pt x 689.57625pt>
-File: ch05_musicology/pics/datasources.png Graphic file (type png)
-
-<use ch05_musicology/pics/datasources.png>
-Package pdftex.def Info: ch05_musicology/pics/datasources.png used on input lin
-e 81.
-(pdftex.def)             Requested size: 167.39886pt x 128.77963pt.
-
-Underfull \vbox (badness 1297) has occurred while \output is active []
-
- [46 <./ch05_musicology/pics/datasources.png>]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[47] <ch05_musicology/pics/similarity_f.png, id=1520, 362.7954pt x 145.9854pt>
-File: ch05_musicology/pics/similarity_f.png Graphic file (type png)
-
-<use ch05_musicology/pics/similarity_f.png>
-Package pdftex.def Info: ch05_musicology/pics/similarity_f.png used on input li
-ne 108.
-(pdftex.def)             Requested size: 148.79773pt x 59.87666pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [48 <./ch05_musicology/pics/similarity_f.png>]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[49] [50]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[51]
-Package csquotes Info: Input encoding change on input line 168.
- (/usr/local/texlive/2016/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2015/03/17 v1.2c Input encoding file
-)
-Package csquotes Info: Input encoding change on input line 192.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2016/02/28 v1.1s UTF-8 support for inputenc
-)
-<ch05_musicology/pics/Songs-by-palo.jpg, id=1574, 438.63875pt x 343.2825pt>
-File: ch05_musicology/pics/Songs-by-palo.jpg Graphic file (type jpg)
-
-<use ch05_musicology/pics/Songs-by-palo.jpg>
-Package pdftex.def Info: ch05_musicology/pics/Songs-by-palo.jpg used on input l
-ine 230.
-(pdftex.def)             Requested size: 213.39566pt x 167.00513pt.
-
-<ch05_musicology/pics/Artists-by-province.jpg, id=1575, 481.8pt x 305.14pt>
-File: ch05_musicology/pics/Artists-by-province.jpg Graphic file (type jpg)
-
-<use ch05_musicology/pics/Artists-by-province.jpg>
-Package pdftex.def Info: ch05_musicology/pics/Artists-by-province.jpg used on i
-nput line 238.
-(pdftex.def)             Requested size: 241.84842pt x 153.17024pt.
-
-<ch05_musicology/pics/Artists-by-decade-of-birth.jpg, id=1576, 787.94376pt x 44
-1.65pt>
-File: ch05_musicology/pics/Artists-by-decade-of-birth.jpg Graphic file (type jp
-g)
- <use ch05_musicology/pics/Artists-by-decade-of-birth.jpg>
-Package pdftex.def Info: ch05_musicology/pics/Artists-by-decade-of-birth.jpg us
-ed on input line 246.
-(pdftex.def)             Requested size: 227.62204pt x 127.58327pt.
- [52]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[53 <./ch05_musicology/pics/Songs-by-palo.jpg> <./ch05_musicology/pics/Artists-
-by-province.jpg> <./ch05_musicology/pics/Artists-by-decade-of-birth.jpg>]
-[54] <ch05_musicology/pics/evolution-dl.jpg, id=1592, 614.295pt x 519.8622pt>
-File: ch05_musicology/pics/evolution-dl.jpg Graphic file (type jpg)
-
-<use ch05_musicology/pics/evolution-dl.jpg>
-Package pdftex.def Info: ch05_musicology/pics/evolution-dl.jpg used on input li
-ne 276.
-(pdftex.def)             Requested size: 227.62204pt x 192.63156pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [55]
-
-LaTeX Warning: Reference `' on page 56 undefined on input line 296.
-
-<ch05_musicology/pics/methodology-dl.jpg, id=1598, 618.6312pt x 198.9834pt>
-File: ch05_musicology/pics/methodology-dl.jpg Graphic file (type jpg)
-
-<use ch05_musicology/pics/methodology-dl.jpg>
-Package pdftex.def Info: ch05_musicology/pics/methodology-dl.jpg used on input 
-line 300.
-(pdftex.def)             Requested size: 227.62204pt x 73.2128pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [56 <./ch05_musicology/pics/evolution-dl.jpg>] [57 <./ch05_musicology/pics/met
-hodology-dl.jpg>]
-<ch05_musicology/pics/histogram-births.jpg, id=1610, 174.1707pt x 115.3911pt>
-File: ch05_musicology/pics/histogram-births.jpg Graphic file (type jpg)
-
-<use ch05_musicology/pics/histogram-births.jpg>
-Package pdftex.def Info: ch05_musicology/pics/histogram-births.jpg used on inpu
-t line 351.
-(pdftex.def)             Requested size: 227.62204pt x 150.8148pt.
-
-Overfull \hbox (1.8198pt too wide) in paragraph at lines 379--381
-\T1/cmr/m/n/10.95 music-related in-form-a-tion a large data-set of Amazon cus-t
-omer re-views [][]McAuley
- []
-
-[58 <./ch05_musicology/pics/histogram-births.jpg>] [59]
-
-LaTeX Warning: Reference `TODO' on page 60 undefined on input line 423.
-
-[60] <ch05_musicology/pics/omf.pdf, id=1662, 687.56876pt x 266.9975pt>
-File: ch05_musicology/pics/omf.pdf Graphic file (type pdf)
-
-<use ch05_musicology/pics/omf.pdf>
-Package pdftex.def Info: ch05_musicology/pics/omf.pdf used on input line 439.
-(pdftex.def)             Requested size: 372.0pt x 144.45352pt.
-
-<ch05_musicology/pics/annotation_sample2.pdf, id=1672, 538.01pt x 103.38625pt>
-File: ch05_musicology/pics/annotation_sample2.pdf Graphic file (type pdf)
-
-<use ch05_musicology/pics/annotation_sample2.pdf>
-Package pdftex.def Info: ch05_musicology/pics/annotation_sample2.pdf used on in
-put line 453.
-(pdftex.def)             Requested size: 372.0pt x 71.48486pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [61 <./ch05_musicology/pics/omf.pdf>]
-<ch05_musicology/pics/all_average.png, id=1884, 734.745pt x 422.57875pt>
-File: ch05_musicology/pics/all_average.png Graphic file (type png)
-
-<use ch05_musicology/pics/all_average.png>
-Package pdftex.def Info: ch05_musicology/pics/all_average.png used on input lin
-e 470.
-(pdftex.def)             Requested size: 100.44034pt x 57.7614pt.
-
-<ch05_musicology/pics/avg_score.png, id=1885, 639.38875pt x 390.45876pt>
-File: ch05_musicology/pics/avg_score.png Graphic file (type png)
-
-<use ch05_musicology/pics/avg_score.png>
-Package pdftex.def Info: ch05_musicology/pics/avg_score.png used on input line 
-476.
-(pdftex.def)             Requested size: 100.44034pt x 61.3367pt.
-
-<ch05_musicology/pics/gdp2.png, id=1886, 702.625pt x 422.57875pt>
-File: ch05_musicology/pics/gdp2.png Graphic file (type png)
-
-<use ch05_musicology/pics/gdp2.png>
-Package pdftex.def Info: ch05_musicology/pics/gdp2.png used on input line 500.
-(pdftex.def)             Requested size: 89.28123pt x 53.69269pt.
-
-<ch05_musicology/pics/sentiment_release_trend.png, id=1887, 723.70375pt x 422.5
-7875pt>
-File: ch05_musicology/pics/sentiment_release_trend.png Graphic file (type png)
- <use ch05_musicology/pics/sentiment_release_trend.png>
-Package pdftex.def Info: ch05_musicology/pics/sentiment_release_trend.png used 
-on input line 507.
-(pdftex.def)             Requested size: 100.44034pt x 58.64478pt.
-
-<ch05_musicology/pics/rating_release_trend.png, id=1888, 695.59875pt x 422.5787
-5pt>
-File: ch05_musicology/pics/rating_release_trend.png Graphic file (type png)
- <use ch05_musicology/pics/rating_release_trend.png>
-Package pdftex.def Info: ch05_musicology/pics/rating_release_trend.png used on 
-input line 513.
-(pdftex.def)             Requested size: 100.44034pt x 61.01764pt.
-
-<ch05_musicology/pics/genres_release_trend.png, id=1889, 720.6925pt x 411.5375p
-t>
-File: ch05_musicology/pics/genres_release_trend.png Graphic file (type png)
- <use ch05_musicology/pics/genres_release_trend.png>
-Package pdftex.def Info: ch05_musicology/pics/genres_release_trend.png used on 
-input line 519.
-(pdftex.def)             Requested size: 100.44034pt x 57.3511pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [62 <./ch05_musicology/pics/annotation_sample2.pdf> <./ch05_musicology/pics/al
-l_average.png> <./ch05_musicology/pics/avg_score.png> <./ch05_musicology/pics/g
-dp2.png> <./ch05_musicology/pics/sentiment_release_trend.png> <./ch05_musicolog
-y/pics/rating_release_trend.png> <./ch05_musicology/pics/genres_release_trend.p
-ng>]
-[63]) [64] [65] [66
-
-
-]
-\openout2 = `ch06_similarity/similarity.aux'.
-
- (./ch06_similarity/similarity.tex [67
-
-
-] [68]
-
-LaTeX Warning: Reference `sec:similarity:related' on page 69 undefined on input
- line 20.
-
-[69
-
-] <ch06_similarity/pics/methodology.png, id=1988, 636.3775pt x 106.3975pt>
-File: ch06_similarity/pics/methodology.png Graphic file (type png)
-
-<use ch06_similarity/pics/methodology.png>
-Package pdftex.def Info: ch06_similarity/pics/methodology.png used on input lin
-e 34.
-(pdftex.def)             Requested size: 353.39886pt x 59.08539pt.
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[70 <./ch06_similarity/pics/methodology.png>]
-<ch06_similarity/pics/RelationGraph.png, id=2021, 584.1825pt x 329.23pt>
-File: ch06_similarity/pics/RelationGraph.png Graphic file (type png)
-
-<use ch06_similarity/pics/RelationGraph.png>
-Package pdftex.def Info: ch06_similarity/pics/RelationGraph.png used on input l
-ine 58.
-(pdftex.def)             Requested size: 353.39886pt x 199.1722pt.
- [71 <./ch06_similarity/pics/RelationGraph.png>]
-<ch06_similarity/pics/EnrichedGraph1.png, id=2038, 561.09625pt x 363.3575pt>
-File: ch06_similarity/pics/EnrichedGraph1.png Graphic file (type png)
-
-<use ch06_similarity/pics/EnrichedGraph1.png>
-Package pdftex.def Info: ch06_similarity/pics/EnrichedGraph1.png used on input 
-line 77.
-(pdftex.def)             Requested size: 353.39886pt x 228.85544pt.
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[72 <./ch06_similarity/pics/EnrichedGraph1.png>]
-
-LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 10
-7.
-
-LaTeX Font Info:    Calculating math sizes for size <> on input line 109.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 109.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <0.7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 109.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <0.5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 109.
-[73]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[74] [75]
-Overfull \hbox (90.02367pt too wide) in paragraph at lines 238--259
- [][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[76]
-Overfull \hbox (1.33325pt too wide) in paragraph at lines 310--312
-\T1/cmr/m/n/10.95 We eval-u-ated all the ap-proach vari-ants de-scribed in Sec-
-tion [][]6.2.3[][] on the MIREX
- []
-
-[77]
-
-LaTeX Warning: Reference `' on page 78 undefined on input line 379.
-
-
-LaTeX Warning: Reference `' on page 78 undefined on input line 379.
-
-
-LaTeX Warning: Reference `' on page 78 undefined on input line 381.
-
-
-LaTeX Warning: Reference `' on page 78 undefined on input line 381.
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[78] [79]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 443.
-
-
-Overfull \hbox (4.42477pt too wide) in paragraph at lines 456--459
-\T1/cmr/m/n/10.95 bet-ter per-form-ance when com-bin-ing dif-fer-ent fea-ture s
-ets (see Table [][]6.4[][]). There-
- []
-
-
-Overfull \hbox (22.6047pt too wide) in paragraph at lines 456--459
-\T1/cmr/m/n/10.95 (BoW+SEM), \T1/cmr/bx/n/10.95 BoW+Semantic Broader \T1/cmr/m/
-n/10.95 with broader cat-egor-ies (BoW+SEMb),
- []
-
-
-Overfull \hbox (79.92487pt too wide) in paragraph at lines 456--459
-\T1/cmr/bx/n/10.95 BoW+Sentiment \T1/cmr/m/n/10.95 (BoW+SENT) and \T1/cmr/bx/n/
-10.95 BoW+Semantic+Sentiment \T1/cmr/m/n/10.95 (BoW+SEM+SENT).
- []
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[80] <ch06_similarity/pics/results2.png, id=2161, 743.77875pt x 283.0575pt>
-File: ch06_similarity/pics/results2.png Graphic file (type png)
-
-<use ch06_similarity/pics/results2.png>
-Package pdftex.def Info: ch06_similarity/pics/results2.png used on input line 4
-62.
-(pdftex.def)             Requested size: 372.0pt x 141.5759pt.
- [81 <./ch06_similarity/pics/results2.png>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 487.
-
-
-Overfull \hbox (230.14418pt too wide) in paragraph at lines 490--509
- [][] 
- []
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[82])
-Overfull \hbox (2.9449pt too wide) in paragraph at lines 527--264
-\T1/cmr/m/n/10.95 drawn: First, se-mantic ap-proaches may out-per-form pure tex
-t-based ap-proaches.
- []
-
-[83] [84
-
-
-]
-\openout2 = `ch07_graph-rec/graph-rec.aux'.
-
- (./ch07_graph-rec/graph-rec.tex
-
-Package natbib Warning: Citation `wordnet' on page 85 undefined on input line 1
-6.
-
-
-LaTeX Warning: Reference `sec:similarity' on page 85 undefined on input line 16
-.
-
-[85
-
-
-]
-
-Package natbib Warning: Citation `knees_schedl2013' on page 86 undefined on inp
-ut line 21.
-
-
-Underfull \vbox (badness 1735) has occurred while \output is active []
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[86] [87]
-<ch07_graph-rec/pics/graph_all_final.pdf, id=2249, 809.0225pt x 442.65375pt>
-File: ch07_graph-rec/pics/graph_all_final.pdf Graphic file (type pdf)
-
-<use ch07_graph-rec/pics/graph_all_final.pdf>
-Package pdftex.def Info: ch07_graph-rec/pics/graph_all_final.pdf used on input 
-line 84.
-(pdftex.def)             Requested size: 372.0pt x 203.54213pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[88]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [89 <./ch07_graph-rec/pics/graph_all_final.pdf>]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[90] <ch07_graph-rec/pics/item_neig.png, id=2300, 617.30624pt x 324.46219pt>
-File: ch07_graph-rec/pics/item_neig.png Graphic file (type png)
-
-<use ch07_graph-rec/pics/item_neig.png>
-Package pdftex.def Info: ch07_graph-rec/pics/item_neig.png used on input line 1
-42.
-(pdftex.def)             Requested size: 297.60114pt x 156.4233pt.
-
-Overfull \hbox (57.86472pt too wide) in paragraph at lines 139--154
-\OML/cmm/m/it/10.95 G[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 G[] []\OMS/cms
-y/m/n/10.95 f\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; p[]; e[]\OT1/cmr/m/n/
-10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; p[]; 
-e[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/
-10.95 e[]; p[]; e[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95
- (\OML/cmm/m/it/10.95 e[]; p[]; e[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \O
-T1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; p[]; e[]\OT1/cmr/m/n/10.95 )\OML/cmm
-/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; p[]; e[]\OT1/cmr/m/n
-/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; p[];
- e[]\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 g$ 
- []
-
-[91]
-Overfull \hbox (43.48164pt too wide) detected at line 178
- []$[]  \OML/cmm/m/it/10.95 c[] \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 jf\OT1
-/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 e[]; p; e[]\OT1/cmr/m/n/10.95 )[]\OMS/cmsy/
-m/n/10.95 j[]\OML/cmm/m/it/10.95 e[] \OMS/cmsy/m/n/10.95 2 [][] ^ []\OML/cmm/m/
-it/10.95 e[] \OMS/cmsy/m/n/10.95 2 []g []f\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.
-95 e[]; p; e[]\OT1/cmr/m/n/10.95 )[]\OMS/cmsy/m/n/10.95 j[]\OML/cmm/m/it/10.95 
-e[] \OMS/cmsy/m/n/10.95 2 [][] ^ []\OML/cmm/m/it/10.95 e[] \OMS/cmsy/m/n/10.95 
-2 []gj  $ 
- []
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[92 <./ch07_graph-rec/pics/item_neig.png>] [93]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[94]
-Overfull \hbox (8.04956pt too wide) in paragraph at lines 282--284
-\T1/cmr/m/n/10.95 Particularly, $\OML/cmm/m/it/10.95 p[]$ \T1/cmr/m/n/10.95 is 
-the ra-tio of users who down-loaded item \T1/cmr/m/it/10.95 i\T1/cmr/m/n/10.95 
-. The lower $\OML/cmm/m/it/10.95 EBN[]\OT1/cmr/m/n/10.95 @\OML/cmm/m/it/10.95 N
-$\T1/cmr/m/n/10.95 ,
- []
-
-
-Package caption Warning: \label without proper reference on input line 308.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `tbl:graph-rec:datasets' on page 95 undefined on input
- line 298.
-
-[95]
-Overfull \hbox (63.7856pt too wide) in paragraph at lines 309--319
-[][] 
- []
-
-
-Package caption Warning: \label without proper reference on input line 308.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `tbl:graph-rec:datasets' on page 96 undefined on input
- line 325.
-
-
-Underfull \vbox (badness 7238) has occurred while \output is active []
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[96]
-Overfull \hbox (146.94011pt too wide) in paragraph at lines 345--368
-[][] 
- []
-
-
-Package caption Warning: \label without proper reference on input line 344.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `tbl:graph-rec:Res1' on page 97 undefined on input lin
-e 384.
-
-[97]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[98] <ch07_graph-rec/pics/pr_adiv_fr.png, id=2398, 1202.3319pt x 523.9575pt>
-File: ch07_graph-rec/pics/pr_adiv_fr.png Graphic file (type png)
-
-<use ch07_graph-rec/pics/pr_adiv_fr.png>
-Package pdftex.def Info: ch07_graph-rec/pics/pr_adiv_fr.png used on input line 
-405.
-(pdftex.def)             Requested size: 186.0pt x 81.05267pt.
-
-<ch07_graph-rec/pics/nov_fr.png, id=2399, 1207.8726pt x 541.0614pt>
-File: ch07_graph-rec/pics/nov_fr.png Graphic file (type png)
-
-<use ch07_graph-rec/pics/nov_fr.png>
-Package pdftex.def Info: ch07_graph-rec/pics/nov_fr.png used on input line 408.
-
-(pdftex.def)             Requested size: 186.0pt x 83.3105pt.
- [99]
-Overfull \hbox (78.26714pt too wide) in paragraph at lines 436--444
-\T1/cmr/m/n/10.95 proaches we pro-pose is \T1/cmtt/m/n/10.95 BPR-SLIM \T1/cmr/m
-/n/10.95 which slightly out-per-forms \T1/cmtt/m/n/10.95 Path(fso+wn+db+keyw+ta
-gs/h=4)
- []
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[100 <./ch07_graph-rec/pics/pr_adiv_fr.png> <./ch07_graph-rec/pics/nov_fr.png>]
-
-Overfull \hbox (123.92036pt too wide) in paragraph at lines 455--479
-[][] 
- []
-
-
-Package caption Warning: \label without proper reference on input line 454.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `tbl:graph-rec:Res_sf' on page 101 undefined on input 
-line 484.
-
-
-Package caption Warning: \label without proper reference on input line 308.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `tbl:graph-rec:datasets' on page 101 undefined on inpu
-t line 484.
-
-<ch07_graph-rec/pics/pr_adiv_lf.png, id=2429, 1202.3319pt x 523.9575pt>
-File: ch07_graph-rec/pics/pr_adiv_lf.png Graphic file (type png)
-
-<use ch07_graph-rec/pics/pr_adiv_lf.png>
-Package pdftex.def Info: ch07_graph-rec/pics/pr_adiv_lf.png used on input line 
-491.
-(pdftex.def)             Requested size: 186.0pt x 81.05267pt.
-
-<ch07_graph-rec/pics/nov_lf.png, id=2430, 1207.8726pt x 541.0614pt>
-File: ch07_graph-rec/pics/nov_lf.png Graphic file (type png)
-
-<use ch07_graph-rec/pics/nov_lf.png>
-Package pdftex.def Info: ch07_graph-rec/pics/nov_lf.png used on input line 494.
-
-(pdftex.def)             Requested size: 186.0pt x 83.3105pt.
- [101]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[102 <./ch07_graph-rec/pics/pr_adiv_lf.png> <./ch07_graph-rec/pics/nov_lf.png>]
-[103])
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[104]
-\openout2 = `ch08_cold-rec/cold-rec.aux'.
-
- (./ch08_cold-rec/cold-rec.tex [105
-
-
-
-
-] [106]) [107
-
-] [108
-
-
-]
-\openout2 = `ch09_multimodal-class/multimodal-class.aux'.
-
-
-(./ch09_multimodal-class/multimodal-class.tex) [109
-
-
-] [110
-
-
-]
-\openout2 = `ch98_conclusions/conclusions.aux'.
-
-
-(./ch98_conclusions/conclusions.tex) [111
-
-
-] [112
+[17] [18]) [19] [20
 
 
 ]
 \openout2 = `ch99/finalpage.aux'.
 
- (./ch99/finalpage.tex)
-[113
+ (./ch99/finalpage.tex) [21
 
 
 
-] [114
+] [22
 
 
-] (./thesis_a4.bbl [115
+] (./thesis_a4.bbl [23
 
-] [116] [117]
-Underfull \hbox (badness 1237) in paragraph at lines 250--253
+]
+[24]
+Underfull \hbox (badness 1237) in paragraph at lines 177--180
 \T1/cmr/m/n/10.95 Re-cur-rent Neural Net-works for Mu-sic Clas-si-fic-a-tion.  
 \T1/cmr/m/it/10.95 arXiv pre-print
  []
 
-[118] [119] [120] [121] [122] [123] [124]
-Underfull \hbox (badness 2644) in paragraph at lines 819--824
+[25] [26] [27] [28] [29]
+Underfull \hbox (badness 2644) in paragraph at lines 555--560
 []\T1/cmr/m/n/10.95 Pachet, F. & Cazaly, D. (2000).  A tax-onomy of mu-sical ge
 nres.
  []
 
 
-Underfull \hbox (badness 4072) in paragraph at lines 819--824
+Underfull \hbox (badness 4072) in paragraph at lines 555--560
 \T1/cmr/m/n/10.95 1245. LE CENTRE DE HAUTES ET-UDES IN-TER-NA-TIONALES
  []
 
-[125]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 900.
- [126] [127] [128]) [129] [130
-
-]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 611.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 611.
+[30] [31]) [32]
 \openout2 = `ch99/datasets.aux'.
 
- (./ch99/datasets.tex) [131
+ (./ch99/datasets.tex) [33
 
 
-] [132
+
+] [34
 
 
 ]
 \openout2 = `ch99/pubs.aux'.
 
+ (./ch99/pubs.tex [35
 
-(./ch99/pubs.tex [133
 
-
-] [134]) [135] [136
+] [36])
+[37] [38
 
 
 ]
 
-Class memoir Warning: The material used in the headers is too large
-(27.2pt) for the given head height (13.6pt), it is recommended to
-either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 293.
-
-
 Package natbib Warning: There were undefined citations.
 
-[137]
-\tf@toc=\write5
-\openout5 = `thesis_a4.toc'.
-
-\tf@lof=\write6
-\openout6 = `thesis_a4.lof'.
-
-\tf@lot=\write7
-\openout7 = `thesis_a4.lot'.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 293.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 293.
- (./thesis_a4.aux (./ch00/portada.aux) (./ch00/preliminarystuff.aux)
-(./ch00/matematiques.aux) (./ch01_introduction/introduction.aux)
-(./ch02_soa/soa.aux) (./ch03_linking/linking.aux)
-(./ch04_kbconstruction/kbconstruction.aux) (./ch05_musicology/musicology.aux)
-(./ch06_similarity/similarity.aux) (./ch07_graph-rec/graph-rec.aux)
-(./ch08_cold-rec/cold-rec.aux) (./ch09_multimodal-class/multimodal-class.aux)
-(./ch98_conclusions/conclusions.aux) (./ch99/finalpage.aux)
-(./ch99/datasets.aux) (./ch99/pubs.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 293.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 293.
+[39]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 294.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 294.
+ (./thesis_a4.aux (./ch00/portada.aux)
+LaTeX Info: Redefining \. on input line 27.
+LaTeX Info: Redefining \% on input line 27.
+LaTeX Info: Redefining \. on input line 31.
+LaTeX Info: Redefining \% on input line 31.
+ (./ch00/preliminarystuff.aux)
+(./chapters/ch01_introduction.aux) (./chapters/ch02_soa.aux)
+(./ch99/finalpage.aux) (./ch99/datasets.aux) (./ch99/pubs.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 294.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 294.
 
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 293.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 294.
  ) 
 Here is how much of TeX's memory you used:
- 29849 strings out of 493014
- 565374 string characters out of 6133350
- 717246 words of memory out of 5000000
- 32053 multiletter control sequences out of 15000+600000
- 57076 words of font info for 157 fonts, out of 8000000 for 9000
+ 28155 strings out of 493014
+ 521124 string characters out of 6133350
+ 664831 words of memory out of 5000000
+ 30901 multiletter control sequences out of 15000+600000
+ 28209 words of font info for 79 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 68i,16n,105p,2058b,1056s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,12n,73p,2798b,714s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
-local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/
-texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2016/tex
-mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/public/cm-super/sfbi0700.pfb></usr/local/texlive/2016/t
-exmf-dist/fonts/type1/public/cm-super/sfbi0800.pfb></usr/local/texlive/2016/tex
-mf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/local/texlive/2016/texmf
--dist/fonts/type1/public/cm-super/sfbx0700.pfb></usr/local/texlive/2016/texmf-d
-ist/fonts/type1/public/cm-super/sfbx0800.pfb></usr/local/texlive/2016/texmf-dis
-t/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2016/texmf-dist/
-fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2016/texmf-dist/fo
-nts/type1/public/cm-super/sfcc0800.pfb></usr/local/texlive/2016/texmf-dist/font
-s/type1/public/cm-super/sfcc0900.pfb></usr/local/texlive/2016/texmf-dist/fonts/
-type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2016/texmf-dist/fonts/ty
-pe1/public/cm-super/sfit1000.pfb></usr/local/texlive/2016/texmf-dist/fonts/type
-1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
-public/cm-super/sfrm0700.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pu
-blic/cm-super/sfrm0800.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publ
-ic/cm-super/sfrm0900.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
-/cm-super/sfrm1000.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/c
-m-super/sfrm1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-
-super/sfrm1728.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-su
-per/sfsl1000.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-supe
-r/sfti0800.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/
-sfti0900.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sf
-ti1000.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sftt
-0900.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sftt10
-00.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfxc0800
-.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfxc1200.p
-fb>
-Output written on thesis_a4.pdf (157 pages, 5290472 bytes).
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/l
+ocal/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/loc
+al/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local
+/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2
+016/texmf-dist/fonts/type1/public/cm-super/sfsl1000.pfb></usr/local/texlive/201
+6/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2016/
+texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
+Output written on thesis_a4.pdf (47 pages, 380422 bytes).
 PDF statistics:
- 3191 PDF objects out of 3580 (max. 8388607)
- 2655 compressed objects within 27 object streams
- 591 named destinations out of 1000 (max. 500000)
- 1054 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 866 PDF objects out of 1000 (max. 8388607)
+ 792 compressed objects within 8 object streams
+ 201 named destinations out of 1000 (max. 500000)
+ 215 words of extra memory for PDF output out of 10000 (max. 10000000)
 
