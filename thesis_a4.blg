@@ -3,7 +3,6 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis_a4.aux
 A level-1 auxiliary file: ch00/portada.aux
 A level-1 auxiliary file: ch00/preliminarystuff.aux
-A level-1 auxiliary file: ch00/matematiques.aux
 A level-1 auxiliary file: chapters/ch01_introduction.aux
 A level-1 auxiliary file: chapters/ch02_soa.aux
 A level-1 auxiliary file: ch99/finalpage.aux
@@ -14,6 +13,10 @@ Database file #1: biblio_final.bib
 Repeated entry---line 1945 of file biblio_final.bib
  : @inproceedings{wang2009tag
  :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 2092 of file biblio_final.bib
+ : @inproceedings{Bellogin2010
+ :                            ,
 I'm skipping whatever remains of this entry
 Repeated entry---line 3027 of file biblio_final.bib
  : @inproceedings{ODMD14a
@@ -31,13 +34,7 @@ Repeated entry---line 4228 of file biblio_final.bib
  : @article{cowie1996information
  :                              ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "schedl2014music"
-Warning--I didn't find a database entry for "celma2008new"
 Warning--I didn't find a database entry for "bello2015"
-Warning--I didn't find a database entry for "Essentia"
-Warning--I didn't find a database entry for "Librosa"
-Warning--I didn't find a database entry for "oscarBook"
-Warning--I didn't find a database entry for "TODO"
 Warning--I didn't find a database entry for ""
 Warning--I didn't find a database entry for "Schedl2013a"
 Warning--I didn't find a database entry for "Sordo2012"
@@ -45,47 +42,48 @@ Warning--I didn't find a database entry for "Sordo2013"
 Warning--I didn't find a database entry for "Knees2011"
 Warning--I didn't find a database entry for "Kolozali2013"
 Warning--I didn't find a database entry for "Ning12"
+Warning--there's a number but no volume in Mcfee2015
 Warning--there's a number but no volume in Nakasholeetal2012
 Warning--empty journal in sordo2012semantic
-You've used 114 entries,
+You've used 120 entries,
             2821 wiz_defined-function locations,
-            1315 strings with 29384 characters,
-and the built_in function-call counts, 77993 in all, are:
-= -- 6646
-> -- 3273
-< -- 116
-+ -- 1185
-- -- 1062
-* -- 5686
-:= -- 11507
-add.period$ -- 373
-call.type$ -- 114
-change.case$ -- 1044
-chr.to.int$ -- 109
-cite$ -- 116
-duplicate$ -- 5683
-empty$ -- 5707
-format.name$ -- 1470
-if$ -- 16027
-int.to.chr$ -- 6
+            1336 strings with 30602 characters,
+and the built_in function-call counts, 82396 in all, are:
+= -- 6998
+> -- 3502
+< -- 122
++ -- 1273
+- -- 1140
+* -- 6026
+:= -- 12174
+add.period$ -- 393
+call.type$ -- 120
+change.case$ -- 1104
+chr.to.int$ -- 113
+cite$ -- 123
+duplicate$ -- 5987
+empty$ -- 6011
+format.name$ -- 1568
+if$ -- 16912
+int.to.chr$ -- 8
 int.to.str$ -- 1
-missing$ -- 1095
-newline$ -- 573
-num.names$ -- 458
-pop$ -- 2386
+missing$ -- 1161
+newline$ -- 603
+num.names$ -- 482
+pop$ -- 2523
 preamble$ -- 1
-purify$ -- 807
+purify$ -- 856
 quote$ -- 0
-skip$ -- 2484
+skip$ -- 2602
 stack$ -- 0
-substring$ -- 3753
-swap$ -- 3143
-text.length$ -- 65
+substring$ -- 3939
+swap$ -- 3320
+text.length$ -- 68
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1017
-warning$ -- 2
-while$ -- 578
+type$ -- 1068
+warning$ -- 3
+while$ -- 609
 width$ -- 0
-write$ -- 1506
-(There were 5 error messages)
+write$ -- 1586
+(There were 6 error messages)

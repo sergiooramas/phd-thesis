@@ -1,5 +1,12 @@
-\begin{thebibliography}{114}
+\begin{thebibliography}{120}
 \providecommand{\natexlab}[1]{#1}
+
+\bibitem[{Adomavicius \& Kwon(2012)}]{adomavicius2012improving}
+Adomavicius, G. \& Kwon, Y. (2012).
+\newblock Improving aggregate recommendation diversity using ranking-based
+  techniques.
+\newblock \emph{IEEE Transactions on Knowledge and Data Engineering},
+  \emph{24}(5), 896--911.
 
 \bibitem[{Aghdam et~al.(2015)Aghdam, Hariri, Mobasher, \& Burke}]{AghdamHMB15}
 Aghdam, M.~H., Hariri, N., Mobasher, B., \& Burke, R.~D. (2015).
@@ -46,6 +53,14 @@ Baral, C. \& {De Giacomo}, G. (2015).
 \newblock In \emph{Twenty-Ninth AAAI Conference on Artificial Intelligence},
   pp. 4316--4317.
 
+\bibitem[{Bellog{\'{i}}n et~al.(2010)Bellog{\'{i}}n, Cantador, \&
+  Castells}]{Bellogin2010}
+Bellog{\'{i}}n, A., Cantador, I., \& Castells, P. (2010).
+\newblock {A Study of Heterogeneity in Recommendations for a Social Music
+  Service}.
+\newblock In \emph{Proceedings of the 1st International Workshop on Information
+  Heterogeneity and Fusion in Recommender Systems}, HetRec '10, pp. 1--8. ACM.
+
 \bibitem[{Bengio et~al.(2013)Bengio, Courville, \&
   Vincent}]{bengio2013representation}
 Bengio, Y., Courville, A., \& Vincent, P. (2013).
@@ -67,8 +82,16 @@ Bogdanov, D., Porter, A., Herrera, P., \& Serra, X. (2016).
 \newblock In \emph{Proc. of the Int. Conf. on Music Information Retrieval
   (ISMIR)}.
 
-\bibitem[{Bogdanov et~al.(2013)Bogdanov, Wack, \& Others}]{Bogdanov2013}
-Bogdanov, D., Wack, N., \& Others (2013).
+\bibitem[{Bogdanov et~al.(2013{\natexlab{a}})Bogdanov, Wack, G{\'o}mez, Gulati,
+  Herrera, Mayor, Roma, Salamon, Zapata, Serra et~al.}]{bogdanov2013essentia}
+Bogdanov, D., Wack, N., G{\'o}mez, E., Gulati, S., Herrera, P., Mayor, O.,
+  Roma, G., Salamon, J., Zapata, J.~R., Serra, X. et~al. (2013{\natexlab{a}}).
+\newblock Essentia: An audio analysis library for music information retrieval.
+\newblock In \emph{ISMIR}, pp. 493--498.
+
+\bibitem[{Bogdanov et~al.(2013{\natexlab{b}})Bogdanov, Wack, \&
+  Others}]{Bogdanov2013}
+Bogdanov, D., Wack, N., \& Others (2013{\natexlab{b}}).
 \newblock {ESSENTIA: an Open-Source Library for Sound and Music Analysis}.
 \newblock In \emph{ACM International Conference on Multimedia
   (MM{\{}$\backslash$textquoteright{\}}13)}, pp. 855--858.
@@ -143,8 +166,14 @@ Carlson, A., Betteridge, J., Wang, R.~C., {Hruschka Jr}, E., \& Mitchell, T.~M.
 \newblock In \emph{Proceedings of the third ACM International Conference on Web
   Search and Data Mining (WSDM)}, pp. 101--110.
 
-\bibitem[{Celma(2010)}]{Celma2010}
-Celma, {\`{O}}. (2010).
+\bibitem[{Celma(2010{\natexlab{a}})}]{oscarBook}
+Celma, {\`O}. (2010{\natexlab{a}}).
+\newblock \emph{Music Recommendation and Discovery - The Long Tail, Long Fail,
+  and Long Play in the Digital Music Space}.
+\newblock Springer.
+
+\bibitem[{Celma(2010{\natexlab{b}})}]{Celma2010}
+Celma, {\`{O}}. (2010{\natexlab{b}}).
 \newblock \emph{{The Long Tail in Recommender Systems}}, pp. 87--107.
 \newblock Berlin, Heidelberg: Springer Berlin Heidelberg.
 
@@ -153,6 +182,12 @@ Celma, {\`{O}}., Cano, P., \& Herrera, P. (2006).
 \newblock {Search Sounds An audio crawler focused on weblogs}.
 \newblock In \emph{7th International Conference on Music Information Retrieval
   (ISMIR)}.
+
+\bibitem[{Celma \& Herrera(2008)}]{celma2008new}
+Celma, {\`O}. \& Herrera, P. (2008).
+\newblock A new approach to evaluating novel recommendations.
+\newblock In \emph{Proceedings of the 2008 ACM conference on Recommender
+  systems}, pp. 179--186. ACM.
 
 \bibitem[{Celma \& Serra(2008)}]{Celma2008}
 Celma, {\`{O}}. \& Serra, X. (2008).
@@ -446,6 +481,13 @@ Mausam, Schmitz, M., Bart, R., Soderland, S., \& Etzioni, O. (2012).
 \newblock In \emph{Proceedings of the Conference on Empirical Methods in
   Natural Language Processing and Computational Natural Language Learning
   (EMNLP-CoNLL)}.
+
+\bibitem[{Mcfee et~al.(2015)Mcfee, Raffel, Liang, Ellis, Mcvicar, Battenberg,
+  \& Nieto}]{Mcfee2015}
+Mcfee, B., Raffel, C., Liang, D., Ellis, D. P.~W., Mcvicar, M., Battenberg, E.,
+  \& Nieto, O. (2015).
+\newblock {librosa: Audio and Music Signal Analysis in Python}.
+\newblock \emph{PROC. OF THE 14th PYTHON IN SCIENCE CONF}, (Scipy), 1--7.
 
 \bibitem[{Mendes et~al.(2011)Mendes, Jakob, Garc{\'{i}}a-Silva, \&
   Bizer}]{Mendes2011}
