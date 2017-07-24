@@ -177,20 +177,20 @@ Record Label & DBpedia:RecordLabel \\
 \end{table}
 
 \begin{table*}[!t]
-%\scriptsize
+\scriptsize
 \def\arraystretch{1.2}
 \centering
-	\begin{tabular}{| p{3cm} | c | p{2cm} | p{2cm} | p{2cm} | c | c |}
+	\begin{tabular}{| p{2cm} | c | L{1.8cm} | L{1.8cm} | L{1.5cm} | c | L{1cm} |}
 \hline
-\textbf{Context} & \textbf{Last.fm type} & \textbf{Tagme} & \textbf{Babelfy} & \textbf{Spotlight} & \textbf{Score} & \textbf{Type Eq.} \\
+\textbf{Context} & \textbf{Type} & \textbf{Tagme} & \textbf{Babelfy} & \textbf{Spotlight} & \textbf{Score} & \textbf{Type Eq.} \\
 \hline
-and the academic minimalism of \textbf{Steve Reich} & Artist &  Steve\_Reich (type:artist) & Steve\_Reich (type:artist) & Steve\_Reich (type:artist) & 3 & \parbox[t]{2cm}{type-equivalent} \\
+and the academic minimalism of \textbf{Steve Reich} & Artist &  Steve\_Reich (type:artist) & Steve\_Reich (type:artist) & Steve\_Reich (type:artist) & 3 & yes \\
 \hline
-The new album \textbf{Hypocrisy} followed shortly thereafter & Album & --- & Hypocrisy (type:band) & Hypocrisy (type:band) & 2 & \parbox[t]{2cm}{type-discrepant} \\
+The new album \textbf{Hypocrisy} followed shortly thereafter & Album & --- & Hypocrisy (type:band) & Hypocrisy (type:band) & 2 & no \\
 \hline
-The third album \textbf{Lucifer Songs}, opened new and unexpected doors & Album & --- & Lucifer\_Songs (type:album) & --- & 1 & \parbox[t]{2cm}{type-equivalent} \\
+The third album \textbf{Lucifer Songs}, opened new and unexpected doors & Album & --- & Lucifer\_Songs (type:album) & --- & 1 & yes \\
 \hline
-The band's debut album, \textbf{Cookies}, was released on 14 May 2007 & Album & HTTP\_cookie {\footnotesize{(type:unknown)}} & Cookies (type:album) & --- & 1 & \parbox[t]{2cm}{type-equivalent\\ (only\\ Babelfy)} \\
+The band's debut album, \textbf{Cookies}, was released on 14 May 2007 & Album & HTTP\_cookie {\footnotesize{(type:unk)}} & Cookies (type:album) & --- & 1 & \parbox[t]{1cm}{\centering yes\\ (only\\ Babelfy)} \\
 \hline
 	\end{tabular}
 	\caption{Agreement examples}
@@ -235,18 +235,20 @@ The band's debut album, \textbf{Cookies}, was released on 14 May 2007 & Album & 
 Considering the different possibilities of agreement across the systems integrating \textsc{ELVIS}, there are in total 7 possible configurations: 1 with \textbf{full agreement} (score$=3$); 3 with \textbf{partial agreement} (score $=2$); and 3 \textbf{singleton} configurations (score$=1$). Moreover, considering also the two possible values of \textit{type agreement}, namely \texttt{equivalent} and \texttt{discrepant}, we have a total number of 14 configurations. Figure \ref{fig:linking:agreement_typed} provides a visual overview of these configurations, where we show both Precision scores for each configuration (in bold) in addition to the number of entities disambiguated with \textsc{ELVIS} in each case.
 
 %Considering the two possible values of \textit{type agreement}, namely \texttt{equivalent} and \texttt{discrepant}, and the different possibilities of agreement across the systems integrating \textsc{ELVIS}, there are in total 14 possible configurations. These may be broken down into 7 configurations with \textit{type equivalence} and 7 configurations with \textit{type discrepancy}. These 7 configurations according to EL agreement: 1 \textbf{full agreement} configuration (score$=3$); 3 \textbf{partial agreement} configurations (score $=2$); and 3 \textbf{singleton} configurations  (score$=1$). Figure \ref{fig:linking:agreement_typed} provides a visual overview of these configurations, where we show both Precision scores for each configuration (in bold) in addition to the number of entities disambiguated with \textsc{ELVIS} in each case.\\
+
 \begin{table*}[ht!]
+\scriptsize
 \small
 \centering
 \def\arraystretch{1.2}
 	\begin{tabular}{|l|r|r|r|l|}
 \hline
-\textbf{Musical Category} & \textbf{Annotations} & \textbf{Distinct Entities} & \textbf{Avg. words} & \textbf{Most frequent entity} \\
+\textbf{Category} & \textbf{Annotations} & \textbf{Entities} & \textbf{Avg-words} & \textbf{Most frequent} \\
 \hline
 Song & 3,302 & 2,823 & 2.81 & Shine (6) \\
 Album & 7,872 & 6,897 & 2.69 & Like Drawing Blood (6) \\
 Artist & 46,337 & 17,535 & 1.88 & The Beatles (160) \\
-Record Label & 2,169 & 815 & 1.94 & Sub Pop (33) \\
+Label & 2,169 & 815 & 1.94 & Sub Pop (33) \\
 \hline
 	\end{tabular}
 	\caption{Statistics of the linked entities in ELMD. We report, for each \textit{musical category}, the total number of annotations linked to DBpedia, number of unique entities, average number of words per entity mention, and most frequently annotated entity (along with its frequency).}
@@ -301,10 +303,11 @@ A similar situation happens when song or album names may be confused with very c
 To extend the coverage and the number of annotations of the \textsc{ELMD} dataset we applied the following processes. First, we take advantage of the fact that a large portion of Last.fm annotations have a direct mapping to MB via its API. Therefore, in addition to the already available DBpedia links, MusicBrainz URLs are added to the annotations, when this information is available. Furthermore, existing annotations in every document are propagated, assuming they appear in a one-sense-per-discourse fashion. For example, if the text span \textit{The Beatles} is marked as an annotation in the first sentence of a document, and it appears again in the second sentence, but there is no annotation associated, an annotation is added. Finally, we look for mentions of the entity that constitutes the main theme of the biography, and annotate all its mentions within the biography, assuming unambiguity. The number of annotations and distinct entities after the extension process are reported in Table \ref{tbl:linking:elmd2}. Note that MB has a coverage of 93.6\% over all the annotations, and 91.1\% over all distinct entities.
 
 \begin{table}[]
-\def\arraystretch{1.25}
+%\def\arraystretch{1.25}
 \centering
-\begin{tabular}{lrr}
-       & \texttt{Annotations} & \texttt{Entities} \\ \hline \hline
+\begin{tabular}{| l| r |r |}
+\hline
+& \textbf{Annotations} & \textbf{Entities} \\ \hline
 All    & 144,593      & 63,902    \\ \hline
 Artist & 112,524      & 39,131    \\ \hline
 Album  & 18,701       & 15,064    \\ \hline
