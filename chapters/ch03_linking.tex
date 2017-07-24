@@ -326,6 +326,20 @@ Label  & 4,165        & 1,875
 The \textsc{ELMD} dataset may have several applications, such as acting as a training set for a NER or EL system. However, it suffer from two major problems that differenciate it from an authentic gold standard dataset. First, although there is an important number of annotated entities, there are still many musical entities mentioned in \textsc{ELMD} texts that are not linked to any KB, nor even annotated. Second, as the dataset has been automatically generated, it is prune to errors, as it has been shown in the evaluation in Section \ref{sec:linking:evaluation}. To tackle this issues, a subset of 200 documents from \textsc{ELMD} was manually annotated by a human annotator. We asked the annotator to annotate in each document all mentios of entities of the types: Artist, Album and Song. Record Label entities were discared due to the low number of annotations present in the documents. In addition, the annotator manually searched for each entity in the MB database. If it was present, the MB URL was added to the annotation. The final number of annotations is shown in Table~\ref{tbl:linking:ELMDGold}.
 This gold standard dataset have been used in the Task 3 of the third edition of the Open Knowledge Extraction Challenge, collocated with the Extended Semantic Web Conference (ESWC 2017)\cite{}.
 
+\begin{table}[]
+%\def\arraystretch{1.25}
+\centering
+\begin{tabular}{| l| r |r |}
+\hline
+& \textbf{Annotations} & \textbf{Entities} \\ \hline
+All    & 5,184      & 2,803    \\ \hline
+Artist & 3,828      & 1,926    \\ \hline
+Album  & 860       & 693    \\ \hline
+Song  & 496        & 184     \\ \hline
+\end{tabular}
+\caption{Statistics of the ELMDGold corpus. \texttt{Annotations} refers to all distinct mentions or apparitions of an entity of its corresponding type, whereas the \texttt{Entities} column refers to the number of distinct entities of each type.}
+\label{tbl:linking:ELMDGold}
+\end{table}
 
 
 \section{Conclusion}
