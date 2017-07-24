@@ -10,24 +10,23 @@ We combine a state-of-the-art Entity Linking tool and a linguistically motivated
 Our method is able to generate a fully disambiguated \textsc{MKB} with entity mappings against \textsc{DBpedia} and \textsc{MusicBrainz}. All relations have a relation pattern derived from a Relation Extraction (\textsc{RE}) procedure backed up by an algorithm that performs the following steps: (1) Morpho-syntactic rule-based \textit{filtering}; (2) Syntactic dependency-based \textit{clustering}; and (3) Relation \textit{weighting} based on statistical evidence. 
 
 We validated our methodology on a large collection of documents in the music domain, obtained from \textit{songfacts.com}, a website that collects ``tidbits'' (short stories) about songs.
-We carried out an intrinsect evaluation on each component of the algorithm, as well as an extrinsic evaluation which consists of a experiment on interpretation of music recommendations, where our automatically learned \textsc{MKB} is used to provide explanations to song recommendations in \textit{natural language}.
+We carried out an intrinsic evaluation on each component of the algorithm, as well as an extrinsic evaluation which consists of a experiment on interpretation of music recommendations, where our automatically learned \textsc{MKB} is used to provide explanations to song recommendations in \textit{natural language}.
 Our experimental results indicate that our system is able to extract \textit{high quality} relations (Precision $>= 0.8$) as well as \textit{novel knowledge}. We unveil thousands of relations absent in both large-scale generic \textsc{KBs}, as well as in music specific resources. Moreover, the recommendation explanation experiment shows that explanations based on the newly learned \textsc{KB} have a positive impact in user experience.
 
 %We release the learned \textsc{MKB} at several confidence levels, together with the evaluation data used in the experiments described in this chapter. The code for the complete \textsc{RE} pipeline is also released as open source software under MIT license.
 
-The main contributions of this chapter are summarized as follows:
-\begin{itemize}
-    \item{We address for the fist time the problem of automatic construction of MKBs from plain text.}
-    \item{We put forward a novel approach for clustering relations, based on patterns derived from syntactic dependencies.}
-    \item{We present a new confidence measure over all extracted relations and demonstrate its discriminative power.}
-    \item{We showcase the utility of our method by creating a high quality MKB with \textit{novel knowledge}.}
-    \item{We demonstrate the usefulness of our automatically constructed MKB for providing explanations in natural language in the context of music recommendation.}
-\end{itemize}
+%The main contributions of this chapter are summarized as follows:
+%\begin{itemize}
+%    \item{We address for the fist time the problem of automatic construction of MKBs from plain text.}
+%    \item{We put forward a novel approach for clustering relations, based on patterns derived from syntactic dependencies.}
+%    \item{We present a new confidence measure over all extracted relations and demonstrate its discriminative power.}
+%    \item{We showcase the utility of our method by creating a high quality MKB with \textit{novel knowledge}.}
+%    \item{We demonstrate the usefulness of our automatically constructed MKB for providing explanations in natural language in the context of music recommendation.}
+%\end{itemize}
 
 The work described in this chapter is a joint effort by the author of this thesis, and Luis Espinosa-Anke, both researchers in the UPF Department of Information Technologies. This collaboration is framed within the Maria de Maeztu strategic program, specifically in the Music Meets NLP project.
 
 The rest of this chapter is organized as follows. In Section~\ref{sec:kb:method} we describe step by step the proposed methodology for relation extraction. Then, in Section~\ref{sec:kb:exp} we illustrate the gathered dataset and the outcome of the relation extraction process. The results of our evaluation are reported in Section~\ref{sec:kb:experiments}, and the chapter ends with a discussion about our findings and future work.
-
 
 \section{Method}
 \label{sec:kb:method}
@@ -36,7 +35,7 @@ We propose a comprehensive pipeline that learns a full-fledged \textsc{MKB} taki
 
 \subsection{Notation}
 
-Our method focuses on the extraction of semantic relations between pairs of  linked entities (e.g. \textit{Born in the USA}$_{dbr}$, \textit{Bruce Springsteen}$_{dbr}$\footnote{We use the \textit{dbr} subscript to refer to disambiguated entities linked to \textsc{DBpedia} resources.}), which are in turn associated to specific entity types (e.g. \textit{Album}, \textit{MusicalArtist}). In our \textsc{KB}, a relation $r$ is defined by the tuple $\langle \textbf{\textit{e}}{_\textbf{\textit{d}}},
+Our method focuses on the extraction of semantic relations between pairs of linked entities (e.g. \textit{Born in the USA}$_{dbr}$, \textit{Bruce Springsteen}$_{dbr}$\footnote{We use the \textit{dbr} subscript to refer to disambiguated entities linked to \textsc{DBpedia} resources.}), which are in turn associated to specific entity types (e.g. \textit{Album}, \textit{MusicalArtist}). In our \textsc{KB}, a relation $r$ is defined by the tuple $\langle \textbf{\textit{e}}{_\textbf{\textit{d}}},
 \textbf{\textit{e}}{_\textbf{\textit{r}}},
 \boldsymbol\upsilon{_\textbf{\textit{d}}},
 \boldsymbol\upsilon{_\textbf{\textit{r}}},
