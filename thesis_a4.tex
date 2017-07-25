@@ -6,7 +6,6 @@
 \RequirePackage{fix-cm} % Technicalities
 
 % -------------------------------------------------------------------------------------------------------------------------
-%\documentclass[11pt,a4paper,twoside,openright]{memoir}
 %\documentclass[10pt,b5paper,twoside,showtrims,openright]{memoir}
 %\documentclass[10pt,a4paper,twoside,showtrims,openright]{memoir}
 \documentclass[11pt,a4paper,twoside,openright]{memoir}
@@ -73,6 +72,8 @@
 \usepackage{multirow}
 \makesavenoteenv{tabular}
 \makesavenoteenv{table}
+
+\setlength{\cftpartnumwidth}{0.8cm}
 
 \usepackage{ifthen} % per treure figures de apendix de la llista de figures, etc...
 
@@ -244,29 +245,27 @@
 \frontmatter
 \include{ch00/preliminarystuff}
 
-%\cleartorecto
-%\chapter{Abstract} % AIXO JA ESTA A PRELIMINARY STUFF, S'HAURA DE TREURE D'AQUI
-%\input{ch00/abstract}
 
 %OJO PONER DE NUEVO
-%\cleartorecto\tableofcontents % presenta la taula de continguts
-%\renewcommand*\listfigurename{List of figures}
-%\cleartorecto\listoffigures % presenta la llista de figures
-%\renewcommand*\listtablename{List of tables}
-%\cleartorecto\listoftables % presenta la llista de taules
+\cleartorecto\tableofcontents % presenta la taula de continguts
+\renewcommand*\listfigurename{List of figures}
+\cleartorecto\listoffigures % presenta la llista de figures
+\renewcommand*\listtablename{List of tables}
+\cleartorecto\listoftables % presenta la llista de taules
+%Esto NO!!!
 %\cleartorecto\include{ch00/matematiques}
 
 \mainmatter
-%\cleartorecto\include{chapters/ch01_introduction}
-%\cleartorecto\include{chapters/ch02_soa}
-%\cleartorecto\include{chapters/ch03_linking}
-%\cleartorecto\include{chapters/ch04_kbconstruction}
+\cleartorecto\include{chapters/ch01_introduction}
+\cleartorecto\include{chapters/ch02_soa}
+\cleartorecto\include{chapters/ch03_linking}
+\cleartorecto\include{chapters/ch04_kbconstruction}
 \cleartorecto\include{chapters/ch05_musicology}
-%\cleartorecto\include{chapters/ch06_similarity}
-%\cleartorecto\include{chapters/ch07_graph-rec}
-%\cleartorecto\include{chapters/ch08_cold-rec}
-%\cleartorecto\include{chapters/ch09_multimodal-class}
-%\cleartorecto\include{chapters/ch98_conclusions}
+\cleartorecto\include{chapters/ch06_similarity}
+\cleartorecto\include{chapters/ch07_graph-rec}
+\cleartorecto\include{chapters/ch08_cold-rec}
+\cleartorecto\include{chapters/ch09_multimodal-class}
+\cleartorecto\include{chapters/ch98_conclusions}
 
 
 \backmatter

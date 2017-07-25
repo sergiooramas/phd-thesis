@@ -13,7 +13,7 @@ In this chapter we tackle the problem of computing sound and music recommendatio
 %A general characterization of its community of users can be found in \cite{Font2012}. 
 The approach we propose to recommend musical items consists mainly of two parts: (i) the enrichment of original data attached to items and linkage to knowledge graphs, (ii) the effective exploitation of the graph-based nature of such data for computing the recommendations. 
 
-The enrichment of data consists in using entity linking techniques for extracting semantic entities from item textual descriptions and linking them to external knowledge bases such as WordNet \cite{wordnet} and DBpedia \cite{dbpedia1} for gathering additional knowledge. All those different information are eventually merged together and represented by means of a new knowledge graph, following a similar approach to the one described in Section~\ref{sec:similarity:semantic_enriched_graph} of Chapter~\ref{sec:similarity}.
+The enrichment of data consists in using entity linking techniques for extracting semantic entities from item textual descriptions and linking them to external knowledge bases such as WordNet \cite{wordnet} and DBpedia \cite{dbpedia1} for gathering additional knowledge. All those different information are eventually merged together and represented by means of a new knowledge graph, following a similar approach to the one described in Section~\ref{sec:similarity:semantic_enriched_graph}.
 This latter graph is thus exploited together with collaborative information from implicit feedback for computing the recommendations. Two graph feature mappings are defined to leverage the new knowledge graph and obtain expressive feature representations. All different features are combined together in a feature combination hybrid schema \cite{Burke2002} and used to feed a content-based recommender. An extensive experimental evaluation was carried out on two different datasets --the one related to sounds, the other to songs-- to evaluate the recommendation quality in terms of accuracy, novelty and aggregate diversity. 
 
 In this chapter, we deal with two slightly different problems in the music ecosystem. We address the songs recommendation problem and that of recommending sounds to users in online sound sharing platforms. The two tasks addresses two separate categories of users in the music domain: on the one hand, we have music consumers (songs and artists recommendation); on the other hand, we have music producers (sounds recommendation).
@@ -33,13 +33,13 @@ To demonstrate the suitability of the proposed methodology for both types of mus
 %In Freesound, sounds are originally described in terms of textual descriptions and tags which are in turn classified in a tagging ontology.
 The evaluation performed on both datasets showed that the semantic expansion of the original data combined with user collaborative features allows the system to enhance recommendation quality especially in terms of aggregated diversity and novelty while keeping high performance in terms of accuracy. %This turn out in a higher level of personalization of recommendations, in terms of prediction accuracy, catalog coverage and long tail recommendations.
 
-Our main contributions in this chapter are summarized as follows:
-\begin{itemize}
-\item{We define a novel method to enrich the description of musical and sound items with semantic information.}
-\item{We propose two different graph-embedding approaches to encode knowledge graph information into a linear feature representation.}
-\item{We present a methodology to recommend musical items combining semantic and collaborative features, that turns out in a high level of personalization of recommendations, in terms of prediction accuracy, catalog coverage and long tail recommendations.}
-\item{We tackle for the first time the problem of sound recommendation.}
-\end{itemize}
+%Our main contributions in this chapter are summarized as follows:
+%\begin{itemize}
+%\item{We define a novel method to enrich the description of musical and sound items with semantic information.}
+%\item{We propose two different graph-embedding approaches to encode knowledge graph information into a linear feature representation.}
+%\item{We present a methodology to recommend musical items combining semantic and collaborative features, that turns out in a high level of personalization of recommendations, in terms of prediction accuracy, catalog coverage and long tail recommendations.}
+%\item{We tackle for the first time the problem of sound recommendation.}
+%\end{itemize}
 
 %To confirm the results obtained in the sound recommendation scenario and demonstrate the suitability of the proposed methodology to other types of musical items, a second experiment was performed. For this purpose, a dataset of songs combining tags and textual descriptions with user's implicit feedback was created by aggregating information gathered from Songfacts.com and Last.fm. Songfacts.com is an online database that collects, stores and provides facts, stories and trivia about songs, whilst in Last.fm a detailed profile of each user's musical taste is built by recording details of the tracks the user listens to.
 %Results on the second experiment confirm that the addition of semantic features by means of the proposed graph embedding methods, turn out in a higher level of personalization of recommendations, in terms of prediction accuracy, catalog coverage and long tail recommendations.
@@ -60,7 +60,9 @@ and then use this information to create a knowledge graph.
 %Several approaches have been developed to enrich folksonomies with semantics. According to \cite{Garcia2012} they may be based on clustering techniques, the usage of ontologies or a combination of them both.
 Several approaches have been developed to enrich tags with semantics \cite{Garcia2012}. We follow an ontology-based approach, enriching both tags and keywords extracted from textual descriptions by associating them with relevant entities defined in online semantic datasets.
 The first step in this direction is to link and disambiguate tags and keywords to Linked Data resources. 
-For this purpose we adopted Babelfy, a state of the art tool for Entity Linking and Word Sense Disambiguation \cite{Moro2014}. 
+For this purpose we adopted Babelfy.%, a state of the art tool for Entity Linking and Word Sense Disambiguation 
+\cite{Moro2014}. We selected this tool as it is able not only to disambiguate named entities, but also concepts. Thus, for every mapped and disambiguated text fragment, Babelfy through ELVIS (see Section~\ref{sec:linking:elvis} returns the related DBpedia resource, and/or the related WordNet \textit{synset}. 
+
 %Babelfy maps words from a given text to entities in the BabelNet\footnote{\url{http://babelnet.org}} knowledge base. 
 %BabelNet is a multilingual encyclopedic dictionary that mixes knowledge from WordNet and Wikipedia. Thus, for every mapped and disambiguated text fragment, Babelfy returns the related WordNet \textit{synset}, and/or the related Wikipedia page (and its equivalent DBpedia resource).  
 
@@ -302,6 +304,7 @@ After some further data cleansing, the final dataset consisted in 20,000 users, 
 %In the whole dataset, the number of different DBpedia entities mapped to words was 16,407, and those entities were related to 35,706 different categories. Taking into account also categories connected via the \texttt{skos:broader} property, the total number of categories in the dataset was 54,419. The number of different Wordnet synsets mapped to words was 17,926, and the total number of synsets in the dataset including hypernyms was 20,034.
 
 \begin{table}
+\scriptsize
 	%[!htb]
 	%\tbl{Datasets Overview\label{tbl:graph-rec:datasets}}{%
 %	\scriptsize
@@ -338,6 +341,7 @@ In the following we describe the experiments we carried out to evaluate our appr
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}
+\scriptsize
 	%[!htb]
 	%\tbl{Freesound Results\label{tbl:graph-rec:Res1}}{%
 %	\scriptsize
@@ -347,26 +351,26 @@ In the following we describe the experiments we carried out to evaluate our appr
 		\textbf{Approach} & \textbf{Enrichment} & \textbf{h-hops} & \textbf{MRR} &  \textbf{P@10} & \textbf{R@10} & \textbf{EBN@10}  & \textbf{ADiv@10}\\
 		\midrule
 		Ent & fso & h=3 & 0.303 & 0.113  &  0.065 & 2.791	& 0.257   \\
-		Ent & fso+wn+db/tags & h=3 & 0.303 & 0.115  &  0.066  & 2.617 &	0.332  \\
-		Ent & fso+wn+db/tags & h=4 & 0.302 & 0.114  & 0.065  & 2.507 & 0.368  \\
-		Ent & fso+wn+db/keyw+tags & h=3 & \textbf{0.306 }& \textbf{0.118}  &  \textbf{0.067}  & 2.426 &	0.361  \\
-		Ent & fso+wn+db/keyw+tags & h=4 & \textbf{0.306}  & 0.117 & 0.066  &2.303  & 0.391   \\ 
+		Ent & fso+kb/tag & h=3 & 0.303 & 0.115  &  0.066  & 2.617 &	0.332  \\
+		Ent & fso+kb/tag & h=4 & 0.302 & 0.114  & 0.065  & 2.507 & 0.368  \\
+		Ent & fso+kb/kw+tag & h=3 & \textbf{0.306 }& \textbf{0.118}  &  \textbf{0.067}  & 2.426 &	0.361  \\
+		Ent & fso+kb/kw+tag & h=4 & \textbf{0.306}  & 0.117 & 0.066  &2.303  & 0.391   \\ 
 		Path & fso & h=3 &  0.301 &  0.113  &  0.065   & 2.750 & 0.287   \\
-		Path & fso+wn+db/tags & h=3 & 0.301 &  0.114 &  0.064 & 2.279 	& 0.461   \\
-		Path & fso+wn+db/tags & h=4 &   0.292 & 0.106 & 0.059   & 1.863 & \textbf{0.556*}   \\
-		Path & fso+wn+db/keyw+tags & h=3 &  0.304 & 0.116 &  0.065    & 2.019 &	0.461     \\
-		Path & fso+wn+db/keyw+tags & h=4 & 0.296 & 0.111 &	0.061      & \textbf{1.618*}	& 0.532   \\
+		Path & fso+kb/tag & h=3 & 0.301 &  0.114 &  0.064 & 2.279 	& 0.461   \\
+		Path & fso+kb/tag & h=4 &   0.292 & 0.106 & 0.059   & 1.863 & \textbf{0.556*}   \\
+		Path & fso+kb/kw+tag & h=3 &  0.304 & 0.116 &  0.065    & 2.019 &	0.461     \\
+		Path & fso+kb/kw+tag & h=4 & 0.296 & 0.111 &	0.061      & \textbf{1.618*}	& 0.532   \\
 		\midrule
-		Collab & & & 0.293 & 0.110 & 0.062 &	2.890 &	0.181 \\	
-		Ent - noCollab & fso+wn+db/keyw+tags & h=3 & 0.154   & 0.058	 &0.034	  & 0.384	& 0.591   \\		
-		Path - noCollab & fso+wn+db/keyw+tags & h=3 & 0.151 & 0.049 & 0.028  & \textbf{0.369} & \textbf{0.670}   \\			
-		VSM & keyw+tags & h=1 & 0.301 &   0.116 &  0.066  & 2.621 &	0.305 \\
-		VSM - noCollab & keyw+tags & h=1 & 0.151  & 0.055 	 & 0.032	& 0.389 & \textbf{0.670} \\
+		Col & & & 0.293 & 0.110 & 0.062 &	2.890 &	0.181 \\	
+		Ent-noCol & fso+kb/kw+tag & h=3 & 0.154   & 0.058	 &0.034	  & 0.384	& 0.591   \\		
+		Path-noCol & fso+kb/kw+tag & h=3 & 0.151 & 0.049 & 0.028  & \textbf{0.369} & \textbf{0.670}   \\			
+		VSM & kw+tag & h=1 & 0.301 &   0.116 &  0.066  & 2.621 &	0.305 \\
+		VSM-noCol & kw+tag & h=1 & 0.151  & 0.055 	 & 0.032	& 0.389 & \textbf{0.670} \\
 		Audio Sim & & & 0.022 & 0.004 & 0.002 &	0.382	&	0.044 \\
 		\bottomrule
 	\end{tabular}
 	
-	\caption{Accuracy, Novelty and Aggregate Diversity results for different versions of the Freesound dataset. Best values in each column are in bold. The * symbol indicates best values for hybrid and collaborative configurations. \texttt{Ent} and \texttt{Path} refers to graph embedding options; \texttt{fso}, \texttt{wn} and \texttt{db} to the initial Freesound Ontology, WordNet and DBpedia respectively; \texttt{tags} to item tags, and \texttt{keyw} to text description keywords; \texttt{h} indicates the length of the h-hop neighborhood graph; \texttt{Collab} means that only collaborative features are considered; \texttt{noCollab} that no collaborative features are considered; \texttt{VSM} refers to Vector Space Model embedding; \texttt{Audio Sim}  to the audio-based approach.
+	\caption{Accuracy, Novelty and Aggregate Diversity results for different versions of the Freesound dataset. Best values in each column are in bold. The * symbol indicates best values for hybrid and collaborative configurations. \texttt{Ent} and \texttt{Path} refers to graph embedding options; \texttt{fso} to the initial Freesound Ontology, \texttt{kb} to WordNet and DBpedia enrichment; \texttt{tag} to item tags, and \texttt{kw} to text description keywords; \texttt{h} indicates the length of the h-hop neighborhood graph; \texttt{Col} means that only collaborative features are considered; \texttt{noCol} that no collaborative features are considered; \texttt{VSM} refers to Vector Space Model embedding; \texttt{Audio Sim}  to the audio-based approach.
 	}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -376,22 +380,22 @@ In the following we describe the experiments we carried out to evaluate our appr
 To evaluate the impact of the various features and information sources we built several variants of item feature vectors by varying: the information sources considered, the size of the item neighborhood graphs (number of hops) and the feature mapping method. 
 %The prefixes \texttt{Ent} and \texttt{Path} refer the usage of \textit{entity-based item neighborhood mapping} and \textit{path-based item neighborhood mapping} respectively.
 %In \texttt{(fso)} the item neighborhood graph is built considering only the Freesound Ontology starting from the tags mapped to the ontology.  
-%In \texttt{(fso+wn+db/h=x)} the item is represented by the corresponding \texttt{x}-hop neighborhood extracted from the FSO ontology enriched with WordNet and DBpedia. 
-%Differently from \texttt{(fso+wn+db/h=x)}, in the configuration \texttt{(fso+wn+db+keyw+tag/h=x)} also text descriptions are mapped to the ontology. 
-%Differently from the previous cases, \texttt{VSM keyw+tags} is a pure textual approach where the Vector Space Model was applied on raw tags and keywords. 
-%\texttt{noCollab} means that no collaborative features are considered (pure content-based approach) and \texttt{Collab} means that only collaborative features are considered (each feature vector consists of $\phi_{col}$ only). 
+%In \texttt{(fso+kb/h=x)} the item is represented by the corresponding \texttt{x}-hop neighborhood extracted from the FSO ontology enriched with WordNet and DBpedia. 
+%Differently from \texttt{(fso+kb/h=x)}, in the configuration \texttt{(fso+kb+kw+tag/h=x)} also text descriptions are mapped to the ontology. 
+%Differently from the previous cases, \texttt{VSM kw+tag} is a pure textual approach where the Vector Space Model was applied on raw tags and keywords. 
+%\texttt{noCol} means that no collaborative features are considered (pure content-based approach) and \texttt{Collab} means that only collaborative features are considered (each feature vector consists of $\phi_{col}$ only). 
 In addition, we built a content-based approach purely based on 352 low-level audio features\footnote{\url{https://www.freesound.org/docs/api/analysis_example.html\#all-descriptors}} extracted from the sound signal by using Essentia~\cite{Bogdanov2013}. In this approach, predictions are computed by aggregating the Euclidean distances between the sounds downloaded by the user and the target sound to recommend. %Final recommendation lists are generated by taking the sounds with lowest score.
 All the results are reported in Table \ref{tbl:graph-rec:Res1}. 
 
-Looking at the accuracy results we see that there are no marked differences among all the feature vector variants. Noteworthy is that without considering the collaborative information (\texttt{noCollab}) the accuracy drops significantly. In addition, when considering only collaborative features accuracy performances are comparable with respect to hybrid feature combination variants. The best hybrid semantic version \texttt{Ent(fso+wn+db/keyw+tags/h=3)} is slightly better than pure collaborative (+0.8\% in terms of P@10). 
+Looking at the accuracy results we see that there are no marked differences among all the feature vector variants. Noteworthy is that without considering the collaborative information (\texttt{noCol}) the accuracy drops significantly. In addition, when considering only collaborative features accuracy performances are comparable with respect to hybrid feature combination variants. The best hybrid semantic version \texttt{Ent(fso+kb/kw+tag/h=3)} is slightly better than pure collaborative (+0.8\% in terms of P@10). 
 Regarding the comparison of the two mapping methods, the Entity-based item neighborhood mapping has generally slightly higher accuracy than the Path-based one. We can also note that considering too far entities does not improve accuracy. In fact, in both the two feature mapping when four hops are considered the results drop slightly with respect to three hops. 
-Finally, we see that the semantic expansion of tags and terms do not improve consistently accuracy with respect to the usage of pure keywords and tags combined with collaborative information. The semantic configuration with highest accuracy (\texttt{Ent(fso+wn+db/keyw+tags/h=3)}) is only 0.2\% better in terms of P@10 with respect to  \texttt{VSM keyw+tags}. We can also observe that the pure audio based approach (\texttt{Audio Sim}) has by far lower performances than all the others. All the differences between the hybrid graph embeddings and the other baselines are statistically significant ($p<0.01$) according to the paired t-test.
+Finally, we see that the semantic expansion of tags and terms do not improve consistently accuracy with respect to the usage of pure keywords and tags combined with collaborative information. The semantic configuration with highest accuracy (\texttt{Ent(fso+kb/kw+tag/h=3)}) is only 0.2\% better in terms of P@10 with respect to  \texttt{VSM kw+tag}. We can also observe that the pure audio based approach (\texttt{Audio Sim}) has by far lower performances than all the others. All the differences between the hybrid graph embeddings and the other baselines are statistically significant ($p<0.01$) according to the paired t-test.
 %\\To summarize, regarding recommendation accuracy the introduction of semantics slightly increase the performances with respect to the usage of pure collaborative features and in particular when the Entity-based feature mapping is used. While collaborative features also are able to guarantee good performances, content-based features alone are not able to give such accurate recommendations. 
 
-Novelty and aggregate diversity results instead show more interesting insights. We observe that the semantic expansion, with both feature mappings, results in an improving of both novelty and aggregated diversity. In fact, the semantic enriched variant \texttt{(fso+wn+db+keyw+tags/h=4)} has much better novelty and diversity than considering only the original tagging ontology \texttt{(fso)}. Furthermore, with respect to the variants without semantic expansion, that is the variants based only on keywords and tags, the usage of semantic expansion improves considerably novelty and diversity. Hence, thanks to this exploitation of the knowledge graph we are able to recommend good items which are also not so popular. We also see that the Path-based embedding has better performances than the Entity-based one. 
+Novelty and aggregate diversity results instead show more interesting insights. We observe that the semantic expansion, with both feature mappings, results in an improving of both novelty and aggregated diversity. In fact, the semantic enriched variant \texttt{(fso+kb+kw+tag/h=4)} has much better novelty and diversity than considering only the original tagging ontology \texttt{(fso)}. Furthermore, with respect to the variants without semantic expansion, that is the variants based only on keywords and tags, the usage of semantic expansion improves considerably novelty and diversity. Hence, thanks to this exploitation of the knowledge graph we are able to recommend good items which are also not so popular. We also see that the Path-based embedding has better performances than the Entity-based one. 
 Such approaches allow to explore better the long tail distribution of items and to increase the personalization of the system. 
 \\The variants without collaborative information are the ones with better novelty and diversity. The reason behind this behavior is that pure content-based approaches are not influenced by popularity biases. However, when using only content data the system recommends unpopular but very inaccurate items. Good novelty without accuracy does not imply good recommendation quality. 
-Finally, the usage of only collaborative information has much lower catalog coverage (aggregate diversity) than feature vectors containing also semantic features. For example \texttt{Path(fso+wn+db+keyw+tags/h=4)} has comparable performances in terms of accuracy with respect to \texttt{Collab} but considerably better catalog coverage and novelty (lower EBN). 
+Finally, the usage of only collaborative information has much lower catalog coverage (aggregate diversity) than feature vectors containing also semantic features. For example \texttt{Path(fso+kb+kw+tag/h=4)} has comparable performances in terms of accuracy with respect to \texttt{Collab} but considerably better catalog coverage and novelty (lower EBN). 
 
 To conclude, we can state that the semantic expansion, especially when combined with the Path-based mapping, improves recommendation quality in terms of novelty and aggregated diversity. The intuition behind these results is that the semantic expansion allows the system to find items semantically related to the ones in the user profile. Conversely, when using only keyword or tag-based representations the system is able to retrieve only those few items with an exact keyword/tag match with those liked by the user. Thus, the system is unable to widely explore the item space to find those items which are semantically related to the ones liked by the user.
 %\vcoinline{seems that by adding data we are able to increase diversity. Is just a matter of increasing the features to diversify the feature space or adding meaningful features to increase the semantic matching among items? In the keyword approach there are few items that are similar to the ones rated by the user. this imply that the system recommends always a few items with commonalities with the user profile. With the semantic expansion, instead the items are better described and the system is able to find more items semantically similar to the user profile.}
@@ -401,10 +405,10 @@ To conclude, we can state that the semantic expansion, especially when combined 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure*}
 	\centering
-	\begin{subfigure}[b]{0.5\textwidth}
+	\begin{subfigure}[b]{\textwidth}
 		\includegraphics[width=\textwidth]{ch07_graph-rec_pics/pr_adiv_fr.png}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.5\textwidth}
+	\begin{subfigure}[b]{\textwidth}
 		\includegraphics[width=\textwidth]{ch07_graph-rec_pics/nov_fr.png}
 	\end{subfigure}
 	\caption{Precision-Recall, Novelty and Aggregate Diversity plots in Freesound dataset\label{fig:graph-rec:accur}}
@@ -433,8 +437,8 @@ We compared our approach with several state of the art recommendation algorithms
 The computation of the recommendations for all these comparative algorithms has been done with the publicly available software library \textit{MyMediaLite}\footnote{\url{http://www.mymedialite.net/}.}.
 %\cite{Gantner2011MyMediaLite}
 
-Figure \ref{fig:graph-rec:accur} shows precision-recall, novelty and aggregated diversity plots. In those plots we report the competitive algorithms used for comparison and the \texttt{Ent(fso+wn+db/keyw+tags/h=4)} and \texttt{Path(fso+wn+db+keyw+tags/h=4)} configurations which we chose as representative for our approach due to its performances in terms of novelty and aggregate diversity. 
-\\With reference to the accuracy results we notice that our two approaches largely outperforms the others. The only method which is close to the approaches we propose is \texttt{BPR-SLIM} which slightly outperforms \texttt{Path(fso+wn+db+keyw+tags/h=4)} for low values of recommendation list length ($N=5,10$). All differences between our approach and the other methods are statistically significant ($p<0.01$) according to the paired t-test.
+Figure \ref{fig:graph-rec:accur} shows precision-recall, novelty and aggregated diversity plots. In those plots we report the competitive algorithms used for comparison and the \texttt{Ent(fso+kb/kw+tag/h=4)} and \texttt{Path(fso+kb+kw+tag/h=4)} configurations which we chose as representative for our approach due to its performances in terms of novelty and aggregate diversity. 
+\\With reference to the accuracy results we notice that our two approaches largely outperforms the others. The only method which is close to the approaches we propose is \texttt{BPR-SLIM} which slightly outperforms \texttt{Path(fso+kb+kw+tag/h=4)} for low values of recommendation list length ($N=5,10$). All differences between our approach and the other methods are statistically significant ($p<0.01$) according to the paired t-test.
 %Regarding our approach, the Entity-based mapping slightly outperfoms the Path-based mapping as already discussed in Section \ref{sem_eval}. 
 With respect to the Novelty plot, our approach has much better novelty than all the other collaborative filtering algorithms but \texttt{BPR Linear} which however have much lower accuracy. 
 Our approach outperforms most of the collaborative filtering algorithms in terms of aggregated diversity. It is able to achieve a coverage of almost 80\% and 90\% for $N=50$ and $N=100$, respectively. The approach closer to ours is \texttt{BPR Linear} that for $N=100 $ reaches same performances. Also, \texttt{BPR-SLIM} and \texttt{BPR-MF} have acceptable diversity results. Instead, all the others have very low diversity results meaning that they focus mostly on a few specific items and recommend them to all users indiscriminately. 
@@ -448,6 +452,7 @@ The recommendation algorithms we propose have been further validated on the Last
 %, whilst the comparison with other methods is shown in Figure~\ref{fig:graph-rec:accur_sf}. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}
+\scriptsize
 	%[!htb]
 	%\tbl{Last.fm Results}{%
 %	\scriptsize
@@ -456,23 +461,23 @@ The recommendation algorithms we propose have been further validated on the Last
 		\toprule
 		\textbf{Approach} & \textbf{Enrichment} & \textbf{h-hops} &  \textbf{MRR} &  \textbf{P@10} & \textbf{R@10} & \textbf{EBN@10}  & \textbf{ADiv@10}\\
 		\midrule
-		Ent & wn+db/tags & h=2 & \textbf{0.612} & 0.321 & \textbf{0.122} & 2.414 & 0.357 \\
-%		Ent(wn+db/tags/h=2) & \textbf{0.612} & 0.321 & \textbf{0.122} & 2.465 & 0.342 \\
-		Ent & wn+db/tags & h=3 & \textbf{0.612} & 0.319 & 0.121 & 2.383 & 0.374 \\
-		Ent & wn+db/tags & h=4 & 0.599 & 0.314 & 0.119 & 2.356 & 0.389 \\
-		Ent & wn+db/keyw+tags & h=3 & 0.604 & 0.315 & 0.114 & 2.448 & 0.316 \\
-		Ent & wn+db/keyw+tags & h=4 & 0.601 & 0.312 & 0.113 & 2.424 & 0.331 \\
-		Path & wn+db/tags & h=3 & 0.570 & 0.287 & 0.108 & 2.112 & 0.479 \\
-		Path & wn+db/tags & h=4 & 0.537 & 0.260 & 0.097 & \textbf{1.911*} & \textbf{0.544*} \\
-		Path & wn+db/keyw+tags & h=3 & 0.570 & 0.289 & 0.104 & 2.173 & 0.411 \\
-		Path & wn+db/keyw+tags & h=4 & 0.537 & 0.259 & 0.093 & 1.942 & 0.484 \\
+		Ent & kb/tag & h=2 & \textbf{0.612} & 0.321 & \textbf{0.122} & 2.414 & 0.357 \\
+%		Ent(kb/tag/h=2) & \textbf{0.612} & 0.321 & \textbf{0.122} & 2.465 & 0.342 \\
+		Ent & kb/tag & h=3 & \textbf{0.612} & 0.319 & 0.121 & 2.383 & 0.374 \\
+		Ent & kb/tag & h=4 & 0.599 & 0.314 & 0.119 & 2.356 & 0.389 \\
+		Ent & kb/kw+tag & h=3 & 0.604 & 0.315 & 0.114 & 2.448 & 0.316 \\
+		Ent & kb/kw+tag & h=4 & 0.601 & 0.312 & 0.113 & 2.424 & 0.331 \\
+		Path & kb/tag & h=3 & 0.570 & 0.287 & 0.108 & 2.112 & 0.479 \\
+		Path & kb/tag & h=4 & 0.537 & 0.260 & 0.097 & \textbf{1.911*} & \textbf{0.544*} \\
+		Path & kb/kw+tag & h=3 & 0.570 & 0.289 & 0.104 & 2.173 & 0.411 \\
+		Path & kb/kw+tag & h=4 & 0.537 & 0.259 & 0.093 & 1.942 & 0.484 \\
 		\midrule
 		Collab & & & 0.597 & 0.313 & 0.113 & 2.664 & 0.240 \\	
-		Ent - noCollab & wn+db/tags & h=3 & 0.292 & 0.114 & 0.043 & 0.983 & 0.703 \\
-		Path - noCollab & wn+db/tags & h=3 &0.285  & 0.113 & 0.043 & \textbf{0.981} & \textbf{0.736} \\
+		Ent-noCol & kb/tag & h=3 & 0.292 & 0.114 & 0.043 & 0.983 & 0.703 \\
+		Path-noCol & kb/tag & h=3 &0.285  & 0.113 & 0.043 & \textbf{0.981} & \textbf{0.736} \\
 		VSM & tags & h=1 & 0.610 & \textbf{0.322} & \textbf{0.122} & 2.454 & 0.346 \\
 		VSM & keyw & h=1 & 0.599 & 0.309 & 0.112 & 2.642 & 0.249 \\
-%		VSM tags - noCollab & 0.127 & 0.048 & 1.050 & \textbf{0.757} \\	
+%		VSM tags - noCol & 0.127 & 0.048 & 1.050 & \textbf{0.757} \\	
 		\bottomrule		
 	\end{tabular}
 	\caption{Accuracy, Novelty and Aggregate Diversity results for different versions of the Last.fm dataset. Best values in each column are in bold. The * symbol indicates best values for hybrid and collaborative configurations. 
@@ -487,10 +492,10 @@ We may confirm from results in both experiments that collaborative features are 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure*}
 	\centering
-	\begin{subfigure}[b]{0.5\textwidth}
+	\begin{subfigure}[b]{1\textwidth}
 		\includegraphics[width=\textwidth]{ch07_graph-rec_pics/pr_adiv_lf.png}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.5\textwidth}
+	\begin{subfigure}[b]{1\textwidth}
 		\includegraphics[width=\textwidth]{ch07_graph-rec_pics/nov_lf.png}
 	\end{subfigure}
 	\caption{Precision-Recall, Novelty and Aggregate Diversity plots in Last.fm dataset\label{fig:graph-rec:accur_sf}}
@@ -499,7 +504,7 @@ We may confirm from results in both experiments that collaborative features are 
 
 \paragraph*{\textbf{Comparison with other methods}}\label{comp}
 We compared our approach with the same set of state of the art algorithms presented in the sound recommendation experiment. Based on the observations made in the previous paragraph, we used for this experiment only tags as item attribute data for \texttt{BPR Linear}.
-Figure \ref{fig:graph-rec:accur_sf} shows precision-recall, novelty and aggregated diversity plots of the comparison with the other methods. We compare the competitive algorithms with the \texttt{Ent(wn+db/tags/h=3)} and \texttt{Path(wn+db/tags/h=3)} configurations which in this scenario results to be the most representative for our approach. 
+Figure \ref{fig:graph-rec:accur_sf} shows precision-recall, novelty and aggregated diversity plots of the comparison with the other methods. We compare the competitive algorithms with the \texttt{Ent(kb/tag/h=3)} and \texttt{Path(kb/tag/h=3)} configurations which in this scenario results to be the most representative for our approach. 
 Results are pretty similar to the ones observed in the sound recommendation experiment. Our two approaches largely outperforms the others in terms of accuracy. \texttt{BPR-SLIM} and \texttt{SLIM} have performance similar to our Entity-based mapping approach for low values of recommendation list length (N = 5, 10), and slightly higher that the Path-based one. All differences between our approaches and the other methods are statistically significant ($p<0.01$) according to the paired t-test. Our approaches have much better novelty results than all other collaborative filtering algorithms but \texttt{BPR Linear}, which again has much lower accuracy. In terms of aggregated diversity, our approach outperforms most of the collaborative filtering algorithms. \texttt{BPR Linear} achieves similar diversity, but much lower accuracy.
 Summing up, our approach is able to recommend less popular items with higher accuracy than other collaborative filtering algorithms also in this recommendation scenario. Therefore, our approach is able to improve the level of personalization of the recommended items, and  better explore the long tail also for songs recommendation.
 

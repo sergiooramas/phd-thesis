@@ -3,7 +3,7 @@
 \part{Knowledge-based Approaches}
 \label{part:knowledge-based}
 
-\chapter{Entity Linking for Artist Similarity and Music Genre Classification}
+\chapter{Entity Linking for Artist Similarity and Genre Classification}
 \label{sec:similarity}
 
 \section{Introduction}\label{sec:similarity:introduction} %Todos
@@ -15,15 +15,18 @@ First, a method for computing semantic similarity at document-level is presented
 %Finally, different similarity measures are applied to a benchmarking dataset. The evaluation results indicate that some approaches presented in this chapter clearly outperform a baseline based on shallow word co-occurrence metrics.
 %Source code and datasets are available online\footnote{\url{http://mtg.upf.edu/downloads/datasets/semantic-similarity}}.
 %Second, we explore the contribution of such features to the Music Genre classification task, consisting in, given a song or album review, predict the genre it belongs to.
-Second, we perform experiments on music genre classification, exploring a variety of feature types, including semantic, sentimental and acoustic features. These experiments show that modeling semantic information contributes to outperforming strong bag-of-words baselines. 
+Second, we perform experiments on music genre classification, exploring a variety of feature types, including semantic features obtained through entity linking, sentimental features  and acoustic features. These experiments show that modeling semantic information contributes to outperforming strong bag-of-words baselines. 
 
-The remainder of this chapter is structured as follows: Section \ref{sec:similarity:related} reviews prominent work in the fields and topic relevant to this chapter; Section \ref{sec:similarity:methodology} details the different modules that integrate our approach; Section \ref{sec:similarity:experimentalsetup} describes the settings in which experiments were carried out together with the evaluation metrics used; Section \ref{sec:similarity:results} presents the evaluation results and discusses the performance of our method; and finally Section \ref{sec:similarity:conclusion} summarizes the main topics covered in this chapter.
+The remainder of this chapter is structured as follows: Section \ref{sec:similarity:similarity} describes a methodology for computing artist similarity from artist biographies using semantic information. Within this section, different types of knowledge representations and similarity measures are described. Then, the settings in which experiments were carried out together with the evaluation metrics used are presented. Finally, evaluation results are presented and the performance of our method discussed. Section \ref{sec:similarity:classification} describes a methodology for computing music genre classification using album reviews. In this section, the dataset of music reviews used is first described. Then, the different types of features are illustrated. An experiment on genre classification is performed and results are discussed.
+Finally Section \ref{sec:similarity:conclusion} summarizes the main topics covered in this chapter.
 
 \section{Artist Similarity}
-\label{sec:similarity:methodology}
+\label{sec:similarity:similarity}
 
-The method proposed for leveraging semantic information in artist biographies can be divided in three main steps, as depicted in Fig~\ref{fig:similarity:methodology}.
-The first step performs entity linking. The second step derives a semantically motivated knowledge representation from the named entity mentions. This can be achieved by exploiting natural language text as anchor between entities, or by incorporating semantic information from an external knowledge base. In the latter case, a document is represented either as a semantic graph or as a set of vectors projected on a vector space, which allows the use of well known vector similarity metrics.
+We propose a method proposed for leveraging semantic information in artist biographies. The method can be divided in three main steps, as depicted in Fig~\ref{fig:similarity:methodology}.
+The first step performs entity linking. In this case we used Babelfy \cite{Moroetal2014b} through ELVIS (see Section~\ref{sec:linking:elvis}) to identify and link entity mentions in the biographies. Babelfy provides BabelNet URIs, and ELVIS enrich the information of every identified entity with DBpedia URIs, DBpedia Ontology types, and Wikipedia categories.
+We opted to use Babelfy for consistency purposes, as in a later step we exploit \textit{SensEmbed}~\cite{Iacobaccietal2015}, a vector space representation of concepts based on BabelNet \cite{Navigli2010}. Moreover, the use of a single tool across approaches guarantees that the evaluation will only reflect the appropriateness of each one of them, and in case of error propagation all the approaches will be affected the same.
+The second step derives a semantically motivated knowledge representation from the named entity mentions. This can be achieved by exploiting natural language text as anchor between entities, or by incorporating semantic information from an external knowledge base. In the latter case, a document is represented either as a semantic graph or as a set of vectors projected on a vector space, which allows the use of well known vector similarity metrics.
 Finally, the third step computes semantic similarity between documents (artist biographies in our case). This step can take into consideration semantic similarity among entity mentions in document pairs, or only the structure and content of the semantic graph.
 
 %The following sections provide a more detailed description of each one of these steps, along with all the approaches we have considered in each step.
@@ -31,7 +34,7 @@ Finally, the third step computes semantic similarity between documents (artist b
 
 \begin{figure}[!htp]
 \centerline{\framebox{
-\includegraphics[width=0.95\columnwidth]{ch06_similarity_pics/methodology.png}}}
+\includegraphics[width=0.75\columnwidth]{ch06_similarity_pics/methodology.png}}}
 \caption{Workflow of the proposed method.}
 \label{fig:similarity:methodology}
 \end{figure}
@@ -40,17 +43,19 @@ Finally, the third step computes semantic similarity between documents (artist b
 %
 %Entity linking is the task to associate, for a given candidate textual fragment, the most suitable entry in a reference Knowledge Base (KB) \cite{Moroetal2014b}. It encompasses similar subtasks such as Named Entity Disambiguation \cite{BunescuandPasca2006}, which is precisely linking mentions to entities to a KB, or Wikification \cite{MihalceaandCsomai2007}, specifically using Wikipedia as KB.
 
-We considered several state-of-the-art entity linking tools, including Babelfy \cite{Moroetal2014b}, TagMe \cite{Ferraginaetal2010}, Agdistis \cite{Usbecketal2014} and DBPedia Spotlight \cite{Mendes2011}. However we opted to use the first one for consistency purposes, as in a later step we exploit \textit{SensEmbed}~\cite{Iacobaccietal2015}, a vector space representation of concepts based on BabelNet \cite{Navigli2010}. Moreover, the use of a single tool across approaches guarantees that the evaluation will only reflect the appropriateness of each one of them, and in case of error propagation all the approaches will be affected the same.
+%We considered several state-of-the-art entity linking tools, including Babelfy \cite{Moroetal2014b}, TagMe \cite{Ferraginaetal2010}, Agdistis \cite{Usbecketal2014} and DBPedia Spotlight \cite{Mendes2011}. However we opted to use the first one for consistency purposes, as in a later step we exploit \textit{SensEmbed}~\cite{Iacobaccietal2015}, a vector space representation of concepts based on BabelNet \cite{Navigli2010}. Moreover, the use of a single tool across approaches guarantees that the evaluation will only reflect the appropriateness of each one of them, and in case of error propagation all the approaches will be affected the same.
 
-Babelfy \cite{Moroetal2014b} is a state-of-the-art system for entity linking and word sense disambiguation based on non-strict identification of candidate meanings (i.e. not necessarily exact string matching), together with a graph based algorithm that traverses the BabelNet graph and selects the most appropriate semantic interpretation for each candidate.
+%Babelfy \cite{Moroetal2014b} is a state-of-the-art system for entity linking and word sense disambiguation based on non-strict identification of candidate meanings (i.e. not necessarily exact string matching), together with a graph based algorithm that traverses the BabelNet graph and selects the most appropriate semantic interpretation for each candidate.
 
-\subsection{Knowledge representation}\label{sec:similarity:knowledge_representations}
+\subsection{Knowledge Representation}\label{sec:similarity:knowledge_representations}
 
-\subsubsection{Relation graph}\label{sec:similarity:rel_graph} %Moha
+\subsubsection{Relations Graph}\label{sec:similarity:rel_graph} %Moha
 
-Relation extraction has been defined as the process of identifying and annotating relevant semantic relations between entities in text \cite{JiangZhai2007}. In order to exploit the semantic relations between entities present in artist biographies, we applied the method defined in \cite{Oramas2015} for relation extraction in the music domain. The method basically consists of three steps. First, entities are identified in the text by applying entity linking. Second, relations between pairs of entities occurring in the same sentence are identified and filtered by analyzing the structure of the sentence, which is obtained by running a syntactic parser based on the formalism of dependency grammar~\cite{Bohnet2010}. Finally, the identified entities and relations are modeled as a knowledge graph.
+%Relation extraction has been defined as the process of identifying and annotating relevant semantic relations between entities in text \cite{JiangZhai2007}. 
+In order to exploit the semantic relations between entities present in artist biographies, we applied the method defined in Chapter~\ref{sec:kb} for relation extraction in the music domain. The method basically consists of three steps. First, entities are identified in the text by applying entity linking. Second, relations between pairs of entities occurring in the same sentence are identified and filtered by analyzing the structure of the sentence, which is obtained by running a syntactic parser based on the formalism of dependency grammar~\cite{Bohnet2010}. Finally, the identified entities and relations are modeled as a knowledge graph.
 %connects pairs of entities via labeled relations.
-This kind of extracted knowledge graphs may be useful for music recommendation \cite{Sordo2015}, as recommendations can be conveyed to users by means of natural language. We apply this methodology to the problem of artist similarity, by creating a graph that connects the entities detected in every artist biography. We call this approach RG (relation graph). Figure~\ref{fig:similarity:relation} shows the output of this process for a single sentence.
+%This kind of extracted knowledge graphs may be useful for music recommendation \cite{Sordo2015}, as recommendations can be conveyed to users by means of natural language. 
+We apply this methodology to the problem of artist similarity, by creating a graph that connects the entities detected in every artist biography. We call this approach RG (relations graph). Figure~\ref{fig:similarity:relation} shows the expected output of this process for a single sentence.
 %Thus, two artists may be related through different paths of entities, and with different path lengths.
 
 \begin{figure}[!htp]
@@ -63,12 +68,12 @@ This kind of extracted knowledge graphs may be useful for music recommendation \
 
 \subsubsection{Semantically enriched graph}\label{sec:similarity:semantic_enriched_graph} %Sergio
 
-A second approach is proposed using the same set of linked entities. However, instead of exploiting natural language text, we use semantic information from the referenced knowledge base to enrich the semantics of the linked entities. We follow a semantic enrichment process similar to the one described in \cite{Ostuni2015}. We use semantic information coming from DBpedia\footnote{\url{http://dbpedia.org}}. DBpedia resources are generally classified using the DBpedia Ontology, which is a shallow, cross-domain ontology based on the most common infoboxes of Wikipedia. DBpedia resources are categorized using this ontology among others (e.g. Yago, schema.org) through the \texttt{rdfs:type} property. In addition, each Wikipedia page may be associated with a set of Wikipedia categories, which link chapters under a common topic. DBpedia resources are related to Wikipedia categories through the property \texttt{dcterms:subject}.
+A second approach is proposed using the same set of linked entities. However, instead of exploiting natural language text, we use semantic information from the referenced knowledge base to enrich the semantics of the linked entities. We follow a semantic enrichment process similar to the one described in Section~\ref{sec:musicology:relevance}. We use semantic information coming from DBpedia\footnote{\url{http://dbpedia.org}}. DBpedia resources are generally classified using the DBpedia Ontology, which is a shallow, cross-domain ontology based on the most common infoboxes of Wikipedia. DBpedia resources are categorized using this ontology among others (e.g. Yago, schema.org) through the \texttt{rdfs:type} property. In addition, each Wikipedia page may be associated with a set of Wikipedia categories, which link chapters under a common topic. DBpedia resources are related to Wikipedia categories through the property \texttt{dcterms:subject}.
 
 We take advantage of these two properties to build our semantically enriched graph.
-We consider three types of nodes for this graph: 1) 	artist entities obtained by matching the artist names to their corresponding DBPedia entry; 2) named entities detected by the entity linking step; and 3) Wikipedia categories associated to all the previous entities.
+We consider three types of nodes for this graph: 1) artist entities obtained by matching the artist names to their corresponding DBPedia entry; 2) named entities detected by the entity linking step; and 3) Wikipedia categories associated to all the previous entities.
 Edges are then added between artist entities and the named entities detected in their biographies, and between entities and their corresponding Wikipedia categories.
-For the construction of the graph, we can select all the detected named entities, or we can filter them out according to the information related to their \texttt{rdfs:type} property. A set of six types was selected, including \textit{artist}, \textit{band}, \textit{work}, \textit{album}, \textit{musicgenre}, and \textit{person}, which we consider more appropriate to semantically define a musical artist.
+For the construction of the graph, we can select all the detected named entities, or we can filter them out according to the information related to their \texttt{rdfs:type} property. A set of six types was selected, including \textit{Artist}, \textit{Band}, \textit{Work}, \textit{Album}, \textit{MusicGenre}, and \textit{Person}, which we consider more appropriate to semantically define a musical artist.
 
 From the previous description, we define five variants of this approach. The first variant, which we call AEC (Artists-Entities-Categories), considers all 3 types of nodes along with their relations (as depicted in Figure~\ref{fig:similarity:enriched}). The second variant, named AE (Artists-Entities) ignores the categories of the entities. The third and fourth variant, named AEC-FT and AE-FT, are similar to the first and second variant, respectively, except that the named entities are filtered using the above mentioned list of 6 entity types. Finally, the fifth variant, EC, ignores the artist entities of node type 1.
 
@@ -86,6 +91,7 @@ From the previous description, we define five variants of this approach. The fir
 %For evaluation purposes, we created two more versions of the graph. Both versions follow the same graph creation process, but ignoring the last step of adding categories. Though, the graphs includes only artist entities and detected entities. One version includes all detected entities, and the other only entities of the specified types.
 
 \subsubsection{Sense embeddings}\label{sec:similarity:sense_embeddings}
+
 The semantic representation used in this approach is based on SensEmbed \cite{Iacobaccietal2015}. SensEmbed is a vector space semantic representation of words similar to word2vec \cite{Mikolovetal2013},
 %with the aggregated value than instead of plain text words,
 where each vector represents a BabelNet synset and its lexicalization. Let $A$ be the set of artist biographies in our dataset. Each artist biography $a \in A$ is converted to a set of disambiguated concepts $\text{Bfy}_{a}$ after running Babelfy over it.
@@ -175,7 +181,7 @@ After the mapping, we obtained an overlap of 268 artists.
 %We used this dataset of 268 artists to compute similarity using the different approaches.
 As we want to evaluate Top-10 similarity, every artist in the ground truth dataset should have information of at least 10 similar artists. However, not every artist in the MIREX evaluation dataset fulfills this requirement. Therefore, after removing the artists with less than 10 similars, we obtained a final dataset of 188 artists, and used it for the evaluation.
 
-\subsubsection{Baseline} %Moha
+\subsubsection{Baseline}
 In order to assess the goodness of our approaches, we need to define a baseline approach with which to compare to. The baseline used in this chapter is a classic vector-based model approach used in many Information Retrieval systems. A text document is represented as a vector of word frequencies (after removing English stopwords and words with less than 2 characters), and a matrix is formed by aggregating all the vectors. The word frequencies in the matrix are then re-weighted using TF-IDF, and finally latent semantic analysis (LSA) \cite{Deerwesteretal1990} is used to produce a vector of concepts for each document. The similarity between two documents can be obtained by using a cosine similarity over their corresponding vectors.
 
 \begin{table}[ht!]
@@ -234,12 +240,13 @@ SE refers to the sense embeddings approach, and LSA to the latent semantic analy
 
 
 \begin{table*}[ht!]
+\scriptsize
 \centering
 	\begin{tabular}{ lllllllll }
  	\toprule
 & \multicolumn{8}{c}{Genres} \\
 \cmidrule(lr){2-9}
-	Approach variants & Blues & Country & Edance & Jazz & Metal & Rap & Rocknroll & Overall\\
+	Approach variants & Blues & Country & Edance & Jazz & Metal & Rap & Rock & Overall\\
 	\midrule
 Ground Truth & 5.78 & 5.46 & 6.88 & 7.04 & 7.10 & 8.68 & 5.17 & 6.53\\
 \midrule[.2pt]
@@ -261,34 +268,6 @@ SE Cosine & 3.39 & 5.50 & 5.32 & 5.16 & 4.31 & 5.36 & 4.31 & 4.75 \\
 \end{table*}
 
 
-%\begin{table*}[ht!]
-%\small
-%\centering
-%	\begin{tabular}{ lllllllll }
-%  	\toprule
-% & \multicolumn{8}{c}{Genres} \\
-% \cmidrule(lr){2-9}
-%	Approach variants & Blues & Country & Edance & Jazz & Metal & Rap & Rocknroll & Overall\\
-%	\midrule
-%Grount Truth & 5.78\scalebox{0.8}{$\pm2.62$} & 5.46\scalebox{0.8}{$\pm1.89$} & 6.88\scalebox{0.8}{$\pm2.14$} & 7.04\scalebox{0.8}{$\pm1.84$} & 7.10\scalebox{0.8}{$\pm1.67$} & 8.68\scalebox{0.8}{$\pm1.09$} & 5.17\scalebox{0.8}{$\pm1.36$} & 6.53\scalebox{0.8}{$\pm2.15$}\\
-%\midrule[.2pt]
-%LSA & 4.43\scalebox{0.8}{$\pm2.00$} & 4.12\scalebox{0.8}{$\pm2.58$} & 3.80\scalebox{0.8}{$\pm1.67$} & 4.64\scalebox{0.8}{$\pm2.56$} & 5.79\scalebox{0.8}{$\pm2.28$} & 5.08\scalebox{0.8}{$\pm2.31$} & 4.74\scalebox{0.8}{$\pm2.03$} & 4.69\scalebox{0.8}{$\pm2.30$}\\
-%RG MCS 1-hop & 2.63\scalebox{0.8}{$\pm2.87$} & 3.50\scalebox{0.8}{$\pm2.53$} & 1.50\scalebox{0.8}{$\pm0.98$} & 2.95\scalebox{0.8}{$\pm1.64$} & 4.00\scalebox{0.8}{$\pm2.24$} & 2.54\scalebox{0.8}{$\pm1.87$} & 1.70\scalebox{0.8}{$\pm1.51$} &  2.68\scalebox{0.8}{$\pm2.20$}\\
-%RG MCS 2-hop & 4.14\scalebox{0.8}{$\pm2.61$} & 4.92\scalebox{0.8}{$\pm2.30$} & 1.69\scalebox{0.8}{$\pm1.26$} & 2.80\scalebox{0.8}{$\pm1.57$} & 3.78\scalebox{0.8}{$\pm2.22$} & 3.06\scalebox{0.8}{$\pm2.16$} & 2.77\scalebox{0.8}{$\pm1.60$} & 3.27\scalebox{0.8}{$\pm2.18$}\\
-%AE MCS & 5.52\scalebox{0.8}{$\pm2.57$} & 5.15\scalebox{0.8}{$\pm2.80$} & 4.36\scalebox{0.8}{$\pm1.94$} & 7.00\scalebox{0.8}{$\pm2.77$} & 4.34\scalebox{0.8}{$\pm1.58$} & 5.36\scalebox{0.8}{$\pm2.48$} & 4.46\scalebox{0.8}{$\pm1.86$} & 5.11\scalebox{0.8}{$\pm2.45$}\\
-%AE-FT MCS & 5.43\scalebox{0.8}{$\pm2.86$} & 6.12\scalebox{0.8}{$\pm2.65$} & 4.16\scalebox{0.8}{$\pm2.01$} & 6.20\scalebox{0.8}{$\pm2.84$} & 6.32\scalebox{0.8}{$\pm2.75$} & 5.36\scalebox{0.8}{$\pm2.73$} & 3.77\scalebox{0.8}{$\pm1.85$} & 5.26\scalebox{0.8}{$\pm2.71$} \\
-%AEC MCS 1-hop & \textbf{7.22}\scalebox{0.8}{$\pm2.90$} & 5.92\scalebox{0.8}{$\pm2.72$} & 5.24\scalebox{0.8}{$\pm2.21$} & 7.12\scalebox{0.8}{$\pm2.73$} & 5.48\scalebox{0.8}{$\pm1.87$} & 6.92\scalebox{0.8}{$\pm2.88$} & 4.86\scalebox{0.8}{$\pm1.50$} & 6.02\scalebox{0.8}{$\pm2.57$} \\
-%AEC MCS 2-hop & 4.22\scalebox{0.8}{$\pm2.81$} & 3.69\scalebox{0.8}{$\pm2.45$} & 4.56\scalebox{0.8}{$\pm2.26$} & 6.20\scalebox{0.8}{$\pm3.22$} & 4.55\scalebox{0.8}{$\pm2.50$} & 4.64\scalebox{0.8}{$\pm2.59$} & 4.09\scalebox{0.8}{$\pm1.56$} & 4.54\scalebox{0.8}{$\pm2.59$} \\
-%AEC-FT MCS 1-hop & 6.91\scalebox{0.8}{$\pm3.74$} & \textbf{6.80}\scalebox{0.8}{$\pm2.15$} & \textbf{6.04}\scalebox{0.8}{$\pm1.87$} & \textbf{7.60}\scalebox{0.8}{$\pm2.38$} & \textbf{6.79}\scalebox{0.8}{$\pm2.14$} & \textbf{7.12}\scalebox{0.8}{$\pm2.86$} & \textbf{5.37}\scalebox{0.8}{$\pm1.57$} & \textbf{6.59}\scalebox{0.8}{$\pm2.52$} \\
-%AEC-FT MCS 2-hop & 4.09\scalebox{0.8}{$\pm2.76$} & 4.36\scalebox{0.8}{$\pm2.24$} & 5.56\scalebox{0.8}{$\pm3.16$} & 6.72\scalebox{0.8}{$\pm2.89$} & 4.39\scalebox{0.8}{$\pm1.97$} & 4.16\scalebox{0.8}{$\pm2.52$} & 3.77\scalebox{0.8}{$\pm1.17$} & 4.67\scalebox{0.8}{$\pm2.59$} \\
-%EC SimRank & 6.74\scalebox{0.8}{$\pm2.19$} & 5.38\scalebox{0.8}{$\pm3.03$} & 3.16\scalebox{0.8}{$\pm1.49$} & 6.40\scalebox{0.8}{$\pm2.62$} & 4.59\scalebox{0.8}{$\pm1.63$} & 4.44\scalebox{0.8}{$\pm1.86$} & 3.80\scalebox{0.8}{$\pm1.85$} & 4.85\scalebox{0.8}{$\pm2.45$} \\
-%SE Cosine & 3.39\scalebox{0.8}{$\pm1.97$} & 5.50\scalebox{0.8}{$\pm2.15$} & 5.32\scalebox{0.8}{$\pm1.85$} & 5.16\scalebox{0.8}{$\pm2.31$} & 4.31\scalebox{0.8}{$\pm1.29$} & 5.36\scalebox{0.8}{$\pm2.51$} & 4.31\scalebox{0.8}{$\pm1.85$} & 4.75\scalebox{0.8}{$\pm2.12$} \\
-%\bottomrule	
-%	\end{tabular}
-%	\caption{Genre distribution of the top-10 similar artists using the MIREX dataset}	
-%	\label{tbl:similarity:res_genre_distrib}
-%\end{table*}
-
 \subsubsection{Evaluation measures}
 
 To measure the accuracy of the artist similarity we adopt two standard performance metrics such as Precision@N, and nDCG@N (normalized discounted cumulative gain).
@@ -305,8 +284,9 @@ Precision considers only the relevance of items, whilst nDCG takes into account 
 where IDCG@N indicates the score obtained by an ideal or perfect Top-N ranking and acts as a normalization factor. We run our experiments for $N=5$ and $N=10$.
 %In Tables~\ref{tbl:similarity:res_mirex} and~\ref{tbl:similarity:res_lastfm} average values of P@N and nDCG@N among all the evaluated artists are shown.
 
-\subsection{Results and discussion} %Sergio
+\subsection{Results and discussion}
 \label{sec:similarity:results}
+
 We evaluated all the approach variants described in Section~\ref{sec:similarity:eval_approaches} on the MIREX dataset, but only a subset of them on the Last.fm dataset, due to the high computational cost of some of the approaches.
 %We initially worked on the MIREX dataset, as the number of artists was smaller and the computation of the algorithms was much faster. However, to ensure the credibility of the results, we applied some of the approach variants in a bigger dataset.
 
@@ -317,58 +297,6 @@ Table~\ref{tbl:similarity:res_genre_distrib} presents the results. Again, the be
 
 We extract some insights from these results. First, semantic approaches are able to improve pure text-based approaches. Second, using knowledge from an external knowledge base provides better results than exploiting the relations inside the text. Third, using a similarity measure that exploits the structure and content of a graph, such as maximal common subgraph, overcomes other similarity measures based on semantic similarity among entity mentions in document pairs.
 
-%\begin{table*}
-%\centering
-%	\begin{tabular}{  lllllll }
-%    	\toprule
-%	& \multicolumn{3}{c}{N=5} & \multicolumn{3}{c}{N=10} \\
-%	\cmidrule(lr){2-4}
-%	\cmidrule(lr){5-7}
-%	Approach variants & P@N & R@N & nDCG@N & P@N & R@N & nDCG@N \\
-%	\midrule
-%LSA& 0.100 & 0.025 & 0.496 & 0.169 & 0.081 & 0.526 \\
-%RG MCS 1-hop& 0.059 & 0.013 & 0.465 & 0.087 & 0.039 & 0.476 \\
-%RG MCS 2-hop& 0.056 & 0.012 & 0.433 & 0.101 & 0.049 & 0.468 \\
-%ENT MCS 1-hop& 0.106 & 0.026 & 0.503 & 0.178 & 0.087 & 0.517 \\
-%ENT-FT MCS 1-hop& 0.123 & 0.029 & 0.552 & 0.183 & 0.091 & 0.562 \\
-%EC MCS 1-hop& 0.120 & 0.030 & 0.573 & 0.209 & 0.105 & 0.562 \\
-%EC MCS 2-hop& 0.086 & 0.021 & 0.550 & 0.160 & 0.075 & 0.539 \\
-%EC-FT MCS 1-hop& \textbf{0.140} & \textbf{0.034} & \textbf{0.588} & \textbf{0.218} & \textbf{0.110} & \textbf{0.578} \\
-%EC-FT MCS 2-hop& 0.100 & 0.023 & 0.527 & 0.160 & 0.078 & 0.534 \\
-%EC SimRank& 0.097 & 0.025 & 0.509 & 0.171 & 0.086 & 0.534 \\
-%SE Cosine& 0.095 & 0.023 & 0.454 & 0.163 & 0.080 & 0.484 \\
-%\bottomrule	
-%  	\end{tabular}
-%	\caption{Precision, Recall and nNDCG for Top-N artist similarity in MIREX dataset}	
-%	\label{tbl:similarity:res_mirex}
-%\end{table*}
-
-
-
-
-%\begin{table*}
-%\centering
-%	\begin{tabular}{ | l | c | c | c | c | c | c | }
-%    	\hline
-%	& \multicolumn{3}{|c|}{N=5} & \multicolumn{3}{|c|}{N=10} \\
-%	\hline
-%	Approach variants & P@N & R@N & nDCG@N & P@N & R@N & nDCG@N \\
-%	\hline
-%LSA& 0.090 & 0.022 & 0.233 & 0.088 & 0.046 & 0.269 \\
-%RG MCS 1-hop& 0.055 & 0.013 & 0.126 & 0.083 & 0.039 & 0.149 \\
-%ENT MCS 1-hop& 0.124 & 0.032 & 0.184 & 0.200 & 0.104 & 0.216 \\
-%ENT-FT MCS 1-hop& 0.136 & 0.036 & 0.224 & 0.201 & 0.101 & 0.260 \\
-%EC MCS 1-hop& 0.152 & 0.039 & 0.277 & 0.224 & 0.117 & 0.297 \\
-%EC-FT MCS 1-hop& \textbf{0.160} & \textbf{0.041} & \textbf{0.288} & \textbf{0.242} & \textbf{0.123} & \textbf{0.317} \\
-%\hline	
-%  	\end{tabular}
-%	\caption{Precision, Recall and nNDCG for Top-N artist similarity in Last.fm dataset}	
-%	\label{tbl:similarity:res_lastfm}
-%\end{table*}
-
-
-
-%!TEX root = ../thesis_a4.tex
 
 \section{Music Genre Classification}\label{sec:similarity:classification}
 
@@ -376,9 +304,9 @@ In this section we describe an experiment on music genre classification, consist
 
 \subsection{Dataset Description}
 
-Starting from the MARD dataset described in Section~\ref{} of Chapter~\ref{}, our purpose is to create a subset suitable for genre classification, including 100 albums per genre class. We enforce these albums to be authored by different artists, and that review texts and audio descriptors of their songs are available in MARD. Then, for every album, we selected audio descriptors of the first song of each album as representative sample of the album. From the original 16 genres, 3 of them did not have enough instances complying with these prerequisites (Reggae, Blues and Gospel). This results in a classification dataset composed of 1,300 albums, divided in 13 different genres, with around 1,000 characters of review per album.
+Starting from the Multimodal Album Reviews Dataset (MARD) described in Section~\ref{sec:musicology:mard}, our purpose is to create a subset suitable for music genre classification, including 100 albums per genre class. We enforce these albums to be authored by different artists, and that review texts and audio descriptors of their songs are available in MARD. Then, for every album, we selected audio descriptors of the first song of each album as representative sample of the album. From the original 16 genres, 3 of them did not have enough instances complying with these prerequisites (Reggae, Blues and Gospel). This results in a classification dataset composed of 1,300 albums, divided in 13 different genres, with around 1,000 characters of review per album.
 
-In addition to the aspect-based sentiment analysis process applied over the MARD dataset (see Section~\ref{} of Chapter~\ref{}), we applied an Entity Linking process to the selected subset of reviews. In this case, EL was performed taking advantage of Tagme\footnote{http://tagme.di.unipi.it/} \cite{Ferragina2012}. TagMe provides for each detected entity, its Wikipedia page id and Wikipedia categories.
+In addition to the aspect-based sentiment analysis process applied over the MARD dataset (see Section~\ref{sec:musicology:sentiment}), we applied an Entity Linking process to the selected subset of reviews. In this case, EL was performed taking advantage of TagMe \cite{Ferragina2012} through ELVIS (see Section~\ref{sec:linking:elvis}). TagMe provides for each detected entity, its Wikipedia page id. ELVIS enrich the obtained entities with DBpedia URIs, DBpedia Ontology types, and Wikipedia categories.
 %An album may have a number of reviews with different length each. For each album we selected a subset of its reviews and concatenated their texts. We aimed to limit the cumulative length of the selected reviews of each album to 1000 characters approximately, without cropping any reviews. Finally, the average length of text by album in the classification dataset is 649 characters.
 
 \subsection{Features}
@@ -388,7 +316,7 @@ We used a standard Vector Space Model representation of documents, where documen
 
 \subsubsection{Semantic Features}
 
-We enriched the initial BoW vectors with semantic information thanks to the application of Entity Linking. Specifically, for each named entity disambiguated with Tagme, its Wikipedia ID and its associated categories are added to the feature vector, also with \textit{tf-idf} weighting. Wikipedia categories are organized in a taxonomy, so we enriched the vectors by adding one level more of broader categories to the ones provided by Tagme. Broader categories were obtained by querying DBpedia\footnote{\url{http://dbpedia.org}}.
+We enriched the initial BoW vectors with semantic information thanks to the application of entity linking. Specifically, for each named entity disambiguated with TagMe, its Wikipedia ID and its associated categories are added to the feature vector, also with \textit{tf-idf} weighting. Wikipedia categories are organized in a taxonomy, so we enriched the vectors by adding one level more of broader categories to the ones provided by ELVIS. Broader categories were obtained by querying DBpedia\footnote{\url{http://dbpedia.org}}.
 
 %We enriched the initial BoW vectors with semantic information thanks to the EL step. The semantic feature vector of an album is conformed by a BoW model where instead of words, there are entity IDs and categories. For every entity detected by Tagme in the album texts, we added to BoW its correspondent Wikipedia ID and the Wikipedia categories associated to this entity. We applied the tfidf measure to the semantic features vector to compute a weight associated to every entity and category for each album.
 
@@ -514,9 +442,9 @@ Rock & 17 / 15 & 1 / 2 & 6 / 8 & 4 / 7 & 10 / 5 & 2 / 4 & 7 / 1 & 12 / 13 & 4 / 
 \section{Conclusion}
 \label{sec:similarity:conclusion}
 
-In this chapter we presented several methodologies that exploit semantic technologies for computing artist similarity and music genre classification. Particularly, we focus on the use of entity linking as a medium to enrich the information present in musical documents. Results in both tasks show that the addition of semantic information via entity linking clearly yields in a performance improvement.
+In this chapter we presented several methodologies that exploit semantic technologies for computing artist similarity and music genre classification. Particularly, we focus on the use of entity linking as a medium to enrich the information present in musical documents. Results in both tasks show that the addition of semantic information via entity linking clearly yields performance improvements.
 
-Different methods to embbed this semantic information have been proposed, from knowledge graphs to vector space models.
+Different methods to embed this semantic information have been proposed, from knowledge graphs to vector space models.
 In the case of artist similarity, the proposed methodology is divided in three main steps: First, named entity mentions are identified in the text and linked to a knowledge base. Then, these entity mentions are used to construct a semantically motivated knowledge representation. Finally a similarity function is defined on top of the knowledge representation to compute the similarity between artists.
 For each one of these steps we explored several approaches, and evaluated them against a small dataset of 188 artist biographies, and a larger dataset of 2,336 artists, both obtained from Last.fm.
 Results showed that the combination of semantically enriched graphs via entity linking, and a maximal common subgraph similarity measure clearly outperforms a baseline approach that exploits word co--occurrences and latent factors.
@@ -524,4 +452,4 @@ Results showed that the combination of semantically enriched graphs via entity l
 In the case of music genre classification, a multimodal dataset of album customer reviews combining text, metadata and acoustic features gathered from Amazon, MB and AB respectively is used. Customer review texts are further enriched with named entity disambiguation along with polarity information derived from aspect-based sentiment analysis. Based on this information, a text-based genre classifier is trained using different combinations of features. 
 A comparative evaluation of features suggests that a combination of bag-of-words and semantic information has higher discriminative power, outperforming competing systems in terms of accuracy.
 
-In the light of these results on both tasks, the following conclusions can be drawn: First, semantic approaches may outperform pure text-based approaches. Second, we observe that knowledge leveraged from external ontologies may improve the accuracy on both tasks. Finally, reducing noise by filtering linked entities by type is a rewarding step that contributes to an improved performance.
+In the light of these results on both tasks, the following conclusions can be drawn: First, semantic approaches may outperform pure text-based approaches. Second, we observe that the inclusion of knowledge leveraged from external ontologies boost the performance on both tasks. Finally, reducing noise by filtering linked entities by type is a rewarding step that contributes to an improved performance.
