@@ -7,14 +7,119 @@
 
 \section{Introduction}
 
-When this thesis started, there was almost no published work related with the extraction of high level semantic representations from music unstructured texts, although, in the context of MIR, a growing number of research works using text information \cite{}, and already structured semantic information \cite{} were available. The first knowledge extraction approaches \cite{Tata2010,Knees2011,Sordo2012} given some insights on the epistemic potential of text for music applications. In this thesis we have followed this ideas, deepening in the linguistic processing applied to extract the information, and proposing new approaches that exploit the extracted information in MIR tasks such as music recommendation and classification. In addition, we have combined extracted semantic information with content from other data modalities such as audio and images using deep neural networks. New data representations learned from the different modalities and their combination have shown to outperform hand-crafted audio features and single modality approaches.
+When this thesis started, there was almost no published work related with the extraction of high level semantic representations from music unstructured texts, although, in the context of MIR, a growing number of research works using text and multimodal information \cite{}, and already structured semantic information \cite{} were available. The first knowledge extraction approaches \cite{Tata2010,Knees2011,Sordo2012} given some insights on the epistemic potential of text for music applications. In this thesis we have followed this ideas, deepening in the linguistic processing applied to extract the information, and proposing new approaches that exploit the extracted information in MIR tasks such as music recommendation and classification. In addition, we have combined extracted semantic information with content from other data modalities such as audio and images using deep neural networks. New data representations learned from the different modalities and their combination have shown to outperform hand-crafted audio features and single modality approaches.
 
-We started with an introduction to natural language processing and representation learning in the context of MIR. In addition, we introduced the music recommendation and classification tasks (Chapter~\ref{sec:introduction}). We continued by illustrating some background concepts related to natural language understanding and summarizing the existing literature on text-based approaches in the context of MIR and recommender systems. Then, we described a framework for entity linking and the creation of a large corpus of annotated musical entities (Chapter~\ref{sec:linking}. We next proposed a method for extracting semantic relations between musical entities from unstructured texts, we evaluate the suitability of extracted knowledge to provide explanations of music recommendations (Chapter~\ref{sec:kb}). Two experiments on the applications of knowledge extraction for musicological studies are exposed (Chapter~\ref{sec:musicology}). Then, we presented knowledge-based approaches for artist similarity, music classification (Chapter\ref{sec:similarity}, and music recommendation (Chapter~\ref{sec:kb-rec}). Finally, we presented a multimodal deep learning approach for cold-start music recommendation (Chapter~\ref{sec:cold-rec}) and multi-label genre classification (Chapter~\ref{sec:multimodal-class}.
+We started this dissertations with an introduction to natural language processing and representation learning in the context of MIR. In addition, we introduced the music recommendation and classification tasks (Chapter~\ref{sec:introduction}). We continued by illustrating some background concepts related to natural language understanding and summarizing the existing literature on text-based approaches in the context of MIR and recommender systems. Then, we described a framework for entity linking and the creation of a large corpus of annotated musical entities (Chapter~\ref{sec:linking}. We next proposed a method for extracting semantic relations between musical entities from unstructured texts, and we evaluate the suitability of the extracted knowledge to provide explanations of music recommendations (Chapter~\ref{sec:kb}). Two experiments on the applications of knowledge extraction for musicological studies are exposed next (Chapter~\ref{sec:musicology}). Then, we presented knowledge-based approaches for artist similarity, music classification (Chapter\ref{sec:similarity}, and music recommendation (Chapter~\ref{sec:kb-rec}). Finally, we presented a multimodal deep learning approach for cold-start music recommendation (Chapter~\ref{sec:cold-rec}), and multi-label genre classification (Chapter~\ref{sec:multimodal-class}.
 
 In each chapter, we provided a summary of the conclusions and relevant results of the corresponding work. In what follows, we enumerate the main contribution of this thesis~\ref{sec:conclusion:summary}. Finally, we end this dissertation with a discussion about future research directions~\ref{sec:conclusion:future}.
 
 \section{Summary of contributions}
 \label{sec:conclusion:summary}
+
+In this thesis, we have focused our work in two different problems: how to extract knowledge from unstructured texts, and how to exploit this knowledge in the context of MIR, either by itself or by combination with other data modalities. We now present a summary of the main contributions of this thesis.
+
+\subsection{Scientific Contributions}
+
+\begin{enumerate}
+
+\item 
+A comprehensive review of current approaches in Natural Language Understanding and Music Information Retrieval, with a special focus on entity linking, knowledge base creation, relation extraction, artist similarity, music classification, and music recommendation.
+
+%\item 
+%A system that integrates different entity linking tools, providing high confident entity disambiguations. The system is further leveraged for the creation of a novel benchmarking dataset of annotated musical entities, which are in turn linked to DBpedia and MusicBrainz. From this corpus, a gold standard dataset of manually annotated entities is also created.
+
+\item 
+An approach for the automatic creation of Music Knowledge Bases from unstructured texts, which encodes semantic relations among musical entities, leveraging syntactic and semantic information (Chapter~\ref{sec:kb}). % Our method relies on the syntactic structure of sentences and the use and adaptation of music-specific heuristics for both \textsc{EL} and \textsc{RE}. %In addition, we include modules for semantic clustering and pattern scoring, aimed at the efficient removal of noisy relations. 
+The approach has the following advantages:
+
+\begin{enumerate}
+\item 
+It is able to capture a highly precise and compact set of weighted triples thanks to a clustering method and a novel scoring metric. 
+\item 
+Given a proper text corpora, it is able to extract knowledge not present in other KBs, both general and domain-specific. 
+\item
+The extracted knowledge base is suitable to provide explanations of music recommendations.
+\end{enumerate}
+
+\item 
+An exploratory study on how knowledge extraction techniques may impact musicological studies (Chapter~\ref{sec:musicology}), which has given the following outcomes:
+\begin{enumerate}
+\item 
+An approach for the creation of culture-specific Music Knowledge Bases, which combines structured information coming from different data sources and information extracted from unstructured texts. 
+\item
+A methodology to build knowledge graphs from unstructured texts suitable for computing artist's relevance.
+\item 
+A method to extract and analyze the sentiment polarity expressed in music reviews, which is used to study the evolution of affective language and music genres.
+%A diachronic study of the sentiment polarity expressed in album customer reviews, which suggests that non-music related circumstances may influence the way people speak about music, and demonstrate its usefulness to analyze the evolution of music genres.
+\end{enumerate}
+
+\item 
+A methodology to enrich and embed unstructured text documents with information present in knowledge repositories for their further exploitation in artist similarity and music classification, which outperforms traditional text-based approaches (Chapter~\ref{sec:similarity}).
+
+\item
+An extension of the previous contribution for the creation and enrichment of knowledge graphs from collection's items metadata, which are in turn exploited together with user's feedback in a hybrid recommendation approach. Two novel embedding methods are proposed and an extensive evaluation shows improvements with respect to state-of-the-art collaborative filtering algorithms, in terms of prediction accuracy and catalog coverage (Chapter~\ref{sec:graph-rec}).%  and other content-based baselines from various points of view such as prediction accuracy and catalog coverage, promoting long tail recommendations.
+
+\item 
+An approach to provide cold-start recommendations, combining audio tracks, artist biographies, semantic information, and user's feedback using a deep neural network. Following this approach, a recommender system is able to include songs of novel artists in its recommendations with higher accuracy (Chapter~\ref{sec:cold-rec}).
+
+%Results suggest that both splitting the recommendation problem between feature levels, and the late fusion of feature embeddings improve the accuracy of the recommendations, and outperforms end-to-end multimodal approaches where the different modalities are learned simultaneously.
+%Moreover, deep learning architectures have demonstrated their capacity to improve upon other learning models under the music recommendation framework. 
+%Results have shown that our multimodal approach achieves better results than pure text or audio approaches. 
+
+\item 
+A methodology for the simultaneous classification of multiple genre labels from audio, text, semantic information, images, and their combination using deep learning architectures. In the described approach, classification accuracy and catalog coverage are improved by applying dimensionality reduction of target labels through matrix factorization techniques (Chapter~\ref{sec:multimodal-class}). %Additionally, a large multimodal dataset used for evaluation is released.
+
+\end{enumerate}
+
+\subsection{Contributions to Creating Datasets}
+
+To evaluate our approaches, adequate datasets were not always available, so we have dedicated an important effort in the gathering and curation of new datasets. We describe below some specific contributions from the author. 
+
+\begin{enumerate}
+
+\item 
+Compiling a novel dataset of \~13k documents and almost 150k annotated musical entities, which are in turn linked to DBpedia and MusicBrainz. From this corpus, a gold standard dataset of 200 documents with manually annotated entities is created (Section ~\ref{sec:linking:lastfm}).
+
+\item
+Compiling a large dataset of about 64k albums with customer reviews, track acoustic features, metadata, and single-label genre annotations (Section ~\ref{sec:musicology:mard}).
+
+\item
+Compiling two datasets of 188 and 2,336 artist biographies together with artist similarity ground truth data (Section ~\ref{sec:similarity:experimentalsetup}).
+
+\item
+Compiling two datasets of tags and text descriptions about musical items, together with user's feedback information on those items. A dataset of sounds with \~21k items and 20k users, and a dataset of songs with \~8.5k items and \~5k users (Section ~\ref{sec:graph-rec:datasets}).
+
+\item
+Compiling a dataset of \~24k artist biographies and linking them with the Million Song Dataset (Section ~\ref{sec:cold-rec:dataset}).
+
+\item
+Compiling a large dataset of about \~31k albums, with \~450k customer reviews, \~147k audio tracks, cover artworks, and multi-label genre annotations (Section ~\ref{sec:multimodal-class:dataset}).
+
+\end{enumerate}
+
+\subsection{Contributions to Creating Music Knowledge Bases}
+
+\begin{enumerate}
+\item
+A Music Knowledge Base of popular music extracted from a corpus of \~32k documents with stories about songs (Section~\ref{sec:kb:exp:learnedkbs}).
+
+\item
+A Music Knowledge Base of flamenco music, created by combining data from 7 different data sources, and enriched with information extracted from \~1k artist biographies (Section~\ref{sec:musicology:flabase}).
+
+\end{enumerate}
+
+\subsection{Software Contributions}
+
+\begin{enumerate}
+\item
+A system that integrates different entity linking tools, providing high confident entity disambiguations.
+
+\item
+A system to perform and evaluate deep learning experiments on classification and recommendation from different data modalities and their combination. %, and to obtain feature vectors from intermediate layers after training. 
+
+\end{enumerate}
+
+The research carried out in this dissertation have been published in several peer reviewed journals and top international conferences. Parts of the research presented in Chapter~\ref{sec:linking} have been published in a conference paper \cite{Oramas2016}. The work described in Chapter~\ref{sec:kb} has been published in a conference and a journal paper \cite{Oramas2015,Oramas2016a}. The parts of the research presented in Chapter~\ref{sec:musicology} related with the creation of domain-specific knowledge bases have been published in a conference and a journal paper \cite{Oramas2015b,}, and those related with the diachronic study of music reviews were published in another conference paper \cite{oramas2016exploring}. Similarly, the parts of the research presented in Chapter~\ref{sec:similarity} related with artist similarity have been published in a conference paper \cite{Oramas2015a}, and those related with music genre classification have been published in \cite{oramas2016exploring}. Furthermore, the outcomes of Chapter~\ref{sec:graph-rec} have been published in a conference and a journal paper \cite{,oramas2016sound}. Finally, the work described in Chapter~\ref{cold-rec} have been published in a conference paper \cite{}, and the outcomes of the research carried out in Chapter~\ref{sec:multimodal-class} have been published in a conference paper \cite{}. The full list of author's publications related to the work presented in this thesis is available in Appendix B, and the full list of released datasets and software is available in Appendix A.
 
 
 \section{Directions for future research}
