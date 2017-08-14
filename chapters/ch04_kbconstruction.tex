@@ -206,12 +206,14 @@ Second, we only selected relations where the syntactic function that connects in
 \begin{table*}[ht!]
 \scriptsize
 \centering
-    \begin{tabular}{ | c | l | l | }
+    \begin{tabular}{ | c | l |  p{5cm} | }
     \hline
     Filtering Heuristics & Description & Patterns \\
     \hline
     lemma-paths & banned lemmas & say, tell, speak, explain, express, mention, inform, thank, ask, admit\\
+    \hline
     dependency-paths & allowed start patterns & PRD, VC, SBJ, NMOD SBJ, OBJ, APPO SBJ \\
+    \hline
     pos-paths & special allowed patterns & NN, NN NN, NNS, NN CC NN, NN IN, IN NN \\
     \hline
     \end{tabular}
@@ -235,12 +237,12 @@ This observation, which we found to occur quite frequently, motivated the inclus
     \hline
     Regular Expressions \\
     \hline
-    \^(VC)+\\s*(DEP|LGS|LOC|TMP) \\
-    \^(VC)+\\s+(ADV)\\s*(PMOD|NMOD|AMOD)* \\
+    \^(VC)+\textbackslash s*(DEP|LGS|LOC|TMP) \\
+    \^(VC)+\textbackslash s+(ADV)\\s*(PMOD|NMOD|AMOD)* \\
     \^(DEP|LGS|LOC|TMP) \\
-    \^(APPO)\\s+(LGS) \\
-    \^(SBJ)\\s*(PMOD|NMOD|AMOD|ADV) \\
-    \^(OBJ)\\s*(PMOD|NMOD|DEP) \\
+    \^(APPO)\textbackslash s+(LGS) \\
+    \^(SBJ)\textbackslash s*(PMOD|NMOD|AMOD|ADV) \\
+    \^(OBJ)\textbackslash s*(PMOD|NMOD|DEP) \\
     \^(ADV) \\
     \^(NMOD|PRT|PMOD) \\
     \hline
@@ -279,6 +281,14 @@ Filtering out spurious information in OIE following similar approaches has prove
 Ours is a \textit{loose clustering} method because it does not enforce a pattern to fully match all rules, but rather allows partial matching. This module provides an enrichment of all $r \in \mathcal{R}$ such that $r = \langle e_d, e_r, \upsilon_d, \upsilon_r, p, c\rangle$, where $c$ is the cluster pattern derived from the relation pattern $p$. A relation cluster is the set of all relations with the same cluster pattern, and is denoted as $\mathcal{R}_c$. 
 
 
+\subsection{Scoring}
+\label{sec:kb:method:scoring}
+
+So far, our approach has identified entity mentions in text and has linked them in meaningful relations, filtering out those that did not comply with predefined linguistic rules. We incorporate one additional factor $score(r)$ that takes into account statistical evidence computed over $\mathcal{R}$. It has three main components, which we flesh out as follows.
+
+We hypothesize that the relevance of a cluster may be inferred by the number and proportion of triples it encodes, and whether these are evenly distributed. 
+Our metric encompasses a combination of three different components. First, we focus on the \textit{degree of specificity} of the relation cluster, as previous work has demonstrated that this can contribute to Information Extraction pipelines \citep{DelliBovietal2015}. Second, we analyze \textit{intrinsic features} of the relation pattern, such as frequency, length and fluency. Finally, we incorporate a \textit{smoothing factor}, namely the proportion of the related typed cluster pattern in the cluster.
+
 \begin{table*}[ht!]
 \scriptsize
 	\begin{tabular}{ | l | l | l | }
@@ -307,15 +317,6 @@ Ours is a \textit{loose clustering} method because it does not enforce a pattern
 	\caption{Example of a relation cluster $\mathcal{R}_c$, where $c = \mbox{\textit{was written by}}$. \textit{S} refers to Song, \textit{MA} to MusicalArtist and \textit{A} to Album types, whilst \textit{sX} refers to Song, \textit{maX} to MusicalArtist and \textit{aX} to Album entities.}
 	\label{tbl:kb:example_grouping}
 \end{table*}
-
-
-\subsection{Scoring}
-\label{sec:kb:method:scoring}
-
-So far, our approach has identified entity mentions in text and has linked them in meaningful relations, filtering out those that did not comply with predefined linguistic rules. We incorporate one additional factor $score(r)$ that takes into account statistical evidence computed over $\mathcal{R}$. It has three main components, which we flesh out as follows.
-
-We hypothesize that the relevance of a cluster may be inferred by the number and proportion of triples it encodes, and whether these are evenly distributed. 
-Our metric encompasses a combination of three different components. First, we focus on the \textit{degree of specificity} of the relation cluster, as previous work has demonstrated that this can contribute to Information Extraction pipelines \citep{DelliBovietal2015}. Second, we analyze \textit{intrinsic features} of the relation pattern, such as frequency, length and fluency. Finally, we incorporate a \textit{smoothing factor}, namely the proportion of the related typed cluster pattern in the cluster.
 
 A cluster $\mathcal{R}_c$ may be decomposed into a set of typed cluster patterns $\tau_c$ (see Table ~\ref{tbl:kb:example_grouping}). The intuition behind the specificity measure of a cluster is that clusters with one prominent $\tau_c$ are more specific, i.e. they are largely used for encoding one specific type of relations. One example of this would be \textit{performed with}, which enforces a relation to include MusicalArtists on both the domain and range sides. Thus, we define $\mathcal{L}_c$ as the list of cardinalities (number of triples) of every typed cluster pattern $\tau_c \in \mathcal{R}_c$, being $\mathcal{L}_c = \{|\mathcal{R}_{\tau_c^1}|,...,|\mathcal{R}_{\tau_c^n}|\}$. We define the specificity measure as the variance of $\mathcal{L}$, expressed as $s(\mathcal{R}_c) = var(\mathcal{L}_c)$.
 
