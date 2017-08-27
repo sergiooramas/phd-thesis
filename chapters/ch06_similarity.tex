@@ -314,6 +314,7 @@ In this section we describe a method to enrich music related documents with sema
 
 
 \subsection{Dataset Description}
+\label{sec:similarity:mard}
 
 Starting from the MARD dataset, our purpose is to create a subset suitable for music genre classification, including 100 albums per genre class. We enforce these albums to be authored by different artists, and that review texts and audio descriptors of their songs are available in MARD. Then, for every album, we selected audio descriptors of the first song of each album as a representative sample of the album. From the original 16 genres, 3 of them did not have enough instances complying with these prerequisites (Reggae, Blues and Gospel). This results in a classification dataset composed of 1,300 albums, divided in 13 different genres. The review texts of each album were aggregated and then truncated around 1,000 characters (this length slightly varies from one album to another, as we wanted to keep the complete text of every individual review). We limited text length to avoid any bias towards popular albums.
 %An album may have a number of reviews with different length each. For each album we randomly selected a subset of its reviews and concatenated their texts. We aimed to limit the cumulative length of the selected reviews of each album to 1000 characters approximately, without cropping any review. Finally, the average length of text by album in the classification dataset is 649 characters.
