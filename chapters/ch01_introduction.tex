@@ -82,7 +82,13 @@ In this thesis we dig into the Music Recommendation problem from three different
 \section{Objectives and outline of the thesis}
 \label{sec:intro:objectives}
 
-In the previous sections we have explained the motivations and context of our thesis. According to that, the main goal of this dissertation is to contribute to advancing the state of the art in music recommendation and classification by leveraging knowledge repositories and unstructured text sources, and learning novel data representations from multimodal data. Although this thesis is focused on the music domain, the work we present can be easily adapted to other multimedia domains. Figure\ref{} shows a conceptual organization of some of the chapters of this thesis according to the different approaches, tasks, and learning process.
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{ch01_introduction_pics/Thesis_schema.png}
+	\caption{Thesis overview \label{fig:intro:chapters}}
+\end{figure}
+
+In the previous sections we have explained the motivations and context of our thesis. According to that, the main goal of this dissertation is to contribute to advancing the state of the art in music recommendation and classification by leveraging knowledge repositories and unstructured text sources, and learning novel data representations from multimodal data. Although this thesis is focused on the music domain, the work we present can be easily adapted to other multimedia domains. Figure\ref{} shows a conceptual organization of some of the chapters of this thesis according to the different approaches, tasks, and methods.
 
 This thesis is structured as follows: Chapter~\ref{sec:SOA} presents some background knowledge and related work on Knowledge Extraction and MIR. Hereafter, the work in this dissertation is divided in three Parts: In Part~\ref{part:knowledge-extraction} we explore different techniques and approaches to extract semantic information from unstructured text sources \textit{talking} about music. Within this Part, Chapter~\ref{sec:linking} illustrates the problem of linking musical texts and knowledge repositories. In Chapter~\ref{sec:kb} we address the automatic generation of Music Knowledge Bases from unstructured text sources. This Chapter encloses with an experiment on explanations of music recommendations based on an extracted Knowledge Base. In Chapter~\ref{sec:musicology}, three experiments study the potential impact of knowledge extraction techniques in musicological studies.
 Then, in Part~\ref{part:knowledge-based}, the semantic representations described in Part~\ref{part:knowledge-extraction} are exploited in Music Classification, Similarity and Recommendation problems. Chapter~\ref{sec:similarity} presents the application of a semantic-based approach to music similarity and classification problems, whereas Chapter~\ref{sec:graph-rec} addresses the problem of long tail recommendations by enriching annotations with semantic information.
