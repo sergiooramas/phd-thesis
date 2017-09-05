@@ -160,7 +160,7 @@ As for \textit{type equivalence}, this is a binary value (\textit{type-equivalen
 
 %In addition to system agreements, we apply a music-specific heuristic exploiting music categories inferred from the original \texttt{Last.fm} data. Specifically, we use the \textit{music type} information provided through the rdf:type property of DBpedia resources as an agreement booster. This means that if the agreed URI contains a type that equivalent to the category of the candidate entity (see Table \ref{tbl:linking:equivalence}), we consider this as a case of \textit{type agreement}. For every level of system agreement, we differentiate the cases where there is type agreement from the other cases. In addition, when there is disagreement between systems, but only one of them detects an entity with type agreement, our confidence score is 1, like for singletons.
 
-\begin{table}[ht!]
+\begin{table}
 \small
 \centering
 \def\arraystretch{1.2}
@@ -227,7 +227,7 @@ The band's debut album, \textbf{Cookies}, was released on 14 May 2007 & Album & 
 &$\geq1$ & 0.81 & 72.365\\
 \hline
 	\end{tabular}
-	\caption{Precision and number of entities with this value of precision. \textit{Type-equivalent} implies entities from the type-equivalent configuration only, whilst \textit{All} implies all entities regardless their type information.}
+	\caption[Precision and coverage]{Precision and number of entities with this value of precision. \textit{Type-equivalent} implies entities from the type-equivalent configuration only, whilst \textit{All} implies all entities regardless their type information.}
 	\label{tbl:linking:results}
 \end{table}
 
