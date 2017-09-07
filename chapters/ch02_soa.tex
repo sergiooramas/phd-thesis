@@ -10,8 +10,8 @@ The literature review presented in this chapter is divided in three parts. Each 
 First, we summarise existing work on several areas of Natural Language Processing, with special focus on its application to the music domain. 
 We define what a knowledge base (KB) is and the different existing types. Moreover, we deepen into the available knowledge bases that contain music information.
 Then, we explain what entity linking is and briefly describe some state-of-the-art systems. Additionally, we outline different existing approaches for relation extraction. 
-Hereafter, we briefly explain the different main approaches used in Recommender Systems. Then, we enumerate the main available works related to semantic-based approaches for recommendation.
-Finally, we dig into the available literature on Music Information Retrieval. More specifically, we first review the state-of-the-art in text-based and semantic-based approaches. Then, we focus on three specific tasks: music genre classification, artist similarity, and music recommendation.
+Next, we briefly explain the main methodologies used in Recommender Systems, and enumerate the available work on knowledge-based approaches.
+Finally, we dig into the existing literature on Music Information Retrieval. More specifically, we first review the state-of-the-art in text-based and semantic-based approaches. Then, we focus on three specific tasks: music genre classification, artist similarity, and music recommendation.
 %. First, we recapitulate existing work about music genre classification, with a special focus on text-based approaches.
 %Second, we illustrate existing text-based apporaches for artist similarity.
 %Finally, we outline the different apporaches that have been proposed about semantic-based recommender systems and cold-start music recommendation.
@@ -137,22 +137,17 @@ Dependency relations have been successfully incorporated to relation extraction 
 
 %Information overload in modern Web applications challenges users in their decision-making tasks. 
 %Recommender systems have emerged in the last years as fundamental tools in assisting users to find, in a personalized manner, what is relevant for them in overflowing knowledge spaces. 
-The main objective of a recommender system is to predict the \textit{rating} or \textit{preference} that a user would give to an item. By doing so, its mision is to provide suggestions for items to be of use to a user \citep{ricci2011introduction}. \textit{Item} is the general term used to denote what the system recommends to users (e.g. song, album, video, book).
+The main objective of a recommender system is to predict the \textit{rating} or \textit{preference} that a user would give to an item. By doing so, its mision is to provide suggestions for items to be of use to a user \citep{ricci2011introduction}. \textit{Item} is the general term used to denote what the system recommends to users (e.g., song, album, video, book).
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.6\textwidth]{ch02_soa_pics/Long_tail.png}
-	\caption{Long tail distribution.\label{fig:soa:longtail}}
-\end{figure}
-
-Within the recommender systems arena, there are two main approaches for computing recommendations: collaborative filtering and contend-based ones.
+Within the recommender systems arena, there are two main methods for computing recommendations: collaborative filtering and contend-based ones.
 The most popular is collaborative filtering which provides recommendations to a user by considering the preferences of other users with similar tastes. 
 Matrix factorization techniques are currently collaborative filtering state-of-the-art \citep{Koren2009}. 
 As collaborative filtering methods rely only on users feedback information, they may suffer from the so-called \textit{cold-start} problem \citep{Saveski2014}. That is, when new items are introduced in the system, they can not be initially recommended as there is no feedback information related to them.
-In addition, most popular items tend to attract most of the recommendations in collaborative filtering approaches. The relation between items and popularity is tipically represented as a \textit{long tail} distribution \citep{anderson2006long} (see Figure~\ref{fig:soa:longtail}). A large number of items in the catalog normally receive few interacitons from users, so they are hadrly recommended to users. This items are often called \textit{long tail} items. These less popular items may be promoted by priming other evaluation measures rather than prediction accuracy, such as novelty or diversity.
+In addition, most popular items tend to attract most of the recommendations in collaborative filtering approaches. The relation between items and popularity is tipically represented as a \textit{long tail} distribution \citep{anderson2006long} (see Figure~\ref{fig:intro:longtail}). A large number of items in the catalog normally receive few interacitons from users, so they are hadrly recommended. %This items are often called \textit{long tail} items. 
+These less popular items may be promoted by priming other evaluation measures rather than prediction accuracy, such as novelty or diversity \citep{abdollahpouri2017controlling}.
 However, an even larger set of items in large catalogs receive almost none interactions. These \textit{extreme long tail} items are in practice as cold-start items, as the number of interactions is smaller than the minimum value requiered for collaborative filtering methods.
 
-Contrary to collaborative filtering, content-based methods \citep{Mooney1999} rely only on item features, and recommendations are based on similarity between such features. Content-based methods does not suffer from the cold-start problem and are not biesed towards popular items. However, collaborative filtering methods tend to perform better when measuring the overall accuracy of the prediction \citep{pilaszy2009recommending}.
+Contrary to collaborative filtering, content-based methods \citep{Mooney1999} rely only on item features, and recommendations are based on similarity between such features. Content-based methods does not suffer from the cold-start problem and are not biesed towards popular items. However, collaborative filtering methods tend to perform better when measuring the overall accuracy of the predictions \citep{pilaszy2009recommending}.
 %Content-based systems recommend items sharing similar features to those a user has preferred in past.
 Finally, hybrid methods \citep{Burke2002} try to combine the best of both worlds, combining both item-content and item-user feedback. 
 %Both approaches can be combined to build hybrid systems \cite{Burke2002}. 
@@ -161,7 +156,7 @@ When available, the usage of side information about items has proven to boost th
 %Recommender systems can be broadly classified into collaborative filtering (CF), content-based, and hybrid methods. Collaborative filtering methods \citep{Koren2009} use the item-user feedback matrix and predictions are based on the similarity of user or items profiles. Content-based methods \citep{Mooney1999} rely only on item features, and recommendations are based on similarity between such features. Finally, hybrid methods \citep{Burke2002} try to combine both item content and item-user feedback.
 
 
-\subsection{Semantic-based approaches}
+\subsection{Knowledge-based approaches}
 \label{sec:SOA:mir:recommendation:semantic}
 
 Ontology-based and semantics-aware recommendation systems have been proposed in many works in the past. 
@@ -181,42 +176,45 @@ Two hybrid approaches have been presented lately. In \citep{Ostuni2013} the auth
 %In \citep{Rowe1} the authors propose a semantic-aware extension of the SVD++ model, named SemanticSVD++, which incorporates semantic categories of items into the model. The model is able also to consider the evolution over time of user's preferences. 
 Finally, another interesting direction about the usage of LOD for content-based RSs is explored in \citep{MustoSLG14} where the authors present Contextual eVSM, a content-based context-aware recommendation framework that adopts a semantic representation based on distributional semantics and entity linking techniques.% In particular entity linking is used to detect entities in free text and map them to LOD.
 
+%\subsection{Deep learning approaches}
+
 
 \section{Music Information Retrieval}
 \label{sec:SOA:mir}
 
 As stated in Section~\ref{sec:intro:nlp}, Music Information Retrieval (MIR) is a multidisciplinary field of research that is concerned with the extraction, analysis, and usage of information about music. %Traditionally, MIR has been more focused on the use of audio content, underestimating other sources of information. However, in recent years several studies have showed the benefits of using other modalities, as well as their combination in multimodal approaches \cite{Schedl2014}. 
 Although MIR approaches have been traditionally focused on audio content, there have been a growing interest in text-based and multimodal approaches along the last decade. However, most of these text-based approaches are focused on low and mid-level text representations, ignoring the full epistemic potential expressed in texts. In addition, most of audio-based approaches have traditionally relied on handcrafted features, underexploring factors of variability behind the data.
-In this dissertation we focus on knowledge-based and representation learning approaches applied to three MIR tasks: music genre classification, artist similarity, and music recommendation.
+In this dissertation we focus on knowledge-based and deep learning approaches applied to three MIR tasks: music genre classification, artist similarity, and music recommendation.
 
 \subsection{Text-based approaches}
 
-Early work on NLP in the context of MIR is related to the extraction of music artist information from artist-related web pages, using search engines to gather those pages and then parsing their DOM trees \citep{Cohen2000}. Other studies \citep{Ellis2002,Whitman2002} use weighted term profiles based on specific term sets for recommendation and classification tasks. 
-%Early work also on multimodal approaches \cite{} combines 
-Co-occurrence of artist names in web pages content and page count based on results provided by search engines have been used for artist similarity and recommendation tasks \citep{Schedl2005}. Song lyrics \citep{laurier2008multimodal,corona2015exploration} and tweets \citep{hauger2013million,schedl2012mining} are other commonly used text sources in MIR. %The number of publications related to this topic have been increasing along the years \cite{}. 
+Early work on NLP in the context of MIR is related to the extraction of music artist information from artist-related web pages by parsing their HTML-trees \citep{Cohen2000}, using weighted term profiles \citep{Ellis2002,Whitman2002}, or counting co-occurrence of artist names in results provided by search engines \citep{Schedl2005}. Other text sources, such as song lyrics \citep{laurier2008multimodal,corona2015exploration} and tweets \citep{hauger2013million,schedl2012mining} have been also studied. %The number of publications related to this topic have been increasing along the years \cite{}. 
 More detailed information about text-based approaches applied to MIR problems can be found in \cite{Knees2013, Schedl2014}.
+%There are some review papers on text-based approaches \cite{Knees2013, Schedl2014}.
 
-There have been also some initial atempts to work with mid and high-level text representations in the context of MIR. In \cite{Sordo2012}, a methodology for extracting semantic information from music-related forums is proposed, inferring semantic relations from the co-occurrence of musical concepts in forum posts. 
+There are in the literature some initial atempts to work with high-level text representations in the context of MIR. In \cite{Sordo2012}, a methodology for extracting semantic information from music-related forums is proposed, inferring semantic relations from the co-occurrence of musical concepts in forum posts. 
 %In \cite{Sordo2013}, a set of semantic facets is automatically obtained and anchored upon the structure of Wikipedia, and tags from the folkosonomy of \texttt{Last.fm} are then categorized with respect to the obtained facets. 
 In \cite{Knees2011} a methodology to automatically extract semantic information and relations about musical entities from arbitrary textual sources is proposed. In \cite{TataandDiEugenio2010} a method to extract information about indidual songs from album reviews is proposed, combining syntactic, semantic and sentiment analysis. Finally, the C@amerata task \cite{sutcliffe2016c, sutcliffe2015}, part of the MeidaEval evaluation campaigns from 2013 to 2017, is focused on music Question \& Answering (Q\&A) systems. In this task the input is a natural language phrase, together with a music score in MusicXML, and the required output should be one or more matching passages in the score.
 
 There have been also some interesting works trying to understand the semantics behind the audio signal using natural language text. In this sense, \cite{Whitman2004} combines text analysis with acoustic descriptors in order to automatically generate music reviews from the audio signal. In \cite{koduri2014culture}, culturally relevant and musically meaningful information about melodic intervals extracted from audio and text are structured in a formal knowledge representation and exploited to compute simiarity measures for the discovery of musical entities.
 %\cite{Kolozali2013} shows a method for the automatic creation of an ontology of musical instruments using formal concept analysis over audio features. 
 
-\subsection{Semantic-based approaches}
+\subsection{Knowledge-based approaches}
 \label{sec:SOA:mir:semantics}
 
-Semantic representations have been also studied in the context of MIR, but instead of extracted from text, they are typically retrieved from online knowledge repositories. For instance, in \cite{Sordo2013} a set of semantic facets is automatically obtained and anchored upon the structure of Wikipedia, and tags from the folkosonomy of \texttt{Last.fm} are then categorized with respect to the obtained facets. In \cite{Celma:ISWC06}, information from different sources is gathered in a central knowledge repository following the Semantic Web principles and using Friend of a Friend (FOAF) ontology. This semantic information is then exploited for music recommendation. In \cite{dbrec1}, DBpedia graph is used to provide explanations of music recommendations. In \cite{Ostuni2013}, DBpeida graph information is combined with users feedback data comming from \texttt{Last.fm} to compute music recommendations.
+Knowledge representations have been also studied in the context of MIR, but instead of extracted from text, they are typically retrieved from online knowledge repositories. For instance, in \cite{Sordo2013} a set of semantic facets is automatically obtained and anchored upon the structure of Wikipedia, and tags from the folkosonomy of \texttt{Last.fm} are then categorized with respect to the obtained facets. In \cite{Celma:ISWC06}, information from different sources is gathered in a central knowledge repository following the Semantic Web principles and using the Friend of a Friend (FOAF) ontology. This semantic information is then exploited for music recommendation. In \cite{dbrec1}, DBpedia graph is used to provide explanations of music recommendations, whereas in \cite{Ostuni2013}, is combined with users feedback data comming from \texttt{Last.fm} to compute music recommendations.
 
-A key aspect in the development of semantic-based music retrieval systems have been the definition of the Music Ontology \cite{raimond2007music}, a formal framework for dealing with music-related information on the Semantic Web, including editorial, cultural and acoustic information. This development, has facilitate the interlinking between music-related datasets on the Web \cite{raimond2008automatic}. \cite{Gracy2013} reviews current efforts to connect music data already available within the Semantic Web. The authors collected, analyzed and mapped properties used by music Linked Data knowledge bases, library catalogs and various digital collections.
+A key aspect in the development of knowledge-based music retrieval systems have been the definition of the Music Ontology \cite{raimond2007music}, a formal framework for dealing with music-related information on the Semantic Web, including editorial, cultural and acoustic information. This development, has facilitated the interlinking between music-related datasets on the Web \cite{raimond2008automatic}. In this direction, \cite{Gracy2013} reviews current efforts to connect music data already available within the Semantic Web. The authors collected, analyzed and mapped properties used by music Linked Data knowledge bases, library catalogs and various digital collections.
 
 In this context of Linked Open Data, semantic information have also been exploited for Computational Musicology. It is worth mentioning \cite{Crawford}, where a method helps the musicologist to create a linked and extensible knowledge structure over a collection of Early Music metadata and facsimile images.  
 In \cite{Rose2014} seven big datasets of musical-biographical metadata are aligned, and they show how analysis and visualization of the data might transform musicological understanding. In \cite{Pattuelli2013}, Linked Data technology is applied to enhance discovery and visibility of jazz music.
 
+%\subsection{Deep learning approaches}
+
 \subsection{Music genre classification}
 \label{sec:SOA:mir:classfication}
 
-Music genre labels are useful categories to organize and classify songs, albums and artists into broader groups that share similar musical characteristics. They have been widely used for music classification, from physical music stores to streaming services. Automatic music genre classification thus is a widely explored topic \citep{sturm2012survey}.
+%Music genre labels are useful categories to organize and classify songs, albums and artists into broader groups that share similar musical characteristics. They have been widely used for music classification, from physical music stores to streaming services. Automatic music genre classification thus is a widely explored topic \citep{sturm2012survey}.
 
 Most published music genre classification approaches rely on audio sources \citep{sturm2012survey,bogdanov2016cross}. 
 Traditional techniques typically use handcrafted audio features, such as Mel Frequency Cepstral Coefficients (MFCCs) \citep{logan2000mel}, as input of a machine learning classifier (e.g., SVM, k-NN) \citep{Tzanetakis2002,seyerlehner2010using}.
@@ -232,20 +230,20 @@ Regariding multimodal approaches found in the literature, most of them combine a
 
 Almost all related work about music genre classification is concentrated in multi-class classification of music items into broad genres (e.g., Pop, Rock), assigning a single label per item. This is problematic since there may be hundreds of more specific music genres \citep{pachet2000taxonomy}, and these may not be necessarily mutually exclusive (i.e., a song could be Pop, and at the same time have elements from Deep House and a Reggae grove). 
 Multi-label classification is a widely studied problem \citep{tsoumakas2006multi,jain2016extreme}. 
-Although there are not many approaches for multi-label classification of music genres \citep{Sanden2011,wang2009tag}, there is a long tradition in MIR for tag classification, which is also a multi-label problem \citep{Choi2016,wang2009tag}.
+Although there are not many approaches for multi-label classification of music genres \citep{Sanden2011,wang2009tag}, there are a large number of works on music auto-tagging from audio \citep{Choi2016,wang2009tag}, which is also a multi-label problem.
 
 
 \subsection{Artist similarity}
 \label{sec:SOA:mir:similarity}
 
-Although artist similarity may be seen as a subtask of music recommendation where no user information is involved, we decided to address its literature review separately, given that it has become a proper task in the context of MIR.
-Music artist similarity has been studied from the score level, the acoustic level, and the cultural level \citep{Ellis2002}. In this disertation, we focus on the latter approach, and more specifically in text-based approaches. Literature on document similarity, and more specifically on the application of text-based approaches for artist similarity is discussed next.
+Artist similarity may be seen as a music recommendation problem without the personalization component. However, we decided to address its literature review separately, given that it has become a proper task in the context of MIR.
+Music artist similarity has been studied from the score level, the acoustic level, and the cultural level \citep{Ellis2002}. In this disertation, we focus on the latter approach, and more specifically on text-based approaches. %Literature on document similarity, and more specifically on the application of text-based approaches for artist similarity is discussed next.
 
 The task of identifying similar text instances, either at sentence or document level, has applications in many areas of Artificial Intelligence and Natural Language Processing \citep{LiuandWang2014}. In general, document similarity can be computed according to the following approaches: surface-level representation like keywords or n-grams \citep{ChimandDeng2008}; corpus representation using counts \citep{Rorvig1999}, e.g. word-level correlation, jaccard or cosine models; Latent factor models, such as Latent Semantic Analysis \citep{Deerwesteretal1990}; or methods exploiting external knowledge bases like ontologies or encyclopedias \citep{Huetal2009}.
 
 The use of text-based approaches for artist and music similarity was first applied in \citep{Cohen2000}, by computing co-occurrences of artist names in web page texts and building term vector representations. By contrast, in \citep{Schedl2005} term weights are extracted from search engine's result counts. In \citep{Whitman2002} n-grams, part-of-speech tagging and noun phrases are used to build a term profile for artists, weighted by employing tf-idf. Term profiles are then compared and the sum of common terms weights gives the similarity measure. %In a similar approach \citep{Knees2004}, only unigrams are used and cosine similarity is applied to compute the resemblance between term profiles.
-More approaches using term weight vectors have been developed over different text sources, such as music reviews \citep{Hu2005}, blog posts \citep{Celma2006}, or microblogs \citep{Schedl2013}.
-In \citep{Logan2003} Latent Semantic Analysis is used to measure artist similarity from song lyrics. Domain specific ontologies have also been applied to the problem of music recommendation and similarity, such as in \citep{Celma2008}. In \citep{Leal2012}, paths on an ontological graph extracted from DBpedia are exploited for recommending music web pages. %However, to the best of our knowledge, there are scant approaches in the music domain that exploit implicit semantics and enhance term profiles with external knowledge bases.
+%More approaches using term weight vectors have been developed over different text sources, such as music reviews \citep{Hu2005}, blog posts \citep{Celma2006}, or microblogs \citep{Schedl2013}.
+In \citep{Logan2003} Latent Semantic Analysis is used to measure artist similarity from song lyrics. %Domain specific ontologies have also been applied to the problem of music recommendation and similarity, such as in \citep{Celma2008}. In \citep{Leal2012}, paths on an ontological graph extracted from DBpedia are exploited for recommending music web pages. %However, to the best of our knowledge, there are scant approaches in the music domain that exploit implicit semantics and enhance term profiles with external knowledge bases.
 
 
 \subsection{Music recommendation}
@@ -257,6 +255,8 @@ challenges posed by context-aware music retrieval and recommendation.
 A survey about techniques for the generation of music playlists is given in \citep{Bonnin2014}. In particular, the authors provide a review of the literature on automated playlist generation and a categorization of the existing approaches. 
 A context-aware music recommender system which infers contextual information based on the most recent sequence of songs liked by the user is presented in \citep{HaririMB12}.
 More recently, a playlist generation algorithm with the goal of maximizing coherence and personalization of the playlist has been presented in \citep{Jannach2015}. Finally, in \citep{AghdamHMB15} a technique for adapting recommendations to contextual changes based on hierarchical hidden Markov models is presented.
+
+%Falta deep learning
 
 %Social tags have been extensively used as a source of content features to recommend music \citep{Knees2013}. However, these tags are usually collectively annotated, which often introduce an artist popularity bias \citep{Turnbull2008}.
 %Artist biographies and press releases, on the other hand, do not necessarily require a collaborative effort, as they may be produced by artists themselves. 
