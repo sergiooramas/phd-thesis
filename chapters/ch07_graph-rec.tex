@@ -298,7 +298,7 @@ All the reported metrics, besides aggregated diversity, are computed for each si
 \label{sec:graph-rec:datasets}
 
 \paragraph*{\textbf{Freesound Dataset}}\label{fs_dataset}
-We evaluated our approach on historical data about sound downloads collected from February 2005 to October 2013. In addition, we further enriched our knowledge graphs (see Section~\ref{sec:graph-rec:enrichment}) with information comming from the Freesound Ontology \citep[chapter 6]{font2015tag}, a lightweight ontology where the 500 most popular Freesound tags are classified into 23 tag categories. From the original data dump, we selected a subset of sounds that fulfilled some criteria. We selected those sound with at least two tags classified in the Freesound Ontology. After that we filtered out all sounds with less than 10 downloads to reduce the sparsity of the implicit feedback matrix and have a fairer comparison with pure collaborative filtering methods. 
+We evaluated our approach on historical data about sound downloads collected from February 2005 to October 2013. In addition, we further enriched our knowledge graphs (see Section~\ref{sec:graph-rec:enrichment}) with information coming from the Freesound Ontology \citep[chapter 6]{font2015tag}, a lightweight ontology where the 500 most popular Freesound tags are classified into 23 tag categories. From the original data dump, we selected a subset of sounds that fulfilled some criteria. We selected those sound with at least two tags classified in the Freesound Ontology. After that we filtered out all sounds with less than 10 downloads to reduce the sparsity of the implicit feedback matrix and have a fairer comparison with pure collaborative filtering methods. 
 %After this initial filtering, a total number of 99,008 sounds were obtained out of which 22,000 were randomly selected. Among them, we selected those with at least one entity detected in textual description and linked to WordNet or DBpedia and finally obtained 21,552 sounds. 
 %The number of registered users that had downloaded at least 50 of these sounds was 112,723 out of which 20,000 were randomly selected. 
 After some further data cleansing, the final dataset consisted in 20,000 users, 21,552 items and 2,117,698 downloads.%\footnote{A dump of the datasets is available at \url{http://mtg.upf.edu/download/datasets/knowledge-graph-rec}}. 
@@ -323,7 +323,7 @@ The sparsity of the implicit feedback matrix was 99.51\%. Statistics on the enri
 		\bottomrule
 		
 	\end{tabular}
-	\caption{Number of tags and keywords identified by Babelfy averaged by item, plus total number of distinct DBpedia resources, WordNet synsets and Wikipedia categories.
+	\caption[Number of tags and keywords.]{Number of tags and keywords identified by Babelfy averaged by item, plus total number of distinct DBpedia resources, WordNet synsets and Wikipedia categories.
 	}
 \end{table}
 
@@ -377,7 +377,7 @@ All the differences between approaches and with respect to other baselines are s
 		\bottomrule
 	\end{tabular}
 	
-	\caption{Accuracy, Novelty and Aggregate Diversity results for different versions of the Freesound dataset. Best values in each column are in bold. The * symbol indicates best values for hybrid and collaborative configurations. \texttt{Ent} and \texttt{Path} refers to graph embedding options; \texttt{fso} to the initial Freesound Ontology, \texttt{KB} to WordNet and DBpedia enrichment; \texttt{tag} to item tags, and \texttt{kw} to text description keywords; \texttt{h} indicates the length of the h-hop neighborhood graph; \texttt{Col} means that only collaborative features are considered; \texttt{noCol} that no collaborative features are considered; \texttt{VSM} refers to Vector Space Model embedding; \texttt{Audio Sim}  to the audio-based approach.
+	\caption[Accuracy, Novelty and Aggregate Diversity results for different versions of the Freesound dataset.]{Accuracy, Novelty and Aggregate Diversity results for different versions of the Freesound dataset. Best values in each column are in bold. The * symbol indicates best values for hybrid and collaborative configurations. \texttt{Ent} and \texttt{Path} refers to graph embedding options; \texttt{fso} to the initial Freesound Ontology, \texttt{KB} to WordNet and DBpedia enrichment; \texttt{tag} to item tags, and \texttt{kw} to text description keywords; \texttt{h} indicates the length of the h-hop neighborhood graph; \texttt{Col} means that only collaborative features are considered; \texttt{noCol} that no collaborative features are considered; \texttt{VSM} refers to Vector Space Model embedding; \texttt{Audio Sim}  to the audio-based approach.
 	}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

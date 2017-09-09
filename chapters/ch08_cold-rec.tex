@@ -216,13 +216,11 @@ We compare four different approaches using the biography texts as input. (1) a p
 We also show the scores achieved when the latent factor vectors are randomized (\textsc{random}), and when they are learned from feedback data using matrix factorization (\textsc{upper-bound}).
 
 \begin{table}
-\begin{threeparttable}
 \centering
-\caption{Artist Recommendation Results}
 \label{tbl:artists}
 \begin{tabular}{lcccl}
 \toprule
-\textbf{Aproach} & \textbf{Input}   & \textbf{Data model} & \textbf{Arch} & \textbf{MAP} \\ \midrule
+\textbf{Approach} & \textbf{Input}   & \textbf{Data model} & \textbf{Arch} & \textbf{MAP} \\ \midrule
 \textsc{a-text}                                   & Bio              & VSM                 & FF            & 0.0161                            \\ 
 \textbf{\textsc{a-sem}}                           & \textbf{Sem Bio} & \textbf{VSM}        & \textbf{FF}   & \textbf{0.0201}                   \\
 \textsc{a-w2v-goo}                                & Bio              & w2v-pretrain        & CNN           & 0.0119                            \\ 
@@ -233,11 +231,7 @@ We also show the scores achieved when the latent factor vectors are randomized (
 \textsc{random}                                 & -                & -                   & -             & 0.0014                            \\
 \textsc{upper-bound}                            & -                & -                   & -             & 0.5528                            \\ \bottomrule
 \end{tabular}
-    \begin{tablenotes}
-      \small
-      \item Mean average precision (MAP) at 500 for the predictions of artist recommendations in 1M users. VSM refers to Vector Space Model, FF to Feedforward, RF to Random Forest, CNN to Convolutional Neural Network, and itemKnn to itemAttributeKnn approach. Bio refers to biography texts and Sem Bio to semantically enriched texts.
-    \end{tablenotes}
-   \end{threeparttable}
+\caption[Artist Recommendation Results.]{Artist Recommendation Results. Mean average precision (MAP) at 500 for the predictions of artist recommendations in 1M users. VSM refers to Vector Space Model, FF to Feedforward, RF to Random Forest, CNN to Convolutional Neural Network, and itemKnn to itemAttributeKnn approach. Bio refers to biography texts and Sem Bio to semantically enriched texts.}
 \end{table}
 
 Results reported in Table~\ref{tbl:artists} show that the semantic enrichment of the biographies \textsc{a-sem} outperforms the pure text approach \textsc{a-text}. As expected, the use of tags improves the results over the use of text. However, the addition of semantic features reduces the gap in performance between the use of tags and unstructured text. Moreover, the difference between \textsc{a-text} and \textsc{text-rf} shows that the use of deep learning with respect to random forest improves the results. We also note that a VSM model with a feedforward network outperforms the use of word embeddings with convolutions. Although, according to the literature, this latter approach has demonstrated its utility for simple tasks like binary classification with short texts, our task puts forward two challenges for this architecture: the greater length of the input texts, and the higher dimensionality of the output. Although we have shown that initializing the embedding layer with word vectors trained on the corpus itself (\textsc{a-w2v}) outperforms the use of Google News pre-trained vectors (\textsc{a-w2v-goo}), further work is necessary to properly optimize a convolutional architecture for this task. Finally, we observe that our approach \textsc{a-tags} outperforms the competitor approach \textsc{tags-itemKnn} using the same item attributes.
@@ -250,9 +244,7 @@ Once the network is trained, we predict the activations of the penultimate layer
 
 
 \begin{table}[]
-\begin{threeparttable}
 \centering
-\caption{Song Recommendation Results}
 \label{tbl:song}
 \begin{tabular}{lcccl}
 \multicolumn{1}{c}{\textbf{Approach}} & \textbf{Artist Input} & \textbf{Track Input} & \textbf{Arch} & \multicolumn{1}{c}{\textbf{MAP}} \\
@@ -272,11 +264,7 @@ Once the network is trained, we predict the activations of the penultimate layer
 \textsc{upper-bound}                           & -                     & -                    & -             & 0.1649                   \\      
 \bottomrule
 \end{tabular}
-\begin{tablenotes}
-      \small
-      \item Mean average precision (MAP) at 500 for the predictions of song recommendations in 1M users. \textsc{audio} emb refers to the track embedding of \textsc{audio} approach, \textsc{sem} to artist embedding of \textsc{sem} approach, \textsc{tags} to artist embedding of \textsc{tags} approach, spec to spectrogram, mm to multimodal, lf to late fusion, lin to linear, and h1 to one hidden layer.
-    \end{tablenotes}
-   \end{threeparttable}
+\caption[Song Recommendation Results.]{Song Recommendation Results. Mean average precision (MAP) at 500 for the predictions of song recommendations in 1M users. \textsc{audio} emb refers to the track embedding of \textsc{audio} approach, \textsc{sem} to artist embedding of \textsc{sem} approach, \textsc{tags} to artist embedding of \textsc{tags} approach, spec to spectrogram, mm to multimodal, lf to late fusion, lin to linear, and h1 to one hidden layer.}
 \end{table}
 
 In this experiment, audio embeddings are obtained after training the convolutional network (see Section~\ref{sec:cold-rec:audio}) with 260k patches of 15 seconds, corresponding to the 80\% of the tracks described in Section~\ref{sec:cold-rec:dataset}. Patches are divided into training (80\%), validation (10\%) and test (10\%) sets. Results reported in Table~\ref{tbl:song} are computed over the remaining 20\% of tracks. % are used in the training process.

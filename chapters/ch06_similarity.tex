@@ -192,7 +192,7 @@ As we want to evaluate Top-10 similarity, every artist in the ground truth datas
 \subsubsection{Baseline}
 In order to assess the goodness of our approaches, we need a baseline approach. The baseline used in this section is a classic Vector Space Model (VSM) approach used in many Information Retrieval systems. A text document is represented as a vector of word frequencies (after removing English stopwords and words with less than 2 characters), and a matrix is formed by aggregating all the vectors. The word frequencies in the matrix are then re-weighted using \textit{tf-idf}, and finally Latent Semantic Analysis (LSA) \citep{Deerwesteretal1990} is used to produce a vector of concepts for each document. The similarity between two documents can be obtained by using a cosine similarity over their corresponding vectors.
 
-\begin{table}[ht!]
+\begin{table}[]
 \small
 \centering
 	\begin{tabular}{  lllll }
@@ -215,7 +215,7 @@ EC SimRank & 0.097& 0.171 &  0.509 & 0.534 \\
 SE Cosine & 0.095 & 0.163 & 0.454 & 0.484 \\
 \bottomrule	
 	\end{tabular}
-	\caption{Precision and normalized discounted cumulative gain for Top-N artist similarity using the MIREX dataset (N=\{5, 10\})}	
+	\caption[Precision and nDCG for Top-N artist similarity in the MIREX dataset.]{Precision and normalized discounted cumulative gain for Top-N artist similarity in the MIREX dataset (N=\{5, 10\})}	
 	\label{tbl:similarity:res_mirex}
 \end{table}
 
@@ -237,7 +237,7 @@ AEC MCS 1-hop & 0.152 & 0.224 & 0.277 & 0.297 \\
 AEC-FT MCS 1-hop & \textbf{0.160} & \textbf{0.242} & \textbf{0.288} & \textbf{0.317} \\
 \bottomrule
 	\end{tabular}
-	\caption{Precision and normalized discounted cumulative gain for Top-N artist similarity using the Last.fm dataset (N=\{5, 10\})}	
+	\caption[Precision and nDCG for Top-N artist similarity in the Last.fm dataset.]{Precision and normalized discounted cumulative gain for Top-N artist similarity in the Last.fm dataset (N=\{5, 10\})}	
 	\label{tbl:similarity:res_lastfm}
 \end{table}
 
@@ -247,7 +247,7 @@ From all possible combinations of knowledge representations, similarity measures
 SE refers to the sense embeddings approach, and LSA to the latent semantic analysis baseline approach. When these prefixes are followed by FT, it means that the entities in the graph have been filtered by type. The second term in the name refers to the similarity measure. MCS refers to maximal common subgraph, and SimRank and Cosine to SimRank and cumulative cosine similarity measures. MCS approaches are further followed by a number indicating the number of h-hops of the neighborhood subgraph.
 
 
-\begin{table*}[ht!]
+\begin{table}[]
 \scriptsize
 \centering
 	\begin{tabular}{ lllllllll }
@@ -271,9 +271,9 @@ EC SimRank & 6.74 & 5.38 & 3.16 & 6.40 & 4.59 & 4.44 & 3.80 & 4.85 \\
 SE Cosine & 3.39 & 5.50 & 5.32 & 5.16 & 4.31 & 5.36 & 4.31 & 4.75 \\
 \bottomrule	
 	\end{tabular}
-	\caption{Average genre distribution of the top-10 similar artists using the MIREX dataset. In other words, on average, how many of the top-10 similar artists are from the same genre as the query artist. LSA stands for Latent Semantic Analysis, RG for Relation Graph, SE for Sense Embeddings,  and AE, AEC and EC represent the semantically enriched graphs with Artists-Entities, Artist-Entities-Categories, and Entities-Categories nodes, respectively. As for the similarity approaches, MCS stands for Maximum Common Subgraph.}	
+	\caption[Average genre distribution of the top-10 similar artists using the MIREX dataset.]{Average genre distribution of the top-10 similar artists using the MIREX dataset. In other words, on average, how many of the top-10 similar artists are from the same genre as the query artist. LSA stands for Latent Semantic Analysis, RG for Relation Graph, SE for Sense Embeddings,  and AE, AEC and EC represent the semantically enriched graphs with Artists-Entities, Artist-Entities-Categories, and Entities-Categories nodes, respectively. As for the similarity approaches, MCS stands for Maximum Common Subgraph.}	
 	\label{tbl:similarity:res_genre_distrib}
-\end{table*}
+\end{table}
 
 
 \subsubsection{Evaluation measures}
@@ -395,7 +395,7 @@ The second baseline is computed using the AcousticBrainz framework for song clas
 \multicolumn{1}{|l|}{Ridge Classifier} & 0.627                    & 0.689                        & 0.61                          \\ \hline
 \multicolumn{1}{|l|}{Random Forest}    & 0.537                    & 0.6                          & 0.521                         \\ \hline
 \end{tabular}
-\caption{Accuracy of the different classifiers}
+\caption{Accuracy of the different classifiers.}
 \label{tbl:similarity:classifiers}
 \end{table}
 
@@ -431,7 +431,7 @@ Finally, we refer to Table~\ref{tbl:similarity:confusion} to highlight the fact 
 %Furthermore, the acoustic-based approach defined in \cite{Tzanetakis2002} presents a result of 61\% of accuracy in the GZTAN dataset. However, some biases in the dataset \cite{Sturm2012} may be responsible of such a high level. Therefore, we have taken the computation done in AcousticBrainz using this approach and trained on the GZTAN dataset to our dataset. As this approach classify a song among 10 different genres, and our dataset have 13 genres, we computed the average accuracy among the results only for this 10 genres.
 
 
-\begin{table*}[]
+\begin{table}[]
 \centering
 \scriptsize
 \begin{tabular}{|l|r|r|r|r|r|r|r|r|r|r|r|r|r|}
@@ -455,7 +455,7 @@ Rock & 17 / 15 & 1 / 2 & 6 / 8 & 4 / 7 & 10 / 5 & 2 / 4 & 7 / 1 & 12 / 13 & 4 / 
 \end{tabular}
 \caption{Confusion matrix showing results derived from AcousticBrainz acoustic-based classifier/BoW+SEM text-based approach.}
 \label{tbl:similarity:confusion}
-\end{table*}
+\end{table}
 
 
 \section{Conclusion}
