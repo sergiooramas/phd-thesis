@@ -267,12 +267,10 @@ Given a set of feature vectors, $l2$-regularization is applied on each of them.
 They are then concatenated into a single feature vector, which becomes the input to a simple Multi Layer Perceptron (MLP), where the input layer is directly connected to the output layer. 
 The output layer may have either a \textsc{logistic} or a \textsc{cosine} configuration. %Similar to the audio and text networks, the output layer has 250 units (to match the number of classes aiming to be predicted) with sigmoid activation and binary cross entropy loss for the \textsf{logistic} configuration, and 50 units with linear activation and cosine proximity loss for the \textsf{cosine} configuration. We empirically set up 50\% of dropout after the input in the \textsf{cosine} setting, and no dropout in the \textsf{logistic} setting.
 
-\begin{table*}[ht]
-\centering
-\begin{threeparttable}
-\scriptsize
-\caption{Results for Multi-label Music Genre Classification of Albums}
+\begin{table}[ht]
 \label{tbl:results}
+\centering
+\scriptsize
 \begin{tabular}{lcccccccc}
 Modality & Target & Settings                & Params         & Time    & AUC        & ADiv@1           & ADiv@3           & ADiv@5           \\
 \toprule
@@ -309,12 +307,8 @@ Modality & Target & Settings                & Params         & Time    & AUC    
 \textsc{A + T + I} & \textsc{cosine} & \textsc{mlp} & 0.4M & 2s & 0.931 & 0.42 & 0.72 & 0.86 \\
 \bottomrule
 \end{tabular}
-    \begin{tablenotes}
-      \small
-      \item Number of network hyperparameters, epoch training time, AUC-ROC, and aggregated diversity at $k = 1,3,5$ for different settings and modalities.
-    \end{tablenotes}
-   \end{threeparttable}
-\end{table*}
+\caption[Results for Multi-label Music Genre Classification of Albums]{Results for Multi-label Music Genre Classification of Albums. Number of network hyperparameters, epoch training time, AUC-ROC, and aggregated diversity at $k = 1,3,5$ for different settings and modalities.}
+\end{table}
 
 \section{Experiments}\label{sec:multi-class:experiments}
 
