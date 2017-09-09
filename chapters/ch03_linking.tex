@@ -27,7 +27,7 @@ In the remainder of this chapter, we first introduce \textsc{ELVIS}, our entity 
 %A summary of our approach is provided in Figure \ref{fig:linking:workflow}.
 
 
-\section{Music Entity Linking}
+\section{Music entity linking}
 \label{sec:linking:el}
 
 %When we refer to the Music Domain in a Natural Language Processing (NLP) context we refer to Music product reviews such as albums or songs, artist biographies or even song lyrics. While these are valuable resources in NLP for tasks like Sentiment Analysis, Music Information Retrieval (MIR), however, has barely exploited the information and knowledge that can be extracted from textual data. This opens up a vibrant area of research where MIR tasks may benefit dramatically from mining textual data. 
@@ -51,7 +51,7 @@ A large number of entity linking systems which are not bound to any domain or di
 
 In this section we describe \textsc{ELVIS}, the generic integration framework for entity linking, which is leveraged for the construction of \textsc{ELMD}. First, we describe our entity linking research problem and provide an intuition on how this may be surmounted via an agreement scheme. Then, we provide details on the main modules integrating \textsc{ELVIS}, highlighting the possible cases of agreement and disagreement over the entity linking systems that are integrated in our framework.
 
-\subsection{Argumentum ad Populum in Entity Linking}
+\subsection{Argumentum ad populum in entity linking}
 \label{sec:linking:agreement}
 
 Our method relies on the \textit{argumentum ad populum} intuition, i.e. if two or more different entity linking systems perform the same prediction in linking a named entity mention to its entry in a reference KB, the more likely this prediction is to be correct. We put this intuition into practice by combining the output of three well-known systems, namely DBpedia Spotlight~\citep{Mendes2011} , Tagme~\citep{Ferragina2012} and Babelfy~\citep{Moroetal2014b}, whose agreement (or disagreement) when disambiguating an in-text entity mention is taken as an agreement-driven \textit{confidence score}. These specific tools were chosen for being considered state-of-the-art entity linking systems and for being well known in the NLP community. However, \textsc{ELVIS} can easily incorporate any additional system. We also selected these tools because entities identified by all of them can be easily referenced to DBpedia URIs. 
@@ -59,7 +59,7 @@ While these tools have proven highly competitive on their own, in this chapter w
 %Moreover, although there are other knowledge bases (e.g. MusicBrainz) with substantially more musical entities than DBpedia, to the best of our knowledge, there is no entity linking tool that works with these domain specific knowledge bases. 
 
 
-\subsection{`Translating' Entity Linking Formats}
+\subsection{`Translating' entity linking formats}
 \label{sec:linking:unification}
 
 In order to have each entity linking system \textit{speak the same language} for measuring agreement in their predictions, output homogenization is required. This is not a trivial task, as each entity linking approach may be based on a different reference KB, the offsets may be computed differently, and so on. For instance, DBpedia Spotlight links entity mentions via DBpedia URIs, whereas Tagme provides Wikipedia page IDs, and Babelfy disambiguates against BabelNet \citep{NavigliPonzetto2012} and its corresponding BabelNet synsets. 
@@ -124,7 +124,7 @@ Here, we may infer that the entity \textit{In the Red Records} is a Record Label
 
 
 
-\subsection{Data Enrichment}
+\subsection{Data enrichment}
 \label{sec:linking:enrichment}
 
 For the creation of the ELMD dataset, the crowdsourced annotations extracted from \texttt{Last.fm} biographies are combined with decisions made by \textsc{ELVIS} and its voting framework.\\%(see Figure~\ref{fig:linking:dataset_creator}).
@@ -340,7 +340,7 @@ None & 5\%	& 9.2\% \\ \hline
 \end{table}
 
 
-\section{Gold Standard Dataset}
+\section{Gold standard dataset}
 \label{sec:linking:gold}
 
 We envision a wide range of potential applications for \textsc{ELMD}, such as acting as a training set for a named entity recognition or entity linking system, or as an evaluation benchmark. However, it suffers from two major problems that differentiate it from a gold standard dataset which undergous a full manual validation pass. First, although there is an important number of annotated entities, there are still many musical entities mentioned in \textsc{ELMD} texts that are not linked to any KB, nor even annotated. Second, as the dataset has been automatically generated, it is prune to errors, as we show in the evaluation in Section \ref{sec:linking:eval}. To tackle these issues, a subset of 200 documents from \textsc{ELMD} was manually annotated by a human expert. We asked the annotator to mark in each document all mentions of entities of the following types: \textit{Artist}, \textit{Album} and \textit{Song}. Record Label entities were discarded due to the low number of annotations present in the documents. In addition, the annotator manually searched for each entity in the MusicBrainz database. If it was present, the MusicBrainz URL was added to the annotation. The final number of annotations is shown in Table~\ref{tbl:linking:ELMDGold}.

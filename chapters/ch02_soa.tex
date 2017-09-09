@@ -141,11 +141,12 @@ The main objective of a recommender system is to predict the \textit{rating} or 
 
 Within the recommender systems arena, there are two main methods for computing recommendations: collaborative filtering and contend-based ones.
 The most popular is collaborative filtering which provides recommendations to a user by considering the preferences of other users with similar tastes. 
-Matrix factorization techniques are currently collaborative filtering state-of-the-art \citep{Koren2009}. 
+The two primary areas in collaborative filtering are noighborhood methods and latent factors models. Neigborhood methods are based on computed similarity between items or between users \cite{Sarwar2001}. By contrast, latent factor models are based on the decomposition of the sparse user-item interactions matrix to a set of user and item d dimensional vectors using matrix factorization techniques \citep{Koren2009}. The recommendation problem is then treated as a matrix completion problem, where missing entries are filled by taking the dot product of the corresponding user–item latent factors. %Matrix factorization techniques are currently collaborative filtering state-of-the-art \citep{Koren2009}. 
+
 As collaborative filtering methods rely only on users feedback information, they may suffer from the so-called \textit{cold-start} problem \citep{Saveski2014}. That is, when new items are introduced in the system, they can not be initially recommended as there is no feedback information related to them.
 In addition, most popular items tend to attract most of the recommendations in collaborative filtering approaches. The relation between items and popularity is tipically represented as a \textit{long tail} distribution \citep{anderson2006long} (see Figure~\ref{fig:intro:longtail}). A large number of items in the catalog normally receive few interacitons from users, so they are hadrly recommended. %This items are often called \textit{long tail} items. 
 These less popular items may be promoted by priming other evaluation measures rather than prediction accuracy, such as novelty or diversity \citep{abdollahpouri2017controlling}.
-However, an even larger set of items in large catalogs receive almost none interactions. These \textit{extreme long tail} items are in practice as cold-start items, as the number of interactions is smaller than the minimum value requiered for collaborative filtering methods.
+However, another larger set of items in large catalogs receive almost none interactions. These \textit{extreme long tail} items are in practice as cold-start items, as the number of interactions is smaller than the minimum value requiered for collaborative filtering methods.
 
 Contrary to collaborative filtering, content-based methods \citep{Mooney1999} rely only on item features, and recommendations are based on similarity between such features. Content-based methods does not suffer from the cold-start problem and are not biesed towards popular items. However, collaborative filtering methods tend to perform better when measuring the overall accuracy of the predictions \citep{pilaszy2009recommending}.
 %Content-based systems recommend items sharing similar features to those a user has preferred in past.
@@ -176,7 +177,9 @@ Two hybrid approaches have been presented lately. In \citep{Ostuni2013} the auth
 %In \citep{Rowe1} the authors propose a semantic-aware extension of the SVD++ model, named SemanticSVD++, which incorporates semantic categories of items into the model. The model is able also to consider the evolution over time of user's preferences. 
 Finally, another interesting direction about the usage of LOD for content-based RSs is explored in \citep{MustoSLG14} where the authors present Contextual eVSM, a content-based context-aware recommendation framework that adopts a semantic representation based on distributional semantics and entity linking techniques.% In particular entity linking is used to detect entities in free text and map them to LOD.
 
-%\subsection{Deep learning approaches}
+\subsection{Deep learning approaches}
+
+Restricted Boltzmann Machines (RBM) was one of the first neural networks methods used in recommender systems, modeling user-item interaction \citep{salakhutdinov2007restricted}. Neural networks have been also applied to learn latent factors from item content-features, which has been revealed as a useful technique for cold-start recommendations \cite{wang2015collaborative}. This technique has been succesfully applied to audio \citep{Oord2013} and text \citep{bansal2016ask} content-features. Neural networks has been also applied to other recommendation problems, such as session-based recommendation \citep{hidasi2015session} or playlist generation \citep{vall2017music}.
 
 
 \section{Music Information Retrieval}
