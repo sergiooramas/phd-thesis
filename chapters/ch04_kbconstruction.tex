@@ -125,10 +125,10 @@ This type information can be exploited in order to narrow down the set of allowe
 
 Depending on the envisioned application of the KB resulting from our pipeline, the predefined set of entity types may vary. In our case we restricted them to Musical Artists, Other Artists, Songs, Albums, Genres, Films and Record Labels. In Table~\ref{tbl:kb:type_mapping} we present the mapping between the DBpedia ontology, MusicBrainz entity types and our selected set of types.
 
-\begin{table*}[ht!]
+\begin{table}[]
 \scriptsize
 \centering
-	\begin{tabular}{ | l | l | l | }
+	\begin{tabular}{ l l l }
 	\hline
 \textbf{Our MKB} & \textbf{DBpedia ontology} & \textbf{MusicBrainz} \\
 	\hline
@@ -154,7 +154,7 @@ RecordLabel & Agent/Organization/Company/RecordLabel & Label \\
 	\end{tabular}
 	\caption{Type mapping.}
 	\label{tbl:kb:type_mapping}
-\end{table*}
+\end{table}
 %
 
 \subsection{Syntactic Semantic Integration}
@@ -203,10 +203,10 @@ First, we filter out all relations with reporting verbs (e.g. ``say'', ``tell'' 
 
 Second, we only selected relations where the syntactic function that connects in the dependency-path the fist entity with the first word of the relation pattern is a subject (which may be preceded by a nominal modifier or an apposition), a direct or indirect object, a predicative complement or a verb chain (see the full list of allowed patterns in Table~\ref{tbl:kb:rules}). When this condition holds, the relation is considered \textit{valid}. If the above condition does not hold, an extra validation step is applied over the pos-path in order to capture relations without verbs, which seem to be idiosyncratic of the music domain, e.g. $\langle e_d, \mbox{\texttt{frontman of}}, e_r \rangle$, $\langle e_d, \mbox{\texttt{drummer}}, e_r \rangle$, or $\langle e_d, \mbox{\texttt{guitarist and singer}}, e_r \rangle$ (see the full list of allowed pos patterns in Table~\ref{tbl:kb:rules}).
 
-\begin{table*}[ht!]
+\begin{table}[]
 \scriptsize
 \centering
-    \begin{tabular}{ | c | l |  p{5cm} | }
+    \begin{tabular}{ c l p{5cm} }
     \hline
     Filtering Heuristics & Description & Patterns \\
     \hline
@@ -219,7 +219,7 @@ Second, we only selected relations where the syntactic function that connects in
     \end{tabular}
     \caption{Complete set of patterns used in the filtering heuristics}
     \label{tbl:kb:rules}
-\end{table*}
+\end{table}
 
 \subsection{Dependency-Based Loose Clustering}
 \label{sec:kb:method:clustering}
@@ -230,10 +230,10 @@ Let us consider the following three relation patterns: (1) \textit{was written b
 
 This observation, which we found to occur quite frequently, motivated the inclusion of a \textit{dependency-based loose clustering} module. First, we perform a second run of dependency parsing over all relation patterns extracted by our system, aiming at discovering their root node. We apply this second run because the root of the original sentence does not need to correspond with the relation pattern's root. Then, our algorithm considers all possible paths from the root to every leaf node of the relation pattern dependency tree, and selects the path that complies with a predefined syntactic constraint (e.g. a sequence of verbs plus adverb or preposition, or adverb plus nominal and preposition modifiers) based on regular expressions of syntactic labels. The sequence of tokens that matches this regular expression constitutes the cluster pattern. The complete set of defined regular expressions is reported in Table~\ref{tbl:kb:expressions}. %included in the released source code.
 
-\begin{table*}[ht!]
+\begin{table}[]
 \scriptsize
 \centering
-    \begin{tabular}{ | l |}
+    \begin{tabular}{ l}
     \hline
     Regular Expressions \\
     \hline
@@ -247,9 +247,9 @@ This observation, which we found to occur quite frequently, motivated the inclus
     \^(NMOD|PRT|PMOD) \\
     \hline
     \end{tabular}
-    \caption{Complete set of regular expressions for dependency paths in cluster patterns}
+    \caption{Complete set of regular expressions for dependency paths in cluster patterns.}
     \label{tbl:kb:expressions}
-\end{table*}
+\end{table}
 
 As an illustrative case, consider the extracted relation pattern \textit{is track was released on label} from the sentence \textit{\texttt{Sing Out The Song} is the 7th track on Wishbone Four which was released in the UK May 1973 on the \texttt{MCA} label}. After re-parsing the relation pattern, we obtain the parse tree shown in Figure \ref{fig:kb:parsedpattern} and a cluster pattern over those nodes in the dependency tree that satisfy one of the regular expressions crafted in the aforementioned syntactic constraint. Finally, the obtained relation is \textit{\texttt{Sing\_out\_the\_song} was released on label \texttt{MCA}}.
 
@@ -289,7 +289,7 @@ So far, our approach has identified entity mentions in text and has linked them 
 We hypothesize that the relevance of a cluster may be inferred by the number and proportion of triples it encodes, and whether these are evenly distributed. 
 Our metric encompasses a combination of three different components. First, we focus on the \textit{degree of specificity} of the relation cluster, as previous work has demonstrated that this can contribute to Information Extraction pipelines \citep{DelliBovietal2015}. Second, we analyze \textit{intrinsic features} of the relation pattern, such as frequency, length and fluency. Finally, we incorporate a \textit{smoothing factor}, namely the proportion of the related typed cluster pattern in the cluster.
 
-\begin{table*}[ht!]
+\begin{table}[]
 \scriptsize
 	\begin{tabular}{ | l | l | l | }
 	\hline
@@ -314,9 +314,9 @@ Our metric encompasses a combination of three different components. First, we fo
 &  & a4 \textit{was written by frontman} ma5 \\
     \hline
 	\end{tabular}
-	\caption{Example of a relation cluster $\mathcal{R}_c$, where $c = \mbox{\textit{was written by}}$. \textit{S} refers to Song, \textit{MA} to MusicalArtist and \textit{A} to Album types, whilst \textit{sX} refers to Song, \textit{maX} to MusicalArtist and \textit{aX} to Album entities.}
+	\caption[Example of a relation cluster.]{Example of a relation cluster $\mathcal{R}_c$, where $c = \mbox{\textit{was written by}}$. \textit{S} refers to Song, \textit{MA} to MusicalArtist and \textit{A} to Album types, whilst \textit{sX} refers to Song, \textit{maX} to MusicalArtist and \textit{aX} to Album entities.}
 	\label{tbl:kb:example_grouping}
-\end{table*}
+\end{table}
 
 A cluster $\mathcal{R}_c$ may be decomposed into a set of typed cluster patterns $\tau_c$ (see Table ~\ref{tbl:kb:example_grouping}). The intuition behind the specificity measure of a cluster is that clusters with one prominent $\tau_c$ are more specific, i.e. they are largely used for encoding one specific type of relations. One example of this would be \textit{performed with}, which enforces a relation to include MusicalArtists on both the domain and range sides. Thus, we define $\mathcal{L}_c$ as the list of cardinalities (number of triples) of every typed cluster pattern $\tau_c \in \mathcal{R}_c$, being $\mathcal{L}_c = \{|\mathcal{R}_{\tau_c^1}|,...,|\mathcal{R}_{\tau_c^n}|\}$. We define the specificity measure as the variance of $\mathcal{L}$, expressed as $s(\mathcal{R}_c) = var(\mathcal{L}_c)$.
 
@@ -419,12 +419,12 @@ We created an \textit{ad-hoc} ground truth dataset to evaluate the different Ent
 
 \subsubsection{Entity Linking Evaluation}
 
-\begin{table*}[ht!]
+\begin{table}[]
 \scriptsize
 \centering
-	\begin{tabular}{ | c | c | c | c | c | c | c | c | c | c | }
+	\begin{tabular}{ c c c c c c c c c c }
 	\hline
-& \multicolumn{2}{|c|}{Album} & \multicolumn{2}{|c|}{Artist} & \multicolumn{2}{|c|}{Song} & \multicolumn{3}{|c|}{Macro Average}  \\
+& \multicolumn{2}{c}{Album} & \multicolumn{2}{c}{Artist} & \multicolumn{2}{c}{Song} & \multicolumn{3}{c}{Macro Average}  \\
 \hline
 	& Prec & Rec & Prec & Rec & Prec & Rec & Prec & Rec & F-measure \\
 	\hline
@@ -433,14 +433,14 @@ Tagme & 0.75 & 0.69 & 0.97 & 0.77 & 0.65 & 0.71 & 0.79 & 0.72 & \textbf{0.76} \\
 Spotlight & 0.80 & 0.52 & 0.94 & 0.83 & 0.59 & 0.42 & 0.78 & 0.59 & 0.67 \\
 \hline
 	\end{tabular}
-	\caption{Precision and recall of the Entity Linking Systems considered}
+	\caption{Precision and recall of the entity linking systems considered.}
 	\label{tbl:kb:res_categories}
-\end{table*}
+\end{table}
 
 \begin{figure}[!htp]
 \centerline{\framebox{
 \includegraphics[width=8cm]{ch04_kbconstruction_pics/threshold_el.eps}}}
-\caption{F-measure of the Entity Linking systems at different confidence thresholds}
+\caption{F-measure of the entity linking systems at different confidence thresholds}
 \label{fig:kb:confidence_el}
 \end{figure}
 
@@ -453,9 +453,10 @@ These errors may propagate to the rest of the Relation Extraction pipeline, pena
 Although a filtering process could be applied to filter out misidentified entities by computing their tf-idf score in each document, we opted for using DBpedia Spotlight, as it has shown pretty good performance, its output does not require any further processing, and it is released as open source, which means that there are no limitations on the number of queries.
 
 \begin{table*}[ht!]
-\tiny
+%\tiny
+\scriptsize
 \centering
-	\begin{tabular}{ | c | c | c | c |}
+	\begin{tabular}{  c c c c }
 	\hline
 System & Song & Album & Artist \\
 	\hline
@@ -478,7 +479,7 @@ System & Song & Album & Artist \\
 & Minnie\_the\_Moocher & Robyn & Britney\_Spears \\
 	\hline
 	\end{tabular}
-	\caption{Top-5 most frequent entities by type and tool. Disambiguation errors appear in bold. }
+	\caption[Top-5 most frequent entities by type and tool.]{Top-5 most frequent entities by type and tool. Disambiguation errors appear in bold. }
 	\label{tbl:kb:top_entities}
 \end{table*}
 
@@ -506,7 +507,7 @@ System & Song & Album & Artist \\
     \caption{Precision of relations at sentence (\textit{s}), relation pattern (\textit{p}) and cluster pattern (\textit{c}) levels in top (\textit{top}) and random (\textit{rnd}) samples of relations}\label{fig:kb:eval_relations}
 \end{figure}
 
-Relation Extraction evaluation is not trivial, as semantic relations between entities may vary in terms of correctness over time. Also, correct relations may be linguistically flawed, i.e. not fluent. Previous approaches assessed automatically extracted relations in terms of correctness according to human judgement \citep{Fader2011,Mausam2012}. Additionally, a finer grained analysis is carried out in \cite{Bankoetal2007}, adding a prior step in which relations are judged as being \textit{concrete} or \textit{abstract}.
+Relation Extraction evaluation is not trivial, as semantic relations between entities may vary in terms of correctness over time. Also, correct relations may be linguistically flawed, i.e. not fluent. Previous approaches assessed automatically extracted relations in terms of correctness according to human judgment \citep{Fader2011,Mausam2012}. Additionally, a finer grained analysis is carried out in \cite{Bankoetal2007}, adding a prior step in which relations are judged as being \textit{concrete} or \textit{abstract}.
 
 In this chapter, we made use of extensive human input and asked two experts in Computational Linguistics to evaluate the \textit{top 100} scoring relations as yielded by our weighting policy (Section \ref{sec:kb:method:scoring}), as well as a random sample of 100 relations. This was done for all the KBs produced by our pipeline and for \textsc{KBSF}-rv. Cohen's kappa coefficient ranged from 0.60 to 0.81, which is generally considered as \textit{substantial} agreement.
 
@@ -530,10 +531,10 @@ In addition, an entity of type Song in \textsc{KBSF}-th can be related to either
 
 Mapping results are shown in Table~\ref{tbl:kb:coverage}. Let us highlight the fact that most semantic relations encoded in \textsc{KBSF}-th are novel, as they were not found in any of the other resources we compared against. In the overlapping cases, most of the times the relation labels were semantically equivalent, and often the relation label of \textsc{KBSF}-th triples was more specific than the ones retrieved from other KBs (e.g. \textit{frontman} vs. \textit{member of})
 
-\begin{table*}[ht!]
-\scriptsize
+\begin{table}[]
+%\scriptsize
 \centering
-	\begin{tabular}{ | c | c | c | c | c |}
+	\begin{tabular}{ c c c c c }
 	\hline
 	& KBSF-th & MusicBrainz & DBpedia & DefIE \\
 	\hline
@@ -541,9 +542,9 @@ Mapping results are shown in Table~\ref{tbl:kb:coverage}. Let us highlight the f
 %	Relation patterns & 746 & 24 & 32 &  \\
 	\hline
 	\end{tabular}
-	\caption{Number of triples with labeled relations in the different KBs for the same set of domain-range entity pairs}
+	\caption[Number of triples with labeled relations in the different KBs.]{Number of triples with labeled relations in the different KBs for the same set of domain-range entity pairs.}
 	\label{tbl:kb:coverage}
-\end{table*}
+\end{table}
 
 
 \subsection{Interpretation of Music Recommendations}

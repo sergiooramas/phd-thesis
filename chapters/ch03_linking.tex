@@ -164,7 +164,7 @@ As for \textit{type equivalence}, this is a binary value (\textit{type-equivalen
 \small
 \centering
 \def\arraystretch{1.2}
-	\begin{tabular}{|l|l|}
+	\begin{tabular}{ l l }
 \hline
 \textbf{Last.fm type} & \textbf{DBpedia type} \\
 \hline
@@ -174,7 +174,7 @@ Artist & \parbox[t]{5cm}{DBpedia:MusicalArtist, \\DBpedia:Band, Schema:MusicGrou
 Record Label & DBpedia:RecordLabel \\
 \hline
 	\end{tabular}
-	\caption{Type equivalence}
+	\caption{Equivalence of types between Last.fm and DBpedia.}
 	\label{tbl:linking:equivalence}
 \end{table}
 
@@ -195,7 +195,7 @@ The third album \textbf{Lucifer Songs}, opened new and unexpected doors & Album 
 The band's debut album, \textbf{Cookies}, was released on 14 May 2007 & Album & HTTP\_cookie {\footnotesize{(type:unk)}} & Cookies (type:album) & --- & 1 & \parbox[t]{1cm}{\centering yes\\ (only\\ Babelfy)} \\
 \hline
 	\end{tabular}
-	\caption{Agreement examples}
+	\caption{Agreement examples of ELVIS.}
 	\label{tbl:linking:examples}
 \end{table*}
 
@@ -210,12 +210,12 @@ The band's debut album, \textbf{Cookies}, was released on 14 May 2007 & Album & 
   \label{fig:linking:agreement_typed}
 \end{figure}
 
-\begin{table}[ht!]
+\begin{table}[]
 \centering
 \def\arraystretch{1.2}
-	\begin{tabular}{| c | c | c | c | c |}
-\cline{2-4}
-\multicolumn{1}{ c |  }{} & \textbf{Agreement} & \textbf{Precision} & \textbf{No. Entities} \\
+	\begin{tabular}{ c  c  c  c  c }
+\hline
+ & \textbf{Agreement} & \textbf{Precision} & \textbf{No. Entities} \\
 \hline
 \multirow{3}{*}{type-equivalent} & $=3$ & 0.97 & 31,180\\
 &$\geq2$ & 0.96 & 46,544 \\
@@ -227,7 +227,7 @@ The band's debut album, \textbf{Cookies}, was released on 14 May 2007 & Album & 
 &$\geq1$ & 0.81 & 72.365\\
 \hline
 	\end{tabular}
-	\caption[Precision and coverage]{Precision and number of entities with this value of precision. \textit{Type-equivalent} implies entities from the type-equivalent configuration only, whilst \textit{All} implies all entities regardless their type information.}
+	\caption[Precision and coverage of ELMD mapping to DBpedia.]{Precision and number of entities with this value of precision of ELMD mapping to DBpedia. \textit{Type-equivalent} implies entities from the type-equivalent configuration only, whilst \textit{All} implies all entities regardless their type information.}
 	\label{tbl:linking:results}
 \end{table}
 
@@ -238,12 +238,12 @@ Considering the different possibilities of agreement across the three systems in
 
 %Considering the two possible values of \textit{type agreement}, namely \texttt{equivalent} and \texttt{discrepant}, and the different possibilities of agreement across the systems integrating \textsc{ELVIS}, there are in total 14 possible configurations. These may be broken down into 7 configurations with \textit{type equivalence} and 7 configurations with \textit{type discrepancy}. These 7 configurations according to Entity Linking agreement: 1 \textbf{full agreement} configuration (score$=3$); 3 \textbf{partial agreement} configurations (score $=2$); and 3 \textbf{singleton} configurations  (score$=1$). Figure \ref{fig:linking:agreement_typed} provides a visual overview of these configurations, where we show both Precision scores for each configuration (in bold) in addition to the number of entities disambiguated with \textsc{ELVIS} in each case.\\
 
-\begin{table*}[ht!]
+\begin{table}[]
 \scriptsize
 \small
 \centering
 \def\arraystretch{1.2}
-	\begin{tabular}{|l|r|r|r|l|}
+	\begin{tabular}{l r r r l}
 \hline
 \textbf{Category} & \textbf{Annotations} & \textbf{Entities} & \textbf{Avg-words} & \textbf{Most frequent} \\
 \hline
@@ -253,9 +253,9 @@ Artist & 46,337 & 17,535 & 1.88 & The Beatles (160) \\
 Label & 2,169 & 815 & 1.94 & Sub Pop (33) \\
 \hline
 	\end{tabular}
-	\caption{Statistics of the linked entities in ELMD. We report, for each \textit{musical category}, the total number of annotations linked to DBpedia, number of unique entities, average number of words per entity mention, and most frequently annotated entity (along with its frequency).}
+	\caption[Statistics of the linked entities in ELMD.]{Statistics of the linked entities in ELMD. We report, for each \textit{musical category}, the total number of annotations linked to DBpedia, number of unique entities, average number of words per entity mention, and most frequently annotated entity (along with its frequency).}
 	\label{tbl:linking:statistics}
-\end{table*}
+\end{table}
 
 %(1 with \textbf{full agreement} 3, 3 with \textbf{partial agreement}, and 3 with confidence 1) with \textit{type equivalence}, and 7 with \textit{type nonequivalence}. These 14 combinations are illustrated in Figure~\ref{fig:linking:agreement_typed}. 
 
@@ -309,31 +309,30 @@ Therefore, to extend the coverage and the number of annotations of the \textsc{E
 \begin{table}[]
 %\def\arraystretch{1.25}
 \centering
-\begin{tabular}{| l| r |r |}
+\begin{tabular}{ l r r }
 \hline
 & \textbf{Annotations} & \textbf{Entities} \\ \hline
-All    & 144,593      & 63,902    \\ \hline
-Artist & 112,524      & 39,131    \\ \hline
-Album  & 18,701       & 15,064    \\ \hline
-Song  & 9,203        & 7,832     \\ \hline
+All    & 144,593      & 63,902    \\ 
+Artist & 112,524      & 39,131    \\ 
+Album  & 18,701       & 15,064    \\ 
+Song  & 9,203        & 7,832     \\ 
 Label  & 4,165        & 1,875    
 \\ \hline
 \end{tabular}
-\caption{Statistics of the extended ELMD corpus. \texttt{Annotations} refers to all distinct mentions or apparitions of an entity of its corresponding type, whereas the \texttt{Entities} column refers to the number of distinct entities of each type.}
+\caption[Statistics of the extended ELMD corpus.]{Statistics of the extended ELMD corpus. \texttt{Annotations} refers to all distinct mentions or apparitions of an entity of its corresponding type, whereas the \texttt{Entities} column refers to the number of distinct entities of each type.}
 \label{tbl:linking:elmd2}
 \end{table}
 
 \begin{table}[]
 %\def\arraystretch{1.25}
 \centering
-\begin{tabular}{| l| r |r |}
+\begin{tabular}{ l r r }
 \hline
 & \textbf{Annotations} & \textbf{Entities} \\ \hline
-DBpedia    & 58.6\%      & 49.1\%    \\ \hline
-MusicBrainz & 93.6\%      & 91.1\%    \\ \hline
-Both  & 57.2\%       & 47\%    \\ \hline
+DBpedia    & 58.6\%      & 49.1\%    \\ 
+MusicBrainz & 93.6\%      & 91.1\%    \\
+Both  & 57.2\%       & 47\%    \\ 
 None & 5\%	& 9.2\% \\ \hline
-\\ \hline
 \end{tabular}
 \caption{Percentage of linked entities in the extended ELMD corpus.}
 \label{tbl:linking:elmd2_percentage}
@@ -349,15 +348,15 @@ This gold standard dataset has been used in the Task 3 of the third edition of t
 \begin{table}[]
 %\def\arraystretch{1.25}
 \centering
-\begin{tabular}{| l| r |r |}
+\begin{tabular}{l r r }
 \hline
 & \textbf{Annotations} & \textbf{Entities} \\ \hline
-All    & 5,184      & 2,803    \\ \hline
-Artist & 3,828      & 1,926    \\ \hline
-Album  & 860       & 693    \\ \hline
+All    & 5,184      & 2,803    \\ 
+Artist & 3,828      & 1,926    \\ 
+Album  & 860       & 693    \\ 
 Song  & 496        & 184     \\ \hline
 \end{tabular}
-\caption{Statistics of the ELMDGold corpus. \texttt{Annotations} refers to all distinct mentions or apparitions of an entity of its corresponding type, whereas the \texttt{Entities} column refers to the number of distinct entities of each type.}
+\caption[Statistics of the ELMD gold standard corpus.]{Statistics of the ELMD gold standard corpus. \texttt{Annotations} refers to all distinct mentions or apparitions of an entity of its corresponding type, whereas the \texttt{Entities} column refers to the number of distinct entities of each type.}
 \label{tbl:linking:ELMDGold}
 \end{table}
 
