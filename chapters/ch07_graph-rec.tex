@@ -133,27 +133,27 @@ While kernel methods have been widely applied to solve different tasks, their us
 %because of their scalability bottleneck. % \cite{Pham2013}. 
 In addition, when the input data lie in a high-dimensional space, linear kernels have performances comparable to more complex non linear ones. 
 Due to the high volume of users we deal with in our Freesound dataset (see Section \ref{sec:graph-rec:evaluation}), we focused on learning methods which are computationally efficient. For this reason we adopted the approach of computing the explicit feature mapping of the item graphs and use linear methods to learn the user model. Specifically, we use the Linear Support Vector Regression \citep{HoL12} algorithm. 
-Regarding the explicit feature mapping computation we define two sparse high-dimensional feature maps: the one based on entities, the other on paths that we call \textit{entity-based item neighborhood mapping} and \textit{path-based item neighborhood mapping}, respectively. In the following we formalize the computation of such graph embeddings. 
-\subsection{Explicit feature mappings for graph-based Item Representations}
-Let us formally define the knowledge graph as a multi-relational graph $G=\lbrace t \mid t \in E \times R \times E \rbrace$, where $E$ denotes the set of entities and $R$ indicates the set of properties or relations, namely the edge labels. Moreover, we have $I \subseteq E$ since we consider items as a particular type of entities.\\
-%Since we are interested in the individual items by themselves we focus on each \texttt{item neighborhood graph}, that is the sub-graph describing that item.  
-With $E^h_i$ we denote the set of entities reachable in \textit{at most h} hops from $i$ according to the shortest path in $G$. For a generic item $i$ we then define its h-hop neighborhood graph $G^h_i=\lbrace t=(e_i,r_j,e_k) \mid t \in E^h_i \times R \times E^h_i \rbrace$ that is the subgraph of $G$ induced by the set of triples involving entities in $E^h_i$. 
+Regarding the explicit feature mapping computation we define two sparse high-dimensional feature maps: the one based on entities, the other on paths that we call \textit{entity-based item neighborhood mapping} and \textit{path-based item neighborhood mapping}, respectively. In the following we formalize the computation of such graph embeddings.
 
-Figure \ref{fig:graph-rec:Example} shows an example of 3-hop item neighborhood graph for item $i$, namely $G^3_i$. We see that, if we consider the shortest path, all the entities are no more than 3 hops distant from $i$. 
+\subsection{Explicit feature mappings for graph-based Item Representations}
+%Let us formally define the knowledge graph as a multi-relational graph $G=\lbrace t \mid t \in E \times R \times E \rbrace$, where $E$ denotes the set of entities and $R$ indicates the set of properties or relations, namely the edge labels. Moreover, we have $I \subseteq E$ since we consider items as a particular type of entities.\\
+%With $E^h_i$ we denote the set of entities reachable in \textit{at most h} hops from $i$ according to the shortest path in $G$. For a generic item $i$ we then define its h-hop neighborhood graph $G^h_i=\lbrace t=(e_i,r_j,e_k) \mid t \in E^h_i \times R \times E^h_i \rbrace$ that is the subgraph of $G$ induced by the set of triples involving entities in $E^h_i$. 
+
+Following the formal definition of a multi-relational knowledge graph $G=\lbrace t \mid t \in E \times R \times E \rbrace$ and an h-hop item neighborhood graph $G^h_i=\lbrace t=(e_i,r_j,e_k) \mid t \in E^h_i \times R \times E^h_i \rbrace$ stated in Section~\ref{sec:similarity:method:sim:mcs}, Figure \ref{fig:graph-rec:Example} shows an example of 2-hop item neighborhood graph for item $i$, namely $G^2_i$. We see that, if we consider the shortest path, all the entities are no more than 2 hops distant from $i$. 
+
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\textwidth]{ch07_graph-rec_pics/item_neig.png}
+\includegraphics[width=0.8\textwidth]{ch07_graph-rec_pics/item_neig2.png}
 \end{center}
 \caption{An example of 3-hop item neighborhood graph for the item $i$.}
 \label{fig:graph-rec:Example}
 \end{figure}
+
 To clarify the definition and computation of $G^h_i$ and $E^h_i$ for item $i$, we show their computation with reference to the example shown in Figure \ref{fig:graph-rec:Example}:\\ 
-$G^1_i= \lbrace (i,p_1,e_1), (i,p_1,e_2), (e_3,p_2,i)\rbrace$\\ 
-$G^2_i= G^1_i \bigcup \lbrace (e_1,p_3,e_4), (e_1,p_3,e_5), (e_2,p_4,e_5), (e_2,p_1,e_6),(e_2,p_1,e_7), (e_3,p_2,e_7), (e_3,p_1,e_8) \rbrace$\\
-$G^3_i= G^2_i \bigcup \lbrace (e_4,p_3,e_9), (e_7,p_4,e_9), (e_7,p_3,e_{10}), (e_8,p_3,e_{10}),(e_8,p_3,e_{11}) \rbrace$\\
+$G^1_i= \lbrace (i,r_1,e_1), (i,r_1,e_2), (e_3,r_2,i)\rbrace$\\ 
+$G^2_i= G^1_i \bigcup \lbrace (e_1,r_3,e_4), (e_1,r_3,e_5), (e_2,r_4,e_5), (e_3,r_6,e_6),(e_3,r_1,e_7) \rbrace$\\
 $E^1_i= \lbrace e_1, e_2, e_3 \rbrace$\\
-$E^2_i=  E^1_i \bigcup  \lbrace e_4, e_5, e_6, e_7, e_8 \rbrace$\\
-$E^3_i=  E^2_i \bigcup  \lbrace e_9, e_{10}, e_{11} \rbrace$
+$E^2_i=  E^1_i \bigcup  \lbrace e_4, e_5, e_6, e_7 \rbrace$\\
 
 Starting from those item graph-based representations we define the two different feature mappings which are described in what follows.
 \paragraph*{\textbf{Entity-based item neighborhood mapping}}
@@ -176,8 +176,8 @@ and
 %\[ \lbrace  (e_m,p,e_n) \textit{  } | \textit{  } e_m \in \widehat{E}^l_i  \textit{ } \vee \textit{ }  e_n \in \widehat{E}^{l-1}_i \rbrace \vert
 %\]
 \begin{multline}
-c_{l,e_m} = \vert \lbrace  (e_n,p,e_m) \textit{  } | \textit{  } e_n \in \widehat{E}^{l-1}_i \textit{ } \wedge \textit{ } e_m \in \widehat{E}^l_i \rbrace 
- \bigcup \lbrace  (e_m,p,e_n) \textit{  } | \textit{  } e_m \in \widehat{E}^l_i  \textit{ } \wedge \textit{ }  e_n \in \widehat{E}^{l-1}_i \rbrace \vert \nonumber
+c_{l,e_m} = \vert \lbrace  (e_n,r,e_m) \textit{  } | \textit{  } e_n \in \widehat{E}^{l-1}_i \textit{ } \wedge \textit{ } e_m \in \widehat{E}^l_i \rbrace 
+ \bigcup \lbrace  (e_m,r,e_n) \textit{  } | \textit{  } e_m \in \widehat{E}^l_i  \textit{ } \wedge \textit{ }  e_n \in \widehat{E}^{l-1}_i \rbrace \vert \nonumber
 \end{multline}
 where $ \widehat{E}^l_i =  E^l_i \setminus E^{l-1}_i$ is the set of entities \textit{exactly l} hops far from $i$. 
 \\In particular, $c_{l,e_m}$ corresponds to the number of triples connecting $e_m$ to entities in the previous hop \textit{$(l-1)$}, whether $e_m$ appears either as subject or object of the triple. In other words, $c_{l,e_m}$ can be seen as the \textit{occurrence} of the entity $e_m$ in the item neighborhood at distance $l$. 
@@ -186,7 +186,7 @@ $\alpha_l$ can be seen as a decay factor depending on the distance $l$ from the 
 %Indeed, the discount factor can also be parametrized defining a specific weight for each hop. In such case, an optimal combination of weights can be found.
 
 With reference to example showed in Figure \ref{fig:graph-rec:Example}, the $c_{l,e_m}$ values are computed as follows: 
-$c_{1,e_1} =1$, $c_{1,e_2} =1$, $c_{1,e_3} = 1$, $c_{2,e_4} = 1$, $c_{2,e_5} =2$, $c_{2,e_6} =1$, $c_{2,e_7} =2$, $c_{2,e_8} =1$, $c_{3,e_9} =2$, $c_{3,e_{10}} =2$, $c_{3,e_{11}} =1$. All the others are zero.
+$c_{1,e_1} =1$, $c_{1,e_2} =1$, $c_{1,e_3} = 1$, $c_{2,e_4} = 1$, $c_{2,e_5} =2$, $c_{2,e_6} =1$, $c_{2,e_7} =1$.%, $c_{2,e_8} =1$, $c_{3,e_9} =2$, $c_{3,e_{10}} =2$, $c_{3,e_{11}} =1$. All the others are zero.
 %The presented graph embedding is an adaptation of the one presented in \cite{ODMD14a}, in this chapter we use a logarithmic discount factor instead of a parametric one.  
 
 %In this mapping each feature refers to an entity in $E$ and the corresponding score represents the weight associated to that entity in $G^h_i$. The resulting feature vector $\phi_E(G^h_i)$ is:
@@ -224,13 +224,9 @@ w_{i,p^*_m}=  \frac{ \# p^*_m(i) }{ \vert p_m \vert - \vert p^*_m \vert}
 \] 
 where $\vert p_m \vert$ indicates the length of path $p_m$ and $\# p^*_m(i)$ the occurrence of $p^*_m(i)$ in $P^*_i$. The denominator is a discounting factor which takes into account the difference between the original path $p_m$ and its sub-path $p^*_m$. The shorter the sub-path the more the discount because it contains entities farther from the item. 
 \\With respect to item $i$ we have:\\
-$P_i= \lbrace i \cdot e_1 \cdot e_4 \cdot e_9,\text{ }i \cdot e_1 \cdot e_5,\text{ } i \cdot e_2 \cdot e_6,\text{ } i \cdot e_2 \cdot e_7 \cdot e_{9},\text{ } i \cdot e_2 \cdot e_7 \cdot e_{10},\text{ } i \cdot e_3 \cdot e_7 \cdot e_{10},\text{ } i \cdot e_3 \cdot e_8 \cdot e_{10},\text{ } i \cdot e_3 \cdot e_8 \cdot e_{11} \rbrace$\\
-$P^*_i= [ e_1 \cdot e_4 \cdot e_9,\text{ } e_4 \cdot e_9,\text{ } e_9,\text{ } e_1 \cdot e_5,\text{ }e_5,\text{ } e_2 \cdot e_6,\text{ } e_6
-,\text{ } e_2 \cdot e_7 \cdot e_{10},\text{ } e_7 \cdot e_{10},\text{ } e_{10}
-,\text{ } e_2 \cdot e_7 \cdot e_{9},\text{ } e_7 \cdot e_{9},\text{ } e_{9}
-,\text{ } e_3 \cdot e_7 \cdot e_{10},\text{ } e_7 \cdot e_{10},\text{ } e_{10}
-,\text{ } e_3 \cdot e_8 \cdot e_{10},\text{ } e_8 \cdot e_{10},\text{ } e_{10},
-\text{ } e_3 \cdot e_7 \cdot e_{11},\text{ }  e_7 \cdot e_{11},\text{ } e_{11} ]$
+$P_i= \lbrace i \cdot e_1 \cdot e_4,\text{ }i \cdot e_1 \cdot e_5,\text{ } i \cdot e_2 \cdot e_5,\text{ } i \cdot e_3 \cdot e_6,\text{ } i \cdot e_3 \cdot e_7 \rbrace$\\
+$P^*_i= [ e_1 \cdot e_4,\text{ } e_4,\text{ } e_1 \cdot e_5,\text{ }e_5,\text{ } e_3 \cdot e_6,\text{ } e_6
+,\text{ } e_3 \cdot e_7,\text{ } e_7 ]$
 
 %Differently from the previous mapping, in this mapping features are represented as a sequences of nodes in $G$. Given two entities $e_1$ and $e_n$, we consider the sequence of nodes $e_1 \cdot e_2 \cdot \ldots \cdot e_{n-1} \cdot e_n$ met while traversing the graph to go from $e_1$ to $e_n$ and we refer to such sequence as \textit{path}. In this  mapping, a feature is then represented by a path. In particular, in this mapping each feature refers to several variants of paths rooted in the item node.
 %We first collect all the paths rooted in $i$ which can be indicated as sequence of entities $i\cdot e_1 \cdot e_2 \cdot \ldots \cdot e_{n-1} \cdot e_n$. 
