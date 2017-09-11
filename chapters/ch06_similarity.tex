@@ -397,11 +397,11 @@ The second baseline is computed using the AcousticBrainz framework for song clas
 \begin{table}[]
 \centering
 \begin{tabular}{l r r r}
-\cline{2-4}
-& \multicolumn{1}{l}{BoW} & \multicolumn{1}{l}{BoW+SEM} & \multicolumn{1}{l}{BoW+SENT} \\ 
 \hline
-Linear SVM       & \textbf{0.629}           & \textbf{0.691}               & \textbf{0.634}                \\ \hline
-Ridge Classifier & 0.627                    & 0.689                        & 0.61                          \\ \hline
+& BoW & BoW+SEM & BoW+SENT \\ 
+\hline
+Linear SVM       & \textbf{0.629}           & \textbf{0.691}               & \textbf{0.634}                \\
+Ridge Classifier & 0.627                    & 0.689                        & 0.61                          \\
 Random Forest    & 0.537                    & 0.6                          & 0.521                         \\ \hline
 \end{tabular}
 \caption{Accuracy of the different classifiers.}
@@ -414,7 +414,7 @@ The dataset is split 80-20\% for training and testing, and accuracy values are o
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\columnwidth]{ch06_similarity_pics/results2_bn.png}
+    \includegraphics[width=0.7\columnwidth]{ch06_similarity_pics/results2_bn.png}
     \caption[Percentage of accuracy of the different approaches.]{Percentage of accuracy of the different approaches. AcousticBrainz refers to the AcousticBrainz framework. NB refers to the method based on Na\"{i}ve Bayes from \cite{Hu2005}.}
     \label{fig:similarity:results}
 \end{figure}

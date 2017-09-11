@@ -272,8 +272,9 @@ The output layer may have either a \textsc{logistic} or a \textsc{cosine} config
 \centering
 \scriptsize
 \begin{tabular}{lccccccc}
-Modality & Target & Settings                & Params         & Time    & AUC        & ADiv@1           & ADiv@3           \\
 \toprule
+Modality & Target & Settings                & Params         & Time    & AUC        & ADiv@1           & ADiv@3           \\
+\midrule
 \textsc{Audio} & \textsc{logistic} & \textsc{timbre-mlp}                   &  0.01M              & 1s              & 0.792               & 0.04             & 0.14             \\
 \textsc{Audio} & \textsc{logistic} & \textsc{low-3x3}           & 0.5M           & 390s          & 0.859          & 0.14          & 0.34         \\
 \textsc{Audio} & \textsc{logistic} & \textsc{high-3x3}          & 16.5M          & 2280s         & 0.840          & 0.20          & 0.43         \\
