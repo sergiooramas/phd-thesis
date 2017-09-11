@@ -434,38 +434,28 @@ Accuracy results of the two baseline approaches introduced in Section \ref{sec:s
 Let us review the results obtained with baseline systems. The Na\"{i}ve Bayes approach in \cite{Hu2005} is reported to achieve an accuracy of 78\%, while in our results it is below 55\%. The difference in accuracy may be due to the substantial difference in length of the review texts. In \cite{Hu2005}, review texts were at least 3,000 characters long, much larger that ours. Moreover, the addition of a distinction between Classic Rock and Alternative Rock is penalizing our results. 
 As for the acoustic-based approach, although the obtained accuracy may seem low, it is in fact a good result for purely audio-based genre classification, given the high number of classes and the absence of artist bias in the dataset \citep{bogdanov2016cross}.
 %As for the acoustic-based approach defined in \cite{Tzanetakis2002}, they achieve 61\% accuracy on the GZTAN dataset. However, certain bias in this dataset \cite{Sturm2012} may be responsible of such high performance. Therefore, we have taken the computation done in AcousticBrainz using this approach and trained on the GZTAN dataset to our dataset. As this approach classify a song among 10 different genres, and our dataset have 13 genres, we computed the average accuracy among the results only for this 10 genres. 
-Finally, we refer to Table~\ref{tbl:similarity:confusion} to highlight the fact that the text-based approach clearly outperforms the acoustic-based classifier, although in general both show a similar behaviour across genres. Also, note the low accuracy for both Classic Rock and Alternative Rock, which suggests that their difference is subtle enough for making it a hard problem for automatic classification.
+Finally, we refer to Figure~\ref{fig:similarity:confusion} to highlight the fact that the text-based approach clearly outperforms the acoustic-based classifier, although in general both show a similar behaviour across genres. Also, note the low accuracy for both Classic Rock and Alternative Rock, which suggests that their difference is subtle enough for making it a hard problem for automatic classification.
 
 %We  did some trials at different character length, and this aspect revealed to be very determinant in the accuracy results. After performing several tests did some trials at different character length, and this aspect revealed to be very determinant in the accuracy results. In addition, the addition of a distinction between Classic and Alternative Rock is penalizing the results, as it has shown to be a difficult task. However, the aim of this experiment is compare different approaches among them, rather than achieving a very high value of accuracy.
 %Furthermore, the acoustic-based approach defined in \cite{Tzanetakis2002} presents a result of 61\% of accuracy in the GZTAN dataset. However, some biases in the dataset \cite{Sturm2012} may be responsible of such a high level. Therefore, we have taken the computation done in AcousticBrainz using this approach and trained on the GZTAN dataset to our dataset. As this approach classify a song among 10 different genres, and our dataset have 13 genres, we computed the average accuracy among the results only for this 10 genres.
 
 
-\begin{table}[]
-\centering
-\scriptsize
-\begin{tabular}{|l|r|r|r|r|r|r|r|r|r|r|r|r|r|}
-\hline
-& Alt. Rock & Classical & Country & Electronic & Folk & Jazz & Latin & Metal & New Age & Pop & R\&B & Hip-Hop & Rock  \\
-\hline
-Alt. Rock & 28 / 42 & 1 / 3 & 3 / 1 & 10 / 10 & 7 / 1 & 1 / 2 & 2 / 0 & 18 / 12 & 10 / 2 & 4 / 10 & 3 / 6 & 3 / 2 & 10 / 9 \\
-Classical & 0 / 0 & 87 / 95 & 1 / 0 & 0 / 0 & 1 / 1 & 1 / 1 & 2 / 2 & 1 / 0 & 5 / 1 & 1 / 0 & 0 / 0 & 0 / 0 & 1 / 0 \\
-Country & 2 / 1 & 0 / 0 & 51 / 84 & 3 / 0 & 9 / 1 & 9 / 0 & 3 / 0 & 0 / 1 & 3 / 0 & 8 / 8 & 6 / 4 & 1 / 0 & 5 / 1 \\
-Electronic & 7 / 3 & 3 / 1 & 1 / 2 & 40 / 61 & 4 / 1 & 1 / 2 & 2 / 2 & 6 / 0 & 7 / 5 & 6 / 5 & 6 / 7 & 13 / 5 & 4 / 7 \\
-Folk & 4 / 6 & 11 / 0 & 13 / 10 & 7 / 0 & 27 / 55 & 6 / 1 & 7 / 3 & 4 / 2 & 6 / 9 & 5 / 9 & 6 / 4 & 1 / 0 & 3 / 1 \\
-Jazz & 7 / 0 & 10 / 1 & 6 / 2 & 2 / 2 & 5 / 0 & 45 / 82 & 6 / 3 & 3 / 0 & 8 / 2 & 3 / 5 & 4 / 1 & 1 / 1 & 0 / 1 \\
-Latin & 4 / 3 & 6 / 4 & 9 / 2 & 1 / 2 & 5 / 1 & 10 / 2 & 28 / 78 & 3 / 0 & 6 / 2 & 11 / 4 & 7 / 2 & 5 / 0 & 5 / 0 \\
-Metal & 13 / 5 & 1 / 0 & 1 / 1 & 2 / 2 & 1 / 0 & 0 / 1 & 1 / 0 & 63 / 87 & 1 / 0 & 1 / 0 & 3 / 1 & 1 / 0 & 12 / 3 \\
-New Age & 9 / 2 & 7 / 6 & 9 / 0 & 7 / 4 & 10 / 10 & 9 / 2 & 7 / 6 & 3 / 3 & 15 / 53 & 10 / 7 & 6 / 1 & 2 / 1 & 6 / 5 \\
-Pop & 6 / 2 & 9 / 1 & 10 / 2 & 9 / 2 & 5 / 3 & 9 / 2 & 5 / 2 & 2 / 0 & 7 / 1 & 19 / 73 & 7 / 6 & 2 / 2 & 10 / 5 \\
-R\&B & 8 / 2 & 0 / 1 & 16 / 3 & 8 / 4 & 2 / 0 & 5 / 3 & 5 / 0 & 1 / 0 & 3 / 0 & 7 / 10 & 24 / 71 & 17 / 5 & 4 / 1 \\
-Hip-Hop & 8 / 2 & 0 / 0 & 2 / 1 & 8 / 2 & 0 / 1 & 0 / 1 & 1 / 0 & 4 / 3 & 2 / 0 & 4 / 1 & 7 / 2 & 61 / 86 & 3 / 1 \\
-Rock & 17 / 15 & 1 / 2 & 6 / 8 & 4 / 7 & 10 / 5 & 2 / 4 & 7 / 1 & 12 / 13 & 4 / 1 & 9 / 7 & 7 / 4 & 6 / 2 & 15 / 31 \\
-\hline
-\end{tabular}
-\caption{Confusion matrix showing results derived from AcousticBrainz acoustic-based classifier/BoW+SEM text-based approach.}
-\label{tbl:similarity:confusion}
-\end{table}
-
+\begin{figure}[ht!]
+    \centering
+    \begin{subfigure}{width=.5\textwidth}
+        \centering
+        \includegraphics[width=.5\linewidth]{ch06_similarity_pics/confusion_audio.png}
+    	\caption{Confusion matrix from AcousticBrainz acoustic-based classifier.}
+        \label{fig:similarity:relation}
+    \end{subfigure}
+    \begin{subfigure}{width=.5\textwidth}
+        \centering
+        \includegraphics[width=.5\linewidth]{ch06_similarity_pics/confusion_text.png}
+		\caption{Confusion matrix from BoW+SEM text-based approach.}
+		\label{fig:similarity:enriched}
+    \end{subfigure}
+	\label{fig:similarity:confusion}
+\end{figure}
 
 \section{Conclusion}
 \label{sec:similarity:conclusion}
