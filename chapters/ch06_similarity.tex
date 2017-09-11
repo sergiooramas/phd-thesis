@@ -35,7 +35,7 @@ Finally, the third step computes a similarity measure between documents (artist 
 
 \begin{figure}[!htp]
 \centerline{\framebox{
-\includegraphics[width=0.75\columnwidth]{ch06_similarity_pics/methodology.png}}}
+\includegraphics[width=0.75\columnwidth]{ch06_similarity_pics/methodology_bn.png}}}
 \caption{Workflow of the proposed method.}
 \label{fig:similarity:methodology}
 \end{figure}
@@ -63,12 +63,22 @@ In order to exploit the semantic relations between entities present in artist bi
 We apply this methodology to the problem of artist similarity, by creating a graph that connects the entities detected in every artist biography. We call this approach RG (relations graph). Figure~\ref{fig:similarity:relation} shows the expected output of this process for a single sentence.
 %Thus, two artists may be related through different paths of entities, and with different path lengths.
 
-\begin{figure}[!htp]
-\centerline{
-\includegraphics[width=0.95\columnwidth]{ch06_similarity_pics/RelationGraph.png}}
-\caption{Relation graph of a single sentence}
-\label{fig:similarity:relation}
+\begin{figure}[ht!]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=.9\linewidth]{ch06_similarity_pics/RelationGraph.png}
+    	\caption{Relation graph of a single sentence}
+        \label{fig:similarity:relation}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=.9\linewidth]{ch06_similarity_pics/EnrichedGraph2.png}
+		\caption{Semantically enriched subgraph of the same sentence from Figure~\ref{fig:similarity:relation}, variant AEC with h=1}
+		\label{fig:similarity:enriched}
+    \end{subfigure}
 \end{figure}
+
 
 
 \subsubsection{Semantically Enriched Graph}\label{sec:similarity:semantic_enriched_graph} %Sergio
@@ -82,12 +92,6 @@ For the construction of the graph, we can select all the detected named entities
 
 From the previous description, we define five variants of this approach. The first variant, which we call AEC (Artists-Entities-Categories), considers all 3 types of nodes along with their relations (as depicted in Figure~\ref{fig:similarity:enriched}). The second variant, named AE (Artists-Entities) ignores the categories of the entities. The third and fourth variant, named AEC-FT and AE-FT, are similar to the first and second variant, respectively, except that the named entities are filtered using the above mentioned list of 6 entity types. Finally, the fifth variant, EC, ignores the artist entities of node type 1.
 
-\begin{figure}[!htp]
-\centerline{
-\includegraphics[width=0.95\columnwidth]{ch06_similarity_pics/EnrichedGraph2.png}}
-\caption{Semantically enriched subgraph of the same sentence from Figure~\ref{fig:similarity:relation}, variant AEC with h=1}
-\label{fig:similarity:enriched}
-\end{figure}
 
 %First, artist entities are added to the graph as nodes. For every artist, all entities detected in its biography are added to the graph as nodes, and connected through an edge to the artist entity. For every added entity, its associated Wikipedia categories are retrieved and added to the graph as nodes. Every entity is attached to its associated categories though and edge. Thus, a graph of artists, linked entities and semantic categories is finally generated.
 %
@@ -409,7 +413,7 @@ The dataset is split 80-20\% for training and testing, and accuracy values are o
 
 \begin{figure}
     \centering
-    \includegraphics[width=\columnwidth]{ch06_similarity_pics/results2.png}
+    \includegraphics[width=0.8\columnwidth]{ch06_similarity_pics/results2_bn.png}
     \caption[Percentage of accuracy of the different approaches.]{Percentage of accuracy of the different approaches. AcousticBrainz refers to the AcousticBrainz framework. NB refers to the method based on Na\"{i}ve Bayes from \cite{Hu2005}.}
     \label{fig:similarity:results}
 \end{figure}
