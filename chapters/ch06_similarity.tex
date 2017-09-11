@@ -396,12 +396,13 @@ The second baseline is computed using the AcousticBrainz framework for song clas
 
 \begin{table}[]
 \centering
-\begin{tabular}{l|r|r|r|}
+\begin{tabular}{l r r r}
 \cline{2-4}
-                                       & \multicolumn{1}{l|}{BoW} & \multicolumn{1}{l|}{BoW+SEM} & \multicolumn{1}{l|}{BoW+SENT} \\ \hline
-\multicolumn{1}{|l|}{Linear SVM}       & \textbf{0.629}           & \textbf{0.691}               & \textbf{0.634}                \\ \hline
-\multicolumn{1}{|l|}{Ridge Classifier} & 0.627                    & 0.689                        & 0.61                          \\ \hline
-\multicolumn{1}{|l|}{Random Forest}    & 0.537                    & 0.6                          & 0.521                         \\ \hline
+& \multicolumn{1}{l}{BoW} & \multicolumn{1}{l}{BoW+SEM} & \multicolumn{1}{l}{BoW+SENT} \\ 
+\hline
+Linear SVM       & \textbf{0.629}           & \textbf{0.691}               & \textbf{0.634}                \\ \hline
+Ridge Classifier & 0.627                    & 0.689                        & 0.61                          \\ \hline
+Random Forest    & 0.537                    & 0.6                          & 0.521                         \\ \hline
 \end{tabular}
 \caption{Accuracy of the different classifiers.}
 \label{tbl:similarity:classifiers}
