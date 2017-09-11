@@ -24,7 +24,7 @@ In the second use case, we provide a diachronic study of music criticism via a q
 The rest of the chapter is organized as follows. First, in Section~\ref{sec:musicology:flamenco-kb}, we describe the process of creation of a culture-specific knowledge base. We begin introducing the problem and the context of application. Then, we describe the obtained knowledge base and the processes of knowledge curation and extraction applied. Finally, we employ the knowledge base to compute artist relevance ranking and present some insights that can be drawn from computing statistics over the dataset. In Section~\ref{sec:musicology:evolution}, we describe how sentiment associated with music reviews changes over time. We start by describing the dataset of music reviews used and the process of aspect-based sentiment analysis applied. Then, two experiments are performed, one aggregating sentiment scores by review publication year, and other by album publication year. Finally, we conclude the chapter with a discussion about our findings (Section~\ref{sec:musicology:conclusions}). 
 
 
-\section{Building culture-specific knowledge bases: the flamenco case}
+\section[Building culture-specific knowledge bases: the flamenco case][Building culture-specific KBs: the flamenco case]{Building culture-specific knowledge bases: the flamenco case}
 \label{sec:musicology:flamenco-kb}
 
 %Music context information is now playing a key role in MIR research. Multimodal approaches, semantic approaches, and text-IR approaches have shown important achievements in typical MIR problems, such as music recommendation and discovery, genre classification, or music similarity \citep{Schedl2014}. Therefore, collecting and storing music context information may be extremely useful for the MIR research community. 
@@ -87,7 +87,7 @@ In particular, we employed the SPARQL endpoint of the Spanish DBpedia\footnote{\
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.45\textwidth]{ch05_musicology_pics/datasources_bn.png}
+	\includegraphics[width=0.55\textwidth]{ch05_musicology_pics/datasources_bn.png}
 	\caption{Selected data sources \label{fig:musicology:datasources}}
 \end{figure}
 
@@ -251,12 +251,13 @@ Finally, in Figure~\ref{fig:musicology:graph-decade} we observe a higher number 
     	\caption{Songs by \textit{palo}}
         \label{fig:musicology:graph-palo}
     \end{subfigure}
-    \begin{subfigure}{.50\textwidth}
+    \begin{subfigure}{.52\textwidth}
         \centering
         \includegraphics[width=.9\linewidth]{ch05_musicology_pics/Artists-by-province.jpg}
 		\caption{Artists by province of birth}
 		\label{fig:musicology:graph-province}
     \end{subfigure}
+    \caption{FlaBase distributions.}
 \end{figure}
 
 
