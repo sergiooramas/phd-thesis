@@ -17,7 +17,7 @@ First, a method for computing semantic similarity at document-level is presented
 %Second, we explore the contribution of such features to the Music Genre classification task, consisting in, given a song or album review, predict the genre it belongs to.
 Second, we perform experiments on music genre classification from album customer reviews, exploring a variety of feature types, including semantic features obtained through Entity Linking, sentimental features  and acoustic features. These experiments show that modeling semantic information contributes to outperforming strong bag-of-words baselines. 
 
-The remainder of this chapter is structured as follows: Section \ref{sec:similarity:similarity} describes a methodology for computing artist similarity from artist biographies using semantic information. Within this section, different types of knowledge representations and similarity measures are described. Then, the settings in which experiments were carried out together with the evaluation metrics used are presented. Finally, evaluation results are presented and the performance of our method discussed. Section \ref{sec:similarity:classification} describes a methodology for computing music genre classification using album customer reviews. In this section, a dataset of music reviews is first described. Then, the different types of employed features are illustrated. An experiment on genre classification is performed and results are discussed.
+The remainder of this chapter is structured as follows: Section \ref{sec:similarity:similarity} describes a methodology for computing artist similarity from artist biographies using semantic information. Within this section, different types of knowledge representations and similarity measures are described. Then, the settings in which experiments were carried out together with the evaluation metrics used are presented. Finally, evaluation results are presented and the performance of our method discussed. Section \ref{sec:similarity:classification} describes a methodology for computing music genre classification using album customer reviews. In this section, a dataset of music reviews is first described. Then, the different types of employed features are outlined. An experiment on genre classification is performed and results are discussed. 
 Finally Section \ref{sec:similarity:conclusion} summarizes the main topics covered in this chapter.
 
 \section{Artist Similarity}
@@ -42,7 +42,7 @@ Finally, the third step computes a similarity measure between documents (artist 
 
 \subsection{Entity Linking}
 
-To obtain the entity mentions present in the documents and link them to a Knowledge Base we used Babelfy \citep{Moroetal2014b} through ELVIS (see Section~\ref{sec:linking:elvis}). Babelfy provides BabelNet URIs, and ELVIS enrich the information of every identified entity with DBpedia URIs, DBpedia Ontology types, and Wikipedia categories.
+To obtain the entity mentions present in the documents and link them to a Knowledge Base we used Babelfy \citep{Moroetal2014b} through ELVIS (see Section~\ref{sec:linking:elvis}). Babelfy provides BabelNet URIs, and ELVIS enriches the information of every identified entity with DBpedia URIs, DBpedia Ontology types, and Wikipedia categories.
 We opted to use Babelfy for consistency purposes, as in a later step we exploit \textit{SensEmbed}~\citep{Iacobaccietal2015}, a vector space representation of concepts based on BabelNet \citep{Navigli2010}. Moreover, the use of a single tool across approaches guarantees that the evaluation will only reflect the appropriateness of each one of them, and in case of error propagation all the approaches will be affected the same.
 
 %
@@ -74,7 +74,7 @@ We apply this methodology to the problem of artist similarity, by creating a gra
     \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=.9\linewidth]{ch06_similarity_pics/EnrichedGraph2.png}
-		\caption{Semantically enriched subgraph, variant AEC with h=2}
+		\caption{Semantically enriched subgraph, variant AEC with h=2 (see MCS in Section~\ref{sec:similarity:method:sim:mcs})}
 		\label{fig:similarity:enriched}
     \end{subfigure}
 \end{figure}
@@ -166,14 +166,14 @@ For each pair of concepts $c \in \text{Bfy}_{a}$ and $c^{\prime} \in \text{Bfy}^
 \left( \frac{v_c \times v_{c^{\prime}}^{\prime}}{\left\vert\left\vert{v_c}\right\vert\right\vert \left\vert\left\vert{v_{c^{\prime}}^{\prime}}\right\vert\right\vert } \right)
 \end{equation}
 
-i.e. computing cosine similarity between all possible senses (each sense represented as a vector) in an all-against-all fashion and keeping the highest scoring similarity score for each pair. Finally, the semantic similarity between two artist biographies is simply the average among all the cosine similarities between each concept pair.
+i.e., computing cosine similarity between all possible senses (each sense represented as a vector) in an all-against-all fashion and keeping the highest scoring similarity score for each pair. Finally, the semantic similarity between two artist biographies is simply the average among all the cosine similarities between each concept pair.
 
 \subsection{Experiments}
 \label{sec:similarity:experimentalsetup}
 
 To evaluate the accuracy of the proposed approaches we designed an experimental evaluation over two datasets. The first dataset contains 2,336 artists and it is evaluated using the list of similar artists provided by the Last.fm API as a ground truth. The second dataset contains 188 artists, and it is evaluated against user similarity judgements from the MIREX Audio Music Similarity and Retrieval task.
 %More information, as well as data, can be accessed online at http://music-ir.org/mirex/wiki/MIREX\_HOME} Audio and Music Similarity evaluation dataset.
-Apart from the defined approaches, a pure text-based approach for document similarity is added to act as a reference for the obtained results.
+Apart from the defined approaches, a pure text-based approach for document similarity is added to act as a baseline for the obtained results.
 
 %\subsection{Datasets}
 
@@ -181,7 +181,7 @@ Apart from the defined approaches, a pure text-based approach for document simil
 
 A dataset of 2,336 artist biographies was gathered from Last.fm. The artists in this dataset share a set of restrictions.
 Their biography has at least 500 characters and is written in English.
-All of the artists have a correspondent Wikipedia page, and we have been able to mapped it automatically, obtaining the DBpedia URI of every artist.
+All of the artists have a correspondent Wikipedia page, and we have been able to map it automatically, obtaining the DBpedia URI of every artist.
 For every artist, we queried the getSimilar method of the Last.fm API and obtained an ordered list of similar artists. Every artist in the dataset fulfills the requirement of having at least 10 similar artists within the dataset.
 We used these lists of similar artists as the ground truth for our evaluation.
 %As the list contains at least 10 similar artists within the dataset, we can evaluate top-10 similarity.
@@ -251,9 +251,31 @@ AEC-FT MCS 1-hop & \textbf{0.160} & \textbf{0.242} & \textbf{0.288} & \textbf{0.
 
 \subsubsection{Evaluated approaches}\label{sec:similarity:eval_approaches} %Sergio
 
-From all possible combinations of knowledge representations, similarity measures and parameters, we selected a set of 10 different approach variants. The prefixes AEC, RG and AE refer to the graph representations (see Sections \ref{sec:similarity:rel_graph} and \ref{sec:similarity:semantic_enriched_graph}). %AEC refers to the artist entity categories graph, RG to the graph of relations extracted from text, and AE to a graph with artist entities and named entities.
+From all possible combinations of knowledge representations, similarity measures and parameters, we selected a set of 10 different approach variants. The prefixes AEC, RG, EC, and AE refer to the graph representations (see Sections \ref{sec:similarity:rel_graph} and \ref{sec:similarity:semantic_enriched_graph}). %AEC refers to the artist entity categories graph, RG to the graph of relations extracted from text, and AE to a graph with artist entities and named entities.
 SE refers to the sense embeddings approach, and LSA to the latent semantic analysis baseline approach. When these prefixes are followed by FT, it means that the entities in the graph have been filtered by type. The second term in the name refers to the similarity measure. MCS refers to maximal common subgraph, and SimRank and Cosine to SimRank and cumulative cosine similarity measures. MCS approaches are further followed by a number indicating the number of h-hops of the neighborhood subgraph.
 
+
+\subsubsection{Evaluation measures}
+
+To measure the accuracy of the artist similarity we adopt two standard performance metrics such as Precision@N, and nDCG@N (normalized discounted cumulative gain).
+%We applied the metrics as defined in \cite{Steck13} for evaluating recommendation, but adapted to the problem of artist similarity.
+Precision@N is computed as the number of relevant items (i.e., true positives) among the top-N items divided by $N$, when compared to a ground truth.
+%A relevant item is an item in the list of $N$ similar artists suggested by the system for an artist $a$, that is also in the ground truth list of N similar artists of the same artist $a$.
+%Recall@N (R@N) is computed as the ratio between the number of relevant items among the top-N items and the number items in the ground truth list.
+Precision considers only the relevance of items, whilst nDCG takes into account both relevance and rank position. Denoting with  $s_{ak}$ the relevance of the item in position $k$ in the Top-N list for the artist $a$, then nDCG@N for $a$ can be defined as:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{equation}\label{eq:recall}
+\text{nDCG@N} = \frac{1 }{\text{IDCG@N}} \sum^N_{k=1} \frac{ 2^{ s_{ak}} -1 }{\log_2 (1+k)}
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+where IDCG@N indicates the score obtained by an ideal or perfect Top-N ranking and acts as a normalization factor. We run our experiments for $N=5$ and $N=10$.
+%In Tables~\ref{tbl:similarity:res_mirex} and~\ref{tbl:similarity:res_lastfm} average values of P@N and nDCG@N among all the evaluated artists are shown.
+
+\subsection{Results and discussion}
+\label{sec:similarity:results}
+
+We evaluated all the approach variants described in Section~\ref{sec:similarity:eval_approaches} on the MIREX dataset, but only a subset of them on the Last.fm dataset, due to the high computational cost of some of the approaches.
+%We initially worked on the MIREX dataset, as the number of artists was smaller and the computation of the algorithms was much faster. However, to ensure the credibility of the results, we applied some of the approach variants in a bigger dataset.
 
 \begin{table}[]
 \scriptsize
@@ -284,28 +306,6 @@ SE Cosine & 3.39 & 5.50 & 5.32 & 5.16 & 4.31 & 5.36 & 4.31 & 4.75 \\
 \end{table}
 
 
-\subsubsection{Evaluation measures}
-
-To measure the accuracy of the artist similarity we adopt two standard performance metrics such as Precision@N, and nDCG@N (normalized discounted cumulative gain).
-%We applied the metrics as defined in \cite{Steck13} for evaluating recommendation, but adapted to the problem of artist similarity.
-Precision@N is computed as the number of relevant items (i.e., true positives) among the top-N items divided by $N$, when compared to a ground truth.
-%A relevant item is an item in the list of $N$ similar artists suggested by the system for an artist $a$, that is also in the ground truth list of N similar artists of the same artist $a$.
-%Recall@N (R@N) is computed as the ratio between the number of relevant items among the top-N items and the number items in the ground truth list.
-Precision considers only the relevance of items, whilst nDCG takes into account both relevance and rank position. Denoting with  $s_{ak}$ the relevance of the item in position $k$ in the Top-N list for the artist $a$, then nDCG@N for $a$ can be defined as:
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{equation}\label{eq:recall}
-\text{nDCG@N} = \frac{1 }{\text{IDCG@N}} \sum^N_{k=1} \frac{ 2^{ s_{ak}} -1 }{\log_2 (1+k)}
-\end{equation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-where IDCG@N indicates the score obtained by an ideal or perfect Top-N ranking and acts as a normalization factor. We run our experiments for $N=5$ and $N=10$.
-%In Tables~\ref{tbl:similarity:res_mirex} and~\ref{tbl:similarity:res_lastfm} average values of P@N and nDCG@N among all the evaluated artists are shown.
-
-\subsection{Results and discussion}
-\label{sec:similarity:results}
-
-We evaluated all the approach variants described in Section~\ref{sec:similarity:eval_approaches} on the MIREX dataset, but only a subset of them on the Last.fm dataset, due to the high computational cost of some of the approaches.
-%We initially worked on the MIREX dataset, as the number of artists was smaller and the computation of the algorithms was much faster. However, to ensure the credibility of the results, we applied some of the approach variants in a bigger dataset.
-
 Table~\ref{tbl:similarity:res_mirex} shows the Precision@N and nDCG@N results of the evaluated approaches using the MIREX dataset, while Table~\ref{tbl:similarity:res_lastfm} shows the same results for the Last.fm dataset. We obtained very similar results in both datasets. The approach that gets best performance for every metric, dataset and value of N is the combination of the Artists-Entities-Categories graph filtered by types, with the maximal common subgraph similarity measure using a value of $h=1$ for obtaining the h-hop item neighborhood graphs.
 
 Furthermore, given that the MIREX AMS dataset also provides genre data, we analyzed the distribution of genres in the top-10 similar artists for each artist, and averaged them by genres. The idea is that an artist's most similar artists should be from the same genre as the seed artist.
@@ -316,7 +316,7 @@ We extract some insights from these results. First, semantic approaches are able
 
 \section{Music Genre Classification}\label{sec:similarity:classification}
 
-In this section we describe a method to enrich music related documents with semantic and affective information, which are in turn exploited in a classification problem. To meassure the impact of the proposed approach, we perform an experiment on music genre classification, consisting in, given an album review, predict the music genre it belongs to. Different combinations of features are explored, including semantic, sentimental, and acoustic. Experiments are performed on a subset of the Multimodal Album Reviews Dataset (MARD) described in Section~\ref{sec:musicology:mard}.
+In this section we describe a method to enrich music related documents with semantic and affective information, which are in turn exploited in a classification problem. To meassure the impact of the proposed approach, we perform an experiment on music genre classification. The experiment consists in, given an album review, predict the music genre it belongs to. Different combinations of features are explored, including semantic, sentimental, and acoustic. Experiments are performed on a subset of the Multimodal Album Reviews Dataset (MARD) described in Section~\ref{sec:musicology:mard}.
  %To this end we explore a variety of feature types, including semantic, sentimental and acoustic features. 
 %First, we briefly describe the dataset used for training and testing, and then we provide a description of the features used for this task.
 
@@ -324,14 +324,14 @@ In this section we describe a method to enrich music related documents with sema
 \subsection{Dataset Description}
 \label{sec:similarity:mard}
 
-Starting from the MARD dataset, our purpose is to create a subset suitable for music genre classification, including 100 albums per genre class. We enforce these albums to be authored by different artists, and that review texts and audio descriptors of their songs are available in MARD. Then, for every album, we selected audio descriptors of the first song of each album as a representative sample of the album. From the original 16 genres, 3 of them did not have enough instances complying with these prerequisites (Reggae, Blues and Gospel). This results in a classification dataset composed of 1,300 albums, divided in 13 different genres. The review texts of each album were aggregated and then truncated around 1,000 characters (this length slightly varies from one album to another, as we wanted to keep the complete text of every individual review). We limited text length to avoid any bias towards popular albums.
+Starting from the MARD dataset, our purpose is to create a subset suitable for music genre classification, including 100 albums per genre class. We enforced these albums to be authored by different artists, and that review texts and audio descriptors of their songs are available in MARD. Then, for every album, we selected audio descriptors of the first song of each album as a representative sample of the album. From the original 16 genres, 3 of them did not have enough instances complying with these prerequisites (Reggae, Blues and Gospel). This results in a classification dataset composed of 1,300 albums, divided in 13 different genres. The review texts of each album were aggregated and then truncated around 1,000 characters (this length slightly varies from one album to another, as we wanted to keep the complete text of every individual review). We limited text length to avoid any bias towards popular albums.
 %An album may have a number of reviews with different length each. For each album we randomly selected a subset of its reviews and concatenated their texts. We aimed to limit the cumulative length of the selected reviews of each album to 1000 characters approximately, without cropping any review. Finally, the average length of text by album in the classification dataset is 649 characters.
 
 
 \subsection{Linguistic Processing}
 \label{sec:similarity:processing}
 
-Given the set of documents, two linguistic processes are applied. First, following the work of \cite{DongSOS13,DongOS14}, we apply an aspect-based sentiment analysis technique to extract opinionated features from each document (see Section~\ref{sec:musicology:sentiment}). Second, we apply an Entity Linking process to each document. In this case, Entity Linking was performed taking advantage of TagMe \citep{Ferragina2012} and ELVIS (see Section~\ref{sec:linking:elvis}). TagMe provides for each detected entity its Wikipedia page id, whereas ELVIS enrich the obtained entities with DBpedia URIs, DBpedia Ontology types, and Wikipedia categories.
+Given the set of documents, two linguistic processes are applied. First, following the work of \cite{DongSOS13,DongOS14}, we apply an aspect-based sentiment analysis technique to extract opinionated features from each document (see Section~\ref{sec:musicology:sentiment}). Second, we apply an Entity Linking process to each document. In this case, Entity Linking was performed taking advantage of TagMe \citep{Ferragina2012} and ELVIS (see Section~\ref{sec:linking:elvis}). TagMe provides for each detected entity its Wikipedia page id, whereas ELVIS enriches the obtained entities with DBpedia URIs, DBpedia Ontology types, and Wikipedia categories.
 %An album may have a number of reviews with different length each. For each album we selected a subset of its reviews and concatenated their texts. We aimed to limit the cumulative length of the selected reviews of each album to 1000 characters approximately, without cropping any reviews. Finally, the average length of text by album in the classification dataset is 649 characters.
 
 \subsection{Features}
@@ -341,7 +341,7 @@ We use a standard Vector Space Model (VSM) representation, where documents are r
 
 \subsubsection{Semantic Features}
 
-We enrich the documents with semantic information thanks to the application of Entity Linking. Specifically, for each named entity disambiguated with TagMe, its Wikipedia ID and its associated Wikipedia categories are added at the end of the document as extra words. Wikipedia categories are hierarchically organized, so we enriched the documents by adding one level more of broader categories by querying DBpedia, using the \textit{skos:broader} property.
+We enrich the documents with semantic information thanks to the application of Entity Linking. Specifically, for each named entity disambiguated with TagMe, its Wikipedia ID and its associated Wikipedia categories are added at the end of the document as extra words. Wikipedia categories are hierarchically organized, so we enrich the documents by adding one level more of broader categories by querying DBpedia, using the \textit{skos:broader} property.
 Then, a feature vector is obtained after applying a VSM approach with \textit{tf-idf} weighting to the semantically enriched texts.
 
 %We enriched the initial BoW vectors with semantic information thanks to the Entity Linkingstep. The semantic feature vector of an album is conformed by a BoW model where instead of words, there are entity IDs and categories. For every entity detected by Tagme in the album texts, we added to BoW its correspondent Wikipedia ID and the Wikipedia categories associated to this entity. We applied the tfidf measure to the semantic features vector to compute a weight associated to every entity and category for each album.
@@ -364,7 +364,7 @@ Based on the aspects and associated polarity extracted with the applied aspect-b
     %\end{equation}
     \item Emotion Strength: This document-level feature is computed by averaging sentiment scores over all aspects in the document.
     %Emotion Strength: This feature shows the average of the sentiment scores associated to all the identified aspects in a document
-    \item F-Score\footnote{Not to be confused with the evaluation metric.}: This feature has proven useful for describing the contextuality/formality of language. It takes into consideration the presence of \textit{a priori} ``descriptive'' POS tags (nouns and adjectives), as opposed to ``action'' ones such as verbs or adverbs.
+    \item F-Score\footnote{Not to be confused with the evaluation metric.}: This feature has proven to be useful for describing the contextuality/formality of language. It takes into consideration the presence of \textit{a priori} ``descriptive'' POS tags (nouns and adjectives), as opposed to ``action'' ones such as verbs or adverbs.
     
     %It is designed to capture the usage of certain informative part-of-speech categories by looking at their frequency $F$, as follows:
     %\begin{equation}
@@ -459,14 +459,14 @@ Finally, we refer to Figure~\ref{fig:similarity:confusion} to highlight the fact
 \section{Conclusion}
 \label{sec:similarity:conclusion}
 
-In this chapter we presented several methodologies that exploit semantic technologies for computing artist similarity and music genre classification. Particularly, we focus on the use of Entity Linking as a medium to enrich the information present in musical documents. Results in both tasks show that the addition of semantic information via Entity Linking clearly yields performance improvements.
+In this chapter we presented several methodologies that exploit semantic technologies for computing artist similarity and music genre classification. Particularly, we focused on the use of Entity Linking as a medium to enrich the information present in musical documents. Results in both tasks show that the addition of semantic information via Entity Linking clearly yields performance improvements.
 
 Different methods to embed this semantic information have been proposed, from knowledge graphs to vector space models.
 In the case of artist similarity, the proposed methodology is divided in three main steps: First, named entity mentions are identified in the text and linked to a Knowledge Base. Then, these entity mentions are used to construct a semantically motivated knowledge representation. Finally a similarity function is defined on top of the knowledge representation to compute the similarity between artists.
 For each one of these steps we explored several approaches, and evaluated them against a small dataset of 188 artist biographies, and a larger one of 2,336, both obtained from Last.fm.
 Results showed that the combination of semantically enriched graphs via Entity Linking, and a maximal common subgraph similarity measure clearly outperforms a baseline approach that exploits word co--occurrences and latent factors.
 
-In the case of music genre classification, a multimodal dataset of album customer reviews combining text, metadata and acoustic features gathered from Amazon, MusicBrainz and AcousticBrainz respectively is used. Customer review texts are further enriched with data from Wikipedia along with polarity information derived from aspect-based sentiment analysis. Based on this information, a classifier is trained using different combinations of features. 
+In the case of music genre classification, a multimodal dataset of album customer reviews combining text, metadata and acoustic features gathered from Amazon, MusicBrainz and AcousticBrainz respectively was used. Customer review texts were further enriched with data from Wikipedia along with polarity information derived from aspect-based sentiment analysis. Based on this information, a classifier is trained using different combinations of features. 
 A comparative evaluation of features suggests that a combination of text and semantic information has higher discriminative power, outperforming competing systems in terms of accuracy.
 
-In the light of these results on both tasks, the following conclusions can be drawn: First, semantic approaches may outperform pure text-based approaches. Second, we observe that the inclusion of knowledge leveraged from external ontologies boost the performance on both tasks. Finally, reducing noise by filtering linked entities by type is a rewarding step that contributes to an improved performance.
+In the light of these results on both tasks, the following conclusions can be drawn: The described semantic enrichment approaches outperform pure text-based approaches thanks to the enrichment of texts with knowledge leveraged from external ontologies. We have observed that the inclusion of this external knowledge boosts the performance on both tasks. In addition, reducing noise by filtering linked entities by type is a rewarding step that contributes to an improved performance.
