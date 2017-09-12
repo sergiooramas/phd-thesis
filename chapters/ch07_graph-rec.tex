@@ -1,6 +1,6 @@
 %!TEX root = ../thesis_a4.tex
 
-\chapter{Sound and Music Recommendation with Knowledge Graphs}
+\chapter[Sound and Music Recommendation with Knowledge Graphs][Sound and Music Rec. with KGs]{Sound and Music Recommendation with Knowledge Graphs}
 \label{sec:graph-rec}
 
 \section{Introduction}
@@ -13,7 +13,7 @@ In this chapter we tackle the problem of computing sound and music recommendatio
 %A general characterization of its community of users can be found in \cite{Font2012}. 
 The approach we propose to recommend musical items consists mainly of two parts: (i) the enrichment of original data attached to items and linkage to knowledge repositories, (ii) the effective exploitation of the graph-based nature of such data for computing the recommendations. 
 
-The enrichment of data consists in using entity linking techniques for extracting semantic entities from item textual descriptions and linking them to external knowledge bases such as WordNet \citep{wordnet} and DBpedia \citep{dbpedia1} for gathering additional knowledge. All those different information are eventually merged together and represented by means of a new knowledge graph, following a similar approach to the one described in Section~\ref{sec:similarity:semantic_enriched_graph}.
+The enrichment of data consists in using entity linking techniques for extracting semantic entities from item textual descriptions and linking them to external knowledge bases such as WordNet \citep{wordnet} and DBpedia \citep{dbpedia1} for gathering additional knowledge. All those different information are eventually merged together and represented by means of a new knowledge graph (KG), following a similar approach to the one described in Section~\ref{sec:similarity:semantic_enriched_graph}.
 This latter graph is thus exploited together with collaborative information from implicit feedback for computing the recommendations. Two graph feature mappings are defined to leverage the new knowledge graph and obtain expressive feature representations. All different features are combined together in a feature combination hybrid schema \citep{Burke2002} and used to feed a content-based recommender. An extensive experimental evaluation was carried out on two different datasets --one related to sounds and other to songs-- to evaluate the recommendation quality in terms of accuracy, novelty and aggregated diversity. 
 
 In this chapter, we deal with two slightly different problems in the music ecosystem. We address the songs recommendation problem and that of recommending sounds to users in online sound sharing platforms. The two tasks addresses two separate categories of users in the music domain: on the one hand, we have music consumers (songs and artists recommendation); on the other hand, we have music producers (sounds recommendation).
