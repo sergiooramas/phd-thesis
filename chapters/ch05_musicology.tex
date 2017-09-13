@@ -365,66 +365,52 @@ We carried out a study of the evolution of music criticism from two different te
 
 In what follows, we show visualizations for sentiment scores and correlation with ratings given by Amazon users, according to these two different temporal dimensions. Although arriving to musicological conclusions is out of the scope of this paper, we provide \textit{food for thought} and present the readers with hypotheses that may explain some of the facts revealed by these data-driven trends.
 
-\begin{figure*}[ht!]
+\begin{figure}[ht!]
     \centering
-    \begin{subfigure}{.32\textwidth}
+    
+    \begin{subfigure}{.49\textwidth}
         \centering
-        \includegraphics[width=.9\linewidth]{ch05_musicology_pics/all_average.png}
+        \includegraphics[width=\linewidth]{ch05_musicology_pics/all_average.png}
         \caption{Sentiment}
         \label{fig:musicology:avgSentReview}
     \end{subfigure}
-    \begin{subfigure}{.32\textwidth}
+    \begin{subfigure}{.49\textwidth}
         \centering
-        \includegraphics[width=.9\linewidth]{ch05_musicology_pics/avg_score.png}
+        \includegraphics[width=\linewidth]{ch05_musicology_pics/avg_score.png}
         \caption{Rating}
         \label{fig:musicology:avgRatingReview}
     \end{subfigure}
-    \begin{subfigure}{.32\textwidth}
+
+    \begin{subfigure}{.49\textwidth}
         \centering
-        \includegraphics[width=.9\columnwidth]{ch05_musicology_pics/kde.png}
-        \caption{Kernel density est.}
-        \label{fig:musicology:kde}
-    \end{subfigure}
-    \begin{subfigure}{.32\textwidth}
-        \centering
-        \includegraphics[width=.9\linewidth]{ch05_musicology_pics/genres_average.png}
+        \includegraphics[width=\linewidth]{ch05_musicology_pics/genres_average.png}
         \caption{Sentiment by genre}
         \label{fig:musicology:avgSentReviewGenres}
     \end{subfigure}
-    \begin{subfigure}{.32\textwidth}
+    \begin{subfigure}{.50\textwidth}
         \centering
-        \includegraphics[width=.9\linewidth]{ch05_musicology_pics/main_aspects.png}
+        \includegraphics[width=\linewidth]{ch05_musicology_pics/main_aspects.png}
         \caption{Sentiment by aspect}
         \label{fig:musicology:avgSentReviewAspects}
     \end{subfigure}
-    \begin{subfigure}{.32\textwidth}
+    
+    \begin{subfigure}{.50\textwidth}
         \centering
-        \includegraphics[width=.8\linewidth]{ch05_musicology_pics/gdp2.png}
+        \includegraphics[width=\columnwidth]{ch05_musicology_pics/kde.png}
+        \caption{Kernel density est.}
+        \label{fig:musicology:kde}
+    \end{subfigure}
+    \begin{subfigure}{.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{ch05_musicology_pics/gdp2.png}
         \caption{USA GDP trend}
         \label{fig:musicology:gdp}
     \end{subfigure}
- 
-   \begin{subfigure}{.32\textwidth}
-        \centering
-        \includegraphics[width=.9\textwidth]{ch05_musicology_pics/sentiment_release_trend.png}
-        \caption{Sentiment}
-        \label{fig:musicology:avgSentimentRelease}
-    \end{subfigure}
-    \begin{subfigure}{.32\textwidth}
-        \centering
-        \includegraphics[width=.9\textwidth]{ch05_musicology_pics/rating_release_trend.png}
-        \caption{Rating}
-        \label{fig:musicology:avgRatingRelease}
-    \end{subfigure}
-    \begin{subfigure}{.32\textwidth}
-        \centering
-        \includegraphics[width=.9\columnwidth]{ch05_musicology_pics/genres_release_trend.png}
-        \caption{Sentiment by genre}
-        \label{fig:musicology:avgSentimentGenresRelease}
-    \end{subfigure}
+    
     %\caption{Sentiment and rating averages by review publication year (a and b); GDP trend in USA from 2000 to 2014 (c), and sentiment and rating averages by album publication year (d, e and f)}
-    \caption{Sentiment and rating averages by review publication year (a, b d and e); Kernel density estimation of the distribution of reviews by year (c); GDP trend in USA from 2000 to 2014 (f), and sentiment and rating averages by album publication year (g, h and i)}
-\end{figure*}
+    \caption{Sentiment (a, c, and d) and rating (b) averages by review publication year; Kernel density estimation of the distribution of reviews by year (e); GDP trend in USA from 2000 to 2014 (f)}
+\end{figure}
+
 
 \subsubsection{Evolution by review publication year}
 \label{sec:musicology:evolution-review}
@@ -457,6 +443,29 @@ Another factor that might be related to the positiveness in use of language is t
 %    \label{fig:musicology:avgSentimentGenresReview}
 %\end{figure}
 
+\begin{figure}
+\centering
+   \begin{subfigure}{.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{ch05_musicology_pics/sentiment_release_trend.png}
+        \caption{Sentiment}
+        \label{fig:musicology:avgSentimentRelease}
+    \end{subfigure}
+    \begin{subfigure}{.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{ch05_musicology_pics/rating_release_trend.png}
+        \caption{Rating}
+        \label{fig:musicology:avgRatingRelease}
+    \end{subfigure}
+    
+    \begin{subfigure}{.49\textwidth}
+        \centering
+        \includegraphics[width=\columnwidth]{ch05_musicology_pics/genres_release_trend.png}
+        \caption{Sentiment by genre}
+        \label{fig:musicology:avgSentimentGenresRelease}
+    \end{subfigure}
+    \caption{Sentiment (a), rating (b), and sentiment by genres (c) averages by album publication year.}
+\end{figure}
 
 \subsubsection{Evolution by album publication year}
 \label{sec:musicology:evolution-album}
