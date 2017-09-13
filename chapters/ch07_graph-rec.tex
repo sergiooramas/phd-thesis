@@ -61,7 +61,7 @@ and then use this information to create a knowledge graph.
 Several approaches have been developed to enrich tags with semantics \citep{Garcia2012}. We follow an ontology-based approach, enriching both tags and keywords extracted from textual descriptions by associating them with relevant entities defined in online knowledge repositories.
 The first step in this direction is to link and disambiguate tags and keywords to Linked Data resources. 
 For this purpose we adopted Babelfy %, a state of the art tool for Entity Linking and Word Sense Disambiguation 
-\citep{Moro2014}. We selected this tool as it is able not only to disambiguate named entities, but also concepts. Our intuition here is that the disambiguation of concepts used to describe sounds may be useful to enrich their descriptions. Babelfy output is further enriched with ELVIS (see Section~\ref{sec:linking:elvis}). Thus, for every mapped and disambiguated text fragment, we obtain the related DBpedia, and/or WordNet \textit{synset}. For DBpedia entities we also obtain the associated Wikipedia categories.
+\citep{Moroetal2014}. We selected this tool as it is able not only to disambiguate named entities, but also concepts. Our intuition here is that the disambiguation of concepts used to describe sounds may be useful to enrich their descriptions. Babelfy output is further enriched with ELVIS (see Section~\ref{sec:linking:elvis}). Thus, for every mapped and disambiguated text fragment, we obtain the related DBpedia, and/or WordNet \textit{synset}. For DBpedia entities we also obtain the associated Wikipedia categories.
 
 %Babelfy maps words from a given text to entities in the BabelNet\footnote{\url{http://babelnet.org}} knowledge base. 
 %BabelNet is a multilingual encyclopedic dictionary that mixes knowledge from WordNet and Wikipedia. Thus, for every mapped and disambiguated text fragment, Babelfy returns the related WordNet \textit{synset}, and/or the related Wikipedia page (and its equivalent DBpedia resource).  
@@ -284,7 +284,7 @@ where:
 
 Another important quality of the system is aggregate diversity. 
 %its level of personalization which can be measured looking at the aggregate diversity of recommendations across all users. 
-In our chapter we adopt the \textit{diversity-in-top-N} metric presented in \cite{AdomaviciusK12} that measures the distinct items recommended across all users. In particular we compute its normalized version with respect to the size of the item catalog. For brevity we refer to it as $ADiv@N$ and we compute it as follows:
+In our chapter we adopt the \textit{diversity-in-top-N} metric presented in \cite{adomavicius2012improving} that measures the distinct items recommended across all users. In particular we compute its normalized version with respect to the size of the item catalog. For brevity we refer to it as $ADiv@N$ and we compute it as follows:
 \[ ADiv@N = \frac{ \vert \bigcup_u L_u \vert }{ \vert I \vert }  \]
 This metric is an indicator of the level of personalization provided by a recommender system. Low values of aggregated diversity indicate  that all users are being recommended almost the same few items. This corresponds to a low level of personalization of the system. Instead, high values mean that users receive very different recommendations which can be indirectly seen as a high level of personalization of the system. %The importance of such particular dimension of the recommendation quality has been also highlighted in other chapters as in \cite{JannachLGB13}.
 
