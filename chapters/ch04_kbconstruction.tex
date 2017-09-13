@@ -1,11 +1,11 @@
 %!TEX root = ../thesis_a4.tex
 
-\chapter[Automatic Construction of Music Knowledge Bases][Automatic Construction of MKBs]{Automatic Construction of Music Knowledge Bases}
+\chapter[Automated Construction of Music Knowledge Bases][Automated Construction of MKBs]{Automated Construction of Music Knowledge Bases}
 \label{sec:kb}
 
 \section{Introduction}\label{sec:kb:introduction}
 
-In this chapter, we present and evaluate an Information Extraction pipeline aimed at the construction of a Music Knowledge Base (MKB) entirely from scratch in an automatic and unsupervised manner.
+In this chapter, we present and evaluate an Information Extraction pipeline aimed at the construction of a Music Knowledge Base (MKB) entirely from scratch in an automated and unsupervised manner.
 We combine a state-of-the-art Entity Linking tool and a linguistically motivated rule-based algorithm to extract semantic relations between entity pairs. 
 Our method is able to generate a fully disambiguated MKB with entity mappings against DBpedia and MusicBrainz. All relations have a relation pattern derived from a Relation Extraction (Relation Extraction) procedure backed up by an algorithm that performs the following steps: (1) Morpho-syntactic rule-based \textit{filtering}; (2) Syntactic dependency-based \textit{clustering}; and (3) Relation \textit{weighting} based on statistical evidence. 
 
@@ -521,7 +521,7 @@ This is further confirmed in the results showcased in Figure \ref{fig:kb:p_clust
 \subsection{Coverage of the Extracted Knowledge Base}
 \label{sec:kb:experiments:coverage}
 
-With this experiment, we aim to compare the coverage of music relations in our final KB with respect to other resources with human intervention, such as DBpedia, MusicBrainz, and with fully automatic resources. For the latter, we considered \textsc{DefIE} \citep{DelliBovietal2015b} as our closest competitor due to several methodological similarities (dependency parsing, Entity Linking and Relation Extraction over shortest paths). 
+With this experiment, we aim to compare the coverage of music relations in our final KB with respect to other resources with human intervention, such as DBpedia, MusicBrainz, and with automatically created resources. For the latter, we considered \textsc{DefIE} \citep{DelliBovietal2015b} as our closest competitor due to several methodological similarities (dependency parsing, Entity Linking and Relation Extraction over shortest paths). 
 
 We selected all triples in \textsc{KBSF}-th whose domain and range entities could be mapped to both DBpedia and MusicBrainz. %As our extracted KB has only MusicBrainz ID of entities of types MusicalArtist and Song, the set of triples to evaluate is restricted to relations between them. 
 In addition, since entities in \textsc{DefIE} are disambiguated against BabelNet ids, we mapped all DBpedia uris to their corresponding BabelNet id. After mapping the entities, we obtained a subset of 3,633 triples. From here, we selected all possible pairs of domain-range entities present in these triples, and retrieved from the other KBs all triples involving the same pairs, and counted them.
