@@ -20,7 +20,7 @@ Second, we perform experiments on music genre classification from album customer
 The remainder of this chapter is structured as follows: Section \ref{sec:similarity:similarity} describes a methodology for computing artist similarity from artist biographies using semantic information. Within this section, different types of knowledge representations and similarity measures are described. Then, the settings in which experiments were carried out together with the evaluation metrics used are presented. Finally, evaluation results are presented and the performance of our method discussed. Section \ref{sec:similarity:classification} describes a methodology for computing music genre classification using album customer reviews. In this section, a dataset of music reviews is first described. Then, the different types of employed features are outlined. An experiment on genre classification is performed and results are discussed. 
 Finally Section \ref{sec:similarity:conclusion} summarizes the main topics covered in this chapter.
 
-\section{Artist Similarity}
+\section{Artist similarity}
 \label{sec:similarity:similarity}
 
 We propose a method for leveraging semantic information extracted from music related documents and knowledge repositories, for the computation of a similarity measure between musical entities. In this case we focus on computing similarity between artists based on their biographies. 
@@ -40,7 +40,7 @@ Finally, the third step computes a similarity measure between documents (artist 
 \label{fig:similarity:methodology}
 \end{figure}
 
-\subsection{Entity Linking}
+\subsection{Entity linking}
 
 To obtain the entity mentions present in the documents and link them to a Knowledge Base we used Babelfy \citep{Moroetal2014b} through ELVIS (see Section~\ref{sec:linking:elvis}). Babelfy provides BabelNet URIs, and ELVIS enriches the information of every identified entity with DBpedia URIs, DBpedia Ontology types, and Wikipedia categories.
 We opted to use Babelfy for consistency purposes, as in a later step we exploit \textit{SensEmbed}~\citep{Iacobaccietal2015}, a vector space representation of concepts based on BabelNet \citep{Navigli2010}. Moreover, the use of a single tool across approaches guarantees that the evaluation will only reflect the appropriateness of each one of them, and in case of error propagation all the approaches will be affected the same.
@@ -52,9 +52,9 @@ We opted to use Babelfy for consistency purposes, as in a later step we exploit 
 
 %Babelfy \cite{Moroetal2014b} is a state-of-the-art system for Entity Linking and word sense disambiguation based on non-strict identification of candidate meanings (i.e. not necessarily exact string matching), together with a graph based algorithm that traverses the BabelNet graph and selects the most appropriate semantic interpretation for each candidate.
 
-\subsection{Knowledge Representation}\label{sec:similarity:knowledge_representations}
+\subsection{Knowledge representation}\label{sec:similarity:knowledge_representations}
 
-\subsubsection{Relations Graph}\label{sec:similarity:rel_graph} %Moha
+\subsubsection{Relations graph}\label{sec:similarity:rel_graph} %Moha
 
 %Relation extraction has been defined as the process of identifying and annotating relevant semantic relations between entities in text \cite{JiangZhai2007}. 
 In order to exploit the semantic relations between entities present in artist biographies, we applied the method defined in Chapter~\ref{sec:kb} for Relation Extraction in the music domain. The method basically consists of three steps. First, entities are identified in the text by applying Entity Linking. Second, relations between pairs of entities occurring in the same sentence are identified and filtered by analyzing the structure of the sentence, which is obtained by running a syntactic parser based on the formalism of dependency grammar~\citep{Bohnet2010}. Finally, the identified entities and relations are modeled as a knowledge graph.
@@ -81,7 +81,7 @@ We apply this methodology to the problem of artist similarity, by creating a gra
 
 
 
-\subsubsection{Semantically Enriched Graph}\label{sec:similarity:semantic_enriched_graph} %Sergio
+\subsubsection{Semantically enriched graph}\label{sec:similarity:semantic_enriched_graph} %Sergio
 
 A second approach is proposed using the same set of linked entities previously identified in the biographies. However, instead of exploiting natural language text, we use semantic information from an external Knowledge Base to enrich the semantics of the linked entities. We use semantic information coming from DBpedia. DBpedia resources are categorized using the DBpedia Ontology among others (e.g. Yago, schema.org) through the \texttt{rdfs:type} property. In addition, DBpedia resources are related to Wikipedia categories through the property \texttt{dcterms:subject}.
 
@@ -314,21 +314,21 @@ Table~\ref{tbl:similarity:res_genre_distrib} presents the results. Again, the be
 We extract some insights from these results. First, semantic approaches are able to improve pure text-based approaches. Second, using knowledge from an external Knowledge Base provides better results than exploiting the relations inside the text. Third, using a similarity measure that exploits the structure and content of a graph, such as maximal common subgraph, overcomes other similarity measures based on semantic similarity among entity mentions in document pairs.
 
 
-\section{Music Genre Classification}\label{sec:similarity:classification}
+\section{Music genre classification}\label{sec:similarity:classification}
 
 In this section we describe a method to enrich music related documents with semantic and affective information, which are in turn exploited in a classification problem. To meassure the impact of the proposed approach, we perform an experiment on music genre classification. The experiment consists in, given an album review, predict the music genre it belongs to. Different combinations of features are explored, including semantic, sentimental, and acoustic. Experiments are performed on a subset of the Multimodal Album Reviews Dataset (MARD) described in Section~\ref{sec:musicology:mard}.
  %To this end we explore a variety of feature types, including semantic, sentimental and acoustic features. 
 %First, we briefly describe the dataset used for training and testing, and then we provide a description of the features used for this task.
 
 
-\subsection{Dataset Description}
+\subsection{Dataset description}
 \label{sec:similarity:mard}
 
 Starting from the MARD dataset, our purpose is to create a subset suitable for music genre classification, including 100 albums per genre class. We enforced these albums to be authored by different artists, and that review texts and audio descriptors of their songs are available in MARD. Then, for every album, we selected audio descriptors of the first song of each album as a representative sample of the album. From the original 16 genres, 3 of them did not have enough instances complying with these prerequisites (Reggae, Blues and Gospel). This results in a classification dataset composed of 1,300 albums, divided in 13 different genres. The review texts of each album were aggregated and then truncated around 1,000 characters (this length slightly varies from one album to another, as we wanted to keep the complete text of every individual review). We limited text length to avoid any bias towards popular albums.
 %An album may have a number of reviews with different length each. For each album we randomly selected a subset of its reviews and concatenated their texts. We aimed to limit the cumulative length of the selected reviews of each album to 1000 characters approximately, without cropping any review. Finally, the average length of text by album in the classification dataset is 649 characters.
 
 
-\subsection{Linguistic Processing}
+\subsection{Linguistic processing}
 \label{sec:similarity:processing}
 
 Given the set of documents, two linguistic processes are applied. First, following the work of \cite{DongSOS13,DongOS14}, we apply an aspect-based sentiment analysis technique to extract opinionated features from each document (see Section~\ref{sec:musicology:sentiment}). Second, we apply an Entity Linking process to each document. In this case, Entity Linking was performed taking advantage of TagMe \citep{Ferragina2012} and ELVIS (see Section~\ref{sec:linking:elvis}). TagMe provides for each detected entity its Wikipedia page id, whereas ELVIS enriches the obtained entities with DBpedia URIs, DBpedia Ontology types, and Wikipedia categories.
@@ -339,14 +339,14 @@ Given the set of documents, two linguistic processes are applied. First, followi
 \subsubsection{Textual Surface Features}
 We use a standard Vector Space Model (VSM) representation, where documents are represented as bag-of-words (BoW) after tokenizing and stopword removal. All words and bigrams (sequences of two words) are weighted using \textit{tf-idf}. 
 
-\subsubsection{Semantic Features}
+\subsubsection{Semantic features}
 
 We enrich the documents with semantic information thanks to the application of Entity Linking. Specifically, for each named entity disambiguated with TagMe, its Wikipedia ID and its associated Wikipedia categories are added at the end of the document as extra words. Wikipedia categories are hierarchically organized, so we enrich the documents by adding one level more of broader categories by querying DBpedia, using the \textit{skos:broader} property.
 Then, a feature vector is obtained after applying a VSM approach with \textit{tf-idf} weighting to the semantically enriched texts.
 
 %We enriched the initial BoW vectors with semantic information thanks to the Entity Linkingstep. The semantic feature vector of an album is conformed by a BoW model where instead of words, there are entity IDs and categories. For every entity detected by Tagme in the album texts, we added to BoW its correspondent Wikipedia ID and the Wikipedia categories associated to this entity. We applied the tfidf measure to the semantic features vector to compute a weight associated to every entity and category for each album.
 
-\subsubsection{Sentiment Features} 
+\subsubsection{Sentiment features} 
 
 Based on the aspects and associated polarity extracted with the applied aspect-based sentiment analysis technique (see Section~\ref{sec:similarity:processing}), we implement a set of sentiment features following \cite{Suero2014}:
 
@@ -375,7 +375,7 @@ Based on the aspects and associated polarity extracted with the applied aspect-b
     %\end{equation}
 \end{itemize}
 
-\subsubsection{Acoustic Features}
+\subsubsection{Acoustic features}
 
 Acoustic features are obtained from AcousticBrainz \citep{Porter2015}. They are computed using Essentia \citep{Bogdanov2013}. These encompass loudness, dynamics, spectral shape of the signal, as well as additional descriptors such as time-domain, rhythm, and tone.% For instance, rhythm descriptors refer to beat positions and BPM value, while tonal information includes chroma features, keys and scales .
 
@@ -422,7 +422,7 @@ The dataset is split 80-20\% for training and testing, and accuracy values are o
 %A comparison of the confusion matrix of the AcousticBrainz audio-based approach and the BoW+Sem text-based approach is shown in Table~\ref{tbl:similarity:confusion}. We observe that, although the text-based approach has higher accuracy in all the categories, both aporaches have a similar behaviour. This can explain why the combination of acoustic features with text-based features does not improve pure text-based approaches. We also note that both approaches have low accuracy values when distinguishing between Classic Rock and Alternative Rock. This means that the difference between these two categories is highly subtle, and neither acoustic nor text-based descriptors are able to properly help the classifier.
 
 
-\subsection{Results and Discussion}
+\subsection{Results and discussion}
 \label{sec:similarity:class:results}
 
 Accuracy results of the two baseline approaches introduced in Section \ref{sec:similarity:baselines} along with our approach variants are shown in Figure~\ref{fig:similarity:results}. At first sight, we may conclude that sentiment features contribute to slightly outperforming purely text-based approaches. This result implies that affective language present in a music review is not a salient feature for genre classification (at least with the technology we applied), although it certainly helps. On the contrary, semantic features clearly boost pure text-based features, achieving 69.08\% of accuracy. The inclusion of broader categories does not improve the results in the semantic approach. The combination of semantic and sentiment features improves the BoW approach, but the achieved accuracy is slightly lower than using semantic features only.%Although unreported due to space constraints, additional feature combinations were evaluated, considering for instance acoustic features, but their results were in general lower. 

@@ -51,7 +51,7 @@ We employ the provided image url to gather the cover art of all selected albums.
 %All of these data %(i.e., audio, text, and images) 
 The mapping between the three datasets (Amazon, MusicBrainz, and MSD), genre annotations, data splits, text reviews, and links to images are released as the \emph{MuMu} dataset\footnote{https://www.upf.edu/web/mtg/mumu}. Images and audio files can not be released due to copyright issues.
 
-\subsection{Genre Labels}\label{sec:multi-class:taxonomy}
+\subsection{Genre labels}\label{sec:multi-class:taxonomy}
 
 Amazon has its own hierarchical taxonomy of music genres, which is up to four levels in depth.
 In the first level there are 27 genres, and almost 500 genres overall. 
@@ -93,7 +93,7 @@ Among the multiple possibilities that this dataset may offer to the MIR communit
 
 %(TODO: Acabar la sección diciendo que, aunque unbalanced, este set podría ser muy útil en el campo de Music Classification, pues no sólo hay diversas fuentes de información a explotar, si no que se podría enfocar como un multi-label problem, described next.)
 
-\section{Multi-label Classification}\label{sec:multi-class:multilabel}
+\section{Multi-label classification}\label{sec:multi-class:multilabel}
 
 %(TODO: Esta sección debería definir formalmente el problema de Multi-label Music Classification, y no hablar de la approach que presentamos en el paper. Creo que la approach debería estar descrita en la siguiente sección. Aquí puedes hablar de la evaluación y tal vez enfocar la descripción de PMI para otros domains besides music. Se podría dividir así:
 %4.1. Problem definition
@@ -116,7 +116,7 @@ This method makes use of the interrelation between labels, embedding the high-di
 In this case, the target of the network is a dense lower-dimensional vector which can be learned using the cosine proximity loss, as these vectors tend to be $l2$-normalized. 
 We denote this technique as \textsc{cosine}, and we provide a more formal definition next.
 
-\subsection{Labels Factorization}\label{sec:multi-class:factorization}
+\subsection{Labels factorization}\label{sec:multi-class:factorization}
 
 
 %Music genres are typically organized in a taxonomy. In these taxonomies, when a musical item belongs to a genre (e.g. Power-Pop), it also belongs to its parents (e.g. Pop). 
@@ -143,7 +143,7 @@ The PPMI matrix $X$ is then factorized using Singular Value Decomposition (SVD) 
 Factors present in matrices $C_d$ and $F_d$ are embedded in the same space. Thus, a distance metric such as cosine distance can be used to obtain distance measures between items and labels. Similar labels are grouped in the space, and at the same time, items with similar sets of labels are near each other. These properties can be exploited in the label prediction problem.
 
 
-\subsection{Evaluation Metrics}\label{sec:multi-class:metrics}
+\subsection{Evaluation metrics}\label{sec:multi-class:metrics}
 
 The evaluation of multi-label classification is not necessarily straightforward. 
 Evaluation measures vary according to the output of the system. 
@@ -171,7 +171,7 @@ ADiv@N measures the percentage of normalized unique labels present in the top $N
 
 %The multi-label classification problem can be seen as a recommendation problem, where we want to recommend labels to items. Therefore, we can also use measures coming from the recommender systems community such as catalog coverage. 
 
-\section{Album Genre Classification}\label{sec:multi-class:classification}
+\section{Album genre classification}\label{sec:multi-class:classification}
 
 In this section we exploit the multimodal nature of the \emph{MuMu} dataset to address the multi-label classification task.
 More specifically, and since each modality on this set (i.e., cover image, text reviews, and audio tracks) is associated with a music album, our task focuses on album classification. %classifying albums.%this type of musical items.
@@ -193,7 +193,7 @@ More specifically, and since each modality on this set (i.e., cover image, text 
 %As input, we use the different types of features described in Section~\ref{sec:multi-class:features}.
 %To combine the features, we simply concatenate them.
 
-\subsection{Audio-based Approach}\label{sec:multi-class:audio}
+\subsection{Audio-based approach}\label{sec:multi-class:audio}
 
 A music album is composed by a series of audio tracks, each of which may be associated with different genres. %, but these generally tend to be closely related to each other. % (TODO: cite? no se me ocurre). 
 % In the \emph{mumu} dataset we have genre annotations at the album level. 
@@ -221,7 +221,7 @@ These networks are trained using mini batches of 32 items, randomly sampled from
 %We take the best logistic regression approach \textsc{class-low-4x70} for compatibility with other modalities because the ResNet used to learn the visual features has this output configuration.
 
 
-\subsection{Text-based Approach}
+\subsection{Text-based approach}
 \label{sec:multi-class:text}
 In the presented dataset, each album has a variable number of customer reviews. 
 We use an approach similar to the one described in Section~\ref{sec:similarity:classification} for genre classification from text, where all reviews from the same album are aggregated into a single text. 
@@ -244,7 +244,7 @@ From this representation, a feed forward network with two dense layers of 2048 n
 The network is trained also with mini batches of 32 items, and Adam as optimizer.
 %In addition, we compared the performance of the deep neural network against a one-vs-all VSM classifier.
 
-\subsection{Image-based Approach}
+\subsection{Image-based approach}
 \label{sec:multi-class:resnet}
 Every album in the dataset has an associated cover art image. To perform music genre classification from these images, we use Deep Residual Networks (ResNets) \citep{he2016deep}.
 They are the state-of-the-art in various image classification tasks like Imagnet \citep{ILSVRC15} and Microsoft COCO \citep{lin2014microsoft}. 
@@ -334,7 +334,7 @@ From the set of album factors, those annotated with a single label from the top 
 It can be seen how the different albums are properly clustered in the factor space according to their genre.
 
 
-\subsection{Audio Classification}\label{sec:multi-class:audioexp}
+\subsection{Audio classification}\label{sec:multi-class:audioexp}
 
 We explore three network design parameters: convolution filter size, number of filters per convolutional layer, and target layer. 
 For the filter size we compare three approaches: square 3x3 filters as in \cite{Choi2016}, a filter of 4x96 that convolves only in time \citep{Oord2013}, and a musically motivated filter of 4x70, which is able to slightly convolve in the frequency domain \citep{pons2016experimenting}. 
@@ -365,7 +365,7 @@ Finally, we observe that the \textsc{cosine} regression approach achieves better
 
 %(TODO: Tabla)
 
-\subsection{Text Classification}\label{sec:multi-class:textexp}
+\subsection{Text classification}\label{sec:multi-class:textexp}
 
 For text classification, we obtain two feature vectors as described in Section~\ref{sec:multi-class:text}: one built from the texts \textsc{VSM}, and another built from the semantically enriched texts \textsc{VSM+Sem}. 
 Both feature vectors are trained in the multi-label genre classification task using the two output configurations \textsc{logistic} and \textsc{cosine}.
@@ -378,7 +378,7 @@ We also studied the information gain of words in the different genres. We observ
 
 %%%ADD TABLE and ref
 
-\subsection{Image Classification}\label{sec:multi-class:imageexp}
+\subsection{Image classification}\label{sec:multi-class:imageexp}
 
 
 \begin{figure}
@@ -399,7 +399,7 @@ The jazz albums (green) on the right are all clustered together probably thanks 
 Therefore, the visual style of the cover seems to be informative when recognizing the album genre.
 For instance, many classical music albums include an instrument in the cover, and Dance \& Electronics covers are often abstract images with bright colors, rarely including human faces.
 
-\subsection{Multimodal Classification}\label{sec:multi-class:multiexp}
+\subsection{Multimodal classification}\label{sec:multi-class:multiexp}
 
 From the best performing approaches in terms of AUC of each modality (i.e., \textsc{Audio} / \textsc{cosine} / \textsc{high-4x70}, \textsc{Text} / \textsc{cosine} / \textsc{VSM+Sem} and \textsc{Image} / \textsc{logistic} / \textsc{ResNet}), a feature vector is obtained as described in Section~\ref{sec:multi-class:multimodal}. 
 Then, these three feature vectors are aggregated in all possible combinations, and genre labels are predicted using the MLP network described in Section~\ref{sec:multi-class:multimodal}.

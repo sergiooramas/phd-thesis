@@ -74,7 +74,7 @@ The rest of the chapter is organized as follows. First, we describe in detail th
 %Secondly, we train another model using audio signals as input to predict the factorized space of each of the tracks in the set.
 %Finally, we combine the output of the two previously trained models into a third network, resulting in a significant increase in performance when compared to audio- or text-only models.
 
-\section{Recommendation Approach}
+\section{Recommendation approach}
 \label{sec:cold-rec:approach}
 
 % In this work, a method to recommend items that are new to a recommender system is proposed. 
@@ -129,7 +129,7 @@ Nevertheless, all networks have a final fully connected layer of 200 units\footn
 In addition, mini batches of 32 items are randomly sampled from the training data to compute the gradient in all networks, and Adam \citep{KingmaB14} is the optimizer used to train the models, with the default suggested learning parameters. 
 Given that the output of the architectures are l2-normalized, we use cosine proximity as the loss function, as in \cite{Chollet2016}.
 
-\section{Artist Text Embeddings}\label{sec:cold-rec:text}
+\section{Artist text embeddings}\label{sec:cold-rec:text}
 
 % Following the approach defined in Section \ref{}, a matrix of artist and songs is obtained by aggregating the play counts of songs of the same artist present in the MSD. Then, a deep network is trained to learn the artist latent factors from the biography texts. 
 In this section we describe two different, competing approaches to exploit artist texts in a deep learning process. %Then, these two approaches are evaluated in an artist recommendation scenario. Finally, artist embeddings are obtained.
@@ -152,7 +152,7 @@ We re-adapt the architecture proposed in \cite{Kim2014} for sentence classificat
 %The architecture consists in an embedding layer, followed by a one dimensional Convolutional layer with multiple filter widths (2, 3 and 4 in our case). A convolution operation involves a filter, which is applied to a window of h words to produce a new feature. This filter is applied to each possible window of words in a sentence to produce a feature map. Then a max-over-time pooling layer reduce every feature map to a unique feature. The idea is to capture the most important feature with the highest value for each feature map. Finally a fully connected layer precede the output layer, with as many neurons as the latent factor dimension. Dropout is used after every layer to prevent overfitting.
 
 
-\section{Track Audio Embeddings}\label{sec:cold-rec:audio}
+\section{Track audio embeddings}\label{sec:cold-rec:audio}
 
 It is common in the field of music informatics to make use of CNNs to learn higher-level features from spectrograms.
 These representations are typically contained in $\mathbb{R}^{\mathcal{F} \times N}$ matrices with $\mathcal{F}$ frequency bins and $N$ time frames.
@@ -178,7 +178,7 @@ The flattened output of the last layer has 4096 units, which becomes the vector 
 
 % Discuss hyper-parameters to be explored in section \ref{sec:experim}.
 
-\section{Multimodal Fusion}\label{sec:cold-rec:multimodal}
+\section{Multimodal fusion}\label{sec:cold-rec:multimodal}
 
 There are several approaches in the literature for multimodal feature learning \citep{ngiam2011multimodal,srivastava2012learning}, and late fusion of multimodal feature vectors \citep{Bechet2015,Slizovskaia2017}. %In this work, feature vectors are concatenated and connected to a dense layer in a fully connected network. 
 In our approach, audio and text feature vectors are learned separately and then combined via late fusion in a multimodal network (see Figure~\ref{fig:approach}).
@@ -207,7 +207,7 @@ The song features provided with the MSD are not generally suitable for deep lear
 After removing ambiguous artists and missing tracks, the final dataset consists of 328,821 tracks from 24,043 artists. 
 Each track has at least 15 seconds of audio, each biography is at least 50 characters long, and each artist has at least 1 tag associated with it. All artist metadata, implicit feedback matrices, and splits are released as a new dataset called the MSD-A\footnote{\url{https://doi.org/10.5281/zenodo.831348}}.
 
-\subsection{Artist Recommendation}
+\subsection{Artist recommendation}
 \label{sec:cold-rec:artist-rec}
 
 To investigate to what extent the different feature sets, data models and architectures influence the quality of the deep artist features, we evaluate the different approaches in an artist recommendation scenario. Given the matrix of implicit feedback $R$, and the set of artist and user factors obtained through matrix factorization (see Section \ref{sec:cold-rec:approach}), we predict the artist factors for the test set, and use them to compute a ranked list of recommended artists for every user. We use mean average precision (MAP) with a cut-off at 500 recommendations per user as our evaluation measure. 
@@ -239,7 +239,7 @@ Results reported in Table~\ref{tbl:artists} show that the semantic enrichment of
 %\subsection{Artist Embeddings}
 Once the network is trained, we predict the activations of the penultimate layer for the entire dataset of artists. Thus, we obtain a vector embedding of 2048 dimensions, which represents the artist deep features $A'$. From the evaluated approaches, we compute the artist embedding from the \textsc{a-sem} and \textsc{a-tags} approaches.
 
-\subsection{Song Recommendation}
+\subsection{Song recommendation}
 \label{sec:cold-rec:song-rec}
 
 

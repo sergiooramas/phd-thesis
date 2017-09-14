@@ -6,14 +6,14 @@
 \section{Introduction}\label{sec:kb:introduction}
 
 In this chapter, we present and evaluate an Information Extraction pipeline aimed at the construction of a Music Knowledge Base (MKB) entirely from scratch in an automated and unsupervised manner.
-We combine a state-of-the-art Entity Linking tool and a linguistically motivated rule-based algorithm to extract semantic relations between entity pairs. 
-Our method is able to generate a fully disambiguated MKB with entity mappings against DBpedia and MusicBrainz. All relations have a relation pattern derived from a Relation Extraction (Relation Extraction) procedure backed up by an algorithm that performs the following steps: (1) Morpho-syntactic rule-based \textit{filtering}; (2) Syntactic dependency-based \textit{clustering}; and (3) Relation \textit{weighting} based on statistical evidence. 
+We combine a state-of-the-art entity linking tool and a linguistically motivated rule-based algorithm to extract semantic relations between entity pairs. 
+Our method is able to generate a fully disambiguated MKB with entity mappings against DBpedia and MusicBrainz. All relations have a relation pattern derived from a relation extraction procedure backed up by an algorithm that performs the following steps: (1) Morpho-syntactic rule-based \textit{filtering}; (2) Syntactic dependency-based \textit{clustering}; and (3) Relation \textit{weighting} based on statistical evidence. 
 
 We validated our methodology on a large collection of documents in the music domain, obtained from \textit{songfacts.com}, a website that collects ``tidbits'' (short stories) about songs.
 We carried out an intrinsic evaluation on each component of the algorithm, as well as an extrinsic evaluation which consists of a experiment on interpretation of music recommendations, where our automatically extracted MKB is used to provide explanations to song recommendations in \textit{natural language}.
 Our experimental results indicate that our system is able to extract \textit{high quality} relations (Precision $>= 0.8$) as well as \textit{novel knowledge}. We unveil thousands of relations absent in both large-scale generic KBs, as well as in music specific resources. Moreover, the recommendation explanation experiment shows that explanations based on the newly extracted KB have a positive impact in user experience.
 
-%We release the extracted MKB at several confidence levels, together with the evaluation data used in the experiments described in this chapter. The code for the complete Relation Extraction pipeline is also released as open source software under MIT license.
+%We release the extracted MKB at several confidence levels, together with the evaluation data used in the experiments described in this chapter. The code for the complete relation extraction pipeline is also released as open source software under MIT license.
 
 %The main contributions of this chapter are summarized as follows:
 %\begin{itemize}
@@ -31,7 +31,7 @@ The rest of this chapter is organized as follows. In Section~\ref{sec:kb:method}
 \section{Method}
 \label{sec:kb:method}
 
-We propose a comprehensive pipeline that extracts a full-fledged MKB taking as input raw text collections. The experiments we report in this chapter are the result of applying our method to a dataset of plain text extracted from the Songfacts\footnote{\url{http://www.songfacts.com}} website (see Section~\ref{sec:kb:exp:dataset}). This is a well suited resource both for KB construction and as a testebed for Relation Extraction due to its specificity. Essentially, Songfacts documents, while not being as rigid as encyclopedic text or newswire text, remain well-formed, sentences make sense, and there is no need for \textit{ad-hoc} preprocessing (as it is required in social networks, e.g. Twitter). Our method, however, can be ported with little effort to music-related corpora of different registers.
+We propose a comprehensive pipeline that extracts a full-fledged MKB taking as input raw text collections. The experiments we report in this chapter are the result of applying our method to a dataset of plain text extracted from the Songfacts\footnote{\url{http://www.songfacts.com}} website (see Section~\ref{sec:kb:exp:dataset}). This is a well suited resource both for KB construction and as a testebed for relation extraction due to its specificity. Essentially, Songfacts documents, while not being as rigid as encyclopedic text or newswire text, remain well-formed, sentences make sense, and there is no need for \textit{ad-hoc} preprocessing (as it is required in social networks, e.g. Twitter). Our method, however, can be ported with little effort to music-related corpora of different registers.
 
 \subsection{Notation}
 
@@ -64,7 +64,7 @@ Finally, different subsets of $\mathcal{R}$ may be constructed by selectively fi
 In what follows, we describe a method for acquiring new entities, types and relations, and combining them in a meaningful way for KB construction.
 
 
-\subsection{Morphosyntactic Preprocessing}\label{sec:kb:method:preprocessing}
+\subsection{Morphosyntactic preprocessing}\label{sec:kb:method:preprocessing}
 
 Our morphosyntactic preprocessing module takes as input a collection of text documents in the music domain. First, sentence splitting and tokenization is carried out thanks to the \textit{Stanford NLP tokenizer}\footnote{\url{http://nlp.stanford.edu/software/tokenizer.shtml}}. 
 Next, a dependency parse tree is obtained via the MATE Parser, described in \cite{Bohnet2010}. We justify the use of the latter because of the richness of its tagset, as well as performance in terms of accuracy and speed, which were appropriate for the task at hand.
@@ -97,18 +97,18 @@ NN \& NN \& VBD \& VBN \& IN \& NNP \& NNP \\
 \end{figure}
 
 
-\subsection{Semantic Processing: Entity Linking}
+\subsection{Semantic processing: entity linking}
 \label{sec:kb:method:entitylinking}
 
-Entity Linking acts as a semantic bridge between plain text and a reference knowledge inventory. %While there are a number of popular Entity Linking systems which are not bound to any domain or discipline, 
-As explained in Chapter~\ref{sec:linking}, there is no benchmark of Entity Linking systems in the music domain, so we do not know \textit{a priori} how well the different systems behave in music corpora. Musical entities may raise a plethora of challenges, derived mostly from ambiguity and polysemy. For example, an album may have the same name as the band who recorded it (e.g. \textit{Weezer} the band and their first album). Moreover, an artist, a song or an album may have words or expressions much more common in another domain or area of knowledge (e.g. \textit{Berlin, The Who}). Thus, the choice of the best Entity Linking algorithm or off-the-shelf tool(s) is crucial, as potential errors may propagate throughout the different modules and hinder considerably the quality of the resulting KB.
+Entity linking acts as a semantic bridge between plain text and a reference knowledge inventory. %While there are a number of popular Entity Linking systems which are not bound to any domain or discipline, 
+As explained in Chapter~\ref{sec:linking}, there is no benchmark of entity linking systems in the music domain, so we do not know \textit{a priori} how well the different systems behave in music corpora. Musical entities may raise a plethora of challenges, derived mostly from ambiguity and polysemy. For example, an album may have the same name as the band who recorded it (e.g. \textit{Weezer} the band and their first album). Moreover, an artist, a song or an album may have words or expressions much more common in another domain or area of knowledge (e.g. \textit{Berlin, The Who}). Thus, the choice of the best entity linking algorithm or off-the-shelf tool(s) is crucial, as potential errors may propagate throughout the different modules and hinder considerably the quality of the resulting KB.
 
-Among the available Entity Linking systems we considered, namely TagMe \citep{Ferraginaetal2010}, Babelfy \citep{Moroetal2014} and DBpedia Spotlight \citep{Mendes2011}, we opted for the latter, as it has shown to be the least prone to errors in our corpus (further details are provided in Section~\ref{sec:kb:experiments:qualityentitylinking}).
+Among the available entity linking systems we considered, namely TagMe \citep{Ferraginaetal2010}, Babelfy \citep{Moroetal2014} and DBpedia Spotlight \citep{Mendes2011}, we opted for the latter, as it has shown to be the least prone to errors in our corpus (further details are provided in Section~\ref{sec:kb:experiments:qualityentitylinking}).
 
-\subsubsection{Adding Co-references}
+\subsubsection{Adding co-references}
 
 In the music domain, prototypical factoid documents such as artist biographies, album reviews, or song tidbits, normally refer to one specific entity. Based on this observation, we may exploit co-referential pronouns and \textit{resource-specific co-references}, replacing them by the name of the reported entity.
-A similar approach is used in \cite{Voskarides2015}, where the frequency of pronouns ``he'' and ``she'' is computed in every document (Wikipedia articles in this specific case) to determine the entity's gender, and then, these pronouns are replaced by the entity title. %Similarly, in \cite{Oramas2014}, a gender identifier web service is used to determine the gender of subjects in artist biographies as part of a Relation Extraction pipeline.
+A similar approach is used in \cite{Voskarides2015}, where the frequency of pronouns ``he'' and ``she'' is computed in every document (Wikipedia articles in this specific case) to determine the entity's gender, and then, these pronouns are replaced by the entity title. %Similarly, in \cite{Oramas2014}, a gender identifier web service is used to determine the gender of subjects in artist biographies as part of a relation extraction pipeline.
 
 We have observed an exploitable \textit{resource-specific co-reference} in music reviews, where terms like ``this album'' or ``the song'' can be replaced by the document's title. In the dataset used for the experiments (see Section~\ref{sec:kb:exp:dataset}), the expressions ``this song'' and ``the song'' are replaced with the name of the song as it appears in the document, and disambiguated with the URI of the entity they unequivocally refer to.
 
@@ -116,12 +116,12 @@ Co-reference resolution is a difficult and crucial task in NLP, affecting tasks 
 
 
 
-\subsubsection{Type Filtering}
+\subsubsection{Type filtering}
 \label{sec:kb:typefiltering}
 
 In DBpedia, most resources are associated with one or more types via the \texttt{rdf:type} property. In addition, among the different types present in DBpedia (coming from the DBpedia ontology, Yago types, or \texttt{schema.org}), the DBpedia ontology provides a relatively small and tidy taxonomy of 685 classes based on Wikipedia infoboxes. Other KBs such as Yago or Freebase have their own ontological structure, which is in general broader and noisier. MusicBrainz, in contrast, has a very narrow set of entity types. 
 
-This type information can be exploited in order to narrow down the set of allowed types for a given candidate and its potential annotations. In this way, we ensure that all entities will be, at least, related to the music domain. Restricting the search space to types such as Artist or Song reduces considerably the number of errors derived from cross-domain ambiguity. For instance, the Entity Linking system detects a substantial amount of entities whose DBpedia type is \textit{FictionalCharacter}, which are in most of the cases misleading song titles or band names with fictional characters of the same name. This situation is observed also with other types of entities such as \textit{Athlete}, \textit{Species} or \textit{Disease}.
+This type information can be exploited in order to narrow down the set of allowed types for a given candidate and its potential annotations. In this way, we ensure that all entities will be, at least, related to the music domain. Restricting the search space to types such as Artist or Song reduces considerably the number of errors derived from cross-domain ambiguity. For instance, the entity linking system detects a substantial amount of entities whose DBpedia type is \textit{FictionalCharacter}, which are in most of the cases misleading song titles or band names with fictional characters of the same name. This situation is observed also with other types of entities such as \textit{Athlete}, \textit{Species} or \textit{Disease}.
 
 Depending on the envisioned application of the KB resulting from our pipeline, the predefined set of entity types may vary. In our case we restricted them to Musical Artists, Other Artists, Songs, Albums, Genres, Films and Record Labels. In Table~\ref{tbl:kb:type_mapping} we present the mapping between the DBpedia ontology, MusicBrainz entity types and our selected set of types.
 
@@ -157,7 +157,7 @@ RecordLabel & Agent/Organization/Company/RecordLabel & Label \\
 \end{table}
 %
 
-\subsection{Syntactic Semantic Integration}
+\subsection{Syntactic semantic integration}
 \label{sec:kb:method:syntsemint}
 
 The information obtained from the syntactic and semantic processes is combined into a graph representation of the sentence. For each music entity identified during the semantic processing step (Section~\ref{sec:kb:method:entitylinking}), all nodes in the dependency tree with a correspondence with an entity mention are collapsed into one single node: \textit{Sweet} and \textit{Freedom} into \textit{Seet Freedom (Album)}, and \textit{Rod} and \textit{Temperton} into \textit{Rod Temperton (Artist)}. Figure ~\ref{fig:kb:sampletree_combined} shows the resulting syntactic-semantic representation of a sentence.
@@ -184,15 +184,15 @@ The information obtained from the syntactic and semantic processes is combined i
 \end{figure}
 
 
-\subsection{Relation Extraction and Filtering}
+\subsection{Relation extraction and filtering}
 \label{sec:kb:method:re-filtering}
 
-Our approach to Relation Extraction is lightweight, unsupervised and rule-based. Having syntactic and semantic information available, potential relations between entities may be discovered by traversing the dependency tree.
+Our approach to relation extraction is lightweight, unsupervised and rule-based. Having syntactic and semantic information available, potential relations between entities may be discovered by traversing the dependency tree.
 Two entities in such tree are considered to be related if there is a path between them that does not contain any other entity in between, and does not contain parentheses. If there is more than one path, we consider only the shortest path as the most representative path of the relation.
 
 Our method encodes a relation pattern between two entities as all words in the shortest path between them. In the example provided in Figure ~\ref{fig:kb:sampletree_combined}, the shortest path between \emph{Sweet Freedom} and \emph{Rod Temperton} contains the words \textit{was}, \textit{written} and \textit{by}.
 
-While Relation Extraction via shortest path in syntactic trees is common practice in the literature \citep{DelliBovietal2015b,MoroandNavigli2012,Nakasholeetal2012}, not all shortest paths are valid, and incorrect relations may be extracted from overly long and syntactically complex sentences. We aim at surmounting these problems by defining three filtering heuristics over surface forms (\textit{lemma-paths}), part-of-speach patterns (\textit{pos-paths}), and labels of syntactic dependencies (\textit{dependency-paths}).
+While relation extraction via shortest path in syntactic trees is common practice in the literature \citep{DelliBovietal2015b,MoroandNavigli2012,Nakasholeetal2012}, not all shortest paths are valid, and incorrect relations may be extracted from overly long and syntactically complex sentences. We aim at surmounting these problems by defining three filtering heuristics over surface forms (\textit{lemma-paths}), part-of-speach patterns (\textit{pos-paths}), and labels of syntactic dependencies (\textit{dependency-paths}).
 
 First, we filter out all relations with reporting verbs (e.g. ``say'', ``tell'' or ``express'') in the lemma-path (see the full list of banned lemmas in Table~\ref{tbl:kb:rules}). The intuition being that sentences with these verbs are by definition syntactically complex, and semantic relations in them may not be encoded via shortest paths. We illustrate this with the following sample sentence, where the relation extracted with syntactic tree traversal by means of shortest path would be incorrect:
 
@@ -221,7 +221,7 @@ Second, we only selected relations where the syntactic function that connects in
     \label{tbl:kb:rules}
 \end{table}
 
-\subsection{Dependency-Based Loose Clustering}
+\subsection{Dependency-based loose clustering}
 \label{sec:kb:method:clustering}
 
 In this section we describe a simple but powerful clustering algorithm aimed at reducing the number of relation patterns in the KB. %noise in our relation patterns inventory.% inventory $\mathcal{P}$.
@@ -334,11 +334,11 @@ Finally, the global confidence measure for each relation $r \in R$ is expressed 
 score(r) = \left({s(\mathcal{R}_c) + \frac{|\mathcal{R}_p|}{|p|+2^{f(p)}}}\right) \times {\frac{|\mathcal{R}_{\tau_c}|}{|\mathcal{R}_c|}}
 \end{equation}
 
-As an illustrative example of the measure, the score of a relation with the typed cluster pattern $\langle$Song, \textit{was released on}, RecordLabel$\rangle$, will have a much higher score than a relation whose typed cluster pattern is $\langle$Album, \textit{was released on}, MusicalArtist$\rangle$. This latter pattern is incorrect, probably due to a disambiguation error in the Entity Linking step. Relations like this show the type of errors which our proposed confidence score is expected to consider for pruning.
+As an illustrative example of the measure, the score of a relation with the typed cluster pattern $\langle$Song, \textit{was released on}, RecordLabel$\rangle$, will have a much higher score than a relation whose typed cluster pattern is $\langle$Album, \textit{was released on}, MusicalArtist$\rangle$. This latter pattern is incorrect, probably due to a disambiguation error in the entity linking step. Relations like this show the type of errors which our proposed confidence score is expected to consider for pruning.
 
 
 
-\section{Experimental Setup}\label{sec:kb:exp}
+\section{Experimental setup}\label{sec:kb:exp}
 
 In this section, we describe our experimental setting. We refer first to the source raw corpus, and second to the resulting KBs as output of different branches of our approach.
 
@@ -349,15 +349,15 @@ Songfacts\footnote{\url{http://www.songfacts.com}} is an online database that co
 
 We crawled the Songfacts website in mid-January 2014. Then, for each song article, we performed a mapping between the song and its MusicBrainz recording ID, using the MusicBrainz Search API. We successfully mapped 27,655 songs.
 
-The described methdology was run over the 27,655 documents in the Songfacts corpus, which amounts to 306,398 sentences. After the Semantic Processing step, we obtained 202,767 linked entities (8,880 for \textit{Albums}, 3,136 \textit{Record Labels}, 74,908 \textit{Songs}, 107,253 \textit{Musical Artists}, 1,760 \textit{Genre} labels, 3,467 for \textit{Other Artist}, and 3,363 for \textit{Film}). There were 48,122 sentences with at least two entities, and it is on this subset where we apply our Relation Extraction pipeline.
+The described methdology was run over the 27,655 documents in the Songfacts corpus, which amounts to 306,398 sentences. After the Semantic Processing step, we obtained 202,767 linked entities (8,880 for \textit{Albums}, 3,136 \textit{Record Labels}, 74,908 \textit{Songs}, 107,253 \textit{Musical Artists}, 1,760 \textit{Genre} labels, 3,467 for \textit{Other Artist}, and 3,363 for \textit{Film}). There were 48,122 sentences with at least two entities, and it is on this subset where we apply our relation extraction pipeline.
 
 
-\subsection{Extracted Knowledge Bases}
+\subsection{Extracted knowledge bases}
 \label{sec:kb:exp:learnedkbs}
 
 Our aim is to assess to what extent each of the modules integrating our approach contributes to the quality of the resulting KB. After executing the whole pipeline, we generate two \textit{extracted} KBs (\textsc{KBSF}-ft and \textsc{KBSF}-th), two \textit{baseline} KBs (\textsc{KBSF}-co and \textsc{KBSF}-raw), and a \textit{competitor} KB (\textsc{KBSF}-rv). 
 
-The \textit{extracted} KBs are the result of applying the Relation Extraction method to the Songfacts dataset under different conditions. \textsc{KBSF}-ft is derived from applying the Relation Extraction pipeline entirely, and \textsc{KBSF}-th comes from a selection of all triples in \textsc{KBSF}-ft with a confidence score above a certain threshold. To determine the best threshold to prune \textsc{KBSF}-ft, we aimed at maximizing the number of triples and at the same time minimizing the number of relation patterns. Our intuition is that less patterns means a tidier KB. Therefore, we computed the percentage of triples and relation patterns from \textsc{KBSF}-ft that remain in a pruned KB, whose triples have a score greater than a certain threshold $\theta$. We computed these percentages for every $\theta$ value ranging from 0 to 1 in bins of 0.01 (see Figure \ref{fig:kb:th}). Our goal was to discover the $\theta$ value which maximizes the distance between the amount of triples and the amount of relation patterns in a pruned KB. After confirming a maximized difference with $\theta=0.05$, we created \textsc{KBSF}-th, whose triples have a score greater than or equal to 0.05. In this pruned KB, we have 36.56\% of \textsc{KBSF}-ft triples, with only 12.52\% of its relation patterns.
+The \textit{extracted} KBs are the result of applying the relation extraction method to the Songfacts dataset under different conditions. \textsc{KBSF}-ft is derived from applying the relation extraction pipeline entirely, and \textsc{KBSF}-th comes from a selection of all triples in \textsc{KBSF}-ft with a confidence score above a certain threshold. To determine the best threshold to prune \textsc{KBSF}-ft, we aimed at maximizing the number of triples and at the same time minimizing the number of relation patterns. Our intuition is that less patterns means a tidier KB. Therefore, we computed the percentage of triples and relation patterns from \textsc{KBSF}-ft that remain in a pruned KB, whose triples have a score greater than a certain threshold $\theta$. We computed these percentages for every $\theta$ value ranging from 0 to 1 in bins of 0.01 (see Figure \ref{fig:kb:th}). Our goal was to discover the $\theta$ value which maximizes the distance between the amount of triples and the amount of relation patterns in a pruned KB. After confirming a maximized difference with $\theta=0.05$, we created \textsc{KBSF}-th, whose triples have a score greater than or equal to 0.05. In this pruned KB, we have 36.56\% of \textsc{KBSF}-ft triples, with only 12.52\% of its relation patterns.
 
 \begin{figure}[!htp]
 \centerline{\framebox{
@@ -366,7 +366,7 @@ The \textit{extracted} KBs are the result of applying the Relation Extraction me
 \label{fig:kb:th}
 \end{figure}
 
-In addition, we created two baseline KBs for evaluation purposes. \textsc{KBSF}-co is a baseline which consists of simple entity co-occurrence. More specifically, if two entities are mentioned in the same sentence, an unlabelled triple that anchors them is added to the KB. In addition, \textsc{KBSF}-raw was created following the Relation Extraction pipeline, but without applying the filtering process described in Section~\ref{sec:kb:method:re-filtering}. Finally, \textsc{KBSF}-rv constitutes the competitor KB, and is built as follows: After running \textsc{ReVerb} \citep{Fader2011}, a state-of-the-art Relation Extraction system, over the Songfacts dataset, we search coinciding relations, at both domain and range positions, that include entity mentions identified in our disambiguation step. These relations are included in KBSF-rv. Statistics about the five KBs are reported in Table \ref{tab:kbs}.
+In addition, we created two baseline KBs for evaluation purposes. \textsc{KBSF}-co is a baseline which consists of simple entity co-occurrence. More specifically, if two entities are mentioned in the same sentence, an unlabelled triple that anchors them is added to the KB. In addition, \textsc{KBSF}-raw was created following the relation extraction pipeline, but without applying the filtering process described in Section~\ref{sec:kb:method:re-filtering}. Finally, \textsc{KBSF}-rv constitutes the competitor KB, and is built as follows: After running \textsc{ReVerb} \citep{Fader2011}, a state-of-the-art relation extraction system, over the Songfacts dataset, we search coinciding relations, at both domain and range positions, that include entity mentions identified in our disambiguation step. These relations are included in KBSF-rv. Statistics about the five KBs are reported in Table \ref{tab:kbs}.
 
 \begin{table*}[ht!]
 \scriptsize
@@ -392,32 +392,32 @@ In addition, we created two baseline KBs for evaluation purposes. \textsc{KBSF}-
 \section{Experiments}
 \label{sec:kb:experiments}
 
-\subsection{Quality of Entity Linking}
+\subsection{Quality of entity linking}
 \label{sec:kb:experiments:qualityentitylinking}
 
-%We mentioned in Section~\ref{sec:kb:method:entitylinking} the lacking of both music-specific Entity Linking tools as well as benchmarking datasets. For this reason, 
-In this section, we performed a set of experiments to select the best-suited Entity Linking tool for our task, among some of the best known and reputed. Specifically, we perform evaluation experiments on DBpedia Spotlight, TagMe and Babelfy. 
+%We mentioned in Section~\ref{sec:kb:method:entitylinking} the lacking of both music-specific entity linking tools as well as benchmarking datasets. For this reason, 
+In this section, we performed a set of experiments to select the best-suited entity linking tool for our task, among some of the best known and reputed. Specifically, we perform evaluation experiments on DBpedia Spotlight, TagMe and Babelfy. 
 
 %Let us briefly describe each of them: 
 
 %\begin{itemize}
-%    \item \textbf{Babelfy} \cite{Moroetal2014} A graph-based system for Entity Linking and Word Sense Disambiguation. It operates on the back of BabelNet, which serves as a reference sense inventory.
-%    \item \textbf{Tagme} \cite{Ferraginaetal2010} An Entity Linking automatic annotator which matches terms with Wikipedia hyperlink texts and disambiguates them using both the in-link graph and the page datasets. It incorporates a context-aware pruning step.
+%    \item \textbf{Babelfy} \cite{Moroetal2014} A graph-based system for entity linking and Word Sense Disambiguation. It operates on the back of BabelNet, which serves as a reference sense inventory.
+%    \item \textbf{Tagme} \cite{Ferraginaetal2010} An entity linking automatic annotator which matches terms with Wikipedia hyperlink texts and disambiguates them using both the in-link graph and the page datasets. It incorporates a context-aware pruning step.
 %    \item \textbf{DBpedia Spotlight} \cite{Mendes2011} Automatically identifies entity mentions in free text, linking each match with its corresponding DBpedia URI.
 %\end{itemize}
 
-As stated in Chapter~\ref{sec:linking}, most Entity Linking systems \textit{speak their own language}. Since their output is heterogeneous in format, performing a comparison between them is not straightforward. In order to evaluate the aforementioned Entity Linking systems, we used \textsc{ELVIS} (see Section~\ref{sec:linking:elvis}), an Entity Linking integration tool which provides a common output for different Entity Linking system.
+As stated in Chapter~\ref{sec:linking}, most entity linking systems \textit{speak their own language}. Since their output is heterogeneous in format, performing a comparison between them is not straightforward. In order to evaluate the aforementioned entity linking systems, we used \textsc{ELVIS} (see Section~\ref{sec:linking:elvis}), an entity linking integration tool which provides a common output for different entity linking system.
 
 In addition, we created a dataset of annotated musical entities based on our corpus of documents, and applied both quantitative and qualitative evaluations in order to verify which system performs better with musical entities, and is more suitable for our task.
 
 
 
-\subsubsection{Evaluation Data}
+\subsubsection{Evaluation data}
 
-We created an \textit{ad-hoc} ground truth dataset to evaluate the different Entity Linking systems in an excerpt of the corpus where they will be later applied, the Songfacts dataset (Section~\ref{sec:kb:exp:dataset}). In this corpus, each document univocously refers to one single song. In addition, we have information about artist and song names at our disposal. We used this information to obtain the MusicBrainz ID for songs and artists. In MusicBrainz, artist and song items sometimes have information about their equivalent Wikipedia page. We leveraged this information, when available, to obtain their corresponding DBpedia URIs. Finally, we obtained a mapping with DBpedia of 7,691 songs and 3,670 artists. From the DBpedia data about each song, we gathered their corresponding album name and URI, if available, obtaining information of about 2,092 albums. Then, for every document, we looked for exact string matches of the reported song, and its related album and artist names. Every detected entity is thus annotated with its DBpedia URI. At the end of this process, the newly created evaluation dataset contains 6,052 documents where 17,583 sentences are annotated with the following entities: 5,981 Song, 12,137 Artist and 1,722 Album entities. As mentioned in Section~\ref{sec:kb:method:entitylinking}, there are typical cases of ambiguity in musical entities where songs, artists and albums can potentially share the same name. Therefore, we manually corrected the entities detected in 212 documents where this kind of ambiguity was present.
+We created an \textit{ad-hoc} ground truth dataset to evaluate the different entity linking systems in an excerpt of the corpus where they will be later applied, the Songfacts dataset (Section~\ref{sec:kb:exp:dataset}). In this corpus, each document univocously refers to one single song. In addition, we have information about artist and song names at our disposal. We used this information to obtain the MusicBrainz ID for songs and artists. In MusicBrainz, artist and song items sometimes have information about their equivalent Wikipedia page. We leveraged this information, when available, to obtain their corresponding DBpedia URIs. Finally, we obtained a mapping with DBpedia of 7,691 songs and 3,670 artists. From the DBpedia data about each song, we gathered their corresponding album name and URI, if available, obtaining information of about 2,092 albums. Then, for every document, we looked for exact string matches of the reported song, and its related album and artist names. Every detected entity is thus annotated with its DBpedia URI. At the end of this process, the newly created evaluation dataset contains 6,052 documents where 17,583 sentences are annotated with the following entities: 5,981 Song, 12,137 Artist and 1,722 Album entities. As mentioned in Section~\ref{sec:kb:method:entitylinking}, there are typical cases of ambiguity in musical entities where songs, artists and albums can potentially share the same name. Therefore, we manually corrected the entities detected in 212 documents where this kind of ambiguity was present.
 
 
-\subsubsection{Entity Linking Evaluation}
+\subsubsection{Entity linking evaluation}
 
 \begin{table}[]
 \scriptsize
@@ -444,12 +444,12 @@ Spotlight & 0.80 & 0.52 & 0.94 & 0.83 & 0.59 & 0.42 & 0.78 & 0.59 & 0.67 \\
 \label{fig:kb:confidence_el}
 \end{figure}
 
-The three Entity Linking systems under review provide their own confidence measure. Hence, we evaluated their output filtering out the entities with a confidence measure below to a certain threshold $\delta$. We run the evaluation for different values of $\delta$, ranging from 0 to 0.9 in bins of 0.1. After evaluating on the ground truth dataset, the best results in terms of F-measure were obtained by all the systems at $\delta = 0$ (see Figure ~\ref{fig:kb:confidence_el}), which means that there is no need to apply any filtering process based on the Entity Linking system own confidence score. Detailed results on the run of every system at $\delta = 0$ are shown in Table~\ref{tbl:kb:res_categories}. We used macro-average Precision and Recall measures, i.e. we averaged their values from the three sets of entities.
+The three entity linking systems under review provide their own confidence measure. Hence, we evaluated their output filtering out the entities with a confidence measure below to a certain threshold $\delta$. We run the evaluation for different values of $\delta$, ranging from 0 to 0.9 in bins of 0.1. After evaluating on the ground truth dataset, the best results in terms of F-measure were obtained by all the systems at $\delta = 0$ (see Figure ~\ref{fig:kb:confidence_el}), which means that there is no need to apply any filtering process based on the entity linking system own confidence score. Detailed results on the run of every system at $\delta = 0$ are shown in Table~\ref{tbl:kb:res_categories}. We used macro-average Precision and Recall measures, i.e. we averaged their values from the three sets of entities.
 
 We may conclude from these results that Babelfy is the system with highest Precision on musical entities. However, its recall is lower than the other systems under consideration, and specifically with respect to Tagme, which in turn, shows much lower precision. DBpedia Spotlight, on the other hand, achieves a similar precision score as Tagme, but with a slightly lower recall. 
 
 This evaluation experiment is only focused on measuring the precision in the annotation of entities present in the ground truth dataset. However, since all possible entities in a document may be not annotated, we also report on specific types of false positives which emerged during a qualitative inspection of classification results. For example, a frequent error that is not being evaluated concerns cases in which a text span not annotated in the ground truth is identified incorrectly as an entity by any system. Therefore, to complement the evaluation, we listed the most frequently identified entities by each system (see Table~\ref{tbl:kb:top_entities}). As we can see, Babelfy and Tagme are misidentifying common words as entities very frequently, whereas DBpedia Spotlight is not doing so. 
-These errors may propagate to the rest of the Relation Extraction pipeline, penalizing the accuracy of the final KB.
+These errors may propagate to the rest of the relation extraction pipeline, penalizing the accuracy of the final KB.
 Although a filtering process could be applied to filter out misidentified entities by computing their tf-idf score in each document, we opted for using DBpedia Spotlight, as it has shown pretty good performance, its output does not require any further processing, and it is released as open source, which means that there are no limitations on the number of queries.
 
 \begin{table*}[ht!]
@@ -484,7 +484,7 @@ System & Song & Album & Artist \\
 \end{table*}
 
 
-\subsection{Quality of Relations}
+\subsection{Quality of relations}
 \label{sec:kb:experiments:qualityofrelations}
 
 \begin{figure}[t]
@@ -507,7 +507,7 @@ System & Song & Album & Artist \\
     \caption[Precision of relations.]{Precision of relations at sentence (\textit{s}), relation pattern (\textit{p}) and cluster pattern (\textit{c}) levels in top (\textit{top}) and random (\textit{rnd}) samples of relations}\label{fig:kb:eval_relations}
 \end{figure}
 
-Relation Extraction evaluation is not trivial, as semantic relations between entities may vary in terms of correctness over time. Also, correct relations may be linguistically flawed, i.e. not fluent. Previous approaches assessed automatically extracted relations in terms of correctness according to human judgment \citep{Fader2011,Mausam2012}. Additionally, a finer grained analysis is carried out in \cite{Bankoetal2007}, adding a prior step in which relations are judged as being \textit{concrete} or \textit{abstract}.
+Relation extraction evaluation is not trivial, as semantic relations between entities may vary in terms of correctness over time. Also, correct relations may be linguistically flawed, i.e. not fluent. Previous approaches assessed automatically extracted relations in terms of correctness according to human judgment \citep{Fader2011,Mausam2012}. Additionally, a finer grained analysis is carried out in \cite{Bankoetal2007}, adding a prior step in which relations are judged as being \textit{concrete} or \textit{abstract}.
 
 In this chapter, we made use of extensive human input and asked two experts in Computational Linguistics to evaluate the \textit{top 100} scoring relations as yielded by our weighting policy (Section \ref{sec:kb:method:scoring}), as well as a random sample of 100 relations. This was done for all the KBs produced by our pipeline and for \textsc{KBSF}-rv. Cohen's kappa coefficient ranged from 0.60 to 0.81, which is generally considered as \textit{substantial} agreement.
 
@@ -518,10 +518,10 @@ It is remarkable how well \textsc{ReVerb} performs (Figure \ref{fig:kb:p_pattern
 
 This is further confirmed in the results showcased in Figure \ref{fig:kb:p_clusters}, where we provide a comparison between top 100 relations according to our ranking policy against a random sample. Note that \textit{in all KBs, highly scoring relations are more often marked as correct}, which constitutes additional support for the contribution of the scoring module. Together with the quality of the relation pattern, this figure shows the quality of the cluster pattern associated with the evaluated relations. We observe that cluster patterns inferred in our clustering module have similar quality than relation patterns in the random sample, and slightly better in the top 100 sample. This result implies that the scoring module is rewarding good clusters.
 
-\subsection{Coverage of the Extracted Knowledge Base}
+\subsection{Coverage of the extracted knowledge base}
 \label{sec:kb:experiments:coverage}
 
-With this experiment, we aim to compare the coverage of music relations in our final KB with respect to other resources with human intervention, such as DBpedia, MusicBrainz, and with automatically created resources. For the latter, we considered \textsc{DefIE} \citep{DelliBovietal2015b} as our closest competitor due to several methodological similarities (dependency parsing, Entity Linking and Relation Extraction over shortest paths). 
+With this experiment, we aim to compare the coverage of music relations in our final KB with respect to other resources with human intervention, such as DBpedia, MusicBrainz, and with automatically created resources. For the latter, we considered \textsc{DefIE} \citep{DelliBovietal2015b} as our closest competitor due to several methodological similarities (dependency parsing, entity linking and relation extraction over shortest paths). 
 
 We selected all triples in \textsc{KBSF}-th whose domain and range entities could be mapped to both DBpedia and MusicBrainz. %As our extracted KB has only MusicBrainz ID of entities of types MusicalArtist and Song, the set of triples to evaluate is restricted to relations between them. 
 In addition, since entities in \textsc{DefIE} are disambiguated against BabelNet ids, we mapped all DBpedia uris to their corresponding BabelNet id. After mapping the entities, we obtained a subset of 3,633 triples. From here, we selected all possible pairs of domain-range entities present in these triples, and retrieved from the other KBs all triples involving the same pairs, and counted them.
@@ -547,7 +547,7 @@ Mapping results are shown in Table~\ref{tbl:kb:coverage}. Let us highlight the f
 \end{table}
 
 
-\subsection{Interpretation of Music Recommendations}
+\subsection{Interpretation of music recommendations}
 \label{sec:kb:experiments:recommendation}
 
 The main aim of this experiment is to evaluate the suitability of \textsc{KBSF}-th to explain relations between songs, and study their impact on user's experience in music recommendation. 
@@ -577,9 +577,9 @@ We also asked the subjects to select among a set of adjectives those that better
 
 We have presented an NLP pipeline that extracts a Knowledge Base in the music domain taking raw text collections as input. It combines methods easily applicable to a general purpose application with domain-specific heuristics which are designed to exploit particularities of the domain.
 
-The result of applying our approach over a dataset of stories about songs is a new Music Knowledge Base, which encodes semantic relations among musical entities. Our method relies on the syntactic structure (defined via dependency parsing) of sentences and the use and adaptation of music-specific heuristics for both Entity Linking and Relation Extraction. In addition, we include modules for semantic clustering and pattern scoring, aimed at the efficient removal of noisy relations. Our modular evaluation shows that our Relation Extraction module is able to capture a highly precise and compact set of weighted triples, and demonstrates the positive impact of the novel scoring metric we introduced. Moreover, we have shown that a high percentage of the knowledge encoded in our MKB is not present in other KBs, both general and domain-specific. Finally, regarding extrinsic evaluation, the experiment on recommendation interpretation confirms that explanations based on the extracted KB are positively regarded by the users.
+The result of applying our approach over a dataset of stories about songs is a new Music Knowledge Base, which encodes semantic relations among musical entities. Our method relies on the syntactic structure (defined via dependency parsing) of sentences and the use and adaptation of music-specific heuristics for both entity linking and relation extraction. In addition, we include modules for semantic clustering and pattern scoring, aimed at the efficient removal of noisy relations. Our modular evaluation shows that our relation extraction module is able to capture a highly precise and compact set of weighted triples, and demonstrates the positive impact of the novel scoring metric we introduced. Moreover, we have shown that a high percentage of the knowledge encoded in our MKB is not present in other KBs, both general and domain-specific. Finally, regarding extrinsic evaluation, the experiment on recommendation interpretation confirms that explanations based on the extracted KB are positively regarded by the users.
 
 %In the following chapter, we propose a method 
 
-%We have identified several promising avenues for future work. For instance, we would like to extend our experiments to other music datasets of varied registers (e.g. social networks, magazines, encyclopedias), in order to fully understand the core differences between this domain and standard language. This should give an approximate idea of whether we need specific tools in certain specific NLP tasks. For instance, it seems reasonable to envision a music Entity Linking tool that is able to cope better with certain particularities of the domain.
+%We have identified several promising avenues for future work. For instance, we would like to extend our experiments to other music datasets of varied registers (e.g. social networks, magazines, encyclopedias), in order to fully understand the core differences between this domain and standard language. This should give an approximate idea of whether we need specific tools in certain specific NLP tasks. For instance, it seems reasonable to envision a music entity linking tool that is able to cope better with certain particularities of the domain.
 %In addition, the development of new methodologies in Music Information Retrieval that exploit MKBs is still an open area of research.
