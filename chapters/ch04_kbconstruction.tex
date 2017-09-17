@@ -31,25 +31,25 @@ The rest of this chapter is organized as follows. In Section~\ref{sec:kb:method}
 \section{Method}
 \label{sec:kb:method}
 
-We propose a comprehensive pipeline that extracts a full-fledged MKB taking as input raw text collections. The experiments we report in this chapter are the result of applying our method to a dataset of plain text extracted from the Songfacts\footnote{\url{http://www.songfacts.com}} website (see Section~\ref{sec:kb:exp:dataset}). This is a well suited resource both for KB construction and as a testebed for relation extraction due to its specificity. Essentially, Songfacts documents, while not being as rigid as encyclopedic text or newswire text, remain well-formed, sentences make sense, and there is no need for \textit{ad-hoc} preprocessing (as it is required in social networks, e.g. Twitter). Our method, however, can be ported with little effort to music-related corpora of different registers.
+We propose a comprehensive pipeline that extracts a full-fledged MKB taking as input raw text collections. The experiments we report in this chapter are the result of applying our method to a dataset of plain text extracted from the Songfacts\footnote{\url{http://www.songfacts.com}} website (see Section~\ref{sec:kb:exp:dataset}). This is a well suited resource both for KB construction and as a testebed for relation extraction due to its specificity. Essentially, Songfacts documents, while not being as rigid as encyclopedic text or newswire text, remain well-formed, sentences make sense, and there is no need for \textit{ad-hoc} preprocessing (as it is required in social networks, e.g., Twitter). Our method, however, can be ported with little effort to music-related corpora of different registers.
 
 \subsection{Notation}
 
-Our method focuses on the extraction of semantic relations between pairs of linked entities (e.g. \textit{Born in the USA}$_{dbr}$, \textit{Bruce Springsteen}$_{dbr}$\footnote{We use the \textit{dbr} subscript to refer to disambiguated entities linked to DBpedia resources.}), which are in turn associated to specific entity types (e.g. \textit{Album}, \textit{MusicalArtist}). In our KB, a relation $r$ is defined by the tuple $\langle \textbf{\textit{e}}{_\textbf{\textit{d}}},
+Our method focuses on the extraction of semantic relations between pairs of linked entities (e.g., \textit{Born in the USA}$_{dbr}$, \textit{Bruce Springsteen}$_{dbr}$\footnote{We use the \textit{dbr} subscript to refer to disambiguated entities linked to DBpedia resources.}), which are in turn associated to specific entity types (e.g., \textit{Album}, \textit{MusicalArtist}). In our KB, a relation $r$ is defined by the tuple $\langle \textbf{\textit{e}}{_\textbf{\textit{d}}},
 \textbf{\textit{e}}{_\textbf{\textit{r}}},
 \boldsymbol\upsilon{_\textbf{\textit{d}}},
 \boldsymbol\upsilon{_\textbf{\textit{r}}},
 \textbf{\textit{p}}, \textbf{\textit{c}}\rangle$, where \textbf{\textit{d}} and \textbf{\textit{r}} refer to domain and range positions, $\textbf{\textit{e}}{_\textbf{\textit{d}}}$ and $\textbf{\textit{e}}{_\textbf{\textit{r}}}$ to the entities involved in the relation, $\boldsymbol\upsilon{_\textbf{\textit{d}}}$ and
 $\boldsymbol\upsilon{_\textbf{\textit{r}}}$ to their associated entity types, \textbf{\textit{p}} to a relation pattern, and \textbf{\textit{c}} to a cluster pattern.  
-A relation pattern is a relation label that may be used in one or several relations (e.g \textit{was recorded by frontman}, \textit{was recorded by singer/songwriter}). Relation patterns with similar semantic and syntactic characteristics may be grouped into cluster patterns (e.g. \textit{was recorded by}). 
+A relation pattern is a relation label that may be used in one or several relations (e.g \textit{was recorded by frontman}, \textit{was recorded by singer/songwriter}). Relation patterns with similar semantic and syntactic characteristics may be grouped into cluster patterns (e.g., \textit{was recorded by}). 
 $\mathcal{R}$ denotes the set of all extracted relations included in the KB.
 For each $r \in \mathcal{R}$, triples of different nature can be constructed by arbitrarily combining elements in $r$.
 
 \begin{itemize}
-    \item $t_\textbf{\textit{p}}: \langle \textbf{\textit{e}}{_\textbf{\textit{d}}},\textbf{\textit{p}},\textbf{\textit{e}}{_\textbf{\textit{r}}} \rangle$ , e.g. \{\textit{Born in the USA}$_{dbr}$ - \textit{was recorded by frontman} - \textit{Bruce Springsteen}$_{dbr}$\}.
-    \item $t_\textbf{\textit{c}}: \langle \textbf{\textit{e}}{_\textbf{\textit{d}}},\textbf{\textit{c}},\textbf{\textit{e}}{_\textbf{\textit{r}}} \rangle$ , e.g. \{\textit{Born in the USA}$_{dbr}$ - \textit{was recorded by} - \textit{Bruce Springsteen}$_{dbr}$\}.
-    \item $\tau_\textbf{\textit{p}}: \langle \boldsymbol\upsilon{_\textbf{\textit{d}}},\textbf{\textit{p}},\boldsymbol\upsilon{_\textbf{\textit{r}}} \rangle$ , e.g. \{\textit{Album} - \textit{was recorded by frontman} - \textit{MusicalArtist}\}.
-    \item $\tau_\textbf{\textit{c}}: \langle \boldsymbol\upsilon{_\textbf{\textit{d}}},\textbf{\textit{c}},\boldsymbol\upsilon{_\textbf{\textit{r}}} \rangle$ , e.g. \{\textit{Album} - \textit{was recorded by} - \textit{MusicalArtist}\}.
+    \item $t_\textbf{\textit{p}}: \langle \textbf{\textit{e}}{_\textbf{\textit{d}}},\textbf{\textit{p}},\textbf{\textit{e}}{_\textbf{\textit{r}}} \rangle$ , e.g., \{\textit{Born in the USA}$_{dbr}$ - \textit{was recorded by frontman} - \textit{Bruce Springsteen}$_{dbr}$\}.
+    \item $t_\textbf{\textit{c}}: \langle \textbf{\textit{e}}{_\textbf{\textit{d}}},\textbf{\textit{c}},\textbf{\textit{e}}{_\textbf{\textit{r}}} \rangle$ , e.g., \{\textit{Born in the USA}$_{dbr}$ - \textit{was recorded by} - \textit{Bruce Springsteen}$_{dbr}$\}.
+    \item $\tau_\textbf{\textit{p}}: \langle \boldsymbol\upsilon{_\textbf{\textit{d}}},\textbf{\textit{p}},\boldsymbol\upsilon{_\textbf{\textit{r}}} \rangle$ , e.g., \{\textit{Album} - \textit{was recorded by frontman} - \textit{MusicalArtist}\}.
+    \item $\tau_\textbf{\textit{c}}: \langle \boldsymbol\upsilon{_\textbf{\textit{d}}},\textbf{\textit{c}},\boldsymbol\upsilon{_\textbf{\textit{r}}} \rangle$ , e.g., \{\textit{Album} - \textit{was recorded by} - \textit{MusicalArtist}\}.
 \end{itemize}
 
 Finally, different subsets of $\mathcal{R}$ may be constructed by selectively filtering all $r \in \mathcal{R}$.  
@@ -101,9 +101,9 @@ NN \& NN \& VBD \& VBN \& IN \& NNP \& NNP \\
 \label{sec:kb:method:entitylinking}
 
 Entity linking acts as a semantic bridge between plain text and a reference knowledge inventory. %While there are a number of popular Entity Linking systems which are not bound to any domain or discipline, 
-As explained in Chapter~\ref{sec:linking}, there is no benchmark of entity linking systems in the music domain, so we do not know \textit{a priori} how well the different systems behave in music corpora. Musical entities may raise a plethora of challenges, derived mostly from ambiguity and polysemy. For example, an album may have the same name as the band who recorded it (e.g. \textit{Weezer} the band and their first album). Moreover, an artist, a song or an album may have words or expressions much more common in another domain or area of knowledge (e.g. \textit{Berlin, The Who}). Thus, the choice of the best entity linking algorithm or off-the-shelf tool(s) is crucial, as potential errors may propagate throughout the different modules and hinder considerably the quality of the resulting KB.
+As explained in Chapter~\ref{sec:linking}, there is no benchmark of entity linking systems in the music domain, so we do not know \textit{a priori} how well the different systems behave in music corpora. Musical entities may raise a plethora of challenges, derived mostly from ambiguity and polysemy. For example, an album may have the same name as the band who recorded it (e.g., \textit{Weezer} the band and their first album). Moreover, an artist, a song or an album may have words or expressions much more common in another domain or area of knowledge (e.g., \textit{Berlin, The Who}). Thus, the choice of the best entity linking algorithm or off-the-shelf tool(s) is crucial, as potential errors may propagate throughout the different modules and hinder considerably the quality of the resulting KB.
 
-Among the available entity linking systems we considered, namely TagMe \citep{Ferraginaetal2010}, Babelfy \citep{Moroetal2014} and DBpedia Spotlight \citep{Mendes2011}, we opted for the latter, as it has shown to be the least prone to errors in our corpus (further details are provided in Section~\ref{sec:kb:experiments:qualityentitylinking}).
+Among the available entity linking systems we considered, namely TagMe \citep{Ferraginaetal2010}, Babelfy \citep{Moroetal2014}, and DBpedia Spotlight \citep{Mendes2011}, we opted for the latter, as it has shown to be the least prone to errors in our corpus (further details are provided in Section~\ref{sec:kb:experiments:qualityentitylinking}).
 
 \subsubsection{Adding co-references}
 
@@ -123,7 +123,7 @@ In DBpedia, most resources are associated with one or more types via the \texttt
 
 This type information can be exploited in order to narrow down the set of allowed types for a given candidate and its potential annotations. In this way, we ensure that all entities will be, at least, related to the music domain. Restricting the search space to types such as Artist or Song reduces considerably the number of errors derived from cross-domain ambiguity. For instance, the entity linking system detects a substantial amount of entities whose DBpedia type is \textit{FictionalCharacter}, which are in most of the cases misleading song titles or band names with fictional characters of the same name. This situation is observed also with other types of entities such as \textit{Athlete}, \textit{Species} or \textit{Disease}.
 
-Depending on the envisioned application of the KB resulting from our pipeline, the predefined set of entity types may vary. In our case we restricted them to Musical Artists, Other Artists, Songs, Albums, Genres, Films and Record Labels. In Table~\ref{tbl:kb:type_mapping} we present the mapping between the DBpedia ontology, MusicBrainz entity types and our selected set of types.
+Depending on the envisioned application of the KB resulting from our pipeline, the predefined set of entity types may vary. In our case we restricted them to Musical Artists, Other Artists, Songs, Albums, Genres, Films and Record Labels. In Table~\ref{tbl:kb:type_mapping} we present the mapping between the DBpedia ontology, MusicBrainz entity types, and our selected set of types.
 
 \begin{table}[]
 \scriptsize
@@ -194,14 +194,14 @@ Our method encodes a relation pattern between two entities as all words in the s
 
 While relation extraction via shortest path in syntactic trees is common practice in the literature \citep{DelliBovietal2015b,MoroandNavigli2012,Nakasholeetal2012}, not all shortest paths are valid, and incorrect relations may be extracted from overly long and syntactically complex sentences. We aim at surmounting these problems by defining three filtering heuristics over surface forms (\textit{lemma-paths}), part-of-speach patterns (\textit{pos-paths}), and labels of syntactic dependencies (\textit{dependency-paths}).
 
-First, we filter out all relations with reporting verbs (e.g. ``say'', ``tell'' or ``express'') in the lemma-path (see the full list of banned lemmas in Table~\ref{tbl:kb:rules}). The intuition being that sentences with these verbs are by definition syntactically complex, and semantic relations in them may not be encoded via shortest paths. We illustrate this with the following sample sentence, where the relation extracted with syntactic tree traversal by means of shortest path would be incorrect:
+First, we filter out all relations with reporting verbs (e.g., ``say'', ``tell'' or ``express'') in the lemma-path (see the full list of banned lemmas in Table~\ref{tbl:kb:rules}). The intuition being that sentences with these verbs are by definition syntactically complex, and semantic relations in them may not be encoded via shortest paths. We illustrate this with the following sample sentence, where the relation extracted with syntactic tree traversal by means of shortest path would be incorrect:
 
 \begin{itemize}
 \item[] \textbf{Sentence:} \texttt{Nile Rodgers} \textit{told} NME that the first album he bought was Impressions by \texttt{John Coltrane}.
 \item[] \textbf{Relation}: \texttt{nile\_rodgers} told that was impressions by \texttt{john\_coltrane}
 \end{itemize}
 
-Second, we only selected relations where the syntactic function that connects in the dependency-path the fist entity with the first word of the relation pattern is a subject (which may be preceded by a nominal modifier or an apposition), a direct or indirect object, a predicative complement or a verb chain (see the full list of allowed patterns in Table~\ref{tbl:kb:rules}). When this condition holds, the relation is considered \textit{valid}. If the above condition does not hold, an extra validation step is applied over the pos-path in order to capture relations without verbs, which seem to be idiosyncratic of the music domain, e.g. $\langle e_d, \mbox{\texttt{frontman of}}, e_r \rangle$, $\langle e_d, \mbox{\texttt{drummer}}, e_r \rangle$, or $\langle e_d, \mbox{\texttt{guitarist and singer}}, e_r \rangle$ (see the full list of allowed pos patterns in Table~\ref{tbl:kb:rules}).
+Second, we only selected relations where the syntactic function that connects in the dependency-path the fist entity with the first word of the relation pattern is a subject (which may be preceded by a nominal modifier or an apposition), a direct or indirect object, a predicative complement or a verb chain (see the full list of allowed patterns in Table~\ref{tbl:kb:rules}). When this condition holds, the relation is considered \textit{valid}. If the above condition does not hold, an extra validation step is applied over the pos-path in order to capture relations without verbs, which seem to be idiosyncratic of the music domain, e.g., $\langle e_d, \mbox{\texttt{frontman of}}, e_r \rangle$, $\langle e_d, \mbox{\texttt{drummer}}, e_r \rangle$, or $\langle e_d, \mbox{\texttt{guitarist and singer}}, e_r \rangle$ (see the full list of allowed pos patterns in Table~\ref{tbl:kb:rules}).
 
 \begin{table}[]
 \scriptsize
@@ -228,7 +228,7 @@ In this section we describe a simple but powerful clustering algorithm aimed at 
 
 Let us consider the following three relation patterns: (1) \textit{was written by blunt producer}, (2) \textit{was written by singer/producer}, and (3) \textit{was written by manager and guitarist}. Intuitively, these three relation patterns seem to be semantically similar, and if all of them were expressed as \textit{was written by}, the original meaning would not be lost, and the set of relations would become more compact.
 
-This observation, which we found to occur quite frequently, motivated the inclusion of a \textit{dependency-based loose clustering} module. First, we perform a second run of dependency parsing over all relation patterns extracted by our system, aiming at discovering their root node. We apply this second run because the root of the original sentence does not need to correspond with the relation pattern's root. Then, our algorithm considers all possible paths from the root to every leaf node of the relation pattern dependency tree, and selects the path that complies with a predefined syntactic constraint (e.g. a sequence of verbs plus adverb or preposition, or adverb plus nominal and preposition modifiers) based on regular expressions of syntactic labels. The sequence of tokens that matches this regular expression constitutes the cluster pattern. The complete set of defined regular expressions is reported in Table~\ref{tbl:kb:expressions}. %included in the released source code.
+This observation, which we found to occur quite frequently, motivated the inclusion of a \textit{dependency-based loose clustering} module. First, we perform a second run of dependency parsing over all relation patterns extracted by our system, aiming at discovering their root node. We apply this second run because the root of the original sentence does not need to correspond with the relation pattern's root. Then, our algorithm considers all possible paths from the root to every leaf node of the relation pattern dependency tree, and selects the path that complies with a predefined syntactic constraint (e.g., a sequence of verbs plus adverb or preposition, or adverb plus nominal and preposition modifiers) based on regular expressions of syntactic labels. The sequence of tokens that matches this regular expression constitutes the cluster pattern. The complete set of defined regular expressions is reported in Table~\ref{tbl:kb:expressions}. %included in the released source code.
 
 \begin{table}[]
 \scriptsize
@@ -237,7 +237,7 @@ This observation, which we found to occur quite frequently, motivated the inclus
     \hline
     Regular Expressions \\
     \hline
-    \^(VC)+\textbackslash s*(DEP|LGS|LOC|TMP) \\
+    $\^(VC)+\textbackslash s*(DEP|LGS|LOC|TMP)$ \\
     \^(VC)+\textbackslash s+(ADV)\\s*(PMOD|NMOD|AMOD)* \\
     \^(DEP|LGS|LOC|TMP) \\
     \^(APPO)\textbackslash s+(LGS) \\
@@ -529,7 +529,7 @@ The procedure to do so on DBpedia was via SPARQL queries.
 From the retrieved triples after querying, we discarded those with predicate \textit{wikiPageWikiLink}, as this predicate means an unlabeled relation. By contrast, the mapping with MusicBrainz was not trivial. MusicBrainz is not a KB of triples, but a relational database. Entities are stored in tables, and relations between entities are represented in a set of tables of relations, having one table for each possible relation. %The entities in the studied set of triples were only of type MusicalArtist and Song. However, 
 In addition, an entity of type Song in \textsc{KBSF}-th can be related to either a Recording or a Work entity in MusicBrainz (see Section~\ref{sec:kb:method:typefiltering}). Therefore, for the analysis of relations involving a Song entity, we obtained the equivalent Recording and Work MusicBrainz entities, and looked up relations where any of them where present.
 
-Mapping results are shown in Table~\ref{tbl:kb:coverage}. Let us highlight the fact that most semantic relations encoded in \textsc{KBSF}-th are novel, as they were not found in any of the other resources we compared against. In the overlapping cases, most of the times the relation labels were semantically equivalent, and often the relation label of \textsc{KBSF}-th triples was more specific than the ones retrieved from other KBs (e.g. \textit{frontman} vs. \textit{member of})
+Mapping results are shown in Table~\ref{tbl:kb:coverage}. Let us highlight the fact that most semantic relations encoded in \textsc{KBSF}-th are novel, as they were not found in any of the other resources we compared against. In the overlapping cases, most of the times the relation labels were semantically equivalent, and often the relation label of \textsc{KBSF}-th triples was more specific than the ones retrieved from other KBs (e.g., \textit{frontman} vs. \textit{member of})
 
 \begin{table}[]
 %\scriptsize
