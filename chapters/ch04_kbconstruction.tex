@@ -356,7 +356,7 @@ We crawled the Songfacts website in mid-January 2014. Then, for each song articl
 The described methdology was run over the 27,655 documents in the Songfacts corpus, which amounts to 306,398 sentences. After the Semantic Processing step, we obtained 202,767 linked entities (8,880 for \textit{Albums}, 3,136 \textit{Record Labels}, 74,908 \textit{Songs}, 107,253 \textit{Musical Artists}, 1,760 \textit{Genre} labels, 3,467 for \textit{Other Artist}, and 3,363 for \textit{Film}). There were 48,122 sentences with at least two entities, and it is on this subset where we apply our relation extraction pipeline.
 
 
-\subsection{Extracted knowledge bases}
+\subsection{Extracted Knowledge Bases}
 \label{sec:kb:exp:learnedkbs}
 
 Our aim is to assess to what extent each of the modules integrating our approach contributes to the quality of the resulting KB. After executing the whole pipeline, we generate two \textit{extracted} KBs (\textsc{KBSF}-ft and \textsc{KBSF}-th), two \textit{baseline} KBs (\textsc{KBSF}-co and \textsc{KBSF}-raw), and a \textit{competitor} KB (\textsc{KBSF}-rv). 
@@ -503,7 +503,7 @@ System & Song & Album & Artist \\
         \caption{Relation patterns}
         \label{fig:kb:p_patterns}
     \end{subfigure}
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.70\textwidth}
         \includegraphics[width=\textwidth]{ch04_kbconstruction_pics/eval_p_c.eps}
         \caption{Patterns and clusters}
         \label{fig:kb:p_clusters}
@@ -522,16 +522,16 @@ It is remarkable how well \textsc{ReVerb} performs (Figure \ref{fig:kb:p_pattern
 
 This is further confirmed in the results showcased in Figure \ref{fig:kb:p_clusters}, where we provide a comparison between top 100 relations according to our ranking policy against a random sample. Note that \textit{in all KBs, highly scoring relations are more often marked as correct}, which constitutes additional support for the contribution of the scoring module. Together with the quality of the relation pattern, this figure shows the quality of the cluster pattern associated with the evaluated relations. We observe that cluster patterns inferred in our clustering module have similar quality than relation patterns in the random sample, and slightly better in the top 100 sample. This result implies that the scoring module is rewarding good clusters.
 
-\subsection{Coverage of the extracted knowledge base}
+\subsection{Coverage of the extracted Knowledge Base}
 \label{sec:kb:experiments:coverage}
 
-With this experiment, we aim to compare the coverage of music relations in our final KB with respect to other resources with human intervention, such as DBpedia, MusicBrainz, and with automatically created resources. For the latter, we considered \textsc{DefIE} \citep{DelliBovietal2015b} as our closest competitor due to several methodological similarities (dependency parsing, entity linking and relation extraction over shortest paths). 
+With this experiment, we aim to compare the coverage of music relations in our final KB with respect to other resources with human intervention, such as DBpedia, MusicBrainz, and with automatically created resources. For the latter, we considered \textsc{DefIE} \citep{DelliBovietal2015b} as our closest competitor due to several methodological similarities (dependency parsing, entity linking, and relation extraction over shortest paths). 
 
 We selected all triples in \textsc{KBSF}-th whose domain and range entities could be mapped to both DBpedia and MusicBrainz. %As our extracted KB has only MusicBrainz ID of entities of types MusicalArtist and Song, the set of triples to evaluate is restricted to relations between them. 
 In addition, since entities in \textsc{DefIE} are disambiguated against BabelNet ids, we mapped all DBpedia uris to their corresponding BabelNet id. After mapping the entities, we obtained a subset of 3,633 triples. From here, we selected all possible pairs of domain-range entities present in these triples, and retrieved from the other KBs all triples involving the same pairs, and counted them.
 The procedure to do so on DBpedia was via SPARQL queries.
 From the retrieved triples after querying, we discarded those with predicate \textit{wikiPageWikiLink}, as this predicate means an unlabeled relation. By contrast, the mapping with MusicBrainz was not trivial. MusicBrainz is not a KB of triples, but a relational database. Entities are stored in tables, and relations between entities are represented in a set of tables of relations, having one table for each possible relation. %The entities in the studied set of triples were only of type MusicalArtist and Song. However, 
-In addition, an entity of type Song in \textsc{KBSF}-th can be related to either a Recording or a Work entity in MusicBrainz (see Section~\ref{sec:kb:method:typefiltering}). Therefore, for the analysis of relations involving a Song entity, we obtained the equivalent Recording and Work MusicBrainz entities, and looked up relations where any of them where present.
+In addition, an entity of type Song in \textsc{KBSF}-th may refer to either a Recording or a Work entity in MusicBrainz (see Section~\ref{sec:kb:method:typefiltering}). Therefore, for the analysis of relations involving a Song entity, we obtained the equivalent Recording and Work MusicBrainz entities, and looked up relations where any of them where involved.
 
 Mapping results are shown in Table~\ref{tbl:kb:coverage}. Let us highlight the fact that most semantic relations encoded in \textsc{KBSF}-th are novel, as they were not found in any of the other resources we compared against. In the overlapping cases, most of the times the relation labels were semantically equivalent, and often the relation label of \textsc{KBSF}-th triples was more specific than the ones retrieved from other KBs (e.g., \textit{frontman} vs. \textit{member of})
 
@@ -555,7 +555,7 @@ Mapping results are shown in Table~\ref{tbl:kb:coverage}. Let us highlight the f
 \label{sec:kb:experiments:recommendation}
 
 The main aim of this experiment is to evaluate the suitability of \textsc{KBSF}-th to explain relations between songs, and study their impact on user's experience in music recommendation. 
-Since our aim is not to measure the performance of a recommender system, we implemented a baseline recommender approach. Recommendations are based on the concept of song similarity, which exploits the graph-based structure of our KB. Maximal common subgraph score is computed between the item neighborhood graphs of every song. This methodology for entity similarity is fully described in Section~\ref{sec:similarity:method:sim:mcs} of Chapter~\ref{sec:similarity}. Once the similarity scores are computed, similar songs are ranked.
+Since our aim is not to measure the performance of a recommender system, we implemented a baseline recommender approach. Recommendations are based on the concept of song similarity, which exploits the graph-based structure of our KB. Maximal common subgraph score is computed between the item neighborhood graphs of every song (this methodology for entity similarity is fully described in Section~\ref{sec:similarity:method:sim:mcs}). Once the similarity scores are computed, similar songs are ranked.
 
 
 We designed the experiment as an online survey, where the participant is first asked to select 5 songs from different artists of his/her choice. From each selected song, the system randomly selects 3 recommendations among the list of its top-10 most similar songs. One of them is shown together with an explanation in natural language (the source text), another with an explanation based on relation patterns, and finally the third one appears without explanation.
@@ -579,7 +579,7 @@ We also asked the subjects to select among a set of adjectives those that better
 
 \section{Conclusion}\label{sec:kb:conclusions}
 
-We have presented an NLP pipeline that extracts a Knowledge Base in the music domain taking raw text collections as input. It combines methods easily applicable to a general purpose application with domain-specific heuristics which are designed to exploit particularities of the domain.
+We have presented an NLP pipeline that extracts a Knowledge Base in the music domain taking raw text collections as input. It combines methods easily applicable to a general purpose application with domain-specific heuristics which are designed to exploit particularities of the music domain.
 
 The result of applying our approach over a dataset of stories about songs is a new Music Knowledge Base, which encodes semantic relations among musical entities. Our method relies on the syntactic structure (defined via dependency parsing) of sentences and the use and adaptation of music-specific heuristics for both entity linking and relation extraction. In addition, we include modules for semantic clustering and pattern scoring, aimed at the efficient removal of noisy relations. Our modular evaluation shows that our relation extraction module is able to capture a highly precise and compact set of weighted triples, and demonstrates the positive impact of the novel scoring metric we introduced. Moreover, we have shown that a high percentage of the knowledge encoded in our MKB is not present in other KBs, both general and domain-specific. Finally, regarding extrinsic evaluation, the experiment on recommendation interpretation confirms that explanations based on the extracted KB are positively regarded by the users.
 
