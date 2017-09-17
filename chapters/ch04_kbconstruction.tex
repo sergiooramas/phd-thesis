@@ -237,17 +237,17 @@ This observation, which we found to occur quite frequently, motivated the inclus
     \hline
     Regular Expressions \\
     \hline
-    $\^(VC)+\textbackslash s*(DEP|LGS|LOC|TMP)$ \\
-    \^(VC)+\textbackslash s+(ADV)\\s*(PMOD|NMOD|AMOD)* \\
-    \^(DEP|LGS|LOC|TMP) \\
-    \^(APPO)\textbackslash s+(LGS) \\
-    \^(SBJ)\textbackslash s*(PMOD|NMOD|AMOD|ADV) \\
-    \^(OBJ)\textbackslash s*(PMOD|NMOD|DEP) \\
-    \^(ADV) \\
-    \^(NMOD|PRT|PMOD) \\
+    \verb/^(VC)+\s+(DEP|LGS|LOC|TMP)/ \\
+    \verb/^(VC)+\s+(ADV)\s+(PMOD|NMOD|AMOD)*/ \\
+    \verb/^(DEP|LGS|LOC|TMP)/ \\
+    \verb/^(APPO)\s+(LGS)/ \\
+    \verb/^(SBJ)\s+(PMOD|NMOD|AMOD|ADV)/ \\
+    \verb/^(OBJ)\s+(PMOD|NMOD|DEP)/ \\
+    \verb/^(ADV)/ \\
+    \verb/^(NMOD|PRT|PMOD)$/ \\
     \hline
     \end{tabular}
-    \caption{Complete set of regular expressions for dependency paths in cluster patterns.}
+    \caption{Regular expressions for dependency paths in cluster patterns.}
     \label{tbl:kb:expressions}
 \end{table}
 
@@ -318,7 +318,11 @@ Our metric encompasses a combination of three different components. First, we fo
 	\label{tbl:kb:example_grouping}
 \end{table}
 
-A cluster $\mathcal{R}_c$ may be decomposed into a set of typed cluster patterns $\tau_c$ (see Table ~\ref{tbl:kb:example_grouping}). The intuition behind the specificity measure of a cluster is that clusters with one prominent $\tau_c$ are more specific, i.e. they are largely used for encoding one specific type of relations. One example of this would be \textit{performed with}, which enforces a relation to include MusicalArtists on both the domain and range sides. Thus, we define $\mathcal{L}_c$ as the list of cardinalities (number of triples) of every typed cluster pattern $\tau_c \in \mathcal{R}_c$, being $\mathcal{L}_c = \{|\mathcal{R}_{\tau_c^1}|,...,|\mathcal{R}_{\tau_c^n}|\}$. We define the specificity measure as the variance of $\mathcal{L}$, expressed as $s(\mathcal{R}_c) = var(\mathcal{L}_c)$.
+A cluster $\mathcal{R}_c$ may be decomposed into a set of typed cluster patterns $\tau_c$ (see Table ~\ref{tbl:kb:example_grouping}). The intuition behind the specificity measure of a cluster is that clusters with one prominent $\tau_c$ are more specific, i.e. they are largely used for encoding one specific type of relations. One example of this would be \textit{performed with}, which enforces a relation to include MusicalArtists on both the domain and range sides. Thus, we define $\mathcal{L}_c$ as the list of cardinalities (number of triples) of every typed cluster pattern $\tau_c \in \mathcal{R}_c$, being $\mathcal{L}_c = \{|\mathcal{R}_{\tau_c^1}|,...,|\mathcal{R}_{\tau_c^n}|\}$. We define the specificity measure as the variance of $\mathcal{L}$, expressed as:
+
+\begin{equation}
+s(\mathcal{R}_c) = var(\mathcal{L}_c)
+\end{equation}
 
 Furthermore, we consider a \textit{relation's fluency} metric, which is aimed at capturing its comprehensibility. Simply put, the more the sentence's original word order is preserved in the relation pattern, the more understandable it should be. This metric is introduced due to the fact that word order is lost after modelling text under a dependency grammar framework, and so we design a \textit{penalty measure} over the number of jumps needed to reconstruct the original ordered word sequence. Let $k$ be the number of tokens in the relation pattern, $w_i$ the $ith$ word in the pattern, and $h(w_i)$ a function that returns the correspondent word index in the original sentence, we put forward a fluency measure $f$ defined as:
 
@@ -345,7 +349,7 @@ In this section, we describe our experimental setting. We refer first to the sou
 
 \subsection{Source dataset}\label{sec:kb:exp:dataset}
 
-Songfacts\footnote{\url{http://www.songfacts.com}} is an online database that collects, stores and provides facts, stories and trivia about songs. These are collaboratively written by registered users, and reviewed by the website staff. It contains information about more than 30,000 songs from nearly 6,000 artists. This information may refer to what the song is about, who wrote it, who produced it, who collaborated with whom or who directed the video. These texts are rich sources of information not only for well-known music facts, but also for music-specific trivia, as in the following sample sentence (about David Bowie's \textit{Space Oddity}): ``Bowie wrote this song after seeing the 1968 Stanley Kubrick movie 2001: A Space Odyssey".
+Songfacts is an online database that collects, stores and provides facts, stories and trivia about songs. These are collaboratively written by registered users, and reviewed by the website staff. It contains information about more than 30,000 songs from nearly 6,000 artists. This information may refer to what the song is about, who wrote it, who produced it, who collaborated with whom or who directed the video. These texts are rich sources of information not only for well-known music facts, but also for music-specific trivia, as in the following sample sentence (about David Bowie's \textit{Space Oddity}): ``Bowie wrote this song after seeing the 1968 Stanley Kubrick movie 2001: A Space Odyssey".
 
 We crawled the Songfacts website in mid-January 2014. Then, for each song article, we performed a mapping between the song and its MusicBrainz recording ID, using the MusicBrainz Search API. We successfully mapped 27,655 songs.
 
@@ -371,7 +375,7 @@ In addition, we created two baseline KBs for evaluation purposes. \textsc{KBSF}-
 \begin{table*}[ht!]
 \scriptsize
 \centering
-	\begin{tabular}{ | c | c | c | c | c | }
+	\begin{tabular}{  c c c c c }
 	\hline
 	\textbf{KB} & \textbf{Entities} & \textbf{Triples} & \textbf{Relation Patterns} & \textbf{Cluster Patterns} \\
 	\hline
@@ -396,7 +400,7 @@ In addition, we created two baseline KBs for evaluation purposes. \textsc{KBSF}-
 \label{sec:kb:experiments:qualityentitylinking}
 
 %We mentioned in Section~\ref{sec:kb:method:entitylinking} the lacking of both music-specific entity linking tools as well as benchmarking datasets. For this reason, 
-In this section, we performed a set of experiments to select the best-suited entity linking tool for our task, among some of the best known and reputed. Specifically, we perform evaluation experiments on DBpedia Spotlight, TagMe and Babelfy. 
+In this section, we performed a set of experiments to select the best-suited entity linking tool for our task, among some of the best known and reputed. Specifically, we perform evaluation experiments on DBpedia Spotlight, TagMe, and Babelfy. 
 
 %Let us briefly describe each of them: 
 
@@ -406,7 +410,7 @@ In this section, we performed a set of experiments to select the best-suited ent
 %    \item \textbf{DBpedia Spotlight} \cite{Mendes2011} Automatically identifies entity mentions in free text, linking each match with its corresponding DBpedia URI.
 %\end{itemize}
 
-As stated in Chapter~\ref{sec:linking}, most entity linking systems \textit{speak their own language}. Since their output is heterogeneous in format, performing a comparison between them is not straightforward. In order to evaluate the aforementioned entity linking systems, we used \textsc{ELVIS} (see Section~\ref{sec:linking:elvis}), an entity linking integration tool which provides a common output for different entity linking system.
+As stated in Chapter~\ref{sec:linking}, most entity linking systems \textit{speak their own language}. Since their output is heterogeneous in format, performing a comparison between them is not straightforward. In order to evaluate the aforementioned entity linking systems, we used \textsc{ELVIS} (see Section~\ref{sec:linking:elvis}), an entity linking integration tool which provides a common output for different entity linking systems.
 
 In addition, we created a dataset of annotated musical entities based on our corpus of documents, and applied both quantitative and qualitative evaluations in order to verify which system performs better with musical entities, and is more suitable for our task.
 
@@ -509,7 +513,7 @@ System & Song & Album & Artist \\
 
 Relation extraction evaluation is not trivial, as semantic relations between entities may vary in terms of correctness over time. Also, correct relations may be linguistically flawed, i.e. not fluent. Previous approaches assessed automatically extracted relations in terms of correctness according to human judgment \citep{Fader2011,Mausam2012}. Additionally, a finer grained analysis is carried out in \cite{Bankoetal2007}, adding a prior step in which relations are judged as being \textit{concrete} or \textit{abstract}.
 
-In this chapter, we made use of extensive human input and asked two experts in Computational Linguistics to evaluate the \textit{top 100} scoring relations as yielded by our weighting policy (Section \ref{sec:kb:method:scoring}), as well as a random sample of 100 relations. This was done for all the KBs produced by our pipeline and for \textsc{KBSF}-rv. Cohen's kappa coefficient ranged from 0.60 to 0.81, which is generally considered as \textit{substantial} agreement.
+In this chapter, we made use of extensive human input and asked two experts in Computational Linguistics to evaluate the \textit{top 100} scoring relations as yielded by our weighting policy (Section \ref{sec:kb:method:scoring}), as well as a random sample of 100 relations. This was done for all the KBs produced by our pipeline and for \textsc{KBSF}-rv. Cohen's kappa coefficient among annotators ranged from 0.60 to 0.81, which is generally considered as \textit{substantial} agreement.
 
 
 In Figures \ref{fig:kb:p_sentence} and \ref{fig:kb:p_patterns}, where we compare random samples from each KB, we observe a gradual improvement of the quality of relations as the different modules of our implementation are incorporated. The difference between these figures is that in the former, a relation is deemed correct if it has extracted a relation \textit{expressed in the original sentence}, whereas the latter figure reports numbers on whether the extracted relation pattern was correct, i.e. if it \textit{meant} the same as it was intended in the source sentence. We may infer from the difference of precision between \textsc{KBSF-co} and \textsc{KBSF-raw} in Figure~\ref{fig:kb:p_sentence} that co-occurrence between entities does not guarantee an explicit relation, whereas the presence of a path between two entities over a sentence dependency tree, without any other entity mention in between, generally suggests a monsemous and unambiguous relation.
