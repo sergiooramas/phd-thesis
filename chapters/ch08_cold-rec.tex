@@ -129,7 +129,7 @@ Nevertheless, all networks have a final fully connected layer of 200 units\footn
 In addition, mini batches of 32 items are randomly sampled from the training data to compute the gradient in all networks, and Adam \citep{KingmaB14} is the optimizer used to train the models, with the default suggested learning parameters. 
 Given that the output of the architectures are l2-normalized, we use cosine proximity as the loss function, as in \cite{Chollet2016}.
 
-\section{Artist text embeddings}\label{sec:cold-rec:text}
+\section{Learning artist representations from text}\label{sec:cold-rec:text}
 
 % Following the approach defined in Section \ref{}, a matrix of artist and songs is obtained by aggregating the play counts of songs of the same artist present in the MSD. Then, a deep network is trained to learn the artist latent factors from the biography texts. 
 In this section we describe two different, competing approaches to exploit artist texts in a deep learning process. %Then, these two approaches are evaluated in an artist recommendation scenario. Finally, artist embeddings are obtained.
@@ -141,7 +141,7 @@ We propose a method for enriching artist biographies by associating text fragmen
 
 \begin{table}
 \centering
-\begin{tabular}{ll}
+\begin{tabular}{l p{8cm}}
 \toprule
 \textbf{Entity} type & \textbf{Properties} \\
 \midrule
@@ -170,7 +170,7 @@ We re-adapt the architecture proposed in \cite{Kim2014} for sentence classificat
 %The architecture consists in an embedding layer, followed by a one dimensional Convolutional layer with multiple filter widths (2, 3 and 4 in our case). A convolution operation involves a filter, which is applied to a window of h words to produce a new feature. This filter is applied to each possible window of words in a sentence to produce a feature map. Then a max-over-time pooling layer reduce every feature map to a unique feature. The idea is to capture the most important feature with the highest value for each feature map. Finally a fully connected layer precede the output layer, with as many neurons as the latent factor dimension. Dropout is used after every layer to prevent overfitting.
 
 
-\section{Track audio embeddings}\label{sec:cold-rec:audio}
+\section{Learning track representations from audio}\label{sec:cold-rec:audio}
 
 It is common in the field of music informatics to make use of CNNs to learn higher-level features from spectrograms.
 These data representations are typically contained in $\mathbb{R}^{\mathcal{F} \times N}$ matrices with $\mathcal{F}$ frequency bins and $N$ time frames.
