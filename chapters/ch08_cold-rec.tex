@@ -15,18 +15,18 @@
 
 %Recommender systems can be broadly classified into collaborative filtering (CF), content-based, and hybrid methods. CF methods \cite{Koren2009} use the item-user feedback matrix and predictions are based on the similarity of user or item profiles. Matrix factorization techniques are currently CF state-of-the-art \cite{Koren2009}. 
 
-An increasing amount of digital music is being published daily. Music streaming services often ingest all available music, but this poses a challenge: how to recommend new artists for which prior knowledge is scarce? In this chapter we aim to address this so-called cold-start problem by combining text and audio information with user feedback data using deep learning architectures. 
+An increasing amount of digital music is being published daily. Music streaming services often ingest all available music, but this poses a challenge: how to recommend new artists for which prior knowledge is scarce? In this chapter we aim to address this so-called cold-start problem by learning and combining multimodal data representations and user feedback data using deep learning architectures. 
 
 %Our method is divided into three steps. First, artist embeddings are learned from biographies by combining semantics, text features, and aggregated usage data. Second, track embeddings are learned from the audio signal and available feedback data. Finally, artist and track embeddings are combined in a multimodal network. Results suggest that both splitting the recommendation problem between feature levels (i.e., artist metadata and audio track), and merging feature embeddings in a multimodal approach improve the accuracy of the recommendations.
 
-Social tags have been extensively used as a source of artist content features to recommend music \citep{Knees2013}. However, these tags are usually collectively annotated, which often introduce an artist popularity bias \citep{Turnbull2008}.
+Social tags have been extensively used as a source of artist content features to recommend music \citep{Knees2013}, however, these tags are usually collectively annotated, which often introduce an artist popularity bias \citep{Turnbull2008}.
 Artist biographies and press releases, on the other hand, do not necessarily require a collaborative effort, as they may be produced by artists themselves. 
-However, they have seldom been exploited for Music Recommendation.
-Part of this chapter focuses on learning artist features from these biographies.
+However, they have seldom been exploited for music recommendation.
+Part of this chapter focuses on learning data representations from these biographies.
 Furthermore, we also make use of audio signals, since these are generally always available and have shown to be helpful when recommending music in the long tail \citep{Oord2013}.
 
 According to \cite{gulccehre2016knowledge}, composing simpler tasks is more likely to yield effective local minima for neural networks. In addition, as stated in \cite{larochelle2009exploring}, directly training all the layers of a deep network together make it difficult to exploit all the extra modeling power of a deeper architecture. 
-Therefore, we decided to separate the problem of Music Recommendation into artist and song levels.
+Therefore, we decided to separate the problem of music recommendation into artist and song levels.
 Artist feature embeddings are learned from artist metadata in an artist recommendation scenario.
 Track feature embeddings are learned from audio signals in a song recommendation scenario.
 In both cases, a hybrid recommendation approach is used based on learning attribute-to-feature mappings \citep{GantnerDFRS10}.
@@ -41,19 +41,19 @@ The rest of the chapter is organized as follows. First, we describe in detail th
 %Our main contributions in this work are summarized as follows:
 %\begin{itemize}
 %\item{Method to enrich artist biographies with semantic information leveraging an external Knowledge Base.}
-%\item{Dividing the problem of Music Recommendation into artist and song levels to obtain better performance.}
-%\item{A multimodal deep learning pipeline for Music Recommendation that combines audio with text and yields improved results.}
+%\item{Dividing the problem of music recommendation into artist and song levels to obtain better performance.}
+%\item{A multimodal deep learning pipeline for music recommendation that combines audio with text and yields improved results.}
 %\item{The release of an extended version of the Million Song Dataset with artist biographies and tags.}
 %\end{itemize}
 
 
 %Almost every artist has a biography or a press release, either self-written or written by others, and they are typically available on the web. For these reasons we focus our study in the learning of artist features from artist biographies.
 
-% Content-based Music Recommendation, where relevant information is extracted directly from the audio signal, 
+% Content-based music recommendation, where relevant information is extracted directly from the audio signal, 
 
 
 % Music information of popular music can be structured in three different levels: artist, album and song. 
-% Accordingly, the Music Recommendation problem can be divided into different phases, based on the available information in every level.
+% Accordingly, the music recommendation problem can be divided into different phases, based on the available information in every level.
 % In this work, we first separate the problem of song recommendation in two phases, related to the artist and song levels.
 % Artist feature vectors are learned from artist metadata in an artist recommendation scenario.
 % Song feature vectors are learned from audio signals in a song recommendation scenario.
@@ -83,9 +83,9 @@ The rest of the chapter is organized as follows. First, we describe in detail th
 % This scenario is often referred to as the cold-start problem.
 % More specifically, we want to recommend songs whose artist was not previously in the catalog, which means that the system does not have any collaborative information about other songs by the same artist. This problem can be considered as an extreme case of the cold-start scenario.
 
-% To produce Music Recommendations in the long tail, we propose the following framework.
+% To produce music recommendations in the long tail, we propose the following framework.
 % Given the set of artist features $A_{s}$ of a song $s$ with $A_{s}={a_{1},a_{2},...,a_{n}}$, and the set of track features $T_{s}$ of $s$ with $T_{s}={t_{1},t_{2},...,t_{m}}$, the complete feature set of $s$ is defined as the aggregation of its artist and track features $F_{s} = A_{s} \cup T_{s}$.
-To produce cold-start Music Recommendations, we propose the following framework.
+To produce cold-start music recommendations, we propose the following framework.
 Given the set of artist features $A_{s}$ of a song $s$, and the set of track features $T_{s}$ of $s$, the complete feature set of $s$ is defined as the aggregation of its artist and track features $F_{s} = A_{s} \cup T_{s}$.
 % This aggregated set of features is typically used as input in content-based and hybrid music recommender systems (TODO: cite).
 
@@ -124,7 +124,7 @@ This final multimodal network is trained on the prediction of song latent factor
 Finally, the list of item recommendations for user $u$ is obtained by ranking the results of computing the dot product between the user latent factor $f_{u} \in U_{k}$ and the set of item factors. %the set of predicted item latent factors in the test set. %This ranking is evaluated in comparison with the ranked list of items for user $u$ present in the test matrix $M_{test}$.
 
 
-The different architectures used in each one of the three neural networks involved in the approach are described in Sections \ref{sec:cold-rec:text} ,\ref{sec:cold-rec:audio}, and \ref{sec:cold-rec:multimodal}, respectively.
+The different architectures used in each one of the three neural networks involved in the approach are described in Sections \ref{sec:cold-rec:text}, \ref{sec:cold-rec:audio}, and \ref{sec:cold-rec:multimodal}, respectively.
 Nevertheless, all networks have a final fully connected layer of 200 units\footnote{to match the dimensions of the factors to be predicted.} with linear activation and l2-normalization. 
 In addition, mini batches of 32 items are randomly sampled from the training data to compute the gradient in all networks, and Adam \citep{KingmaB14} is the optimizer used to train the models, with the default suggested learning parameters. 
 Given that the output of the architectures are l2-normalized, we use cosine proximity as the loss function, as in \cite{Chollet2016}.
@@ -138,16 +138,34 @@ In this section we describe two different, competing approaches to exploit artis
 
 We propose a method for enriching artist biographies by associating text fragments with relevant entities defined in online knowledge repositories, and then gathering relevant semantic information about them. For this purpose, we adopted Babelfy \citep{Moroetal2014} and ELVIS (see Section~\ref{sec:linking:elvis}). We use semantic information about the identified entities coming from DBpedia to enrich the biographies. 
 
-As shown in Chapter~\ref{sec:graph-rec}, Entity Linking systems may be useful for Music Recommendation. However, as illustrated in Chapters~\ref{sec:linking} and \ref{sec:kb}, they are not optimized for the music domain, and are prone to errors. The application of a filtering process over the set of identified entities based on their classification within the DBpedia Ontology, has demonstrated its utility to improve music retrieval tasks, such as artist similarity (cf. Section~\ref{sec:similarity:similarity}). Therefore, we only keep entities of classes related to the music domain such as \textit{MusicalArtist}, \textit{Band}, \textit{MusicGenre}, \textit{MusicalWork}, \textit{RecordLabel}, \textit{Instrument}, \textit{Engineer}, and \textit{Place}. Then, we query DBpedia to get all the available information about the filtered entities. From the information gathered, we keep some specific properties for every kind of entity, such as homeTown, instrument, genre or associatedBand for MusicalArtists, writer, producer or recordedIn for MusicalWorks, stylisticOrigin or instrument for MusicGenres, and so on\footnote{The complete list of classes and properties is available at http://mtg.upf.edu/download/datasets/msd-a}. In addition, we also kept all the Wikipedia categories associated to each entity.
 
-To build the enriched biographies we proceed as follows: First, Babelfy is applied over the biography texts. Second, information is gathered from DBpedia for the entities of the selected classes. Finally, the collected data are added at the end of the biography text separated by spaces. A vector space model (VSM) is then applied to the set of enriched biographies, and tf-idf weighting \citep{Zobel1998} is used, similarly to the enrichment process applied in Section~\ref{sec:similarity:classification}. We limited the vocabulary size to 10,000 terms for the VSM, as this number provides a good trade-off between performance and number of parameters required for training. Note that either words, entities, dates, or categories may be part of this vocabulary. From this data representation, a feedforward network with two dense layers of 2048 neurons each is trained to predict the artist latent factors. The latter of these hidden layers becomes the vector embedding to be used in the multimodal approach described in Section~\ref{sec:cold-rec:multimodal}.
+\begin{table}
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Entity} type & \textbf{Properties} \\
+\midrule
+MusicalArtist | Band & activeYearsStartYear, homeTown, birthPlace, gerne, instrument, recordLabel, associatedBand, associatedMusicalArtist, bandMember, formerBandMember, mentor \\
+MusicalWork & writer, artist, genre, recordLabel, album, musicalArtist, musicalBand, releaseDate, producer, recordedIn \\
+RecordLabel & location, parentCompany, genre, foundedBy \\
+MusicGenre & stylisticOrigin, instrument, subject \\
+\bottomrule
+\end{tabular}
+\caption{DBpedia properties selected for each entity type.}
+\label{tbl:cold-rec:properties}
+\end{table}
+
+As shown in Chapter~\ref{sec:graph-rec}, entity linking systems may be useful for music recommendation. However, as illustrated in Chapters~\ref{sec:linking} and \ref{sec:kb}, they are not optimized for the music domain, and are prone to errors. The application of a filtering process over the set of identified entities based on their classification within the DBpedia Ontology, has demonstrated its utility to improve music retrieval tasks, such as artist similarity (see Section~\ref{sec:similarity:similarity}). Therefore, we only keep entities of classes related to the music domain such as \textit{MusicalArtist}, \textit{Band}, \textit{MusicGenre}, \textit{MusicalWork}, \textit{RecordLabel}, \textit{Instrument}, \textit{Engineer}, \textit{Language}, \textit{EthnicGroup}, and \textit{Place}. Then, we query DBpedia to get all the available information about the filtered entities. From the information gathered, we keep some specific properties for every entity, depending on the entity class (see Table~\ref{tbl:cold-rec:properties}). In addition, we also kept all the Wikipedia categories associated to each entity.
+
+
+To build the enriched biographies we proceed as follows: First, Babelfy is applied over the biography texts. Second, information is gathered from DBpedia for the entities of the selected classes. Finally, the collected data are added at the end of the biography text separated by spaces. A vector space model (VSM) is then applied to the set of enriched biographies, and tf-idf weighting \citep{Zobel1998} is used, similarly to the enrichment process applied in Section~\ref{sec:similarity:classification}. We limited the vocabulary size to 10,000 terms for the VSM, as this number provides a good trade-off between performance and number of parameters required for training. Note that either words, entities, dates, or categories may be part of this vocabulary. From this data representation, a feedforward network with two dense layers of 2048 neurons each is trained to predict the artist latent factors. The latter of these hidden layers becomes the vector embedding with the learned data representations to be used in the multimodal approach described in Section~\ref{sec:cold-rec:multimodal}.
 
 \subsection{Word embeddings}\label{sec:cold-rec:w2v}
 
 Much of the work with deep learning in Natural Language Processing has involved the learning of word vector representations \citep{Bengio2003,Mikolov2013}, and their further composition \citep{Collobert2011}. Word embeddings aim to represent words as low-dimensional dense vectors. They have demonstrated to greatly benefit NLP tasks, such as word similarity, sentiment analysis, or parsing \citep{Nguyen2016}. 
 
 The use of convolutional neural networks (CNN) over pre-trained word vectors has become state-of-the-art in sentence classification \citep{Kim2014}. 
-We re-adapt the architecture proposed in \cite{Kim2014} for sentence classification to learn artist latent factors from artist biographies. This consists in an embedding layer, followed by a one dimensional convolutional layer with multiple filter widths, a max-over-time pooling layer, a dense hidden layer and the output layer. We employ the same architecture and parameters, changing only the output layer and the loss function. We initialize the input embedding layer of the network with word2vec word embeddings pre-trained on the Google News dataset, and also with word embeddings trained in our own corpus of biographies. The dense hidden layer right before the output layer constitutes the vector embedding to later use in the multimodal approach (cf. Section~\ref{sec:cold-rec:multimodal}).
+We re-adapt the architecture proposed in \cite{Kim2014} for sentence classification to learn artist latent factors from artist biographies. This consists in an embedding layer, followed by a one dimensional convolutional layer with multiple filter widths, a max-over-time pooling layer, a dense hidden layer and the output layer. We employ the same architecture and parameters, changing only the output layer and the loss function. We initialize the input embedding layer of the network with word2vec word embeddings pre-trained on the Google News dataset, and also with word embeddings trained in our own corpus of biographies. The dense hidden layer right before the output layer constitutes the vector embedding to later use in the multimodal approach (see Section~\ref{sec:cold-rec:multimodal}).
 
 %The architecture consists in an embedding layer, followed by a one dimensional Convolutional layer with multiple filter widths (2, 3 and 4 in our case). A convolution operation involves a filter, which is applied to a window of h words to produce a new feature. This filter is applied to each possible window of words in a sentence to produce a feature map. Then a max-over-time pooling layer reduce every feature map to a unique feature. The idea is to capture the most important feature with the highest value for each feature map. Finally a fully connected layer precede the output layer, with as many neurons as the latent factor dimension. Dropout is used after every layer to prevent overfitting.
 
@@ -155,7 +173,7 @@ We re-adapt the architecture proposed in \cite{Kim2014} for sentence classificat
 \section{Track audio embeddings}\label{sec:cold-rec:audio}
 
 It is common in the field of music informatics to make use of CNNs to learn higher-level features from spectrograms.
-These representations are typically contained in $\mathbb{R}^{\mathcal{F} \times N}$ matrices with $\mathcal{F}$ frequency bins and $N$ time frames.
+These data representations are typically contained in $\mathbb{R}^{\mathcal{F} \times N}$ matrices with $\mathcal{F}$ frequency bins and $N$ time frames.
 In our approach, we compute 96 frequency bin, log-compressed constant-Q transforms (CQT) \citep{Schorkhuber2010} for all the tracks in our dataset using \texttt{librosa} \citep{Mcfee2015} with the following parameters: audio sampling rate at 22050 Hz, hop length of 1024 samples, Hann analysis window, and 12 bins per octave.
 Following a similar approach to \cite{Oord2013}, we address the variability of the length $N$ across songs by sampling one 15-seconds long \emph{patch} from each track, resulting in the fixed-size input to the CNN.
 %The labeled data associated to each of these patches is a 200 dimensional vector representing the latent factors obtained by factorizing the user-track matrix using weighted matrix factorization (TODO: cite Hu et al. 2008).
@@ -205,19 +223,18 @@ When there are several artists with the same name, they are stored in the same p
 We automatically removed all ambiguous artists by applying text processing on the biographies. 
 The song features provided with the MSD are not generally suitable for deep learning, so we instead use audio previews between 7 and 30 seconds retrieved from \texttt{7digital.com}.
 After removing ambiguous artists and missing tracks, the final dataset consists of 328,821 tracks from 24,043 artists. 
-Each track has at least 15 seconds of audio, each biography is at least 50 characters long, and each artist has at least 1 tag associated with it. All artist metadata, implicit feedback matrices, and splits are released as a new dataset called the MSD-A\footnote{\url{https://doi.org/10.5281/zenodo.831348}}.
+Each track has at least 15 seconds of audio, each biography is at least 50 characters long, and each artist has at least 1 tag associated with it. All artist metadata, implicit feedback matrices, and splits are released as a new dataset called the MSD-A.%\footnote{\url{https://doi.org/10.5281/zenodo.831348}}.
 
 \subsection{Artist recommendation}
 \label{sec:cold-rec:artist-rec}
 
 To investigate to what extent the different feature sets, data models and architectures influence the quality of the deep artist features, we evaluate the different approaches in an artist recommendation scenario. Given the matrix of implicit feedback $R$, and the set of artist and user factors obtained through matrix factorization (see Section \ref{sec:cold-rec:approach}), we predict the artist factors for the test set, and use them to compute a ranked list of recommended artists for every user. We use mean average precision (MAP) with a cut-off at 500 recommendations per user as our evaluation measure. 
 
-We compare four different approaches using the biography texts as input. (1) a pure text-based approach using a VSM and a feedforward network \textsc{a-text}. (2) similar to (1) but with a semantically enriched version of the texts \textsc{a-sem} (cf. Section~\ref{sec:cold-rec:sem}). (3) A CNN approach based on word embeddings initialized with Google News vectors \textsc{a-w2v-goo} (cf. Section~\ref{sec:cold-rec:w2v}). (4) Similar to (3) but inizializing the embeddings with word vectors previously trained on the corpus of biographies \textsc{a-w2v}. To properly frame the results, we compute two baselines and one competitor approach. The \textsc{tags} baseline approach uses artist social tags as input features, and \textsc{text-rf} uses biography texts as input, but Random Forest Regression for the learning instead of a deep neural network. The former baseline is added to compare the potential of biography texts with respect to curated metadata, whilst the latter was added to study to which extent the deep network improves the results over other learning methods typically used in Natural Language Processing. There are few recommendation approaches able to deal with an extreme cold-start scenario like ours. Therefore, we select ItemAttributeKnn \citep{GantnerDFRS10} as the competitor approach (\textsc{tags-itemKnn}), using artist social tags as attribute data and computed using the MyMediaLite library\footnote{\texttt{http://www.mymedialite.net/}}. %The input in all the approches is encoded either using a vector space model (VSM) or word embeddings (w2v). %For the VSM input we used a feedforward (FF) network with two hidden layers of 2048 neurons each, whereas for w2v we used the convolutional architecture (CNN) described in Section~\ref{}. 
+We compare four different approaches using the biography texts as input. (1) a pure text-based approach using a VSM and a feedforward network (\textsc{a-text}). (2) similar to (1) but with a semantically enriched version of the texts (\textsc{a-sem}) (see Section~\ref{sec:cold-rec:sem}). (3) A CNN approach based on word embeddings initialized with Google News vectors (\textsc{a-w2v-goo}) (see Section~\ref{sec:cold-rec:w2v}). (4) Similar to (3) but inizializing the embeddings with word vectors previously trained on the corpus of biographies (\textsc{a-w2v}). To properly frame the results, we compute two baselines and one competitor approach. The \textsc{tags} baseline approach uses artist social tags as input features, and \textsc{text-rf} uses biography texts as input, but Random Forest Regression for the learning instead of a deep neural network. The former baseline is added to compare the potential of biography texts with respect to curated metadata, whilst the latter was added to study to which extent the deep network improves the results over other learning methods typically used in Natural Language Processing. There are few recommendation approaches able to deal with an extreme cold-start scenario like ours. Therefore, we select ItemAttributeKnn \citep{GantnerDFRS10} as the competitor approach (\textsc{tags-itemKnn}), using artist social tags as attribute data and computed using the MyMediaLite library\footnote{\texttt{http://www.mymedialite.net/}}. %The input in all the approches is encoded either using a vector space model (VSM) or word embeddings (w2v). %For the VSM input we used a feedforward (FF) network with two hidden layers of 2048 neurons each, whereas for w2v we used the convolutional architecture (CNN) described in Section~\ref{}. 
 We also show the scores achieved when the latent factor vectors are randomized (\textsc{random}), and when they are learned from feedback data using matrix factorization (\textsc{upper-bound}).
 
 \begin{table}
 \centering
-\label{tbl:artists}
 \begin{tabular}{lcccl}
 \toprule
 \textbf{Approach} & \textbf{Input}   & \textbf{Data model} & \textbf{Arch} & \textbf{MAP} \\ \midrule
@@ -232,9 +249,10 @@ We also show the scores achieved when the latent factor vectors are randomized (
 \textsc{upper-bound}                            & -                & -                   & -             & 0.5528                            \\ \bottomrule
 \end{tabular}
 \caption[Artist Recommendation Results.]{Artist Recommendation Results. Mean average precision (MAP) at 500 for the predictions of artist recommendations in 1M users. VSM refers to Vector Space Model, FF to Feedforward, RF to Random Forest, CNN to Convolutional Neural Network, and itemKnn to itemAttributeKnn approach. Bio refers to biography texts and Sem Bio to semantically enriched texts.}
+\label{tbl:cold-rec:artists}
 \end{table}
 
-Results reported in Table~\ref{tbl:artists} show that the semantic enrichment of the biographies \textsc{a-sem} outperforms the pure text approach \textsc{a-text}. As expected, the use of tags improves the results over the use of text. However, the addition of semantic features reduces the gap in performance between the use of tags and unstructured text. Moreover, the difference between \textsc{a-text} and \textsc{text-rf} shows that the use of deep learning with respect to random forest improves the results. We also note that a VSM model with a feedforward network outperforms the use of word embeddings with convolutions. Although, according to the literature, this latter approach has demonstrated its utility for simple tasks like binary classification with short texts, our task puts forward two challenges for this architecture: the greater length of the input texts, and the higher dimensionality of the output. Although we have shown that initializing the embedding layer with word vectors trained on the corpus itself (\textsc{a-w2v}) outperforms the use of Google News pre-trained vectors (\textsc{a-w2v-goo}), further work is necessary to properly optimize a convolutional architecture for this task. Finally, we observe that our approach \textsc{a-tags} outperforms the competitor approach \textsc{tags-itemKnn} using the same item attributes.
+Results reported in Table~\ref{tbl:cold-rec:artists} show that the semantic enrichment of the biographies (\textsc{a-sem}) outperforms the pure text approach \textsc{a-text}. As expected, the use of tags improves the results over the use of text. However, the addition of semantic features reduces the gap in performance between the use of tags and unstructured text. Moreover, the difference between \textsc{a-text} and \textsc{text-rf} shows that the use of deep learning with respect to random forest improves the results. We also note that a VSM model with a feedforward network outperforms the use of word embeddings with convolutions. Although, according to the literature, this latter approach has demonstrated its utility for simple tasks like binary classification with short texts, our task puts forward two challenges for this architecture: the greater length of the input texts, and the higher dimensionality of the output. Although we have shown that initializing the embedding layer with word vectors trained on the corpus itself (\textsc{a-w2v}) outperforms the use of Google News pre-trained vectors (\textsc{a-w2v-goo}), further work is necessary to properly optimize a convolutional architecture for this task. Finally, we observe that our approach \textsc{a-tags} outperforms the competitor approach \textsc{tags-itemKnn} using the same item attributes.
 
 %\subsection{Artist Embeddings}
 Once the network is trained, we predict the activations of the penultimate layer for the entire dataset of artists. Thus, we obtain a vector embedding of 2048 dimensions, which represents the artist deep features $A'$. From the evaluated approaches, we compute the artist embedding from the \textsc{a-sem} and \textsc{a-tags} approaches.
@@ -245,7 +263,6 @@ Once the network is trained, we predict the activations of the penultimate layer
 
 \begin{table}[]
 \centering
-\label{tbl:song}
 \begin{tabular}{lcccl}
 \toprule
 \multicolumn{1}{c}{\textbf{Approach}} & \textbf{Artist Input} & \textbf{Track Input} & \textbf{Arch} & \multicolumn{1}{c}{\textbf{MAP}} \\
@@ -266,15 +283,16 @@ Once the network is trained, we predict the activations of the penultimate layer
 \bottomrule
 \end{tabular}
 \caption[Song Recommendation Results.]{Song Recommendation Results. Mean average precision (MAP) at 500 for the predictions of song recommendations in 1M users. \textsc{audio} emb refers to the track embedding of \textsc{audio} approach, \textsc{sem} to artist embedding of \textsc{sem} approach, \textsc{tags} to artist embedding of \textsc{tags} approach, spec to spectrogram, mm to multimodal, lf to late fusion, lin to linear, and h1 to one hidden layer.}
+\label{tbl:cold-rec:song}
 \end{table}
 
-In this experiment, audio embeddings are obtained after training the convolutional network (see Section~\ref{sec:cold-rec:audio}) with 260k patches of 15 seconds, corresponding to the 80\% of the tracks described in Section~\ref{sec:cold-rec:dataset}. Patches are divided into training (80\%), validation (10\%) and test (10\%) sets. Results reported in Table~\ref{tbl:song} are computed over the remaining 20\% of tracks. % are used in the training process.
+In this experiment, audio embeddings are obtained after training the convolutional network (see Section~\ref{sec:cold-rec:audio}) with 260k patches of 15 seconds, corresponding to the 80\% of the tracks described in Section~\ref{sec:cold-rec:dataset}. Patches are divided into training (80\%), validation (10\%) and test (10\%) sets. Results reported in Table~\ref{tbl:cold-rec:song} are computed over the remaining 20\% of tracks. % are used in the training process.
 %Then multimodal approaches are computed in the same splits.
 As opposed to \cite{Oord2013}, no artist appears in more than one subset to avoid overfitting. Finally, multimodal approaches are computed on the same sets.
 
-In our experiments, we want to measure the impact of the artist embeddings in the song recommendation problem, and also the potential of the multimodal approach. We experimented with two artist embedding approaches, \textsc{sem-emb} and \textsc{tags-emb}, that exploit the feature embeddings learned from the artists data (see Section~\ref{sec:cold-rec:artist-rec}), either based on biography texts (\textsc{a-sem}) or artists tags (\textsc{a-tags}). To measure the potential of the artist embeddings, we also computed two approaches using as input the original artist data (\textsc{sem-vsm} for semantically enriched texts and \textsc{tags-vsm} for tags). Results on Table~\ref{tbl:song} show that \textsc{sem-emb} and \textsc{tags-emb} outperform \textsc{sem-vsm} and \textsc{tags-vsm}, suggesting that learning from artist embeddings outperform learning directly from the original artist data in song recommendation.
+In our experiments, we want to measure the impact of the artist embeddings in the song recommendation problem, and also the potential of the multimodal approach. We experimented with two artist embedding approaches, \textsc{sem-emb} and \textsc{tags-emb}, that exploit the data representations learned from the artists attributes (see Section~\ref{sec:cold-rec:artist-rec}), either based on biography texts (\textsc{a-sem}) or artists tags (\textsc{a-tags}). To measure the potential of the artist embeddings, we also computed two approaches using as input the original artist attributes (\textsc{sem-vsm} for semantically enriched texts and \textsc{tags-vsm} for tags). Results on Table~\ref{tbl:cold-rec:song} show that \textsc{sem-emb} and \textsc{tags-emb} outperform \textsc{sem-vsm} and \textsc{tags-vsm}, suggesting that using artist representations learned from the aggregated feedback data outperforms learning directly from the original artist attributes in song recommendation.
 
-An approach based on the audio spectrograms was computed (\textsc{audio}). From this latter approach, audio embeddings where obtained (\textsc{audio} emb) and combined with \textsc{a-sem} in a multimodal late fusion approach \textsc{mm-lf-lin} (without hidden layers and $l2$-norm) and \textsc{mm-lf-h1} (with one hidden layer after each feature vector and batch normalization) (cf. Section~\ref{sec:cold-rec:multimodal}). We also tried with different combinations of hidden layers and normalization steps in the multimodal network but all of them yielded lower results than the ones reported for \textsc{mm-lf-lin} and \textsc{mm-lf-h1}. We compared this network with a multimodal approach trained directly on the original features (semantically enriched text and audio spectrograms). Results on the combination of artist and track features show that the late fusion of artist and track embeddings \textsc{mm-lf-lin} clearly outperforms the simultaneous training of artist and track initial features \textsc{mm}. In addition, we observe that we achieve better results when no hidden layer is added to the multimodal network \textsc{mm-lf-lin}. Finally, we observe that the multimodal approach that combines text and audio features with late fusion \textsc{mm-lf-lin} improves the results of pure text \textsc{sem-emb} or pure audio \textsc{audio} approaches. All the differences between the approaches are statistically significant ($p < 0.01$) according to the paired $t$-test.
+An approach based on the audio spectrograms was computed (\textsc{audio}). From this latter approach, audio embeddings where obtained (\textsc{audio} emb) and combined with \textsc{a-sem} in a multimodal late fusion approach \textsc{mm-lf-lin} (without hidden layers and $l2$-norm) and \textsc{mm-lf-h1} (with one hidden layer after each feature vector and batch normalization) (see Section~\ref{sec:cold-rec:multimodal}). We also tried with different combinations of hidden layers and normalization steps in the multimodal network but all of them yielded lower results than the ones reported for \textsc{mm-lf-lin} and \textsc{mm-lf-h1}. We compared this network with a multimodal approach trained directly on the original features (semantically enriched text and audio spectrograms). Results on the combination of artist and track features show that the late fusion of artist and track embeddings (\textsc{mm-lf-lin}) clearly outperforms the simultaneous training of artist and track initial features (\textsc{mm}). In addition, we observe that we achieve better results when no hidden layer is added to the multimodal network (\textsc{mm-lf-lin}). Finally, we observe that the multimodal approach that combines text and audio features with late fusion \textsc{mm-lf-lin} improves the results of pure text \textsc{sem-emb} or pure audio \textsc{audio} approaches. All the differences between the approaches are statistically significant ($p < 0.01$) according to the paired $t$-test.
 
 We also compared the results with an upper-bound approach obtained from the feedback data and an approach trained with random vector embeddings. Although results are in general far from the upper-bound, the comparative analysis of the proposed approaches gives some insights of the behavior of different feature representations and modalities in the cold-start recommendation problem.
 
@@ -284,14 +302,14 @@ We also compared the results with an upper-bound approach obtained from the feed
 \section{Conclusions}
 \label{sec:cold-rec:conclusions}
 
-In this chapter, a multimodal approach for Music Recommendation has been presented. The approach is divided into three steps. (1) Artist feature embeddings are learned from text and semantic features in an artist recommendation scenario using a deep learning architecture. (2) Track feature embeddings are learned from the audio spectrograms using convolutional neural networks. (3) Embeddings are combined in a multimodal network.
+In this chapter, a multimodal approach for music recommendation has been presented. The approach is divided into three steps. (1) Artist data representations are learned from text and semantic features in an artist recommendation scenario using a deep learning architecture. (2) Track data representations are learned from the audio spectrograms using convolutional neural networks. (3) Learned representations are combined in a multimodal network.
 
-Results show that splitting the problem of Music Recommendation at artist and song levels improves the quality of recommendations. 
-Learning artist feature embeddings separately benefits from the aggregation of the information about the different songs of the same artist, yielding more robust artist features. 
+Results show that splitting the problem of music recommendation at artist and song levels improves the quality of recommendations. 
+Learning artist data representations separately benefits from the aggregation of the information about the different songs of the same artist, yielding more robust artist features. 
 % This approach led to the creation of more powerful artist features. 
 Related to this, an approach for the semantic enrichment of artist metadata has been proposed, leading to a significant improvement in the results. 
-In addition, we have shown the potential of exploiting artist biographies in Music Recommendation. 
-Moreover, the deep learning architectures used have demonstrated their capacity to improve upon other learning models under the Music Recommendation framework. 
+In addition, we have shown the potential of exploiting artist biographies in music recommendation. 
+Moreover, the deep learning architectures used have demonstrated their capacity to improve upon other learning models under the music recommendation framework. 
 
 Finally, we have shown how a multimodal approach, based on the late fusion of track and artist feature embeddings that are learned separately, outperforms end-to-end multimodal approaches where the different modalities are learned simultaneously. Moreover, results have shown that our multimodal approach achieves better results than pure text or audio approaches. 
 %As future work, we plan to do fine-tunning of the combined model after pre-training the network on each modality separately.
