@@ -356,7 +356,7 @@ We crawled the Songfacts website in mid-January 2014. Then, for each song articl
 The described methdology was run over the 27,655 documents in the Songfacts corpus, which amounts to 306,398 sentences. After the Semantic Processing step, we obtained 202,767 linked entities (8,880 for \textit{Albums}, 3,136 \textit{Record Labels}, 74,908 \textit{Songs}, 107,253 \textit{Musical Artists}, 1,760 \textit{Genre} labels, 3,467 for \textit{Other Artist}, and 3,363 for \textit{Film}). There were 48,122 sentences with at least two entities, and it is on this subset where we apply our relation extraction pipeline.
 
 
-\subsection{Extracted Knowledge Bases}
+\subsection{Extracted knowledge bases}
 \label{sec:kb:exp:learnedkbs}
 
 Our aim is to assess to what extent each of the modules integrating our approach contributes to the quality of the resulting KB. After executing the whole pipeline, we generate two \textit{extracted} KBs (\textsc{KBSF}-ft and \textsc{KBSF}-th), two \textit{baseline} KBs (\textsc{KBSF}-co and \textsc{KBSF}-raw), and a \textit{competitor} KB (\textsc{KBSF}-rv). 
@@ -522,7 +522,7 @@ It is remarkable how well \textsc{ReVerb} performs (Figure \ref{fig:kb:p_pattern
 
 This is further confirmed in the results showcased in Figure \ref{fig:kb:p_clusters}, where we provide a comparison between top 100 relations according to our ranking policy against a random sample. Note that \textit{in all KBs, highly scoring relations are more often marked as correct}, which constitutes additional support for the contribution of the scoring module. Together with the quality of the relation pattern, this figure shows the quality of the cluster pattern associated with the evaluated relations. We observe that cluster patterns inferred in our clustering module have similar quality than relation patterns in the random sample, and slightly better in the top 100 sample. This result implies that the scoring module is rewarding good clusters.
 
-\subsection{Coverage of the extracted Knowledge Base}
+\subsection{Coverage of the extracted knowledge base}
 \label{sec:kb:experiments:coverage}
 
 With this experiment, we aim to compare the coverage of music relations in our final KB with respect to other resources with human intervention, such as DBpedia, MusicBrainz, and with automatically created resources. For the latter, we considered \textsc{DefIE} \citep{DelliBovietal2015b} as our closest competitor due to several methodological similarities (dependency parsing, entity linking, and relation extraction over shortest paths). 
@@ -579,9 +579,9 @@ We also asked the subjects to select among a set of adjectives those that better
 
 \section{Conclusion}\label{sec:kb:conclusions}
 
-We have presented an NLP pipeline that extracts a Knowledge Base in the music domain taking raw text collections as input. It combines methods easily applicable to a general purpose application with domain-specific heuristics which are designed to exploit particularities of the music domain.
+We have presented an NLP pipeline that extracts a KB in the music domain taking raw text collections as input. It combines methods easily applicable to a general purpose application with domain-specific heuristics which are designed to exploit particularities of the music domain.
 
-The result of applying our approach over a dataset of stories about songs is a new Music Knowledge Base, which encodes semantic relations among musical entities. Our method relies on the syntactic structure (defined via dependency parsing) of sentences and the use and adaptation of music-specific heuristics for both entity linking and relation extraction. In addition, we include modules for semantic clustering and pattern scoring, aimed at the efficient removal of noisy relations. Our modular evaluation shows that our relation extraction module is able to capture a highly precise and compact set of weighted triples, and demonstrates the positive impact of the novel scoring metric we introduced. Moreover, we have shown that a high percentage of the knowledge encoded in our MKB is not present in other KBs, both general and domain-specific. Finally, regarding extrinsic evaluation, the experiment on recommendation interpretation confirms that explanations based on the extracted KB are positively regarded by the users.
+The result of applying our approach over a dataset of stories about songs is a new MKB, which encodes semantic relations among musical entities. Our method relies on the syntactic structure (defined via dependency parsing) of sentences and the use and adaptation of music-specific heuristics for both entity linking and relation extraction. In addition, we include modules for semantic clustering and pattern scoring, aimed at the efficient removal of noisy relations. Our modular evaluation shows that our relation extraction module is able to capture a highly precise and compact set of weighted triples, and demonstrates the positive impact of the novel scoring metric we introduced. Moreover, we have shown that a high percentage of the knowledge encoded in our MKB is not present in other KBs, both general and domain-specific. Finally, regarding extrinsic evaluation, the experiment on recommendation interpretation confirms that explanations based on the extracted KB are positively regarded by the users.
 
 %In the following chapter, we propose a method 
 
