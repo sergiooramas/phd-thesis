@@ -9,8 +9,8 @@ Music genres allow to categorize musical items that share common characteristics
 %Music genres are useful labels to classify musical items into broader categories that share similar musical, regional, or temporal characteristics. Dealing with large collections of music poses numerous challenges when retrieving and classifying information \cite{casey2008content}. 
 %Music streaming services tend to offer catalogs of tens of millions of tracks, for which tasks such as music classification are of utmost importance.
 %Music genre classification is a widely studied problem in the Music Information Research (MIR) community \cite{sturm2012survey}. 
-However, almost all related work is concentrated in multi-class classification of music items into broad genres (e.g., Pop, Rock), assigning a single label per item. This is problematic since there may be hundreds of more specific music genres \citep{pachet2000taxonomy}, and these may not be necessarily mutually exclusive (i.e., a song could be Pop, and at the same time have elements from Deep House and a Reggae grove). 
-In this chapter we aim to advance the field of music classification by framing it as multi-label genre classification of fine-grained genres.
+However, almost all related work is concentrated in multi-class classification of music items into broad genres (e.g., Pop, Rock), assigning a single label per item. This is problematic since there may be hundreds of more specific music genres \citep{pachet2000taxonomy}, and these may not be necessarily mutually exclusive. 
+In this chapter we aim to advance the field of music genre classification by framing it as multi-label genre classification of fine-grained genres.
 
 % One of the most relevant aspects of deep learning approaches is that they are able to learn new data representations from raw data, avoiding the traditional dependency on the feature extraction step. 
 % This aspect makes deep learning methodologies more domain independent than traditional machine learning approaches \citep{bengio2013representation}. 
@@ -20,12 +20,13 @@ In this chapter we aim to advance the field of music classification by framing i
 
 To this end, we present \emph{MuMu}, a new large-scale multimodal dataset for multi-label music genre classification. \emph{MuMu} contains information of roughly 31k albums classified into one or more 250 genre classes. For every album we analyze the cover image, text reviews, and audio tracks, with a total number of approximately 147k audio tracks and 447k album reviews. 
 Furthermore, we exploit this dataset with a novel deep learning approach to learn multiple genre labels for every album using different data modalities (i.e., audio, text, and image). 
-In addition, we combine these modalities to study how the different combinations behave.
+Internal data representations of each modality are extracted from the neural networks used for classification.
+Next, we combine these representations to study how the different combinations behave.
 
-Results show how feature learning using deep neural networks substantially surpasses traditional approaches based on handcrafted features, reducing the gap between text-based and audio-based classification (see Section~\ref{sec:similarity:class:results}).
+Results show how representation learning using deep neural networks substantially surpasses traditional approaches based on handcrafted features, reducing the gap between text-based and audio-based classification (see Section~\ref{sec:similarity:class:results}).
 Moreover, an extensive comparative of different deep learning architectures for audio classification is provided, including the usage of a dimensionality reduction approach that yields improved results. 
 % One of the main contribution of this work is the usage of a dimensionality reduction approach of sparse target labels. We demonstrate how this approach improves classification in terms of accuracy and catalog coverage. 
-Finally, we show how the late fusion of feature vectors learned from different modalities achieves better scores than each of them individually.
+Finally, we show how the late fusion of data representations learned from different modalities achieves better scores than each of them individually.
 
 The rest of this chapter is structured as follows. First, in Section~\ref{sec:multi-class:mumu}, we present the multimodal dataset collected for the experiments. Then, the multi-label classification problem is exposed (Section~\ref{sec:multi-class:multilabel}). The architectures for album genre classification are described next (Section~\ref{sec:multi-class:classification}). In Section~\ref{sec:multi-class:experiments} we describe the experiments performed. Finally, we conclude the chapter with a discussion about our findings (Section~\ref{sec:multi-class:conclusions}).
 
@@ -44,12 +45,13 @@ With these, we use an available mapping from MSD to MusicBrainz\footnote{http://
 From the mapped recordings, we only keep those associated with a unique album.
 This process yields the final set of 147,295 songs, which belong to 31,471 albums.
 
-The song features provided by the MSD are not generally suitable for deep learning \citep{Oord2013}, so we instead use in our experiments audio previews between 15 and 30 seconds retrieved from \texttt{7digital.com}.
+As stated in Section~\ref{sec:cold-rec:dataset}, the song features provided by the MSD are not generally suitable for deep learning, so we also use in these experiments audio previews between 7 and 30 seconds retrieved from \texttt{7digital.com}.
 For the mapped set of albums, there are 447,583 customer reviews in the Amazon Dataset. 
 In addition, the Amazon Dataset provides further information about each album, such as genre annotations, average rating, selling rank, similar products, cover image url, etc. 
 We employ the provided image url to gather the cover art of all selected albums. 
 %All of these data %(i.e., audio, text, and images) 
-The mapping between the three datasets (Amazon, MusicBrainz, and MSD), genre annotations, data splits, text reviews, and links to images are released as the \emph{MuMu} dataset\footnote{https://www.upf.edu/web/mtg/mumu}. Images and audio files can not be released due to copyright issues.
+The mapping between the three datasets (Amazon, MusicBrainz, and MSD), genre annotations, data splits, text reviews, and links to images are released as the \emph{MuMu} dataset. %\footnote{https://www.upf.edu/web/mtg/mumu}. 
+%Images and audio files can not be released due to copyright issues.
 
 \subsection{Genre labels}\label{sec:multi-class:taxonomy}
 
@@ -63,7 +65,6 @@ To exploit either the taxonomic and the co-occurrence information, we provide ev
 \begin{table}
 \centering
 \scriptsize
-\label{tbl:genres}
 \begin{tabular}{lr|lr}
 \toprule
 Genre & \% of albums & Genre & \% of albums \\
@@ -81,11 +82,12 @@ Folk & 9.69 & Girl Groups & 0.06 \\
 \bottomrule
 \end{tabular}
 \caption{Top-10 most and least represented genres.}
+\label{tbl:multi-class:genres}
 \end{table}
 
 The labels in the dataset are highly unbalanced, following a distribution which might align well with those found in real world scenarios. 
 %but this is the common case in real world scenarios. 
-In Table~\ref{tbl:genres} we see the top 10 most and least represented genres and the percentage of albums annotated with each label.
+In Table~\ref{tbl:multi-class:genres} we see the top 10 most and least represented genres and the percentage of albums annotated with each label.
 The unbalanced character of the genre annotations poses an interesting challenge for music classification that we also aim to exploit. 
 Among the multiple possibilities that this dataset may offer to the MIR community, in this chapter we focus on the multi-label classification problem, described next.
 
@@ -159,9 +161,9 @@ Thus, it can be evaluated either from the labels or the items perspective.
 We can measure how accurate the classification is for every label, or how well the labels are ranked for every item. 
 In this work, the former point of view is evaluated with the AUC measure, which is computed for every label and then averaged. 
 We are interested in classification models that strengthen the diversity of label assignments. 
-As the taxonomy is composed of broad genres which are over-represented in the dataset (see Table~\ref{tbl:genres}), and more specific subgenres (e.g., Vocal Jazz, Britpop), we want to measure whether the classifier is focusing only on over-represented genres, or on more fine-grained ones.
-To this end, we use aggregated diversity \citep{adomavicius2012improving}, also known as catalog coverage.%, which is an evaluation measure used in the extreme multi-label classification \citep{jain2016extreme} and the recommender systems \citep{AdomaviciusK12} communities. %It is called either aggregated diversity or catalog coverage. %We want to measure how diverse is assignation of labels to items.
-ADiv@N measures the percentage of normalized unique labels present in the top $N$ predictions made by an algorithm across all test items (see Section~\ref{sec:graph-rec:evaluation}). Values of $k = 1, 3, 5$ are typically employed in multi-label classification \citep{jain2016extreme} .
+As the taxonomy is composed of broad genres which are over-represented in the dataset (see Table~\ref{tbl:multi-class:genres}) and more specific subgenres (e.g., Vocal Jazz, Britpop), we want to measure whether the classifier is focusing only on over-represented genres, or on more fine-grained ones.
+To this end, we use aggregated diversity \citep{adomavicius2012improving}, also known as catalog coverage. %, which is an evaluation measure used in the extreme multi-label classification \citep{jain2016extreme} and the recommender systems \citep{AdomaviciusK12} communities. %It is called either aggregated diversity or catalog coverage. %We want to measure how diverse is assignation of labels to items.
+ADiv@N measures the percentage of normalized unique labels present in the top $N$ predictions across all test items (see Section~\ref{sec:graph-rec:evaluation}). Values of $k = 1, 3, 5$ are typically employed in multi-label classification \citep{jain2016extreme} .
 
 %It can be evaluated from different perspectives, from the labels side or from the items side. We can measure how accurate is the classification in every class, or how well are the labels ranked for every item. 
 %(TODO: describe the most important evaluation metrics)
@@ -178,8 +180,8 @@ More specifically, and since each modality on this set (i.e., cover image, text 
 
 
 %%Esta era buena pero lo quito por falta de espacio
-%In what follows, we define the architectures and methods for the prediction of genre labels at the album level from each modality using deep learning. 
-%Furthermore, we describe how to combine different types of deep features learned from every modality in a single multimodal model, thus taking advantage of all available data in \emph{MuMu}.
+In what follows, we define the architectures and methods for the prediction of genre labels at the album level from each modality using deep learning. 
+Furthermore, we describe how to combine data representations learned from every modality in a single multimodal model, thus taking advantage of all available data in \emph{MuMu}.
 
 %Furthermore, we illustrate how we obtain deep feature vectors from each modality to further combine them in a multimodal approach.
 
@@ -232,7 +234,7 @@ The vocabulary size is limited to 10k as it was a good balance of network comple
 %<----- TODO: ANADIDO ESTO PERO SE PUEDE QUITAR
 
 Furthermore, a second approach is proposed based on the addition of semantic information via entity linking, similarly to the method described in Section~\ref{sec:similarity:classification}. 
-To semantically enrich the album texts, we adopted Babelfy \citep{Moroetal2014} via ELVIS (see Section~\ref{sec:linking:elvis}).%, a state-of-the-art tool for entity linking \citep{Moroetal2014}%, a task to associate, for a given textual fragment candidate, the most suitable entry in a reference KB. 
+To semantically enrich the album texts, we adopted Babelfy \citep{Moroetal2014} via ELVIS (see Section~\ref{sec:linking:elvis}). %, a state-of-the-art tool for entity linking \citep{Moroetal2014}%, a task to associate, for a given textual fragment candidate, the most suitable entry in a reference KB. 
 %Babelfy maps words from a given text to Wikipedia\footnote{http://wikipedia.org}. 
 %In Wikipedia, categories are used to organize resources. %, and they help users to group articles of the same subject. 
 We take all the Wikipedia categories of entities identified by Babelfy in each document and add them at the end of the text as new words. 
@@ -262,13 +264,12 @@ We aim to combine all of these different types of data into a single model.
 There are several works claiming that learning data representations from different modalities simultaneously outperforms systems that learn them separately \citep{ngiam2011multimodal,dorfer2016towards}. However, the experiments presented in Section~\ref{sec:cold-rec:song-rec} reflects the contrary. We have observed that deep networks are able to find an optimal minimum very fast from text data. However, the complexity of the audio signal can significantly slow down the training process. Simultaneous learning may under-explore one of the modalities, as the stronger modality may dominate quickly. Thus, learning each modality separately warrants that the variability of the input data is fully represented in each of the feature vectors.
 
 Therefore, from each modality network described above, we separately obtain an internal feature representation for every album after training them on the genre classification task.
-Concretely, the input to the last fully connected layer of each network becomes feature vector for its respective modality.
-Given a set of feature vectors, $l2$-regularization is applied on each of them. 
-They are then concatenated into a single feature vector, which becomes the input to a simple Multi Layer Perceptron (MLP), where the input layer is directly connected to the output layer. 
+Concretely, the activations of the last hidden layer of each network becomes feature vector for its respective modality.
+Given a set of feature vectors, $l2$-norm is applied on each of them. 
+They are then concatenated into a single feature vector, which becomes the input to a simple Multi Layer Perceptron (MLP). The input layer of the MLP is directly connected to the output layer, in a similar way to the multimodal network used in Section~\ref{sec:cold-rec:multimodal}. 
 The output layer may have either a \textsc{logistic} or a \textsc{cosine} configuration. %Similar to the audio and text networks, the output layer has 250 units (to match the number of classes aiming to be predicted) with sigmoid activation and binary cross entropy loss for the \textsf{logistic} configuration, and 50 units with linear activation and cosine proximity loss for the \textsf{cosine} configuration. We empirically set up 50\% of dropout after the input in the \textsf{cosine} setting, and no dropout in the \textsf{logistic} setting.
 
 \begin{table}[ht]
-\label{tbl:results}
 \centering
 \scriptsize
 \begin{tabular}{lccccccc}
@@ -309,6 +310,7 @@ Modality & Target & Settings                & Params         & Time    & AUC    
 \bottomrule
 \end{tabular}
 \caption[Results for Multi-label Music Genre Classification of Albums.]{Results for Multi-label Music Genre Classification of Albums. Number of network hyperparameters, epoch training time, AUC-ROC, and aggregated diversity at $N = 1,3$ for different settings and modalities.}
+\label{tbl:multi-class:results}
 \end{table}
 
 \section{Experiments}\label{sec:multi-class:experiments}
@@ -317,7 +319,7 @@ We apply the architectures defined in the previous section to the \emph{MuMu} da
 The dataset is divided as follows: 80\% for training, 10\% for validation, and 10\% for test. All sets contain albums of different artists, to avoid overfitting \citep{Flexer2007ACL}. We first evaluate every modality in isolation in the multi-label genre classification task. 
 Then, from each modality, a deep feature vector is obtained for the best performing approach in terms of AUC. 
 Finally, the three modality vectors are combined in a multimodal network. 
-All results are reported in Table~\ref{tbl:results}. 
+All results are reported in Table~\ref{tbl:multi-class:results}. 
 Performance of the classification is reported in terms of AUC score and ADiv@N with $N = 1, 3$. 
 The training speed per epoch and number of network hyperparameters are also reported. 
 %All source code and data splits used in our experiments are available on-line\footnote{https://github.com/sergiooramas/tartarus}.
@@ -367,14 +369,14 @@ Finally, we observe that the \textsc{cosine} regression approach achieves better
 
 \subsection{Text classification}\label{sec:multi-class:textexp}
 
-For text classification, we obtain two feature vectors as described in Section~\ref{sec:multi-class:text}: one built from the texts \textsc{VSM}, and another built from the semantically enriched texts \textsc{VSM+Sem}. 
+For text classification, we obtain two feature vectors as described in Section~\ref{sec:multi-class:text}: one built from the texts (\textsc{VSM}), and another built from the semantically enriched texts (\textsc{VSM+Sem}). 
 Both feature vectors are trained in the multi-label genre classification task using the two output configurations \textsc{logistic} and \textsc{cosine}.
 
 Results show that the semantic enrichment of texts clearly yields better results in terms of AUC and diversity.
 Furthermore, we observe that the \textsc{cosine} configuration slightly outperforms \textsc{logistic} in terms of AUC, and greatly in terms of aggregated diversity. 
 The text-based results are overall slightly superior than the audio-based ones. 
 
-We also studied the information gain of words in the different genres. We observed that genre labels present in the texts have important information gain values. However, it is remarkable that \textit{band} is a very informative word for Rock, \textit{song} for Pop, and \textit{dope}, \textit{rhymes}, and \textit{beats} are discriminative features for Rap albums. Place names have also important weights, as \textit{Jamaica} for Reggae, \textit{Nashville} for Country, or \textit{Chicago} for Blues.%\footnote{The complete list of words is available on-line at https://www.upf.edu/en/web/mtg/mumu}.
+We also studied the information gain of words in the different genres. We observed that genre labels present inside the texts have high information gain values. It is also remarkable that \textit{band} is a very informative word for Rock, \textit{song} for Pop, and \textit{dope}, \textit{rhymes}, and \textit{beats} are discriminative features for Rap albums. Place names have also important weights, as \textit{Jamaica} for Reggae, \textit{Nashville} for Country, or \textit{Chicago} for Blues.%\footnote{The complete list of words is available on-line at https://www.upf.edu/en/web/mtg/mumu}.
 
 %%%ADD TABLE and ref
 
@@ -401,14 +403,14 @@ For instance, many classical music albums include an instrument in the cover, an
 
 \subsection{Multimodal classification}\label{sec:multi-class:multiexp}
 
-From the best performing approaches in terms of AUC of each modality (i.e., \textsc{Audio} / \textsc{cosine} / \textsc{high-4x70}, \textsc{Text} / \textsc{cosine} / \textsc{VSM+Sem} and \textsc{Image} / \textsc{logistic} / \textsc{ResNet}), a feature vector is obtained as described in Section~\ref{sec:multi-class:multimodal}. 
+From the best performing approaches in terms of AUC of each modality (i.e., \textsc{Audio}/\textsc{cosine}/\textsc{high-4x70}, \textsc{Text}/\textsc{cosine}/\textsc{VSM+Sem} and \textsc{Image}/\textsc{logistic}/\textsc{ResNet}), an internal feature representation is obtained as described in Section~\ref{sec:multi-class:multimodal}. 
 Then, these three feature vectors are aggregated in all possible combinations, and genre labels are predicted using the MLP network described in Section~\ref{sec:multi-class:multimodal}.
 Both output configurations \textsc{logistic} and \textsc{cosine} are used in the learning phase, and dropout of 0.7 is applied in the \textsc{cosine} configuration.
 %Although a feature vector can be extracted from a network trained with \textsc{cosine} configuration (e.g. \textsc{Audio} / \textsc{cosine} / \textsc{high-4x70}), when this vector is used in a multimodal approach, the multimodal network can be either trained with \textsc{logistic} or \textsc{cosine} configurations. The same happens with vectors trained with \textsc{logistic} loss.
 
 Results suggest that the combination of modalities outperforms single modality approaches. 
 As image features are learned using a \textsc{logistic} configuration, they seem to improve multimodal approaches with \textsc{logistic} configuration only. 
-Multimodal approaches that include text features tend to improve the results. %, even if the difference in performance between the different combinations is not pronounced.
+Multimodal approaches that include text features tend to achieve better results. %, even if the difference in performance between the different combinations is not pronounced.
 Nevertheless, the best approaches are those that exploit the three modalities of \emph{MuMu}. \textsc{Cosine} approaches have similar AUC than \textsc{logistic} approaches but a much better aggregated diversity, thanks to the spatial properties of the factors space. 
 
 %Album factors tend to be near their associated genre factors in the latent space, and similar genres are grouped together. Therefore, when an album factor is predicted by the network, the nearest genres in the space achieve the highest probability score. Although popular genre factors may have some hub properties in the latent space \cite{radovanovic2010hubs}, they can not be nearest neighbor of the majority of album factors. However, in the \textsc{logistic} configuration, it is easy for the network to prioritize one specific output that is very popular in the dataset (e.g. Pop or Rock), because this warranties a reduction of the crossentropy loss.
@@ -416,7 +418,7 @@ Nevertheless, the best approaches are those that exploit the three modalities of
 \section{Conclusions}\label{sec:multi-class:conclusions}
 
 An approach for multi-label music genre classification using deep learning architectures has been proposed. 
-The approach was applied to audio, text, image data, and their combination. 
+The approach was applied to audio, text, and image data, and to the combination of learned data representations. 
 For its assessment, \emph{MuMu}, a new multimodal music dataset with over 31k albums and 147k songs has been gathered. 
 % This dataset encompasses multimodal information of about . Results show how the different modalities behave in the task. 
 We showed how representation learning approaches for audio classification outperform traditional handcrafted feature based approaches.
