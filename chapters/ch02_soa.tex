@@ -144,10 +144,10 @@ Dependency relations have been successfully incorporated to relation extraction 
 The main objective of a recommender system is to predict the \textit{rating} or \textit{preference} that a user would give to an item. By doing so, its mission is to provide suggestions for items to be of use to a user \citep{ricci2011introduction}. \textit{Item} is the general term used to denote what the system recommends to users (e.g., song, album, video, book).
 
 Within the recommender systems arena, there are two main methods for computing recommendations: collaborative filtering and contend-based ones.
-The most popular is collaborative filtering, which provides recommendations to a user by considering the preferences of other users with similar tastes. 
-The two primary areas in collaborative filtering are neighborhood methods and latent factors models. Neighborhood methods are based on computed similarity between items or between users \citep{Sarwar2001}. By contrast, latent factor models are based on the decomposition of the sparse user-item interactions matrix to a set of user and item d dimensional vectors using matrix factorization techniques \citep{Koren2009}. The recommendation problem is then treated as a matrix completion problem, where missing entries are filled by taking the dot product of the corresponding user–item latent factors. %Matrix factorization techniques are currently collaborative filtering state-of-the-art \citep{Koren2009}. 
+The most popular one is collaborative filtering, which provides recommendations to a user by considering the preferences of other users with similar tastes. 
+The two primary areas in collaborative filtering are neighborhood methods and latent factors models. Neighborhood methods are based on computed similarity between items or between users \citep{Sarwar2001}. By contrast, latent factor models are based on the decomposition of the sparse user-item interactions matrix to a set of user and item d dimensional vectors using matrix factorization techniques \citep{Koren2009}. The recommendation problem is then treated as a matrix completion problem, where missing entries are filled by taking the dot product of the corresponding user and item latent factors. %Matrix factorization techniques are currently collaborative filtering state-of-the-art \citep{Koren2009}. 
 
-As collaborative filtering methods rely only on users feedback information, they may suffer from the so-called \textit{cold-start} problem \citep{Saveski2014}. That is, when new items are introduced in the system, they cannot be initially recommended as there is no feedback information related to them.
+Since collaborative filtering methods rely only on user feedback information, they may suffer from the so-called \textit{cold-start} problem \citep{Saveski2014}. That is, when new items are introduced in the system, they cannot be initially recommended as there is no feedback information related to them.
 In addition, most popular items tend to attract most of the recommendations in collaborative filtering approaches. The relation between items and popularity is typically represented as a \textit{long tail} distribution \citep{anderson2006long} (see Figure~\ref{fig:soa:longtail}). A large number of items in the catalog normally receive few interactions from users, so they are hardly recommended. %This items are often called \textit{long tail} items. 
 These less popular items may be promoted by priming other evaluation measures rather than prediction accuracy, such as novelty or diversity \citep{abdollahpouri2017controlling}.
 However, another larger set of items in large catalogs receive almost none interactions. These items in the \textit{extreme long tail} are in practice as cold-start items, as the number of interactions is smaller than the minimum value required for collaborative filtering methods.
@@ -164,25 +164,28 @@ When available, the usage of side information about items has proven to boost th
 \subsection{Knowledge-based approaches}
 \label{sec:SOA:mir:recommendation:semantic}
 
-Ontology-based and semantics-aware recommendation systems have been proposed in many works in the past. 
-%The usage of ontologies to improve recommendation systems has been proposed in many works in the past. 
-In \citep{Middleton_2009} an ontological recommender system is presented that makes use of semantic user profiles to compute collaborative recommendations with the effect of mitigating cold-start and improving overall recommendation accuracy. 
-In \citep{mobasher2004} the authors present a \textit{semantically enhanced collaborative filtering} approach, where structured semantic knowledge about items is used in conjunction with user-item ratings to create a combined similarity measure for item comparisons. 
-In \citep{Ziegler2004} taxonomic information is used to represents the user's interest in categories of products. Consequently, user similarity is determined by common interests in categories and not by common interests in items. 
-In \citep{Anand2007} the authors present an approach that infers user preferences from rating data using an item ontology. The system collaboratively generates recommendations using the ontology and infers preferences during similarity computation. 
-Another hybrid ontological recommendation system is proposed in \citep{Cantador08amultilayer} where user preferences and item features are described by semantic concepts to obtain users' clusters corresponding to implicit \textit{Communities of Interest}.
+%Knowledge-based recommendation systems have been proposed in many works in the past.
+The usage of structured knowledge to improve recommendation systems has been proposed in many works in the past. 
+For instance, in \citep{mobasher2004} structured semantic knowledge about items is used in conjunction with user-item ratings to create a combined similarity measure for item comparisons. 
+In \citep{Ziegler2004} taxonomic information is used to represents the user's interest in categories of products. %Consequently, user similarity is determined by common interests in categories and not by common interests in items. 
+In \citep{Anand2007} the authors use an item ontology to infer user preferences from rating data. %The system collaboratively generates recommendations using the ontology and infers preferences during similarity computation. 
+In \citep{Cantador08amultilayer}, user preferences and item features are described by semantic concepts to obtain users' clusters corresponding to implicit \textit{Communities of Interest}.
+In \citep{Middleton_2009} an ontological recommender system makes use of semantic user profiles with the effect of mitigating cold-start and improving overall recommendation accuracy. 
 In all of these works, the experiments prove an accuracy improvement over traditional memory-based collaborative approaches especially in presence of sparse datasets. 
 
-In the last few years with the availability of Linked Open Data (LOD) datasets, a new class of recommender systems has emerged which can be named as LOD-based recommender systems. 
-One of the first approaches that exploit Linked Open Data for building recommender systems is \citep{HeitmannH10}. 
-In \citep{Fernandez-Tobias2011} the authors present a knowledge-based framework leveraging DBpedia for computing cross-domain recommendations. 
-In \citep{DMOR12,DMORZ12} a model-based approach and a memory-based one to compute content-based recommendations are presented leveraging LOD datasets. Another LOD content-based method is presented in \citep{ODMD14a} which defines a neighborhood-based graph kernel for matching graph-based item representations. 
-Two hybrid approaches have been presented lately. In \citep{Ostuni2013} the authors show how to compute top-N recommendations from implicit feedback using linked data sources and in \citep{Khrouf2013} the authors propose an event recommendation system based on linked data and user diversity. 
+With the rise of the Semantic Web, a new class of recommender systems has emerged, taking advantage of the availability of large Linked Open Data (LOD) datasets. 
+One of the first approaches in this sense is \citep{HeitmannH10}, where LOD is used to mitigate cold-start and sparsity problems. 
+In \citep{Fernandez-Tobias2011} DBpedia is leveraged for computing cross-domain recommendations. 
+In \citep{DMOR12,DMORZ12} a model-based approach and a memory-based one are presented leveraging LOD datasets. 
+In \citep{Ostuni2013} the authors show how to compute top-N recommendations from implicit feedback using linked data sources. 
+In \citep{ODMD14a} a LOD content-based method is presented, where a neighborhood-based graph kernel is defined for matching graph-based item representations. 
+%Two hybrid approaches have been presented lately.  %and in \citep{Khrouf2013} the authors propose an event recommendation system based on linked data and user diversity. 
 %In \citep{Rowe1} the authors propose a semantic-aware extension of the SVD++ model, named SemanticSVD++, which incorporates semantic categories of items into the model. The model is able also to consider the evolution over time of user's preferences. 
-Finally, another interesting direction about the usage of LOD for content-based RSs is explored in \citep{MustoSLG14} where the authors present Contextual eVSM, a content-based context-aware recommendation framework that adopts a semantic representation based on distributional semantics and entity linking techniques.% In particular entity linking is used to detect entities in free text and map them to LOD.
+Finally, another interesting direction about the usage of LOD is explored in \citep{MustoSLG14}, where the authors present a content-based context-aware recommendation framework that adopts a semantic representation based on distributional semantics and entity linking techniques.% In particular entity linking is used to detect entities in free text and map them to LOD.
 
 \subsection{Deep learning approaches}
 
+Recently several researchers have tried to apply deep learning techniques to recommender systems. Here we list some of these works. 
 Restricted Boltzmann Machines (RBM) was one of the first neural networks methods used in recommender systems, modeling user-item interaction \citep{salakhutdinov2007restricted}. Neural networks have been also applied to learn latent factors from item content-features, which has been revealed as a useful technique for cold-start recommendations \citep{wang2015collaborative}. This technique has been successfully applied to audio \citep{Oord2013} and text \citep{bansal2016ask}. Neural networks have been also applied to other recommendation problems, such as session-based recommendation \citep{hidasi2015session} or playlist generation \citep{vall2017music}.
 
 

@@ -92,31 +92,31 @@ To show an example of entity linking performed by Babelfy we use the sound \text
 \section{Recommendation approach}
 \label{sec:graph-rec:approach}
 As aforementioned, we adopted a hybrid recommendation approach to leverage both collaborative information coming from the user's community and content information coming from the knowledge graph. 
-Following the taxonomy of hybrid recommender systems presented in \cite{Burke2002} we developed a hybrid feature combination recommender system. 
-The particularity of such schema is that hybridization is not based on the combination of different recommendation components but instead on the combination of different data sources. 
+According to the taxonomy of hybrid recommender systems presented in \cite{Burke2002}, we developed a hybrid feature combination recommender system. 
+In our case, hybridization is not based on the combination of different recommendation components but instead on the combination of different data sources. 
 Specifically, collaborative information is treated as additional features of the content feature space and a content-based technique is used over this augmented space. Therefore, we build feature item representations by considering the item graph-based descriptions represented in the knowledge graph and enrich such feature vectors with collaborative features. Subsequently, we use such data to feed a content-based recommendation engine. 
 
-A common way of computing content-based recommendation is learning a function that, for each item in the system, predicts the relevance of such item for the user. 
-The application of machine learning techniques is a typical way to accomplish such task. % \cite{pazzani}. 
+%A common way of computing content-based recommendation is learning a function that, for each item in the system, predicts the relevance of such item for the user. The application of machine learning techniques is a typical way to accomplish such task. % \cite{pazzani}. 
+Content-based recommendations are typically computed by learning a function that, for each item in the system, predicts the relevance of such item for the user. %The application of machine learning techniques is a typical way to accomplish such task. % \cite{pazzani}. 
 A \textit{top-N}\xspace item recommendation problem in a standard content-based setting is mainly split into two different tasks: 
-(i) given a collection of items for which past user's preferences are available, learn a regression or classification model to predict the relevance associated to unknown items; (ii) eventually, according to such scores, recommend the most relevant items to the user. 
+(i) given a collection of items for which past user's preferences are available, learn a regression or classification model to predict the relevance associated to items unknown to the user; (ii) according to the obtained scores, recommend the most relevant items to the user. 
 Past user's preferences can be obtained from either explicit or implicit feedback. As for Freesound, we considered as an implicit positive feedback the ``download data''. The rationale behind our choice is that if a user downloads a sound it is reasonable to assume that she likes it even without an explicit rating, as the system lets users listen to sounds before downloading. Also the Last.fm dataset used in the experimental evaluation contains user song listening actions, which is another form of implicit feedback. 
 Thus, in the following we will refer to the problem of computing recommendations from implicit feedback data. 
-Following the notation introduced by \cite{RendleFGS09} for implicit feedback scenarios, let $S$  be the matrix of implicit feedback, where $s_{ui}=1$ if item $i$ was downloaded from user $u$, 0 otherwise. 
-Starting from $S$ we define $I_u^+ = \lbrace i \in I |  s_{ui}=1\rbrace$ as the set of relevant items for $u$. 
+Following the notation introduced by \cite{RendleFGS09} for implicit feedback scenarios, let $M$  be the matrix of implicit feedback, where $m_{ui}=1$ if item $i$ was downloaded from user $u$, 0 otherwise. 
+Starting from $M$ we define $I_u^+ = \lbrace i \in I |  m_{ui}=1\rbrace$ as the set of relevant items for $u$. 
 The main problem with implicit feedback is that they reflect only positive user preferences. On the contrary, the system cannot infer anything about what the user dislikes. The unobserved data are a mixture of actually negative and missing values \citep{RendleFGS09}, but the system does not have any information for discriminating between them. 
 Then, learning a predictive model from such unary data becomes infeasible because there are no negative examples. To overcome this issue for each user we select a portion of unobserved items $I_u^- \subset (I \setminus I_u^+)$ to be used as negative data points in the training of the model. In \cite{Ostuni2013}, the authors show that choosing $|I_u^-| = 2\cdot |I_u^+|$ does not affect accuracy results.
 The unobserved items are exactly the items that have to be ranked. The ultimate goal of the system is to rank in the \textit{top-N}\xspace positions items likely to be relevant for the user. 
 
 Given the generic user $u$, let $T_u$ be the training set for $u$ defined as:
 \[
-T_u=\lbrace \langle x_i,s_{ui} \rangle |  i \in (I_u^+ \cup I_u^-)\rbrace
+T_u=\lbrace \langle x_i,m_{ui} \rangle |  i \in (I_u^+ \cup I_u^-)\rbrace
 \] 
 where $x_i \in \mathbb{R}^D$ is the feature vector associated to the item $i$ and let $TS_u$ be the test set defined as:
 \[
 TS_u=\lbrace \langle x_i,s_{ui}^* \rangle |  i \in (I \setminus I_u^+)\rbrace
 \]
-The two tasks for the \textit{top-N}\xspace recommendation problem, in our setting, consist then of: (i) learning a function $f_u:\mathbb{R}^D \rightarrow \mathbb{R}$ from the training data $T_u$  which assigns a relevance score to the items in $I$; (ii) using such function to predict the unknown score $s_{ui}^*$ in the test set $TS_u$, to rank them and recommend the \textit{top-N}\xspace.
+The two tasks for the \textit{top-N}\xspace recommendation problem, in our setting, consist then of: (i) learning a function $f_u:\mathbb{R}^D \rightarrow \mathbb{R}$ from the training data $T_u$  which assigns a relevance score to the items in $I$; (ii) using such function to predict the unknown score $m_{ui}^*$ in the test set $TS_u$, to rank them and recommend the \textit{top-N}\xspace.
 %\begin{enumerate}
 %\item learning a function $f_u:\mathbb{R}^D \rightarrow \mathbb{R}$ from the training data $T_u$  which assigns a relevance score to the items in $I$;
 %\item using such function to predict the unknown score $s_{ui}^*$ in the test set $TS_u$, rank them and recommend the \textit{top-N}\xspace.
@@ -397,7 +397,7 @@ To evaluate the impact of the various features and information sources we built 
 %Differently from \texttt{(fso+KB/h=x)}, in the configuration \texttt{(fso+KB+kw+tag/h=x)} also text descriptions are mapped to the ontology. 
 %Differently from the previous cases, \texttt{VSM kw+tag} is a pure textual approach where the Vector Space Model was applied on raw tags and keywords. 
 %\texttt{noCol} means that no collaborative features are considered (pure content-based approach) and \texttt{Collab} means that only collaborative features are considered (each feature vector consists of $\phi_{col}$ only). 
-In addition, we built a content-based approach purely based on 352 low-level audio features\footnote{\url{https://www.freesound.org/docs/api/analysis_example.html\#all-descriptors}} extracted from the sound signal by using Essentia~\citep{Bogdanov2013}. In this approach, predictions are computed by aggregating the Euclidean distances between the sounds downloaded by the user and the target sound to recommend. %Final recommendation lists are generated by taking the sounds with lowest score.
+In addition, we built a content-based approach purely based on 352 low-level audio features\footnote{\url{https://www.freesound.org/docs/api/analysis_example.html\#all-descriptors}} extracted from the sound signal by using Essentia~\citep{Bogdanov2013}. In this approach, predictions are computed by aggregating the Euclidean distances between the feature vectors of each sound downloaded by the user and the target sound to recommend. %Final recommendation lists are generated by taking the sounds with lowest score.
 All the results are reported in Table~\ref{tbl:graph-rec:Res1}. 
 
 Looking at the accuracy results we see that there are no marked differences among all the feature vector variants. Noteworthy is that without considering the collaborative information (\texttt{noCol}) the accuracy drops significantly. In addition, when considering only collaborative features accuracy performances are comparable with respect to hybrid feature combination variants. The best hybrid semantic version \texttt{Ent(fso+KB/kw+tag/h=3)} is slightly better than pure collaborative. % (+0.8\% in terms of P@10). 

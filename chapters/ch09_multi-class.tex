@@ -18,7 +18,7 @@ In this chapter we aim to advance the field of music genre classification by fra
 
 % Music classification of a handful of broad genres may have been an interesting computational problem for a while, but now it is time to move forward to a more real world problem such as multi-label genre classification of very specific genres.
 
-To this end, we present \emph{MuMu}, a new large-scale multimodal dataset for multi-label music genre classification. \emph{MuMu} contains information of roughly 31k albums classified into one or more 250 genre classes. For every album we analyze the cover image, text reviews, and audio tracks, with a total number of approximately 147k audio tracks and 447k album reviews. 
+To this end, we present \emph{MuMu}, a new large-scale multimodal dataset for multi-label music genre classification. \emph{MuMu} contains information of roughly 31k albums classified into one or more 250 genre classes. For every album we analyze its cover image, text reviews, and audio tracks, with a total number of approximately 147k audio tracks and 447k album reviews. 
 Furthermore, we exploit this dataset with a novel deep learning approach to learn multiple genre labels for every album using different data modalities (i.e., audio, text, and image). 
 Internal data representations of each modality are extracted from the neural networks used for classification.
 Next, we combine these representations to study how the different combinations behave.
@@ -426,7 +426,7 @@ Moreover, we compared the effect of different design parameters of CNNs in audio
 Text-based approaches seem to outperform other modalities, and benefit from the semantic enrichment of texts via entity linking. %, helping reduce the gap between audio- and text-based approaches.
 % However, compared with previous research in the field, the gap between audio and text-based approaches has been reduced. 
 % This has been possible thanks to the introduction of deep learning approaches. 
-While the image-based classification yielded the lowest performance, it helped to improve the results when combined with other modalities.
+While the image-based classification yielded the lowest performance, it helped to improve the results when combined with other modalities. 
 Multimodal approaches appear to outperform single modality approaches, and the aggregation of the three modalities achieved the best results.
 Furthermore, the dimensionality reduction of target labels led to better results, not only in terms of accuracy, but also in terms of aggregated diversity.
 
