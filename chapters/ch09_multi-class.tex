@@ -41,7 +41,7 @@ To map the information from both datasets we use MusicBrainz.
 For every album in the Amazon dataset, we query MusicBrainz with the album title and artist name to find the best possible match. Matching is performed using the same methodology described in Section~\ref{sec:musicology:mard}, following a pair-wise entity resolution approach based on string similarity. Following this approach, we were able to map 60\% of the Amazon dataset.
 %60\% of albums were mapped in the dataset. 
 For all the matched albums, we obtain the MusicBrainz recording ids of their songs. 
-With these, we use an available mapping from MSD to MusicBrainz\footnote{http://labs.acousticbrainz.org/million-song-dataset-echonest-archive} to obtain the subset of recordings present in the MSD. 
+With these, we use an available mapping from MSD to MusicBrainz\footnote{\url{http://labs.acousticbrainz.org/million-song-dataset-echonest-archive}} to obtain the subset of recordings present in the MSD. 
 From the mapped recordings, we only keep those associated with a unique album.
 This process yields the final set of 147,295 songs, which belong to 31,471 albums.
 
@@ -60,7 +60,7 @@ In the first level there are 27 genres, and almost 500 genres overall.
 In our dataset, we keep the 250 genres that satisfy the condition of having been annotated in at least 12 albums. %instances in the training set (TODO: what are these sets? What's their split \%?), one in the validation set and one in the test set. 
 Every album in Amazon is annotated with one or more genres from different levels of the taxonomy. 
 The Amazon Dataset contains complete information about the specific branch from the taxonomy used to classify each album. For instance, an album annotated as Traditional Pop comes with the complete branch information \textit{Pop / Oldies / Traditional Pop}. 
-To exploit either the taxonomic and the co-occurrence information, we provide every item with the labels of all their branches. For example, an album classified as \textit{Jazz / Vocal Jazz} and \textit{Pop / Vocal Pop} is annotated in \emph{MuMu} with the four labels: Jazz, Vocal Jazz, Pop, and Vocal Pop. There are in average 5.97 labels for each song (3.13 standard deviation).
+To exploit both the taxonomic and the co-occurrence information, we provide every item with the labels of all their branches. For example, an album classified as \textit{Jazz / Vocal Jazz} and \textit{Pop / Vocal Pop} is annotated in \emph{MuMu} with the four labels: Jazz, Vocal Jazz, Pop, and Vocal Pop. There are in average 5.97 labels for each song (3.13 standard deviation).
 
 \begin{table}
 \centering
@@ -85,7 +85,7 @@ Folk & 9.69 & Girl Groups & 0.06 \\
 \label{tbl:multi-class:genres}
 \end{table}
 
-The labels in the dataset are highly unbalanced, following a distribution which might align well with those found in real world scenarios. 
+The labels in the dataset are highly unbalanced, following a distribution that might align well with those found in real world scenarios. 
 %but this is the common case in real world scenarios. 
 In Table~\ref{tbl:multi-class:genres} we see the top 10 most and least represented genres and the percentage of albums annotated with each label.
 The unbalanced character of the genre annotations poses an interesting challenge for music classification that we also aim to exploit. 
@@ -115,7 +115,7 @@ This method, which we refer as \textsc{logistic}, implies the assumption that th
 
 A more recent approach \citep{Chollet2016}, relies on matrix factorization to reduce the dimensionality of the target labels. 
 This method makes use of the interrelation between labels, embedding the high-dimensional sparse labels onto lower-dimensional vectors.
-In this case, the target of the network is a dense lower-dimensional vector which can be learned using the cosine proximity loss, as these vectors tend to be $l2$-normalized. 
+In this case, the target of the network is a dense lower-dimensional vector, which can be learned using the cosine proximity loss, as these vectors tend to be $l2$-normalized. 
 We denote this technique as \textsc{cosine}, and we provide a more formal definition next.
 
 \subsection{Labels factorization}\label{sec:multi-class:factorization}
@@ -161,7 +161,7 @@ Thus, it can be evaluated either from the labels or the items perspective.
 We can measure how accurate the classification is for every label, or how well the labels are ranked for every item. 
 In this work, the former point of view is evaluated with the AUC measure, which is computed for every label and then averaged. 
 We are interested in classification models that strengthen the diversity of label assignments. 
-As the taxonomy is composed of broad genres which are over-represented in the dataset (see Table~\ref{tbl:multi-class:genres}) and more specific subgenres (e.g., Vocal Jazz, Britpop), we want to measure whether the classifier is focusing only on over-represented genres, or on more fine-grained ones.
+As the taxonomy is composed of broad genres that are over-represented in the dataset (see Table~\ref{tbl:multi-class:genres}) and more specific subgenres (e.g., Vocal Jazz, Britpop), we want to measure whether the classifier is focusing only on over-represented genres, or on more fine-grained ones.
 To this end, we use aggregated diversity \citep{adomavicius2012improving}, also known as catalog coverage. %, which is an evaluation measure used in the extreme multi-label classification \citep{jain2016extreme} and the recommender systems \citep{AdomaviciusK12} communities. %It is called either aggregated diversity or catalog coverage. %We want to measure how diverse is assignation of labels to items.
 ADiv@N measures the percentage of normalized unique labels present in the top $N$ predictions across all test items (see Section~\ref{sec:graph-rec:evaluation}). Values of $k = 1, 3, 5$ are typically employed in multi-label classification \citep{jain2016extreme} .
 
@@ -251,7 +251,7 @@ The network is trained also with mini batches of 32 items, and Adam as optimizer
 Every album in the dataset has an associated cover art image. To perform music genre classification from these images, we use Deep Residual Networks (ResNets) \citep{he2016deep}.
 They are the state-of-the-art in various image classification tasks like Imagnet \citep{ILSVRC15} and Microsoft COCO \citep{lin2014microsoft}. 
 ResNet is a common feed-forward CNN with \emph{residual learning}, which consists on bypassing two or more convolution layers. %The residual connections limit the underfitting problem originated when using a high number of layers. This way, the number of layer can be increased, creating very deep CNNs (more than 100 layers).
-We employ a slightly modified version of the original ResNet\footnote{https://github.com/facebook/fb.resnet.torch/}: the scaling and aspect ratio augmentation are obtained from \cite{szegedy2015going}, the photometric distortions from \cite{howard2013some}, and weight decay is applied to all weights and biases. %(i.e., not focusing on convolutional layers only).
+We employ a slightly modified version of the original ResNet\footnote{\url{https://github.com/facebook/fb.resnet.torch/}}: the scaling and aspect ratio augmentation are obtained from \cite{szegedy2015going}, the photometric distortions from \cite{howard2013some}, and weight decay is applied to all weights and biases. %(i.e., not focusing on convolutional layers only).
 The network we use is composed of 101 layers (ResNet-101), initialized with pretrained parameters learned on ImageNet.
 This is our starting point to finetune the network on the genre classification task.
 Our ResNet implementation has a logistic regression final layer with sigmoid activations and uses the binary cross entropy loss.
@@ -261,10 +261,10 @@ The network is trained on the genre classification task with mini batches of 50 
 \subsection{Multimodal approach}\label{sec:multi-class:multimodal}
 
 We aim to combine all of these different types of data into a single model.
-There are several works claiming that learning data representations from different modalities simultaneously outperforms systems that learn them separately \citep{ngiam2011multimodal,dorfer2016towards}. However, the experiments presented in Section~\ref{sec:cold-rec:song-rec} reflects the contrary. We have observed that deep networks are able to find an optimal minimum very fast from text data. However, the complexity of the audio signal can significantly slow down the training process. Simultaneous learning may under-explore one of the modalities, as the stronger modality may dominate quickly. Thus, learning each modality separately warrants that the variability of the input data is fully represented in each of the feature vectors.
+There are several works claiming that learning data representations from different modalities simultaneously outperforms systems that learn them separately \citep{ngiam2011multimodal,dorfer2016towards}. However, the experiments presented in Section~\ref{sec:cold-rec:song-rec} reflect the contrary. We have observed that deep networks are able to find an optimal minimum very fast from text data. However, the complexity of the audio signal can significantly slow down the training process. Simultaneous learning may under-explore one of the modalities, as the stronger modality may dominate quickly. Thus, learning each modality separately warrants that the variability of the input data is fully represented in each of the feature vectors.
 
 Therefore, from each modality network described above, we separately obtain an internal feature representation for every album after training them on the genre classification task.
-Concretely, the activations of the last hidden layer of each network becomes feature vector for its respective modality.
+Concretely, the activations of the last hidden layer of each network become the feature vector for its respective modality.
 Given a set of feature vectors, $l2$-norm is applied on each of them. 
 They are then concatenated into a single feature vector, which becomes the input to a simple Multi Layer Perceptron (MLP). The input layer of the MLP is directly connected to the output layer, in a similar way to the multimodal network used in Section~\ref{sec:cold-rec:multimodal}. 
 The output layer may have either a \textsc{logistic} or a \textsc{cosine} configuration. %Similar to the audio and text networks, the output layer has 250 units (to match the number of classes aiming to be predicted) with sigmoid activation and binary cross entropy loss for the \textsf{logistic} configuration, and 50 units with linear activation and cosine proximity loss for the \textsf{cosine} configuration. We empirically set up 50\% of dropout after the input in the \textsf{cosine} setting, and no dropout in the \textsf{logistic} setting.
@@ -341,7 +341,7 @@ It can be seen how the different albums are properly clustered in the factor spa
 We explore three network design parameters: convolution filter size, number of filters per convolutional layer, and target layer. 
 For the filter size we compare three approaches: square 3x3 filters as in \cite{Choi2016}, a filter of 4x96 that convolves only in time \citep{Oord2013}, and a musically motivated filter of 4x70, which is able to slightly convolve in the frequency domain \citep{pons2016experimenting}. 
 To study the width of the convolutional layers we try with two different settings: \textsc{high} with 256, 512, 1024, and 1024 in each layer respectively, and \textsc{low} with 64, 128, 128, 64 filters. %We empirically set these two configurations. 
-Max-pooling is applied after each convolutional layer.
+Max pooling is applied after each convolutional layer.
 Finally, we use the two different network targets defined in Section~\ref{sec:multi-class:multilabel}, \textsc{logistic} and \textsc{cosine}. %Moreover, we studied how the use of Dropout regularization \cite{} affect both target configurations.
 We empirically observed that dropout regularization only helps in the \textsc{high} plus \textsc{cosine} configurations. Therefore we applied dropout with a factor of 0.5 to these configurations, and no dropout to the others. %The dataset is standarized with zero mean and unit variance.
 
@@ -374,7 +374,7 @@ Both feature vectors are trained in the multi-label genre classification task us
 
 Results show that the semantic enrichment of texts clearly yields better results in terms of AUC and diversity.
 Furthermore, we observe that the \textsc{cosine} configuration slightly outperforms \textsc{logistic} in terms of AUC, and greatly in terms of aggregated diversity. 
-The text-based results are overall slightly superior than the audio-based ones. 
+The text-based results are overall slightly superior to the audio-based ones. 
 
 We also studied the information gain of words in the different genres. We observed that genre labels present inside the texts have high information gain values. It is also remarkable that \textit{band} is a very informative word for Rock, \textit{song} for Pop, and \textit{dope}, \textit{rhymes}, and \textit{beats} are discriminative features for Rap albums. Place names have also important weights, as \textit{Jamaica} for Reggae, \textit{Nashville} for Country, or \textit{Chicago} for Blues.%\footnote{The complete list of words is available on-line at https://www.upf.edu/en/web/mtg/mumu}.
 
