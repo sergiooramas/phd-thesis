@@ -73,6 +73,13 @@ We attempt to surmount this heterogeneity as follows: First, we retrieve DBpedia
 %\subsection{entity linking Agreement}
 %\label{sec:agreement}
 
+\begin{figure}[]
+  \centering
+	\includegraphics[height=3.25cm,width=8cm]{ch03_linking_pics/workflow_bn.pdf}
+  \caption{ELVIS Workflow.}
+  \label{fig:linking:workflow}
+\end{figure}
+
 After successfully providing a process that harmonizes the output of entity linking systems, it is possible to compute the degree of agreement among them, which will become our system's confidence score. We define the following set of \textit{agreement heuristics} to set such score for each linking prediction (an overview of the workflow of \textsc{ELVIS} is provided in Figure \ref{fig:linking:workflow}).
 
 \begin{itemize}
@@ -86,12 +93,7 @@ After successfully providing a process that harmonizes the output of entity link
 %%%The output of the agreement step follows the same data structure as the output of the unification step, but adding to every entity the confidence score and the name of the tool or tools involved in the agreement. In case of disagreement, the different URIs and DBpedia types from every tool are provided.
 
 
-\begin{figure}[h!]
-  \centering
-	\includegraphics[height=3.25cm,width=8cm]{ch03_linking_pics/workflow_bn.pdf}
-  \caption{ELVIS Workflow.}
-  \label{fig:linking:workflow}
-\end{figure}
+
 
 
 \section{From Last.fm to ELMD}
@@ -169,8 +171,8 @@ As for \textit{type equivalence}, this is a binary value (\textit{type-equivalen
 \textbf{Last.fm type} & \textbf{DBpedia type} \\
 \hline
 Song & DBpedia:Song, DBpedia:Single, Yago:Song \\
-Album & \parbox[t]{5cm}{DBpedia:Album, Yago:Album,\\ Schema:MusicAlbum} \\
-Artist & \parbox[t]{5cm}{DBpedia:MusicalArtist, \\DBpedia:Band, Schema:MusicGroup, Yago:Musician, Yago:Creator, DBpedia:Artist} \\
+Album & \parbox[t]{6cm}{DBpedia:Album, Yago:Album,\\ Schema:MusicAlbum} \\
+Artist & \parbox[t]{6cm}{DBpedia:MusicalArtist, \\DBpedia:Band, Schema:MusicGroup, Yago:Musician, Yago:Creator, DBpedia:Artist} \\
 Record Label & DBpedia:RecordLabel \\
 \hline
 	\end{tabular}
@@ -178,7 +180,7 @@ Record Label & DBpedia:RecordLabel \\
 	\label{tbl:linking:equivalence}
 \end{table}
 
-\begin{table*}[!t]
+\begin{table}[]
 \scriptsize
 \def\arraystretch{1.2}
 \centering
@@ -197,13 +199,13 @@ The band's debut album, \textbf{Cookies}, was released on 14 May 2007 & Album & 
 	\end{tabular}
 	\caption{Agreement examples of ELVIS.}
 	\label{tbl:linking:examples}
-\end{table*}
+\end{table}
 
 %\subsection{Unification Framework for Entity Linking}
 
 %\subsection{Agreement-based Entity Linking Confidence}
 
-\begin{figure}[!t]
+\begin{figure}[]
   \centering
 	\includegraphics[width=\textwidth]{ch03_linking_pics/evaluation_both.png}
   \caption[Number of entities and precision of the manual evaluation.]{Number of entities and precision of the manual evaluation.  Note the major differences in Precision between \textit{type-equivalent} and \textit{type-discrepant} systems.}
@@ -292,7 +294,7 @@ A similar situation happens when song or album names may be confused with very c
 
 %Hihglight the fact that errors of type-A3 are actually impossible to detect even for a human.
 
-\begin{figure}[h!]
+\begin{figure}[]
   \centering
 	\includegraphics[width=8cm]{ch03_linking_pics/ELMD_Overview.eps}
   \caption{ELMD Overview. Number of annotations, confidence score, and precision values at different confidence score thresholds.}

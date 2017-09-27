@@ -8,7 +8,7 @@
 % -------------------------------------------------------------------------------------------------------------------------
 %\documentclass[10pt,b5paper,twoside,showtrims,openright]{memoir}
 %\documentclass[10pt,a4paper,twoside,showtrims,openright]{memoir}
-\documentclass[11pt,a4paper,twoside,showtrims,openright]{memoir}
+\documentclass[11pt,a4paper,twoside,openright]{memoir}
 % -------------------------------------------------------------------------------------------------------------------------
 
 \usepackage[utf8]{inputenc} % codificacio dels caracters
@@ -110,6 +110,20 @@
 %\makeatletter% Set distance from top of page to first float
 %\setlength{\@fptop}{5pt}
 %\makeatother
+
+%%%%%% RECORTE SANKALP
+\setstocksize{250mm}{176mm}  % The size of the stock paper (support), A4
+\settrimmedsize{\stockheight}{\stockwidth}{*} % B5, the size of the final copy, cut from the stock paper.
+\setlength{\trimtop}{0mm} % Alcada de la franja inferior a tallar.
+\setlength{\trimedge}{0mm} % Amplada de la franja interior a tallar per cada costat.
+\setulmarginsandblock{23mm}{23mm}{*} % used to be {25mm}{16mm}
+\setlrmarginsandblock{25mm}{*}{0.8}
+\showtrimsoff
+\checkandfixthelayout
+%%%%%%%%%%%%
+
+
+
 
 % perque no es posi espai blanc raro entre coses
 %\raggedbottom
