@@ -14,7 +14,7 @@ In this chapter we tackle the problem of computing sound and music recommendatio
 The approach we propose to recommend musical items consists mainly of two parts: (i) the enrichment of original data attached to items by linkage to knowledge repositories, (ii) the effective exploitation of the graph-based nature of such data for computing the recommendations. 
 
 The enrichment of data consists in using entity linking techniques for extracting semantic entities from item textual descriptions and linking them to external knowledge bases such as WordNet \citep{wordnet} and DBpedia \citep{dbpedia1} for gathering additional knowledge. All those different information are eventually merged together and represented by means of a new knowledge graph (KG), following a similar approach to the one described in Section~\ref{sec:similarity:semantic_enriched_graph}.
-This latter graph is thus exploited together with collaborative information from implicit feedback for computing the recommendations. Two graph feature mappings are defined to leverage the new knowledge graph and obtain expressive feature representations. All different features are combined together in a feature combination hybrid schema \citep{Burke2002} and used to feed a content-based recommender. An extensive experimental evaluation was carried out on two different datasets --one related to sounds and other to songs-- to evaluate the recommendation quality in terms of accuracy, novelty and aggregated diversity. 
+This latter graph is thus exploited together with collaborative information from implicit feedback for computing the recommendations. Two graph feature mappings are defined to leverage the new knowledge graph and obtain expressive feature representations. All different features are combined together in a feature combination hybrid schema \citep{Burke2002} and used to feed a content-based recommender. An extensive experimental evaluation was carried out on two different datasets---one related to sounds and other to songs---to evaluate the recommendation quality in terms of accuracy, novelty, and aggregated diversity. 
 
 In this chapter, we deal with two slightly different problems in the music ecosystem. We address the songs recommendation problem and that of recommending sounds to users in online sound sharing platforms. The two tasks addresses two separate categories of users in the music domain: on the one hand, we have music consumers (songs and artists recommendation); on the other hand, we have music producers (sounds recommendation).
 
@@ -72,7 +72,7 @@ Each synset obained from the linking is further expanded considering other conce
 %Once the synset of a word is obtained, the WordNet hierarchy of sysnsets may be explored. 
 %In this hierarchy, synsets are connected by two relations: hypernymy and meronymy. The former models generalizations between synsets while the latter represents part-of relations. 
 %For the scope of this research we only took into consideration hypernymy relations between synsets. 
-From the WordNet hierarchy we extract up to 2-hop hypernyms starting from the mapped synset. We empirically selected the maximum distance of two hops because we wanted to avoid too broad generalization of the original concept. For the same reason we discard those hypernyms farther less than six hops away from the root of the WordNet hierarchy. %The experimental results show (see Section \ref{sem_eval}) that this restriction in the semantic expansion of WordNet concepts does not affect negatively the results of the recommendation engine fed by our knowledge graph. 
+From the WordNet hierarchy we extract up to 2-hop hypernyms starting from the mapped synset. We empirically selected the maximum distance of two hops because we wanted to avoid too broad generalization of the original concept. For the same reason we discard those hypernyms less than six hops away from the root of the WordNet hierarchy. %The experimental results show (see Section \ref{sem_eval}) that this restriction in the semantic expansion of WordNet concepts does not affect negatively the results of the recommendation engine fed by our knowledge graph. 
 % the length of the longest hypernym path from a synset to the root of the WordNet hierarchy should be at least six.
 Regarding DBpedia, our entity linking pipeline returns the URI of the linked entity and a set of related Wikipedia categories. In DBpedia, resources are related to categories through the property \texttt{dcterms:subject}. Those categories are in turn organized in a taxonomy. In particular, more specific categories are related to more generic ones by means of the \texttt{skos:broader} property. Thus, for each category retrieved, all the direct broader categories were gathered and added to our knowledge graph. To avoid too broad or unrelated categories, only one level of broader categories was considered.
 
@@ -210,13 +210,13 @@ $c_{1,e_1} =1$, $c_{1,e_2} =1$, $c_{1,e_3} = 1$, $c_{2,e_4} = 1$, $c_{2,e_5} =2$
 
 \subsubsection{Path-based item neighborhood mapping}
 
-Differently from the previous case, in this mapping we represent a feature as a sequence of nodes in $G$. Given two entities $e_1$ and $e_n$, we consider the sequence of nodes $e_1 \cdot e_2 \cdot \ldots \cdot e_{n-1} \cdot e_n$ met while traversing the graph to go from $e_1$ to $e_n$ and we refer to such sequence as \textit{path}. In this  mapping, a feature is then represented by a path. In particular, in this mapping each feature refers to several variants of paths rooted in the item node. 
+Differently from the previous case, in this mapping we represent a feature as a sequence of nodes in $G$. Given two entities $e_1$ and $e_n$, we consider the sequence of nodes $e_1 \cdot e_2 \cdot \ldots \cdot e_{n-1} \cdot e_n$ met while traversing the graph to go from $e_1$ to $e_n$ and we refer to such sequence as a \textit{path}. In this  mapping, a feature is then represented by a path. In particular, in this mapping each feature refers to several variants of paths rooted in the item node. 
 We first collect all the paths rooted in $i$ which can be indicated as sequence of entities $i\cdot e_1 \cdot e_2 \cdot \ldots \cdot e_{n-1} \cdot e_n$. 
 Then, starting from those paths we define various features considering sub-paths of the original paths. Specifically we form sub-paths composed by only those entities progressively farther from the item.
 Considering the path given above we build the following features: $e_1 \cdot e_2 \cdot  \ldots \cdot  e_{n-1} \cdot  e_n$, $e_2 \cdot  \ldots \cdot  e_{n-1} \cdot  e_n$, ..., $e_{n-1} \cdot  e_n$, $e_n$. 
 The rationale behind this choice is that it allows to explicitly represent substructures shared between items with no overlapping in their immediate neighborhoods but somehow connected at further distance. Items connected to the same entities have same common structures because both closer and further entities are shared. Items connected to different entities which are however linked directly or at a farther distance to same entities  share less or none sub-paths depending on how much far the common entities are, if any.
 
-More formally, let $P_i$ be the set of paths rooted in $i$ and $P^*_i$ be the list of all possible sub-paths extracted from them. We use $p_m(i)$ and $p^*_m(i)$ to refer to the $m-th$ elements in $P_i$ and $P^*_i$, respectively. Then, the feature mapping for item $i$ is:
+More formally, let $P_i$ be the set of paths rooted in $i$ and $P^*_i$ be the list of all possible sub-paths extracted from them. We use $p_m(i)$ and $p^*_m(i)$ to refer to the $m$th elements in $P_i$ and $P^*_i$, respectively. Then, the feature mapping for item $i$ is:
 \[
 \phi_P(G^h_i)=(w_{i,p^*_1} ,w_{i,p^*_2} ,...w_{i,p^*_m} ,...,w_{i,p^*_t} )
 \]
@@ -227,7 +227,7 @@ is computed as:
 w_{i,p^*_m}=  \frac{ \# p^*_m(i) }{ \vert p_m \vert - \vert p^*_m \vert} 
 \] 
 where $\vert p_m \vert$ indicates the length of path $p_m$ and $\# p^*_m(i)$ the occurrence of $p^*_m(i)$ in $P^*_i$. The denominator is a discounting factor, which takes into account the difference between the original path $p_m$ and its sub-path $p^*_m$. The shorter the sub-path the bigger the discount, because it contains entities farther from the item. 
-\\With respect to item $i$ we have:\\
+\\For example, with respect to item $i$ in Figure~\ref{fig:graph-rec:Example}, we have:\\
 $P_i= \lbrace i \cdot e_1 \cdot e_4,\text{ }i \cdot e_1 \cdot e_5,\text{ } i \cdot e_2 \cdot e_5,\text{ } i \cdot e_3 \cdot e_6,\text{ } i \cdot e_3 \cdot e_7 \rbrace$\\
 $P^*_i= [ e_1 \cdot e_4,\text{ } e_4,\text{ } e_1 \cdot e_5,\text{ }e_5,\text{ } e_3 \cdot e_6,\text{ } e_6
 ,\text{ } e_3 \cdot e_7,\text{ } e_7 ]$
@@ -280,7 +280,7 @@ For measuring recommendation accuracy we adopted the following standard performa
 Precision@N (P@N) is computed as the fraction of \textit{top-N}\xspace recommended items appearing in the test set, while Recall@N (R@N) is computed as the ratio of \textit{top-N}\xspace recommended items appearing in the test set to the number of items in the test set. Note that in such implicit feedback setting all items in the test set are relevant. In addition to the standard precision and recall metrics we also measure the Mean Reciprocal Rank (MRR) which measure the quality of the highest ranked recommendations. For each user recommendation list the Reciprocal Rank (RR) measures how early in the list is positioned the first relevant recommendation. 
 
 As pointed out by \cite{McNee2006}, the most accurate recommendations according to the standard metrics are sometimes not the recommendations that are most useful to users. In order to assess the utility of a recommender system, it is extremely important to evaluate also its capacity to suggest items that users would not readily discover for themselves, i.e., its ability to generate novel and unexpected results.
-The \textit{Entropy-Based Novelty} (\textit{EBN}) \citep{Bellogin2010} expresses the ability of a recommender system to suggest less popular items, i.e., items not known by a wide number of users. 
+The \textit{Entropy-Based Novelty} (\textit{EBN}) \citep{Bellogin2010} expresses the ability of a recommender system to suggest fewer popular items, i.e., items not known by a wide number of users. 
 In particular, for each user's recommendation list $L_u$, the novelty is computed as:  
 \[ EBN_u@N = - \sum \limits_{ i\in L_u} p_i \cdot \log_{2} p_i \]
 where:
@@ -291,7 +291,7 @@ Another important quality of the system is aggregate diversity.
 %its level of personalization which can be measured looking at the aggregate diversity of recommendations across all users. 
 In our chapter we adopt the \textit{diversity-in-top-N} metric presented in \cite{adomavicius2012improving} that measures the distinct items recommended across all users. In particular we compute its normalized version with respect to the size of the item catalog. For brevity we refer to it as $ADiv@N$ and we compute it as follows:
 \[ ADiv@N = \frac{ \vert \bigcup_u L_u \vert }{ \vert I \vert }  \]
-This metric is an indicator of the level of personalization provided by a recommender system. Low values of aggregated diversity indicate  that all users are being recommended almost the same few items. This corresponds to a low level of personalization of the system. Instead, high values mean that users receive very different recommendations, which can be indirectly seen as a high level of personalization of the system. %The importance of such particular dimension of the recommendation quality has been also highlighted in other chapters as in \cite{JannachLGB13}.
+This metric is an indicator of the level of personalization provided by a recommender system. Low values of aggregated diversity indicate  that all users are being recommended almost the same few items. This corresponds to a low level of personalization of the system. In contrast, high values mean that users receive very different recommendations, which can be indirectly seen as a high level of personalization of the system. %The importance of such particular dimension of the recommendation quality has been also highlighted in other chapters as in \cite{JannachLGB13}.
 
 All the reported metrics, besides aggregated diversity, are computed for each single user and eventually averaged.
 
@@ -323,7 +323,7 @@ All the reported metrics, besides aggregated diversity, are computed for each si
 We evaluated our approach on historical data about sound downloads collected from February 2005 to October 2013. In addition, we further enriched our knowledge graphs (see Section~\ref{sec:graph-rec:enrichment}) with information coming from the Freesound Ontology \citep[chapter 6]{font2015tag}, a lightweight ontology where the 500 most popular Freesound tags are classified into 23 tag categories. From the original data dump, we selected a subset of sounds that fulfilled some criteria. We selected those sound with at least two tags classified in the Freesound Ontology. After that we filtered out all sounds with less than 10 downloads to reduce the sparsity of the implicit feedback matrix and have a fairer comparison with pure collaborative filtering methods. 
 %After this initial filtering, a total number of 99,008 sounds were obtained out of which 22,000 were randomly selected. Among them, we selected those with at least one entity detected in textual description and linked to WordNet or DBpedia and finally obtained 21,552 sounds. 
 %The number of registered users that had downloaded at least 50 of these sounds was 112,723 out of which 20,000 were randomly selected. 
-After some further data cleansing, the final dataset consisted in 20,000 users, 21,552 items and 2,117,698 downloads. %\footnote{A dump of the datasets is available at \url{http://mtg.upf.edu/download/datasets/knowledge-graph-rec}}. 
+After some further data cleansing, the final dataset consisted in 20,000 users, 21,552 items, and 2,117,698 downloads. %\footnote{A dump of the datasets is available at \url{http://mtg.upf.edu/download/datasets/knowledge-graph-rec}}. 
 The sparsity of the implicit feedback matrix was 99.51\%. Statistics on the enriched knowledge graph of the final dataset are shown in Table~\ref{tbl:graph-rec:datasets}.
 
 %The total number of different tags found in the final set of sounds was 15,096. From this tag space, 8,160 were mapped to WordNet concepts, 7,099 to DBpedia entities, and 387 were classified in the Freesound Ontology. The average number of mapped tags per item was 6.44. From the textual descriptions, a total number of 23,481 keywords were mapped to 16,706 WordNet synsets, and 16,854 DBpedia entities. The average number of mapped keywords per item was 11.36.
@@ -341,13 +341,13 @@ This collaborative information was complemented with the list of top tags of eve
 
 \subsection{Experiment settings}
 As mentioned in Section \ref{sec:graph-rec:approach}, each user model is learnt using the Linear Support Vector Regression method. In particular we adopted the efficient \textit{LIBLINEAR\footnote{\url{http://www.csie.ntu.edu.tw/~cjlin/liblinear/}}} library and chose the \textit{L2-regularized Support Vector Regression} \citep{HoL12}. 
-The tuning of the model hyper-parameters of the learning algorithm was performed through cross-validation on validation data obtained by selecting the 15\% of feedback for each user from the training data. We set the parameters $C$ and $e$ by using a grid-search varying $C$ from 0.1 to 1000 with step 10 and $e=\lbrace 0.1,0.01 \rbrace$ (tolerance of termination criterion). Before the training we performed some pre-processing on the feature vectors. We removed those features appearing in less than 5 items and scaled all features to the range $[0,\ldots,1]$ using min-max normalization. Finally each feature vector was normalized to unit length using the L2 norm.
+The tuning of the model hyper-parameters of the learning algorithm was performed through cross-validation on validation data obtained by selecting the 15\% of feedback for each user from the training data. We set the parameters $C$ and $e$ by using a grid-search varying $C$ from 0.1 to 1000 with step 10 and $e=\lbrace 0.1,0.01 \rbrace$ (tolerance of termination criterion). Before the training we performed some pre-processing on the feature vectors. We removed those features appearing in fewer than 5 items and scaled all features to the range $[0,\ldots,1]$ using min-max normalization. Finally each feature vector was normalized to unit length using the L2 norm.
 
 %Regarding the run time performances of the entire recommender for the Freesound experiment, the highest computation time (corresponding to the path-based feature mapping with 3-hops) lasted about 28 minutes, from feature extraction to recommendation generation, on a dedicated server machine with 4 Xeon quad-core 2.93GHz processors and 32GB RAM. 
 %Since each user model is learnt independently, the learning process is highly parallelizable.  Moreover, being a model-based recommender, each user model learning can be performed offline periodically once a certain number of new feedbacks are accumulated for that specific user. 
 %The implementation of the recommendation algorithm presented in this chapter is available on GitHub \footnote{\url{https://github.com/sisinflab/lodreclib}}.
 
-In the following we describe the experiments we carried out to evaluate our approach. In particular we are interested in evaluating the impact of semantic enrichment of the original data on the recommendation quality and the differences among the two feature mapping methods we implemented. Furthermore, we compare our approach with state of the art algorithms for implicit feedback scenarios. 
+In the following we describe the experiments we carried out to evaluate our approach. In particular we are interested in evaluating the impact of semantic enrichment of the original data on the recommendation quality and the differences among the two feature mapping methods we implemented. Furthermore, we compare our approach with state-of-the-art algorithms for implicit feedback scenarios. 
 All the differences between approaches and with respect to other baselines are statistically significant ($p<0.01$) according to the paired t-test.
 
 
@@ -381,7 +381,7 @@ All the differences between approaches and with respect to other baselines are s
 		\bottomrule
 	\end{tabular}
 	
-	\caption[Accuracy, Novelty and Aggregate Diversity results for different versions of the Freesound dataset.]{Accuracy, Novelty and Aggregate Diversity results for different versions of the Freesound dataset. Best values in each column are in bold. The * symbol indicates best values for hybrid and collaborative configurations. \texttt{Ent} and \texttt{Path} refers to graph embedding options; \texttt{fso} to the initial Freesound Ontology, \texttt{KB} to WordNet and DBpedia enrichment; \texttt{tag} to item tags, and \texttt{kw} to text description keywords; \texttt{h} indicates the length of the h-hop neighborhood graph; \texttt{Col} means that only collaborative features are considered; \texttt{noCol} that no collaborative features are considered; \texttt{VSM} refers to Vector Space Model embedding; \texttt{Audio Sim}  to the audio-based approach.
+	\caption[Accuracy, Novelty, and Aggregate Diversity results for different versions of the Freesound dataset.]{Accuracy, Novelty, and Aggregate Diversity results for different versions of the Freesound dataset. Best values in each column are in bold. The * symbol indicates best values for hybrid and collaborative configurations. \texttt{Ent} and \texttt{Path} refers to graph embedding options; \texttt{fso} to the initial Freesound Ontology, \texttt{KB} to WordNet and DBpedia enrichment; \texttt{tag} to item tags, and \texttt{kw} to text description keywords; \texttt{h} indicates the length of the h-hop neighborhood graph; \texttt{Col} means that only collaborative features are considered; \texttt{noCol} that no collaborative features are considered; \texttt{VSM} refers to Vector Space Model embedding; \texttt{Audio Sim}  to the audio-based approach.
 	}
 	\label{tbl:graph-rec:Res1}
 \end{table}
@@ -406,7 +406,7 @@ Finally, we see that the semantic expansion of tags and terms do not improve con
 %\\To summarize, regarding recommendation accuracy the introduction of semantics slightly increase the performances with respect to the usage of pure collaborative features and in particular when the Entity-based feature mapping is used. While collaborative features also are able to guarantee good performances, content-based features alone are not able to give such accurate recommendations. 
 
 Novelty and aggregate diversity results instead show more interesting insights. We observe that the semantic expansion, with both feature mappings, results in an improving of both novelty and aggregated diversity. In fact, the semantic enriched variant \texttt{(fso+KB+kw+tag/h=4)} has much better novelty and diversity than considering only the original Freesound Ontology \texttt{(fso)}. Furthermore, with respect to the variants without semantic expansion, that is the variants based only on keywords and tags, the usage of semantic expansion improves considerably novelty and diversity. Hence, thanks to this exploitation of the knowledge graph we are able to recommend good items that are also not so popular. We also see that the Path-based embedding has better performances than the Entity-based one. 
-Such approaches allow to explore better the long tail distribution of items and to increase the personalization of the system. 
+Such approaches allow to explore better the long-tail distribution of items and to increase the personalization of the system. 
 \\The variants without collaborative information are the ones with better novelty and diversity. The reason behind this behavior is that pure content-based approaches are not influenced by popularity biases. However, when using only content data the system recommends unpopular but very inaccurate items. Good novelty without accuracy does not imply good recommendation quality. 
 Finally, the usage of collaborative information alone has much lower catalog coverage (aggregate diversity) than feature vectors containing also semantic features. For example \texttt{Path(fso+KB+kw+tag/h=4)} has comparable performances in terms of accuracy with respect to \texttt{Collab} but considerably better catalog coverage and novelty (lower EBN). 
 
@@ -424,7 +424,7 @@ To conclude, we can state that the semantic expansion, especially when combined 
 	\begin{subfigure}[b]{\textwidth}
 		\includegraphics[width=\textwidth]{ch07_graph-rec_pics/nov_fr.png}
 	\end{subfigure}
-	\caption{Precision-Recall, Novelty and Aggregate Diversity plots in Freesound dataset\label{fig:graph-rec:accur}}
+	\caption{Precision-Recall, Novelty, and Aggregate Diversity plots in Freesound dataset\label{fig:graph-rec:accur}}
 \end{figure*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -438,7 +438,7 @@ To conclude, we can state that the semantic expansion, especially when combined 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %In order to evaluate the effectiveness in terms of ranking accuracy of \framechapter we compared it with several state of the art recommendation algorithms:
 %\vcoinline{cf focus too much on popular items, instead our approach is able to explore long tail items.}
-We compared our approach with several state of the art recommendation algorithms. 
+We compared our approach with several state-of-the-art recommendation algorithms. 
 %\begin{scriptsize}
 %\begin{itemize}
 \texttt{MostPop} is a popularity-based baseline that provides the same recommendation to all users based on the global popularity of items. 
@@ -492,7 +492,7 @@ The recommendation algorithms we propose have been further validated on the Last
 %		VSM tags - noCol & 0.127 & 0.048 & 1.050 & \textbf{0.757} \\	
 		\bottomrule		
 	\end{tabular}
-	\caption[Accuracy, Novelty and Aggregate Diversity results for different versions of the Last.fm dataset.]{Accuracy, Novelty and Aggregate Diversity results for different versions of the Last.fm dataset. Best values in each column are in bold. The * symbol indicates best values for hybrid and collaborative configurations. 
+	\caption[Accuracy, Novelty, and Aggregate Diversity results for different versions of the Last.fm dataset.]{Accuracy, Novelty, and Aggregate Diversity results for different versions of the Last.fm dataset. Best values in each column are in bold. The * symbol indicates best values for hybrid and collaborative configurations. 
 	}
 	\label{tbl:graph-rec:Res_sf}
 \end{table}
@@ -511,12 +511,12 @@ We may confirm from results in both experiments that collaborative features are 
 	\begin{subfigure}[b]{1\textwidth}
 		\includegraphics[width=\textwidth]{ch07_graph-rec_pics/nov_lf.png}
 	\end{subfigure}
-	\caption{Precision-Recall, Novelty and Aggregate Diversity plots in Last.fm dataset\label{fig:graph-rec:accur_sf}}
+	\caption{Precision-Recall, Novelty, and Aggregate Diversity plots in Last.fm dataset\label{fig:graph-rec:accur_sf}}
 \end{figure*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Comparison with other methods}\label{comp}
-We compared our approach with the same set of state of the art algorithms presented in the sound recommendation experiment. Based on the observations made in the previous paragraph, for this experiment we used only tags as item attribute data for \texttt{BPR Linear}.
+We compared our approach with the same set of state-of-the-art algorithms presented in the sound recommendation experiment. Based on the observations made in the previous paragraph, for this experiment we used only tags as item attribute data for \texttt{BPR Linear}.
 Figure \ref{fig:graph-rec:accur_sf} shows precision-recall, novelty, and aggregated diversity plots of the comparison with the other methods. We compare the competitive algorithms with the \texttt{Ent(KB/tag/h=3)} and \texttt{Path(KB/tag/h=3)} configurations which in this scenario results to be the most representative for our approach. 
 Results are pretty similar to the ones observed in the sound recommendation experiment. Our two approaches largely outperform the others in terms of accuracy. \texttt{BPR-SLIM} and \texttt{SLIM} have performance similar to our Entity-based mapping approach for low values of recommendation list length (N = 5, 10), and slightly higher that the Path-based one. %All differences between our approaches and the other methods are statistically significant ($p<0.01$) according to the paired t-test. 
 Our approaches have much better novelty results than all other collaborative filtering algorithms but \texttt{BPR Linear}, which again has much lower accuracy. In terms of aggregated diversity, our approach outperforms most of the collaborative filtering algorithms. \texttt{BPR Linear} achieves similar diversity, but much lower accuracy.
@@ -531,7 +531,7 @@ We have presented a hybrid approach to recommend musical items, i.e., sounds and
 Information coming from item descriptions and tags has been %structured by means of an ontology and then further 
 enriched with data coming from two external knowledge repositories: DBpedia and WordNet. Entity linking tools have been adopted to extract relevant entities from textual sources associated to musical items, namely tags and text descriptions, thus creating a new graph encoding the knowledge associated to users, items, and their mutual interactions. We then developed a recommendation engine that combines different features, that is semantic content-based ones extracted from the resulting knowledge graph and collaborative information from implicit user feedback. An evaluation with two explicit feature mappings, \textit{entity-based item neighborhood} and \textit{path-based item neighborhood}, has been conducted on both datasets in order to assess the performance of the system in terms of accuracy, diversity and novelty. 
 
-Experimental results in sounds and songs recommendation show that the proposed approach is able to improve the quality of the recommended list with respect to state of the art collaborative filtering algorithms and with respect to other content-based baselines. Our results also show that the data related to the music knowledge domain encoded in freely available datasets such as DBpedia or WordNet have reached a quality level that makes possible its usage in the creation of recommendation engines whose target are either music producers or music consumers. The semantic enrichment of the initial knowledge graph performed by means of entity linking techniques is a good choice to boost the performances of the system in terms of novelty and aggregate diversity. A knowledge-based approach can improve the degree of personalization in the recommendations of musical items from various points of view such as prediction accuracy, catalog coverage, and promote long tail recommendations. We have presented a methodology that achieves these objectives by combining semantic knowledge with collaborative information. 
+Experimental results in sounds and songs recommendation show that the proposed approach is able to improve the quality of the recommended list with respect to state of the art collaborative filtering algorithms and with respect to other content-based baselines. Our results also show that the data related to the music knowledge domain encoded in freely available datasets such as DBpedia or WordNet have reached a quality level that makes possible its usage in the creation of recommendation engines whose target are either music producers or music consumers. The semantic enrichment of the initial knowledge graph performed by means of entity linking techniques is a good choice to boost the performances of the system in terms of novelty and aggregate diversity. A knowledge-based approach can improve the degree of personalization in the recommendations of musical items from various points of view such as prediction accuracy, catalog coverage, and promote long-tail recommendations. We have presented a methodology that achieves these objectives by combining semantic knowledge with collaborative information. 
 
 %Summing up, knowledge graphs can be a useful tool when properly leveraged within recommender systems for musical items. Indeed, the graph-based nature of the information they contain, on the one hand, makes possible a linkage to other graphs thus resulting in an easy plugging of new content-based data. On the other hand, by exploring the graph new connections and commonalities between items and users can be discovered and exploited while computing the recommendation list.
 

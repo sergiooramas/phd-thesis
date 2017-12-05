@@ -87,7 +87,7 @@ Folk & 9.69 & Girl Groups & 0.06 \\
 
 The labels in the dataset are highly unbalanced, following a distribution that might align well with those found in real world scenarios. 
 %but this is the common case in real world scenarios. 
-In Table~\ref{tbl:multi-class:genres} we see the top 10 most and least represented genres and the percentage of albums annotated with each label.
+In Table~\ref{tbl:multi-class:genres} we list the top 10 most and least represented genres and the percentage of albums annotated with each label.
 The unbalanced character of the genre annotations poses an interesting challenge for music classification that we also aim to exploit. 
 Among the multiple possibilities that this dataset may offer to the MIR community, in this chapter we focus on the multi-label classification problem, described next.
 
@@ -115,7 +115,7 @@ This method, which we refer as \textsc{logistic}, implies the assumption that th
 
 A more recent approach \citep{Chollet2016}, relies on matrix factorization to reduce the dimensionality of the target labels. 
 This method makes use of the interrelation between labels, embedding the high-dimensional sparse labels onto lower-dimensional vectors.
-In this case, the target of the network is a dense lower-dimensional vector, which can be learned using the cosine proximity loss, as these vectors tend to be $l2$-normalized. 
+In this case, the target of the network is a dense lower-dimensional vector, which can be learned using the cosine proximity loss, as these vectors tend to be $L2$-normalized. 
 We denote this technique as \textsc{cosine}, and we provide a more formal definition next.
 
 \subsection{Labels factorization}\label{sec:multi-class:factorization}
@@ -227,9 +227,9 @@ These networks are trained using mini batches of 32 items, randomly sampled from
 \label{sec:multi-class:text}
 In the presented dataset, each album has a variable number of customer reviews. 
 We use an approach similar to the one described in Section~\ref{sec:similarity:classification} for genre classification from text, where all reviews from the same album are aggregated into a single text. 
-The aggregated result is truncated at 1000 characters, thus balancing the amount of text per album, as more popular artists tend to have a higher number of reviews. %(TODO: What balance? Why 1000?). 
+The aggregated result is truncated at 1,000 characters, thus balancing the amount of text per album, as more popular artists tend to have a higher number of reviews. %(TODO: What balance? Why 1000?). 
 Then we apply a Vector Space Model approach (VSM) with tf-idf weighting \citep{Zobel1998} to create a feature vector for each album. 
-Although word embeddings \citep{Mikolov2013} with CNNs are state-of-the-art in many text classification tasks \citep{Kim2014}, a traditional VSM approach is used instead, as it seems to perform better when dealing with large texts (see Section~\ref{sec:cold-rec:artist-rec}).
+Although word embeddings \citep{Mikolov2013} with CNNs are state of the art in many text classification tasks \citep{Kim2014}, a traditional VSM approach is used instead, as it seems to perform better when dealing with large texts (see Section~\ref{sec:cold-rec:artist-rec}).
 The vocabulary size is limited to 10k as it was a good balance of network complexity and accuracy.% (adding more words increased the complexity of the network but did not significantly improved the results).
 %<----- TODO: ANADIDO ESTO PERO SE PUEDE QUITAR
 
@@ -249,11 +249,11 @@ The network is trained also with mini batches of 32 items, and Adam as optimizer
 \subsection{Image-based approach}
 \label{sec:multi-class:resnet}
 Every album in the dataset has an associated cover art image. To perform music genre classification from these images, we use Deep Residual Networks (ResNets) \citep{he2016deep}.
-They are the state-of-the-art in various image classification tasks like Imagnet \citep{ILSVRC15} and Microsoft COCO \citep{lin2014microsoft}. 
+They are the state of the art in various image classification tasks like Imagnet \citep{ILSVRC15} and Microsoft COCO \citep{lin2014microsoft}. 
 ResNet is a common feed-forward CNN with \emph{residual learning}, which consists on bypassing two or more convolution layers. %The residual connections limit the underfitting problem originated when using a high number of layers. This way, the number of layer can be increased, creating very deep CNNs (more than 100 layers).
 We employ a slightly modified version of the original ResNet\footnote{\url{https://github.com/facebook/fb.resnet.torch/}}: the scaling and aspect ratio augmentation are obtained from \cite{szegedy2015going}, the photometric distortions from \cite{howard2013some}, and weight decay is applied to all weights and biases. %(i.e., not focusing on convolutional layers only).
 The network we use is composed of 101 layers (ResNet-101), initialized with pretrained parameters learned on ImageNet.
-This is our starting point to finetune the network on the genre classification task.
+This is our starting point to fine-tune the network on the genre classification task.
 Our ResNet implementation has a logistic regression final layer with sigmoid activations and uses the binary cross entropy loss.
 %% Removed to gain space
 The network is trained on the genre classification task with mini batches of 50 samples for 90 epochs, a learning rate of 0.0001, and with Adam as optimizer.
@@ -265,7 +265,7 @@ There are several works claiming that learning data representations from differe
 
 Therefore, from each modality network described above, we separately obtain an internal feature representation for every album after training them on the genre classification task.
 Concretely, the activations of the last hidden layer of each network become the feature vector for its respective modality.
-Given a set of feature vectors, $l2$-norm is applied on each of them. 
+Given a set of feature vectors, $L2$-norm is applied on each of them. 
 They are then concatenated into a single feature vector, which becomes the input to a simple Multi Layer Perceptron (MLP). The input layer of the MLP is directly connected to the output layer, in a similar way to the multimodal network used in Section~\ref{sec:cold-rec:multimodal}. 
 The output layer may have either a \textsc{logistic} or a \textsc{cosine} configuration. %Similar to the audio and text networks, the output layer has 250 units (to match the number of classes aiming to be predicted) with sigmoid activation and binary cross entropy loss for the \textsf{logistic} configuration, and 50 units with linear activation and cosine proximity loss for the \textsf{cosine} configuration. We empirically set up 50\% of dropout after the input in the \textsf{cosine} setting, and no dropout in the \textsf{logistic} setting.
 
@@ -346,8 +346,8 @@ Finally, we use the two different network targets defined in Section~\ref{sec:mu
 We empirically observed that dropout regularization only helps in the \textsc{high} plus \textsc{cosine} configurations. Therefore we applied dropout with a factor of 0.5 to these configurations, and no dropout to the others. %The dataset is standarized with zero mean and unit variance.
 
 Apart from these configurations, a baseline approach is added. This approach consists in a traditional audio-based approach for genre classification based on the audio descriptors present in the MSD \citep{Bertin-Mahieux2011}.
-More specifically, for each song we aggregate four different statistics of the 12 timbre coefficient matrices: mean, max, variance, and $l2$-norm.
-The obtained 48 dimensional feature vectors are fed into a feed forward network as the one described in Section~\ref{sec:multi-class:multimodal} with \textsc{logistic} output.
+More specifically, for each song we aggregate four different statistics of the 12 timbre coefficient matrices: mean, max, variance, and $L2$-norm.
+The obtained 48-dimensional feature vectors are fed into a feed forward network as the one described in Section~\ref{sec:multi-class:multimodal} with \textsc{logistic} output.
 This approach is denoted as \textsc{timbre-mlp}.
 %Second, we added a state-of-the-art multi-label genre classification approach based on the combination of convolutional and recurrent neural networks \cite{Keun2} whose source code is available\footnote{\url{https://github.com/keunwoochoi/music-auto_tagging-keras}}. We computed the mel-spectrograms with the provided code and trained the model using the exact same architecture, just changing the size of the output layer match the number of genre labels.
 
@@ -355,7 +355,7 @@ This approach is denoted as \textsc{timbre-mlp}.
 
 The results show that CNNs applied over audio spectrograms clearly outperform traditional approaches based on handcrafted features. 
 We observe that the \textsc{timbre-mlp} approach achieves 0.792 of AUC, contrasting with the 0.888 from the best CNN approach.
-We note that the \textsc{logistic} configuration obtains better results when using a lower number of filters per convolution (\textsc{low}). Configurations with fewer filters have less parameters to optimize, and their training processes are faster. 
+We note that the \textsc{logistic} configuration obtains better results when using a lower number of filters per convolution (\textsc{low}). Configurations with fewer filters have fewer parameters to optimize, and their training processes are faster. 
 On the other hand, in \textsc{cosine} configurations we observe that the use of a higher number of filters tends to achieve better performance. 
 It seems that the fine-grained regression of the factors benefits from wider convolutions.
 Moreover, we observe that 3x3 square filter settings have lower performance, need more time to train, and have a higher number of parameters to optimize.
@@ -403,12 +403,12 @@ For instance, many classical music albums include an instrument in the cover, an
 
 \subsection{Multimodal classification}\label{sec:multi-class:multiexp}
 
-From the best performing approaches in terms of AUC of each modality (i.e., \textsc{Audio}/\textsc{cosine}/\textsc{high-4x70}, \textsc{Text}/\textsc{cosine}/\textsc{VSM+Sem} and \textsc{Image}/\textsc{logistic}/\textsc{ResNet}), an internal feature representation is obtained as described in Section~\ref{sec:multi-class:multimodal}. 
+From the best performing approaches in terms of AUC of each modality (i.e., \textsc{Audio}/\textsc{cosine}/\textsc{high-4x70}, \textsc{Text}/\textsc{cosine}/\textsc{VSM+Sem}, and \textsc{Image}/\textsc{logistic}/\textsc{ResNet}), an internal feature representation is obtained as described in Section~\ref{sec:multi-class:multimodal}. 
 Then, these three feature vectors are aggregated in all possible combinations, and genre labels are predicted using the MLP network described in Section~\ref{sec:multi-class:multimodal}.
 Both output configurations \textsc{logistic} and \textsc{cosine} are used in the learning phase, and dropout of 0.7 is applied in the \textsc{cosine} configuration.
 %Although a feature vector can be extracted from a network trained with \textsc{cosine} configuration (e.g. \textsc{Audio} / \textsc{cosine} / \textsc{high-4x70}), when this vector is used in a multimodal approach, the multimodal network can be either trained with \textsc{logistic} or \textsc{cosine} configurations. The same happens with vectors trained with \textsc{logistic} loss.
 
-Results suggest that the combination of modalities outperforms single modality approaches. 
+Results, as shown at the bottom of Table~\ref{tbl:multi-class:results}, suggest that the combination of modalities outperforms single modality approaches. 
 As image features are learned using a \textsc{logistic} configuration, they seem to improve multimodal approaches with \textsc{logistic} configuration only. 
 Multimodal approaches that include text features tend to achieve better results. %, even if the difference in performance between the different combinations is not pronounced.
 Nevertheless, the best approaches are those that exploit the three modalities of \emph{MuMu}. \textsc{Cosine} approaches have similar AUC than \textsc{logistic} approaches but a much better aggregated diversity, thanks to the spatial properties of the factors space. 
