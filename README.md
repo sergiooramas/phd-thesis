@@ -1,6 +1,6 @@
 # PhD Thesis of Sergio Oramas
 
-Oramas, S. (2017). Knowledge Extraction and Representation Learning for Music Recommendation and Classification. PhD thesis, Universitat Pompeu Fabra, Barcelona, Spain. https://doi.org/10.5281/zenodo.1048496
+Oramas, S. (2017). Knowledge Extraction and Representation Learning for Music Recommendation and Classification. PhD thesis, Universitat Pompeu Fabra, Barcelona, Spain. https://doi.org/10.5281/zenodo.1100973
 
 ## Short Abstract
 
